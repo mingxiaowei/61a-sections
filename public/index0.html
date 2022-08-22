@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bootstrap demo</title>
+  <!-- link to bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+
+  <!-- link to bootstrap icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
+
+
+  <style>
+  </style>
+
+</head>
+
+
+<body>
+  <main>
+
+    <!-- This is the Head "Lux Trekkers" -->
+    <div class="container-fluid py-4">
+      <header class="pb-3 mb-4 border-bottom">
+        <a href="/" class="d-flex align-items-center text-dark text-decoration-none">
+
+          <img src="/images/rainbow.svg" alt="Bootstrap" width="60" height="32">
+          <span class="fs-4">Lux Trekkers</span>
+        </a>
+      </header>
+
+
+      <div class="container-fluid mx-3">
+        <!-- This is the search box -->
+        <div class="row">
+
+          <div class="column">
+            <div class="input-group shadow">
+              <input type="search" class="form-control rounded" placeholder="Search Trek">
+              <button type="button" class="btn btn-outline-primary">Search</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          </p>
+          </p>
+        </div>
+
+        <!-- These are the cards -->
+
+        <div class="row">
+
+          <div class="col-3">
+            <div class="container">
+              <div class="card shadow">
+                <div class="card-body">
+                  <canvas id="testchart" width="200" height="150"></canvas>
+                  <p class="opacity-50"> Most popular</p>
+                  <h3 class="card-title">Lake Trip</h3>
+                  <p class="card-text">Enjoy the tranquility and moisture of this little lake that every visitor just
+                    loves.</p>
+                  <a href="/template-frame" class="btn btn-outline-primary">Details</a>
+                  <a href="/graphs" class="btn btn-outline-primary">Graphs</a>
+                  <a href="/planner1" class="btn btn-outline-primary">Planner</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- placeholder -->
+        <div class="row">
+          </p>
+          </p>
+        </div>
+
+        <div class="row">
+          <div class="col">
+            <div class="card shadow">
+              <img src="/images/Forest.jpg" class="card-img-top">
+              <div class="card-body">
+                <p class="opacity-50"> Classic </p>
+                <h3 class="card-title">Forest Trip</h3>
+                <p class="card-text">Enjoy the flourishing woods, lots of greens, and the refreshing air in the old
+                  forest.
+                </p>
+                <a href="#" class="btn btn-outline-primary">Details</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col">
+            <div class="card shadow">
+              <img src="/images/MountainTop.jpg" class="card-img-top">
+              <div class="card-body">
+                <p class="opacity-50"> Hiking </p>
+                <h3 class="card-title">Peak view</h3>
+                <p class="card-text">Enjoy the sunrise and sunset at the highest peak and take
+                  everything under your sight.</p>
+                  <a href="/planner2" class="btn btn-outline-primary">Planner2</a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+        crossorigin="anonymous"></script>
+
+      <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+      <script>
+        const ctx = document.getElementById('testchart').getContext('2d');
+        const myChart = new Chart(ctx, {
+          type: 'bar',
+          data: {
+            labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+            datasets: [{
+              label: '# of Votes', 
+              data: [12, 19, 3, 5, 2, 3],
+              backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)'
+              ],
+              borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
+              ],
+              borderWidth: 1
+            }]
+          },
+          options: {
+            scales: {
+              y: {
+                beginAtZero: true
+              }
+            }
+          }
+        });</script>
+
+      <footer class="pt-3 mt-4 text-muted border-top">
+        &copy; Lux Zhang CS160 Project I
+      </footer>
+    </div>
+
+  </main>
+
+
+
+</body>
+
+</html>

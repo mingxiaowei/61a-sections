@@ -1,0 +1,57 @@
+.btn-blue {
+    background-color: #002E5B !important;
+    color: #FFFFFF !important;
+}
+
+.donut-text {
+    z-index: 20;
+    text-align: center;
+    line-break: auto;
+}
+
+.card-title-blue {
+    color: #003262;
+    font-size: 22px !important; 
+    font-weight: 600;
+    margin-top: 2px;
+}
+
+.light-blue-card {
+    background-color: #EDF2FC !important;
+    padding-bottom: 0px;
+}
+
+.progress-text {
+    font-size: 14px; 
+    line-height: 0.1;
+    text-align: center;
+}
+
+.year-header {
+    background-color: #7E98C8 !important;
+    color: #FFFFFF;
+    font-weight: 500;
+}
+
+button.clickable {
+    background: none;
+    border: none; 
+    font-size: 12px;
+    text-decoration: underline;
+}
+
+button.invisible {
+    background: none;
+    border: none; 
+}
+
+.letter-grade {
+    font-weight: 500;
+    display: none;
+    /* font-size: 12px; */
+}
+
+.pb-gradient {
+    background: linear-gradient(to right, #EFEADF, #EFBA60) !important;
+    opacity: 1;
+}
