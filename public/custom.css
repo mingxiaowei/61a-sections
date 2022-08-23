@@ -129,3 +129,15 @@ button.invisible {
   align-items:flex-start;
 }
 
+.body {
+    width: 100%;
+}
+
+.flex-c8 {
+    min-width: 600px !important;
+}
+
+.flex-c4 {
+    min-width: 400px !important;
+}
+
