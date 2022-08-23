@@ -55,3 +55,29 @@ button.invisible {
     background: linear-gradient(to right, #EFEADF, #EFBA60) !important;
     opacity: 1;
 }
+
+.linked-resources {
+    text-decoration: underline;
+    color: #0E6AA3 !important;
+    font-size: 18px;
+}
+
+.name {
+    text-align: center;
+    font-weight: 600;
+    line-height: 1.5;
+}
+
+.name-card {
+    line-height: 1.2;
+}
+
+.solution-badge {
+    border-radius: 10;
+    background-color: transparent !important;
+    color: #002E5B !important; 
+    /* border-width: 3px !important;
+    border-color: #1A8754 !important;
+    color: #002E5B !important; 
+    font-size: 12px; */
+}
