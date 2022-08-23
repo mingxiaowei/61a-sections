@@ -14,6 +14,8 @@
     font-size: 22px !important; 
     font-weight: 600;
     margin-top: 2px;
+    text-decoration: dotted !important;
+    text-shadow: 2px 2px 8px #91BBE6;
 }
 
 .light-blue-card {
@@ -62,6 +64,11 @@ button.invisible {
     font-size: 18px;
 }
 
+.linked-color {
+    text-decoration: underline;
+    color: #0E6AA3 !important;
+}
+
 .name {
     text-align: center;
     font-weight: 600;
@@ -101,5 +108,24 @@ button.invisible {
 .bg-attendance {
     border-color: #FC8800;
     color: #FC8800; 
+}
+
+.week-title {
+    display: inline-block;
+    font-size: 21px;
+    color: #003262;
+    font-weight: 600 !important;
+    text-align: left;
+    line-height: 0;
+}
+
+.weekly {
+    font-size: 17px; 
+}
+
+.h-center {
+    display: flex;
+  justify-content: center;
+  align-items:flex-start;
 }
 

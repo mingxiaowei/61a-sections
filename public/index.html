@@ -154,13 +154,13 @@
 
 <body>
     <main>
-        <div class="container pb-4 pt-0">
+        <div class="container pb-4 pt-0" style="width: 90%">
 
             <header>
-                <div class="px-3 py-1 my-auto text-white" style="background: #0D2E58;">
+                <div class="px-4 py-1 my-auto text-white" style="background: #0D2E58;">
                     <div class="container my-auto py-0">
                         <p class="my-auto py-0.5 ml-0"
-                            style="font-size: 25px; letter-spacing: 0.5px; line-height: 2; font-weight: 600;">
+                            style="font-size: 20px; letter-spacing: 0.5px; line-height: 1.6; font-weight: 600;">
                             <span class="mx-0 px-0" style="color:#FFFFFF">Mingxiao's</span>
                             <span class="mx-0 px-0" style="color:#F0A91F">CS 61A</span>
                             <span class="mx-0 px-0" style="color:#FFFFFF">Sections</span>
@@ -171,9 +171,15 @@
                 <!-- ******** separator between two headers ******** -->
                 <div class="px-3 py-0 border-bottom mb-0" style="background: #38627D;">
 
-                    <div class="row py-1 px-4 mx-auto">
-                        <p style="font: 10px; line-height:0%">&nbsp;</p>
-
+                    <div class="row py-1 px-4 my-auto h-center text-start">
+                        <!-- <p style="font: 6px; line-height:0%">&nbsp;</p> -->
+                        <p class="my-auto" style="line-height: 1.5; color:#FFFFFF;">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calendar-check" viewBox="0 0 16 16">
+                                <path d="M10.854 7.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 9.793l2.646-2.647a.5.5 0 0 1 .708 0z"/>
+                                <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z"/>
+                              </svg>
+                            <span id="current_date"></span>
+                        </p>
                     </div>
                 </div>
             </header>
@@ -191,7 +197,9 @@
                                             <h4 class="card-title card-title-blue" style="line-height: 1.5">About Me
                                             </h4>
 
-                                            <p><h3 class="name">Mingxiao Wei</h3></p>
+                                            <p>
+                                            <h4 class="name">Mingxiao Wei</h4>
+                                            </p>
                                             <p class="text-center name-card" style="font-size: 18px;">Fall 2022 CS 61A
                                                 uGSI
                                             </p>
@@ -204,29 +212,34 @@
                                                 <table class="table text-center">
                                                     <thead style="background-color:rgba(0, 0, 0, 0)">
                                                         <tr>
-                                                            <th style="width: 30%;"></th>
-                                                            <th style="width: 70%;"></th>
+                                                            <th style="width: 25%;"></th>
+                                                            <th style="width: 75%;"></th>
                                                         </tr>
                                                     </thead>
-        
+
                                                     <tbody>
 
                                                         <tr>
-                                                            <th scope="row" class="text-start fw-bolder" style="font-weight: 600">Lab</th>
-                                                            <td>Mon 17:00 - 18:30 @ Soda 275</td>
+                                                            <th scope="row" class="text-start fw-bolder"
+                                                                style="font-weight: 600">Lab</th>
+                                                            <td>Mon 17:00 - 18:30 @ 
+                                                                <a class="linked-color" href="https://goo.gl/maps/pZK6ZFZpjQadK3Ep7">Soda 275</a>
+                                                            </td>
                                                         </tr>
-        
+
                                                         <tr>
                                                             <th scope="row" class="text-start">Discussion</th>
-                                                            <td>Thu 18:30 - 20:00 @ Soda 310</td>
+                                                            <td>Thu 18:30 - 20:00 @ 
+                                                                <a class="linked-color" href="https://goo.gl/maps/pZK6ZFZpjQadK3Ep7">Soda 310</a>
+                                                            </td>
                                                         </tr>
 
                                                         <tr>
                                                             <th scope="row" class="text-start">Office Hours</th>
                                                             <td class="my-auto">TBD</td>
                                                         </tr>
-        
-                                        
+
+
                                                     </tbody>
                                                 </table>
                                             </div>
@@ -246,7 +259,8 @@
 
                                             <div class="mx-4 my-3">
                                                 <p class="linked-resources name-card">
-                                                    <a href="https://cs61a.org/" class="linked-resources">
+                                                    <a href="https://forms.gle/ufRpMFFoYN6Wxbm77"
+                                                        class="linked-resources">
                                                         Anonymous Feedback
                                                     </a>
                                                 </p>
@@ -258,10 +272,18 @@
                                                 </p>
 
                                                 <p class="linked-resources name-card">
-                                                    <a href="https://edstem.org/us/courses/25379/discussion/" class="linked-resources">
+                                                    <a href="https://edstem.org/us/courses/25379/discussion/"
+                                                        class="linked-resources">
                                                         Ed Discussion
                                                     </a>
                                                 </p>
+
+                                                <p class="linked-resources name-card">
+                                                    <a href="https://cs61a.org/office-hours/" class="linked-resources">
+                                                        Office Hours
+                                                    </a>
+                                                </p>
+
                                             </div>
 
                                         </div>
@@ -275,47 +297,92 @@
                                 <div class="col">
                                     <div class="card shadow-sm opa">
                                         <div class="card-body">
-                                            <h4 class="card-title card-title-blue" style="line-height: 1.5">Weekly Schedule
-                                            </h4>
+                                            <h4 class="card-title card-title-blue" style="line-height: 1.5">Weekly
+                                                Materials</h4>
 
-                                            <div class="mx-3 my-4">
-                                                <h5><b>Week 01</b>&nbsp; (08/24 - 08/26)</h5>
-                                                <div class="table-responsive">
-                                                    <table class="table text-center">
-                                                        
-                                                        <tbody>
-    
+                                            <!-- week 01 -->
+                                            <div class="mx-3 mt-4 mb-2">
+                                                <p class="week-title">Week 01 &nbsp; (08/24 - 08/26)</p>
+                                                <div class="table-responsive weekly">
+                                                    <table class="table text-start">
+
+                                                        <thead style="background-color:rgba(0, 0, 0, 0)">
                                                             <tr>
-                                                                <th scope="row" class="text-start fw-bolder" style="font-weight: 600">08/25</th>
+                                                                <th style="width: 20%;"></th>
+                                                                <th style="width: 780%;"></th>
+                                                            </tr>
+                                                        </thead>
+
+                                                        <tbody>
+
+                                                            <tr>
+                                                                <th scope="row" class="text-start fw-bolder"
+                                                                    style="font-weight: 600">08/25 Thu</th>
                                                                 <td class="text-start">
                                                                     Dis 00: Getting Started &nbsp;
                                                                     <span class="bg bg-assignment">Worksheet</span>
-                                                                    <span class="bg bg-attendance">Attendance</span>
+                                                                    <span class="bg bg-attendance">Slides</span>
                                                                     <!-- <span class="bg bg-solution">Solution</span> -->
-                                                                    
-                                                                   <!-- <span class="badge text-bg-primary">Primary</span>
+
+                                                                    <!-- <span class="badge text-bg-primary">Primary</span>
                                                                    <span class="badge text-bg-primary">Primary</span> -->
                                                                 </td>
                                                             </tr>
 
-                                                            <!-- <tr>
-                                                                <th scope="row" class="text-start fw-bolder" style="font-weight: 600">08/26</th>
-                                                                <td class="text-start">
-                                                                    Lab 00: Getting Started &nbsp;
-                                                                    <span class="bg bg-assignment">Assignment</span>
-                                                                    <!-- <span class="bg bg-attendance">Attendance</span>
-                                                                    <span class="bg bg-solution">Solution</span>
-                                                                     -->
-                                                                   <!-- <span class="badge text-bg-primary">Primary</span>
-                                                                   <span class="badge text-bg-primary">Primary</span> -->
-                                                                </td>
-                                                            </tr>
-             -->
-                                                            
                                                         </tbody>
                                                     </table>
                                                 </div>
-    
+
+                                            </div>
+
+                                            <!-- week 02 -->
+                                            <div class="mx-3 my-2">
+                                                <p class="week-title">Week 02 &nbsp; (08/29 - 09/02)</p>
+                                                <div class="table-responsive weekly">
+                                                    <table class="table text-start">
+
+                                                        <thead style="background-color:rgba(0, 0, 0, 0)">
+                                                            <tr>
+                                                                <th style="width: 15%;"></th>
+                                                                <th style="width: 85%;"></th>
+                                                            </tr>
+                                                        </thead>
+
+                                                        <tbody>
+
+                                                            <tr>
+                                                                <th scope="row" class="text-start fw-bolder"
+                                                                    style="font-weight: 600">08/29 Mon</th>
+                                                                <td class="text-start">
+                                                                    Lab 01: Functions, Control &nbsp;
+                                                                    <!-- <span class="bg bg-assignment">Worksheet</span>
+                                                                    <span class="bg bg-attendance">Slides</span> -->
+                                                                    <!-- <span class="bg bg-solution">Solution</span> -->
+
+                                                                    <!-- <span class="badge text-bg-primary">Primary</span>
+                                                                   <span class="badge text-bg-primary">Primary</span> -->
+                                                                </td>
+                                                            </tr>
+
+                                                            <tr>
+                                                                <th scope="row" class="text-start fw-bolder"
+                                                                    style="font-weight: 600">09/01 Thu</th>
+                                                                <td class="text-start">
+                                                                    Dis 01: Functions, Control, Environment Diagrams
+                                                                    &nbsp;
+                                                                    <!-- <span class="bg bg-assignment">Worksheet</span>
+                                                                    <span class="bg bg-attendance">Slides</span> -->
+                                                                    <!-- <span class="bg bg-solution">Solution</span> -->
+
+                                                                    <!-- <span class="badge text-bg-primary">Primary</span>
+                                                                   <span class="badge text-bg-primary">Primary</span> -->
+                                                                </td>
+                                                            </tr>
+
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+
                                             </div>
 
                                         </div>
@@ -347,219 +414,14 @@
                     connectParticles: true,
                     maxParticles: 150
                 });
+                const d = new Date();
+                document.getElementById("current_date").innerHTML = d.toLocaleDateString();
                 // document.getElementById("clickable4").click();
             };
 
         </script>
 
-        <script>
-            const popover = new bootstrap.Popover('.example-popover', {
-                container: 'body',
-                trigger: 'focus',
-            })
-        </script>
-
-        <script>
-            const ctx_pro = document.getElementById('pro').getContext('2d');
-            const UppChart = new Chart(ctx_pro, {
-                type: 'radar',
-                data: {
-                    labels: ['Total Units', 'L&S', 'University', 'CS BA', 'Env Econ BS', 'Urban Minor'],
-                    datasets: [{
-                        label: '% finished in this requirement',
-                        data: [80, 50, 60, 100, 40, 100],
-                        backgroundColor: [
-                            'rgba(253, 181, 21, 0.3)'
-                        ],
-                        borderColor: [
-                            'rgba(253, 181, 21, 1)'
-                        ],
-
-                        // spacing: 0,
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    scales: {
-
-                        r: {
-                            ticks: {
-                                display: true,
-                                count: 5
-                            },
-                            angleLines: {
-                                lineWidth: 1,
-                                display: true
-                            },
-                            beginAtZero: true
-                        }
-                    },
-                    // cutout: 50,
-                    plugins: {
-                        legend: {
-                            position: 'right',
-                            display: false,
-                            align: 'end',
-                            labels: {
-                                // This more specific font property overrides the global property
-                                font: {
-                                    size: 20
-                                },
-                                boxWidth: 20,
-                            }
-                        },
-                        title: {
-                            display: false,
-                            text: 'General Progress in %',
-                        }
-                    },
-                    layout: {
-                        padding: 0
-                    }
-                }
-            });
-
-            const ctx_gen = document.getElementById('gen').getContext('2d');
-            const gradient_gen = ctx_gen.createLinearGradient(-2, 20, 50, 10);
-            gradient_gen.addColorStop(0, 'rgba(211, 219, 228, 1)');
-            gradient_gen.addColorStop(1, 'rgba(32, 75, 117, 100%)');
-            const GenChart = new Chart(ctx_gen, {
-                type: 'doughnut',
-                data: {
-                    labels: ['Satisified', 'Unsatisfied'],
-                    datasets: [{
-                        label: '# of Units',
-                        data: [60.5, 59.5],
-                        backgroundColor: [
-                            gradient_gen,
-                            'rgba( 254, 255, 255, 100%)',
-                        ],
-                        borderColor: [
-                            'rgba(0, 50, 98, 0)',
-                            'rgba(253, 181, 21, 0)',
-                        ],
-                        borderWidth: 1,
-                        // spacing: 0,
-                    }]
-                },
-                options: {
-                    rotation: 240,
-                    circumference: 240,
-                    tooltip: {
-                        enabled: false
-                    },
-                    cutout: 65,
-                    plugins: {
-                        legend: {
-                            display: false,
-                        },
-                        title: {
-                            padding: {
-                                top: 10
-                            },
-                            position: 'bottom',
-                            display: true,
-                            text: '60.5 / 120 Units',
-                            font: {
-                                size: 18,
-                            }
-                        }
-                    },
-                    layout: {
-                        padding: 10
-                    }
-                }
-            });
-
-            const ctx_pnp = document.getElementById('pnp').getContext('2d');
-            const UpChart = new Chart(ctx_pnp, {
-                type: 'bar',
-                data: {
-                    labels: ['Units Breakdown'],
-                    datasets: [{
-                        label: '# of units PNP',
-                        data: [20],
-                        backgroundColor: 'rgba(0, 50, 98, 0.2)',
-                        borderColor: 'rgba(0, 50, 98, 1)',
-                        borderWidth: 1,
-                    },
-                    {
-                        label: '# of units Graded',
-                        data: [80],
-                        backgroundColor: 'rgba(253, 181, 21, 0.1)',
-                        borderColor: 'rgba(253, 181, 21, 1)',
-                        borderWidth: 1,
-                    }]
-                },
-                options: {
-
-                    plugins: {
-                        legend: {
-                            position: 'bottom',
-                            align: 'start',
-                        },
-                        title: {
-                            display: false,
-                            text: 'Lower Division By Tracks',
-                        }
-                    },
-                    layout: {
-                        padding: 0
-                    },
-                    scales: {
-                        x: {
-                            stacked: true,
-                        },
-                        y: {
-                            ticks: {
-                                callback: function (val, index) {
-                                    // Hide every 2nd tick label
-                                    return index % 2 === 1 ? this.getLabelForValue(val) : '';
-                                },
-                                display: true,
-                                count: 4
-                            },
-                            stacked: true
-                        }
-                    }
-                }
-            });
-        </script>
-
-        <script type="text/javascript">
-
-            document.getElementById("clickable1").onclick = function () {
-                document.getElementById("gpa").style.display = "none";
-                document.getElementById("clickable1").style.display = "none";
-                document.getElementById("clickable2").style.display = "inline";
-            };
-
-            document.getElementById("clickable2").onclick = function () {
-                document.getElementById("gpa").style.display = "inline";
-                document.getElementById("clickable1").style.display = "inline";
-                document.getElementById("clickable2").style.display = "none";
-            };
-
-            document.getElementById("clickable4").onclick = function () {
-                const lst = document.getElementsByClassName("letter-grade");
-                for (let i = 0; i < lst.length; i++) { lst[i].style.display = "none"; };
-                document.getElementById("clickable4").style.display = "none";
-                document.getElementById("clickable3").style.display = "inline";
-            };
-
-            document.getElementById("clickable3").onclick = function () {
-                const lst = document.getElementsByClassName("letter-grade");
-                for (let i = 0; i < lst.length; i++) { lst[i].style.display = "inline"; };
-                document.getElementById("clickable4").style.display = "inline";
-                document.getElementById("clickable3").style.display = "none";
-            };
-
-        </script>
-
-
-
-
-
+    
     </main>
     <canvas class="background"></canvas>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/particlesjs/2.2.2/particles.min.js"></script>
