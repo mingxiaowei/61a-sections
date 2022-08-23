@@ -72,12 +72,34 @@ button.invisible {
     line-height: 1.2;
 }
 
-.solution-badge {
-    border-radius: 10;
-    background-color: transparent !important;
-    color: #002E5B !important; 
-    /* border-width: 3px !important;
-    border-color: #1A8754 !important;
-    color: #002E5B !important; 
-    font-size: 12px; */
+.bg {
+    display: inline-block;
+    border-radius: 8px;
+    background-color: transparent;
+    vertical-align: middle;
+    border: solid;
+    border-width: 1px;
+    font-size: 12px;
+    padding-left: 4px;
+    padding-right: 4px;
+    /* margin-left: 1px;
+    margin-right: 2px; */
+    margin-top: auto;
+    margin-bottom: auto;
 }
+
+.bg-solution {
+    border-color: #1A8754;
+    color: #1A8754; 
+}
+
+.bg-assignment {
+    border-color: #006DDF;
+    color: #006DDF; 
+}
+
+.bg-attendance {
+    border-color: #FC8800;
+    color: #FC8800; 
+}
+
