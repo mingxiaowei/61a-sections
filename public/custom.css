@@ -110,6 +110,11 @@ button.invisible {
     color: #FC8800; 
 }
 
+.bg-welcome {
+    border-color: #539BA3;
+    color: #539BA3; 
+}
+
 .week-title {
     display: inline-block;
     font-size: 21px;
