@@ -51,7 +51,7 @@
                     <p><a href="mailto:mingxiaowei@berkeley.edu" class="email"
                             style="color:#8BC24A; text-decoration: underline;">
                             mingxiaowei@berkeley.edu</a>
-                        <span class="text-end">Aug 25, 2022</span>
+                        <span class="text-end">Aug 29, 2022</span>
                     </p>
 
                 </footer>
@@ -550,22 +550,24 @@ False
 
             <section data-auto-animate data-background-gradient="linear-gradient(to top, #0C5D87, #0D8BB5)"
                 class="reg-cus">
-                <h4 class="text-start"></h4>
+                <h4 class="text-start">Short Circuiting</h4>
                 <hr>
                 <div class="text-start" style="font-size: 28px">
                     <ul>
                         <li>Short circuit - not every operand gets evaluated</li>
                         <li><code class="hljs python">and</code>
                             <ul>
-                                <li>evalutes from left to right until 
-                                    <span class="shade">the first FALSY value or the last value</span></li>
+                                <li>evalutes from left to right until
+                                    <span class="shade">the first FALSY value or the last value</span>
+                                </li>
                                 <li>return the last thing that's evaluated</li>
                             </ul>
                         </li>
                         <li><code class="hljs python">or</code>
                             <ul>
-                                <li>evalutes from left to right until 
-                                    <span class="shade">the first TRUTHY value or the last value</span></li>
+                                <li>evalutes from left to right until
+                                    <span class="shade">the first TRUTHY value or the last value</span>
+                                </li>
                                 <li>return the last thing that's evaluated</li>
                             </ul>
                         </li>
@@ -588,7 +590,7 @@ False
                                 </code></pre>
                         </div>
                     </div>
-                    
+
                 </div>
 
             </section>
@@ -601,145 +603,159 @@ False
 
             <section data-auto-animate data-background-gradient="linear-gradient(to top, #0C5D87, #0D8BB5)"
                 class="reg-cus">
-                <h4 class="text-start">If</h4>
-                <hr>
-                <div class="text-start" style="font-size: 28px">
-                    <ul>
-                        <li>Some arithmetic expressions evaluate to boolean values
-                            <pre><code class="hljs python-repl px-3 py-3" data-trim>
->>> 6 + 1 == 7
-True 
->>> 8 > 9
-False
-                        </code></pre>
-                        </li>
-                        <li>Python boolean operators: <code class="hljs python">not</code>, <code
-                                class="hljs python">and</code>, and <code class="hljs python">or</code></li>
-                        <ul>
-                            <li>Priority: <code class="hljs python">not</code> &gt;<code class="hljs python">and</code>
-                                &gt; <code class="hljs python">or</code></li>
-                            <li>Use parenthesis to make your code more readable!</li>
-                        </ul>
-                    </ul>
-                </div>
+                <h4 class="text-start">
+                    <h4 class="text-start"><span class="code-title-h4">if</span> statements</h4>
+                    <hr>
+                    <div class="text-start" style="font-size: 28px">
+                        <div class="row g-0">
+                            <div class="col-6">
+                                <pre><code class="hljs python px-3 py-4" data-trim>if &lt;cond_1&gt;:
+    &lt;case_1&gt;
+elif &lt;cond_2&gt;: # elif is optional
+    &lt;case_2&gt;
+else: # else is also optional
+    &lt;case_3&gt;</code></pre>
+                        <ul><li>Only one of the three cases will be executed.</li></ul>
+                            </div>
+                            <div class="col-6">
+                                <pre><code class="hljs python px-3 py-4" data-trim>if &lt;cond_1&gt;:
+    &lt;case_1&gt;
+if &lt;cond_2&gt;: 
+    &lt;case_2&gt;
+if &lt;cond_3&gt;: 
+    &lt;case_3&gt;</code></pre>
+                        <ul><li>Here, more than one case could be executed.</li></ul>
+                            </div>
+                        </div>
+                        
+                        
+                    </div>
 
             </section>
 
-            <section data-auto-animate data-background-gradient="linear-gradient(to bottom, #0C5D87, #002C42)"
+            <section data-auto-animate data-background-gradient="linear-gradient(to top, #0C5D87, #0D8BB5)"
                 class="reg-cus">
-                <h4 class="text-start">Tips for Success ✅</h4>
+                <h4 class="text-start">
+                    <h4 class="text-start"><span class="code-title-h4">if</span> statements - cont.</h4>
+                    <hr>
+                    <div class="text-start" style="font-size: 28px">
+                        <div class="row g-0">
+                            <div class="col-6">
+                                <pre><code class="hljs python px-3 py-4" data-trim data-noescape>if 3 > 2:
+    print("hello")
+elif "huh": # elif is optional
+    print("hi")
+else: # else is also optional
+    print("QAQ")
+# output
+<span class="fragment code-seg" style="line-height: 0;">hi</span>
+<br></code></pre>
+                            </div>
+                            <div class="col-6">
+                                <pre><code class="hljs python px-3 py-4" data-trim data-noescape>if 3 > 2:
+    print("hello")
+if "huh": # elif is optional
+    print("hi")
+if 0: # else is also optional
+    print("QAQ")
+# output
+<span class="fragment code-seg" style="line-height: 0;">hello</span>
+<span class="fragment code-seg" style="line-height: 0;">hi</span></code></pre>
+                            </div>
+                        </div>
+                        
+                        
+                    </div>
+
+            </section>
+
+            <section data-auto-animate data-background-gradient="linear-gradient(to top, #0C5D87, #0D8BB5)"
+                class="reg-cus">
+                    <h4 class="text-start"><span class="code-title-h4">while</span> loops</h4>
+                    <hr>
+                    <div class="text-start" style="font-size: 28px">
+                                <pre><code class="hljs python px-3 py-3" data-trim>while &lt;condition&gt;:
+    &lt;do something&gt;</code></pre>
+                        <ul><li>While <code class="hljs python">&lt;condition&gt;</code> is truthy, 
+                            execute the body of the loop, and evaluate the condition again.</li></ul>
+                    </div>
+            </section>
+
+            <section data-auto-animate data-background-gradient="linear-gradient(to top, #0C5D87, #0D8BB5)"
+                class="reg-cus">
+                    <h4 class="text-start"><span class="code-title-h4">while</span> loops that execute 
+                        <span class="code-title-h4">k</span> times</h4>
+                    <hr>
+                    <div class="text-start" style="font-size: 28px">
+                        <pre><code class="hljs python px-3 py-3" data-trim>
+                            count = 1
+                            while count <= k: # pay attention to the equal sign here
+                                &lt;do something&gt;
+                                count += 1 # equivalent to count = count + 1
+                        </code></pre>  
+
+                        <pre><code class="hljs python px-3 py-3" data-trim>
+                            while k: # when k reaches 0, the condition becomes falsy
+                                &lt;do something&gt;
+                                k -= 1 # equivalent to k = k - 1
+                        </code></pre>   
+                        <p>Both are useful templates to remember!</p>
+                    </div>
+            </section>
+
+            <section data-auto-animate data-background-gradient="linear-gradient(to top, #0C5D87, #002C42)"
+                class="reg-cus">
+                <h1>Digit Manipulation 🛠</h1>
+                <hr>
+            </section>
+
+            <section data-auto-animate data-background-gradient="linear-gradient(to top, #0C5D87, #0D8BB5)"
+                class="reg-cus">
+                <h4 class="text-start">Digit Manipulation</h4>
                 <hr>
                 <div style="font-size: 28px; text-align: left;">
                     <ul>
                         <li class="fragment">
-                            Take advantage of all the resources available
-                            <ul>
-                                <li>Office hours, tutorial sections, lecture, video walkthroughs of exams, past exams
-                                </li>
-                                <li>Esp. discussion and lab sections - oftentimes attendance at these sections is a
-                                    pretty strong indicator of how someone does in the class</li>
-                                <li>Difficult class with lots of material but most resources of any class at Berkeley
-                                </li>
-                            </ul>
+                            <code class="hljs python">num % 10</code> retrives the last digit of 
+                            <code class="hljs python">num</code>
                         </li>
                         <li class="fragment">
-                            Start assignments early!
-                            <ul>
-                                <li>It's very common to get stuck on problems, and either need to give them some
-                                    breathing room or ask for help (this applies to CS in general not just this class)
-                                </li>
-                                <li>Also office hours tend to get very busy the day assignments are due</li>
-                            </ul>
+                            <code class="hljs python">num // 10</code> removes the last digit of 
+                            <code class="hljs python">num</code>
+                        </li>
+                        <li class="fragment">Example: prints the digits of a number <code class="hljs python" data-trim>n</code> in reverse order
+                            <pre class="py-0 my-0 px-0 mx-0">
+                                <code class="hljs python mt-3 px-3 " data-trim>
+                                while n:
+                                    # isolate the last digit from n and print it
+                                    print (n % 10)
+                                    # removes the last digit from n
+                                    n //= 10 # equivalent to n = n // 10
+                            </code>
+                        </pre>
                         </li>
                     </ul>
-                </div>
-            </section>
 
-            <section data-auto-animate data-background-gradient="linear-gradient(to bottom, #0C5D87, #002C42)"
-                class="reg-cus">
-                <h4 class="text-start">Tips for Success ✅</h4>
-                <hr>
-                <div style="font-size: 28px; text-align: left;">
-                    <ul>
-                        <li class="fragment">
-                            Keep on top of attending lecture and sections
-                            <ul>
-                                <li>It probably sounds obvious, but it can be so easy to decide to just not watch
-                                    lecture for a day and then start falling behind
-                                </li>
-                                <li>It's totally fine if you're a bit confused after lecture - that's what sections are
-                                    for!</li>
-                                <li>That being said, you'are still expected to attend lectures/watching recordings
-                                    before coming to sections</li>
-                            </ul>
-                        </li>
-                        <li class="fragment">
-                            Read the textbook to familiarize yourself with the materials before lectures
-                            <ul>
-                                <li>This is especially helpful if you are not familiar with the content beforehand
-                                </li>
-                                <li>A rough understanding will help you a lot when watching the lectures (and make you
-                                    feel better!)</li>
-                                <li>I did this when I took 61A and it worked well!</li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
-            </section>
-
-            <section data-auto-animate data-background-gradient="linear-gradient(to bottom, #0C5D87, #002C42)"
-                class="reg-cus">
-                <h4 class="text-start">Tips for Success ✅</h4>
-                <hr>
-                <div style="font-size: 28px; text-align: left;">
-                    <ul>
-                        <li class="fragment">
-                            Prioritize your physical and mental health
-                            <ul>
-                                <li>no class is worth it (not that this is a good reason but you will be able to
-                                    think through problems better if you're well-taken care of)
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="fragment">
-                            Don't stress
-                            <ul>
-                                <li>This is hard, but please try to not stress out. This course is designed to help you
-                                    out so always reach out to me or anyone else on staff if you ever need to talk
-                                    or get advice
-                                </li>
-                                <li>
-                                    Everyone struggles in this class including every staff member when they took it
-                                </li>
-                                <li>
-                                    Lab + HW drops, participation points, and extra credit are all here to help
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
                 </div>
             </section>
 
             <section data-auto-animate data-background-gradient="linear-gradient(to top, #0C5D87, #002C42)"
                 class="reg-cus">
-                <h2 class="text-start">Questions / Comments? 🤔</h2>
+                <h2 class="text-start"></h2>
                 <hr>
-            </section>
-
-            <section data-auto-animate data-background-gradient="linear-gradient(to bottom, #0C5D87, #002C42)"
-                class="reg-cus">
-                <h2 class="text-start">Attendance! 🤠</h2>
-                <hr>
-                <a href="https://go.cs61a.org/mingxiao-att">go.cs61a.org/mingxiao-att</a>
-                <div class="text-start" style="font-size: 32px">
-                    <br>
-                    <ul>
-                        <li>Also linked on our section website!</li>
-                        <li>Once again, discussion today does not count for your actual attendance score, but feel free
-                            to
-                            familiarize yourself with the format first!</li>
+                <div class="text-start" style="line-height: 1.15; font-size: 36px">
+                    <ul class="spaced-li">
+                        <li>Get started on the lab and raise your hand whenever you need help!</li>
+                        <li>Attendance: <a href="https://go.cs61a.org/mingxiao-att">go.cs61a.org/mingxiao-att</a>
+                            <ul class="spaced-li">
+                                <li>By default, password will be released at the end of lab.</li>
+                                <li>If you finish early, let me know and I'll check you off.</li>
+                            </ul>
+                        </li>
+                        <li>Slides: <a href="https://go.cs61a.org/mingxiao-index">go.cs61a.org/mingxiao-index</a></li>
                     </ul>
                 </div>
+                
             </section>
 
         </div>

@@ -28,6 +28,8 @@
     margin-right: 0 !important;
     padding-top: 2% !important;
     padding-bottom: 5% !important;
+    /* padding-left: 3% !important;
+    padding-right: 3% !important; */
     min-height: 100% !important;
     min-width: 80% !important;
     justify-content: center !important;
@@ -109,4 +111,9 @@ code {
     padding-right: 0 !important;
     padding-top: 0 !important;
     padding-bottom: 0 !important;
+}
+
+ul.spaced-li>li {
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
