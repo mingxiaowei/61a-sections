@@ -26,7 +26,7 @@
     margin-bottom: 0 !important;
     margin-left: 0 !important;
     margin-right: 0 !important;
-    padding-top: 5% !important;
+    padding-top: 2% !important;
     padding-bottom: 5% !important;
     min-height: 100% !important;
     min-width: 80% !important;
@@ -68,8 +68,45 @@ a {
     font-weight: 700;
     /* color:#DFFFB8; */
     text-shadow: 1px 1px 5px #8BC24A;
-    /* background-color: #0FA0B0;
-    border-radius: 5px;
-    padding-top: 1px;
-    padding-bottom: 1px; */
+}
+
+.code-seg {
+    /* font-size: 28px; */
+    font: 26px "Roboto Mono", monospace !important;
+    background-color: #002E5B !important;
+    padding-left: 4px !important;
+    padding-right: 4px !important;
+    padding-top: 1.5px !important;
+    padding-bottom: 1.5px !important;
+    /* font-family: Consolas, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, serif !important; */
+}
+
+.code-title-h4 {
+    font: "Roboto Mono", monospace !important;
+    background-color: #002E5B !important;
+    padding-left: 4px !important;
+    padding-right: 4px !important;
+    padding-top: 1.5px !important;
+    padding-bottom: 1.5px !important;
+    text-transform: lowercase !important;
+}
+
+code {
+    background-color: #002E5B !important;
+    /* padding-left: 4px !important;
+    padding-right: 4px !important;
+    padding-top: 1px !important;
+    padding-bottom: 1px !important; */
+    font: 26px "Roboto Mono", monospace !important;
+}
+
+.shade {
+    text-shadow: 1px 1px 5px #8BC24A;
+}
+
+.m0 {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
 }
