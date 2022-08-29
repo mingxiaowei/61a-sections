@@ -101,9 +101,9 @@
             z-index: -1;
             margin: 0;
             padding: 0;
-            min-width: max-content;
-            min-height: max-content;
-            overflow: scroll;
+            width: max-content;
+            height: max-content;
+            overflow: hidden;
         }
 
         .bg-warning {
@@ -461,7 +461,7 @@
                     selector: '.background',
                     color: ['#334C75', '#D4A561', '#FFFFFF'],
                     connectParticles: true,
-                    maxParticles: 150
+                    maxParticles: 120
                 });
                 const d = new Date();
                 document.getElementById("current_date").innerHTML = d.toLocaleDateString();
