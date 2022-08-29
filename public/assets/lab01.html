@@ -55,6 +55,7 @@
                     </p>
 
                 </footer>
+                <canvas class="background"></canvas>
             </section>
 
             <section data-auto-animate data-background-gradient="linear-gradient(to bottom, #0C5D87, #002C42)"
@@ -776,6 +777,20 @@ if 0: # else is also optional
         });
         Reveal.configure({ pdfSeparateFragments: false });
     </script>
+
+    <script>
+        window.onload = function () {
+            Particles.init({
+                selector: '.background',
+                color: ['#334C75', '#D4A561', '#0C5D87'],
+                connectParticles: true,
+                maxParticles: 100
+            });
+        };
+
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/particlesjs/2.2.2/particles.min.js"></script>
 </body>
 
 </html>
