@@ -386,16 +386,6 @@
                     <p class="text-start">Anatomy: <code
                             class="hljs python py-2">&lt;operator&gt;(&lt;operand1&gt;, &lt;operand2&gt;, ...)</code>
                     </p>
-                    <pre><code class="hljs python py-2" data-trim data-line-numbers style="font-size: 26px">
-def f (x, y):
-    return x * 2 + y * 3
-
-g = f
-a, b = 4, 5
-g(a, b) 
-# operator: g, which evaluates to the function defined above
-#operands: a and b, which evalute to 4 and 5, respectively
-                    </code></pre>
 
                     <div class="text-start" style="font-size: 26px;">
                         <p class="shade" style="line-height: 0.3;">Evaluation rules for call expressions</p>
@@ -411,6 +401,17 @@ g(a, b)
                         </ol>
                     </div>
 
+                    <pre><code class="hljs python py-2" data-trim data-line-numbers style="font-size: 26px">
+def f (x, y):
+    return x * 2 + y * 3
+
+g = f
+a, b = 4, 5
+g(a, b) 
+# operator: g, which evaluates to the function defined above
+#operands: a and b, which evalute to 4 and 5, respectively
+                    </code></pre>
+
                 </div>
             </section>
 
@@ -423,6 +424,7 @@ g(a, b)
                     <ul>
                         <li><code class="hljs python">return</code>
                             <ul>
+                                <li>Must be in function body</li>
                                 <li>When Python executes a <code class="hljs python">return</code> statement, the
                                     function terminates immediately.</li>
                                 <li>If Python reaches the end of the function body without executing a <code
@@ -581,9 +583,9 @@ False
                         <div class="col-6">
                             <pre><code class="hljs python-repl py-3 px-3" data-trim data-noescape>
                                 >>> True and  1 / 0
-                                <span class="fragment code-seg" style="line-height: 0;">True</span>
-                                >>> True or  1 / 0
                                 <span class="fragment code-seg style="line-height: 0;">ZeroDivisionError</span>
+                                >>> True or  1 / 0
+                                <span class="fragment code-seg" style="line-height: 0;">True</span>
                                 </code></pre>
                         </div>
                         <div class="col-6">
