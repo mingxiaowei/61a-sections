@@ -145,3 +145,14 @@ button.invisible {
 .flex-c4 {
     min-width: 350px !important;
 }
+
+.code-seg {
+    /* font-size: 28px; */
+    font: 26px "Roboto Mono", monospace !important;
+    background-color: #002E5B !important;
+    padding-left: 4px !important;
+    padding-right: 4px !important;
+    padding-top: 1.5px !important;
+    padding-bottom: 1.5px !important;
+    /* font-family: Consolas, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, serif !important; */
+}
