@@ -133,3 +133,8 @@ ul.spaced-li>li {
     min-height: max-content;
     overflow: scroll;
 }
+
+.bu {
+    font-weight: 800 !important;
+    text-decoration: underline !important;
+}
