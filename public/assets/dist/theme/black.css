@@ -34,7 +34,8 @@ section.has-light-background, section.has-light-background h1, section.has-light
   --r-link-color: #42affa;
   --r-link-color-dark: #068de9;
   --r-link-color-hover: #8dcffc;
-  --r-selection-background-color: #bee4fd;
+  /* --r-selection-background-color: #bee4fd; */
+  --r-selection-background-color: #22AAB9;
   --r-selection-color: #fff;
 }
 
