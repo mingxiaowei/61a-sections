@@ -113,9 +113,9 @@ code {
     padding-bottom: 0 !important;
 }
 
-ul.spaced-li>li {
-    margin-top: 10px;
-    margin-bottom: 10px;
+ul.spaced>li {
+    margin-top: 8px;
+    margin-bottom: 8px;
 }
 
 .background {

@@ -71,7 +71,8 @@
                     </li>
                     <li>CATS is released 😽😽😽
                         <ul>
-                            <li>Try out the game here: <a href="https://cats.cs61a.org">cats.cs61a.org</a> (not now lol)</li>
+                            <li>Try out the game here: <a href="https://cats.cs61a.org">cats.cs61a.org</a> (not now lol)
+                            </li>
                             <li>Checkpoint 1 due next Tue 09/27</li>
                             <li>The whole project due next Fri 09/30</li>
                             <li>Submit everything by next Thu 09/29 for one extra credit</li>
@@ -501,7 +502,7 @@
                             range(start, end, step)
                             </code></pre>
                         <li>represents a sequence of integers </li>
-                        <li>can be converted to a list by calling the list constructor 
+                        <li>can be converted to a list by calling the list constructor
                             <code class="hljs python">list()</code>
                         </li>
                         <li><code class="hljs python">start</code>: optional, inclusive, default to 0</li>
@@ -531,8 +532,10 @@
                                     &lt;suite&gt;
                             </code></pre>
                         </li>
-                        <li>To iterate over the elements in a seqeunce, we can either <span class="shade">iterate over the sequence directly</span> or 
-                            <span class="shade">iterate through its indices</span> and index into the sequence each time. 
+                        <li>To iterate over the elements in a seqeunce, we can either <span class="shade">iterate over
+                                the sequence directly</span> or
+                            <span class="shade">iterate through its indices</span> and index into the sequence each
+                            time.
                             <pre class="my-2"><code class="hljs python py-2" data-trim data-noescape>
                                 # example: print all elements in lst
                                 for elem in lst:
@@ -574,20 +577,24 @@
                         <li>Select from a dictionary
                             <ul>
                                 <li><code class="hljs python">dict[key]</code></li>
-                                <li>If <code class="hljs python">key</code> does not exist in 
-                                    <code class="hljs python">dict</code>, this will error </li>
+                                <li>If <code class="hljs python">key</code> does not exist in
+                                    <code class="hljs python">dict</code>, this will error
+                                </li>
                             </ul>
                         </li>
-                        <li>Modify a dictionary: 
+                        <li>Modify a dictionary:
                             <ul>
                                 <li><code class="hljs python">dict[key] = val</code></li>
-                                <li>If <code class="hljs python">key</code> does not exist in 
-                                    <code class="hljs python">dict</code>, this will create a new entry. Otherwise it updates 
-                                    the value corresponding to <code class="hljs python">key</code> to be 
-                                    <code class="hljs python">val</code></li>
+                                <li>If <code class="hljs python">key</code> does not exist in
+                                    <code class="hljs python">dict</code>, this will create a new entry. Otherwise it
+                                    updates
+                                    the value corresponding to <code class="hljs python">key</code> to be
+                                    <code class="hljs python">val</code>
+                                </li>
                             </ul>
                         </li>
-                        <li><code class="hljs python">len(dict)</code> returns the number of entries (key-value pairs) in the dictionary</li>
+                        <li><code class="hljs python">len(dict)</code> returns the number of entries (key-value pairs)
+                            in the dictionary</li>
                         <li>The key of a dictionary must be immutable (numbers, strings, tuples, but NOT lists)</li>
                     </ul>
                 </div>
@@ -611,6 +618,83 @@
                                 href="https://go.cs61a.org/mingxiao-index">section website</a>!</li>
                         <li class="shade">Once again, please do remember to fill out the form by midnight today!!</li>
                     </ul>
+                </div>
+            </section>
+
+            <section data-auto-animate data-background-gradient="linear-gradient(to top, #00527C, #1C8497)"
+                class="reg-cus">
+                <h4 class="text-start">Clarification on Q1</h4>
+                <hr>
+                <div class="text-start" style="font-size: 28px; line-height: 1.2;">
+                    <p>Solution #1:</p>
+                    <pre class="my-2" style="min-width: 100%;"><code class="hljs python py-2" data-trim>
+                    def count_stair_ways (n):
+                        if n == 1:
+                            return 1
+                        elif n == 2:
+                            return 2
+                        return count_stair_ways(n-1) + count_stair_ways(n-2)
+                    </code></pre>
+                    <p>Solution #2:</p>
+                    <pre class="my-2" style="min-width: 100%;"><code class="hljs python py-2" data-trim>
+                    def count_stair_ways (n):
+                        if n < 3:
+                            return n
+                        return count_stair_ways(n-1) + count_stair_ways(n-2)
+                    </code></pre>
+                </div>
+            </section>
+
+            <section data-auto-animate data-background-gradient="linear-gradient(to top, #00527C, #1C8497)"
+                class="reg-cus">
+                <h4 class="text-start">Clarification on Q1</h4>
+                <hr>
+                <div class="text-start" style="font-size: 28px; line-height: 1.2;">
+                    <p>Solution #3:</p>
+                    <pre class="my-2" style="min-width: 100%;"><code class="hljs python py-2" data-trim>
+                    def count_stair_ways(n):
+                        if n == 0:
+                            return 1
+                        elif n < 0:
+                            return 1
+                        return count_stair_ways(n-1) + count_stair_ways(n-2)
+                    </code></pre>
+                    <ul class="spaced">
+                        <li>In solution #1, we consider the case when there's 1 or 2 stairs left to go, and the result
+                            is 1 and 2, respectively. When there's one stair left, we can only take one step to get to
+                            the top. Whereas when there's two stairs left, we can either take one step twice or two
+                            stpes once. </li>
+                        <li>Solution #2 is a shorter version of solution #1, with the same ideas. </li>
+                        <li>In solution #3, we consider the case where we've finished (<code
+                                class="hljs python">n == 0</code>)
+                            or found a unsuccessful combination of steps (<code class="hljs python">n < 0</code>).
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <section data-auto-animate data-background-gradient="linear-gradient(to top, #00527C, #1C8497)"
+                class="reg-cus">
+                <h4 class="text-start">Clarification on Q1</h4>
+                <hr>
+                <div class="text-start" style="font-size: 28px; line-height: 1.2;">
+                    <p>INCORRECT ANSWERS</p>
+                    <pre class="my-2" style="min-width: 100%;"><code class="hljs python py-2" data-trim>
+                    def count_stair_ways(n):
+                        if n == 1:
+                            return 1
+                        elif n < 0:
+                            return 0
+                        return count_stair_ways(n-1) + count_stair_ways(n-2)
+                    </code></pre>
+                    <ul class="spaced">
+                        <li>In this case, we miss the base case where <code class="hljs python">n == 0</code>
+                        </li>
+                    </ul>
+                    <p>To sum up, once <code class="hljs python">n</code> goes past 0, we'll need a base case where
+                        <code class="hljs python">n == 0</code>, since <code class="hljs python">n</code> could reach 0
+                        directly without reaching 1.
+                    </p>
                 </div>
             </section>
 
