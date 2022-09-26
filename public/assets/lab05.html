@@ -65,7 +65,7 @@
                 <ul class="spaced" style="font-size: 28px; line-height: 1.2;">
                     <li>Lab 05 due Wed 09/28
                     </li>
-                    <li>CATS is released 😽😽😽
+                    <li>CATS 😽😽😽
                         <ul>
                             <li>Try out the game here: <a href="https://cats.cs61a.org">cats.cs61a.org</a> (not now lol)
                             </li>
@@ -74,51 +74,41 @@
                             <li>Submit everything by Thu 09/29 for one extra credit</li>
                         </ul>
                     </li>
+                    <li>NO homework due this week - homework 04 due next Thu 10/06</li>
                 </ul>
             </section>
 
             <section data-auto-animate data-background-gradient="linear-gradient(to bottom, #0C5D87, #002C42)"
                 class="reg-cus">
-                <h1>Data Abstraction</h1>
+                <h1>Data Abstraction 👾</h1>
                 <hr>
             </section>
 
             <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #1C8497)"
                 class="reg-cus">
-                <h4 class="text-start">Tree Recursion</h4>
+                <h4 class="text-start">Data Abstraction - Intro</h4>
                 <hr>
-                <div style="font-size: 28px; line-height: 1.2;">
-                    <ul>
-                        <li>A tree recursive function is a recursive function that <span class="shade">makes more than
-                                one call to itself</span>, resulting in a tree-like series of calls.
+                <div style="font-size: 28px; line-height: 1.1;">
+                    <ul class="spaced">
+                        <li>Data abstraction allows us to treat code as "objects", so that we <span class="shade">don't
+                                have to worry about the actual implementation</span> (e.g., how information is stored
+                            and
+                            calculated)
+                            - we just need to know <span class="shade">what it does</span>.
                         </li>
-                        <li>For example, let's say we want to recursively calculate the $n^{th}$ Fibonacci number,
-                            defined as:
-                        </li>
-                        <pre class="my-3"><code class="hljs python py-3" data-trim>
-                        def fib (n):
-                            if n == 0 or n == 1:
-                                return n
-                            return fib(n - 1) + fib(n - 2)
-                        </code></pre>
-                        <li>
-                            Now, what happens when we call <code class="hljs python">fib(4)</code>?
+                        <li>The nature of abstraction allows whoever uses them to <span class="shade">assume that the
+                                functions have been
+                                written correctly and work as described.</span></li>
+                        <li>A data abstraction consists of two types of functions:
                             <ul>
-                                <li class="fragment">
-                                    Each <code class="hljs python">fib(i)</code> node represents a recursive call to
-                                    <code class="hljs python">fib</code>.
+                                <li>
+                                    <span class="shade">Constructors: </span>functions that build and return the
+                                    abstract data
+                                    type
                                 </li>
-                                <li class="fragment">
-                                    For <code class="hljs python">i >= 2</code>, each recursive call <code
-                                        class="hljs python">fib(i)</code>
-                                    makes another two recursive calls, which are to
-                                    <code class="hljs python">fib(i - 1)</code> and
-                                    <code class="hljs python">fib(i - 2)</code>.
-                                </li>
-                                <li class="fragment">
-                                    Whenever we reach a <code class="hljs python">fib(0)</code> or <code
-                                        class="hljs python">fib(1)</code> node, we can directly return 0 or 1, since
-                                    these are our base cases.
+                                <li>
+                                    <span class="shade">Selectors: </span>functions that retrieve information from the
+                                    data type.
                                 </li>
                             </ul>
                         </li>
@@ -126,10 +116,283 @@
                 </div>
             </section>
 
+            <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #1C8497)"
+                class="reg-cus">
+                <h4 class="text-start">Rational Numbers Revisit</h4>
+                <hr>
+                <div style="font-size: 28px; line-height: 1.2;">
+                    <ul class="spaced">
+                        <li>Constructor: <code class="hljs python">rational(n, d)</code> returns a rational number
+                            $x = \frac{n}{d}$ using some underlying representation, which we, as users, do not need to
+                            know
+                            anything of
+                        </li>
+                        <li>Selectors:
+                            <ul>
+                                <li>
+                                    <code class="hljs python">numer(x)</code> returns the numerator of $x$
+                                </li>
+                                <li>
+                                    <code class="hljs python">denom(x)</code> returns the denominator of $x$
+                                </li>
+                            </ul>
+                        </li>
+                        <li>Arithmetic Operations:
+                            <pre class="my-2"><code class="hljs python py-2" data-trim>
+                                def mul_rational (x, y):
+                                    return rational(numer(x) * numer(y), \
+                                                    denom(x) * denom(y))
+                            </code></pre>
+                            <ul class="spaced">
+                                <li>Note how we can manipulate rational numbers using their constructor/selectors
+                                    without knowing their implementation </li>
+                                <li>Side note: the <code class="hljs python">\</code> is used to indicate that the
+                                    expression continues on the next line</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #1C8497)"
+                class="reg-cus">
+                <h4 class="text-start">Rational Numbers Revisit</h4>
+                <hr>
+                <div class="text-start" style="font-size: 28px; line-height: 1.15;">
+                    <p>There are many ways to implement the rational number data abstraction. Below are two examples:
+                    </p>
+                    <div class="row g-0" style="min-width: 100%">
+                        <div class="col-6 px-0 mx-0">
+                            <pre class="my-3 mx-0"><code class="hljs python py-3 mx-0" data-trim>
+                                def rational (n, d):
+                                    return [n, d]
+                                def numer (x):
+                                    return x[0]
+                                def denom (x):
+                                    return x[1]
+                            </code></pre>
+                        </div>
+                        <div class="col-6 px-0 mx-0">
+                            <pre class="my-3 mx-0"><code class="hljs python py-3 mx-0" data-trim>
+                                def rational (n, d):
+                                    return {'n': n, 'd': d}
+                                def numer (x):
+                                    return x['n']
+                                def denom (x):
+                                    return x['d']
+                            </code></pre>
+                        </div>
+                    </div>
+                    <p style="line-height: 1.15;">No matter which one we use, the rational number data abstraction has
+                        the same, correct behavior from the users' end. </p>
+                    <p style="line-height: 1.15;">In other words, as programmers, we can design the underlying
+                        implementation for the data abstraction however we want as long as it behaves correctly
+                        according to its documentation. </p>
+
+                </div>
+            </section>
+
+            <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #1C8497)"
+                class="reg-cus">
+                <h4 class="text-start">Don't break the abstraction barrier!</h4>
+                <hr>
+                <div style="font-size: 28px; line-height: 1.2;">
+                    <img class="mt-2 mb-2" data-src="media\abstraction-barrier.png">
+                    <p class="text-end mt-0" style="font-size: 15px; line-height: 1;">
+                        <i>Source: <a href="https://cs61a.org/assets/slides/13-Data_Abstraction_1pp.pdf#page=13">lecture
+                                13 slides</a></i>
+                    </p>
+                    <br>
+                    <!-- <ul class="spaced">
+                        <br>
+                        <li>Examples of violating the abstraction barriers: <code class="hljs python"></code></li>
+                        <li>Takeaway: do not repeat any work that an existing function could do!
+                        </li>
+                    </ul> -->
+                </div>
+            </section>
+
+            <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #1C8497)"
+                class="reg-cus">
+                <h4 class="text-start">Don't break the abstraction barrier!</h4>
+                <hr>
+                <div style="font-size: 28px; line-height: 1.2;">
+                    <ul class="spaced">
+                        <li>Why?
+                            <ul>
+                                <li>Breaking the abstraction barrier is essentially repeating some function's job</li>
+                                <li>Once the underlying implementation changes, the code may not work anymore</li>
+                            </ul>
+                        </li>
+                        <li>Examples of violating the abstraction barriers:
+                            <ul>
+                                <li><code class="hljs python">mul_rational([1, 2], [3, 4])</code> - should be
+                                    <code class="hljs python">mul_rational(rational(1, 2), rational(1, 2))</code>
+                                </li>
+                                <li>
+                                    <pre class="mx-2 my-2"><code class="hljs python py-2" data-trim>
+                                        def divide_rational (x, y):
+                                            return [ x[0] * y[1], x[1] * y[0] ]
+                                        # should be:
+                                        def divide_rational (x, y):
+                                            return rational(denom(x) * numer(y), \
+                                                            numer(x) * denom(y))
+                                    </code></pre>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="shade">Takeaway: do not repeat any work that an existing function could do!
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
             <section data-auto-animate data-background-gradient="linear-gradient(to bottom, #0C5D87, #002C42)"
                 class="reg-cus">
-                <h1>Trees </h1>
+                <h1>Trees 🎄</h1>
                 <hr>
+            </section>
+
+            <section data-transition="slide" data-background-gradient="linear-gradient(to top, #00527C, #1C8497)"
+                class="reg-cus">
+                <h4 class="text-start">Trees - Intro</h4>
+                <hr>
+                <div style="font-size: 28px; line-height: 1.2;">
+                    <ul class="spaced">
+                        <li>A tree is a data structure that represents a hierarchy of information.
+                            <ul>
+                                <li>
+                                    For example, a file system:
+                                    <img data-src="media/cs61a-tree.png">
+                                    <br>
+                                    As you can see, unlike trees in nature, the tree abstract data type is drawn with
+                                    the root at the top and the leaves at the bottom.
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <section data-transition="slide" data-background-gradient="linear-gradient(to top, #00527C, #1C8497)"
+                class="reg-cus">
+                <h4 class="text-start">Trees - Terminology</h4>
+                <hr>
+                <div style="font-size: 28px; line-height: 1.2;">
+                    <ul class="spaced">
+                        <li><span class="shade">node: </span>any location within the tree (e.g., root node, leaf nodes,
+                            etc.)</li>
+                        <li><span class="shade">root: </span>the node at the top of the tree</li>
+                        <li><span class="shade">label: </span>the value in a node</li>
+                        <li><span class="shade">branches: </span><span class="bu">a list of trees</span> directly under
+                            the tree's root</li>
+                        <li><span class="shade">leaf: </span>a tree with zero branches</li>
+                        <img data-src="media/cs61a-tree.png">
+                    </ul>
+                </div>
+            </section>
+
+            <section data-transition="slide" data-background-gradient="linear-gradient(to top, #00527C, #1C8497)"
+                class="reg-cus">
+                <h4 class="text-start">Trees - Data Abstraction</h4>
+                <hr>
+                <div style="font-size: 28px; line-height: 1.2;">
+                    <ul class="spaced">
+                        <li>Constructor:
+                            <ul>
+                                <li>
+                                    <code class="hljs python">tree(label, branches=[])</code>:
+                                    <span class="bu">creates and returns a tree object</span>
+                                    with the given <code class="hljs python t">label</code> value at its root
+                                    node and list of <code class="hljs python t">branches</code>. Notice that the
+                                    second argument to this constructor, <code class="hljs python t">branches</code>, is
+                                    optional
+                                    - if you want to make a tree with no branches, leave this argument empty
+                                </li>
+                            </ul>
+                        </li>
+                        <li>Selector:
+                            <ul>
+                                <li>
+                                    <code class="hljs python">label(tree)</code>: returns the value in the root
+                                    node of
+                                    <code class="hljs python t">tree</code>.
+                                </li>
+                                <li>
+                                    <code class="hljs python">branches(tree)</code>: returns the <span class="bu">list
+                                        of branches</span>
+                                    of
+                                    <code class="hljs python t">tree</code>.
+                                </li>
+                            </ul>
+                        </li>
+                        <li>Convenience function:
+                            <ul>
+                                <li>
+                                    <code class="hljs python">is_leaf(tree)</code>: returns <code
+                                        class="hljs python t">True</code> if <code class="hljs python t">tree</code>'s
+                                    list of branches is empty, and <code class="hljs python t">False</code>
+                                    otherwise.
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <section data-transition="slide" data-background-gradient="linear-gradient(to top, #00527C, #1C8497)"
+                class="reg-cus">
+                <h4 class="text-start">Trees - Examples</h4>
+                <hr>
+                <div style="font-size: 28px; line-height: 1.2;">
+                    <pre class="my-3"><code class="hljs python py-3 px-3" data-trim>
+                        sample_tree = tree(1, [tree(2), \
+                                               tree(3, [tree(4), tree(5)]), \
+                                               tree(6, [tree(7), tree(8)])])
+                    </code></pre>
+                    <p style="line-height: 1;">Bonus: on <a href="https://code.cs61a.org/">code.cs61a.org/</a>, call 
+                        <code class="hljs python">draw(tree)</code> on a tree to visualize it!</p>
+                    <ul class="spaced">
+                        <li>Constructor:
+                            <ul>
+                                <li>
+                                    <code class="hljs python">tree(label, branches=[])</code>:
+                                    <span class="bu">creates and returns a tree object</span>
+                                    with the given <code class="hljs python t">label</code> value at its root
+                                    node and list of <code class="hljs python t">branches</code>. Notice that the
+                                    second argument to this constructor, <code class="hljs python t">branches</code>, is
+                                    optional
+                                    - if you want to make a tree with no branches, leave this argument empty
+                                </li>
+                            </ul>
+                        </li>
+                        <li>Selector:
+                            <ul>
+                                <li>
+                                    <code class="hljs python">label(tree)</code>: returns the value in the root
+                                    node of
+                                    <code class="hljs python t">tree</code>.
+                                </li>
+                                <li>
+                                    <code class="hljs python">branches(tree)</code>: returns the <span class="bu">list
+                                        of branches</span>
+                                    of
+                                    <code class="hljs python t">tree</code>.
+                                </li>
+                            </ul>
+                        </li>
+                        <li>Convenience function:
+                            <ul>
+                                <li>
+                                    <code class="hljs python">is_leaf(tree)</code>: returns <code
+                                        class="hljs python t">True</code> if <code class="hljs python t">tree</code>'s
+                                    list of branches is empty, and <code class="hljs python t">False</code>
+                                    otherwise.
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
             </section>
 
             <section data-auto-animate data-background-gradient="linear-gradient(to bottom, #0C5D87, #002C42)"
@@ -145,83 +408,6 @@
                         <li>If you finish early, let me or any of the AI's know and we'll check you off</li>
                         <li class="shade">Once again, please do remember to fill out the form by midnight today!!</li>
                     </ul>
-                </div>
-            </section>
-
-            <section data-auto-animate data-background-gradient="linear-gradient(to top, #00527C, #1C8497)"
-                class="reg-cus">
-                <h4 class="text-start">Clarification on Q1</h4>
-                <hr>
-                <div class="text-start" style="font-size: 28px; line-height: 1.2;">
-                    <p>Solution #1:</p>
-                    <pre class="my-2" style="min-width: 100%;"><code class="hljs python py-2" data-trim>
-                    def count_stair_ways (n):
-                        if n == 1:
-                            return 1
-                        elif n == 2:
-                            return 2
-                        return count_stair_ways(n-1) + count_stair_ways(n-2)
-                    </code></pre>
-                    <p>Solution #2:</p>
-                    <pre class="my-2" style="min-width: 100%;"><code class="hljs python py-2" data-trim>
-                    def count_stair_ways (n):
-                        if n < 3:
-                            return n
-                        return count_stair_ways(n-1) + count_stair_ways(n-2)
-                    </code></pre>
-                </div>
-            </section>
-
-            <section data-auto-animate data-background-gradient="linear-gradient(to top, #00527C, #1C8497)"
-                class="reg-cus">
-                <h4 class="text-start">Clarification on Q1</h4>
-                <hr>
-                <div class="text-start" style="font-size: 28px; line-height: 1.2;">
-                    <p>Solution #3:</p>
-                    <pre class="my-2" style="min-width: 100%;"><code class="hljs python py-2" data-trim>
-                    def count_stair_ways(n):
-                        if n == 0:
-                            return 1
-                        elif n < 0:
-                            return 1
-                        return count_stair_ways(n-1) + count_stair_ways(n-2)
-                    </code></pre>
-                    <ul class="spaced">
-                        <li>In solution #1, we consider the case when there's 1 or 2 stairs left to go, and the result
-                            is 1 and 2, respectively. When there's one stair left, we can only take one step to get to
-                            the top. Whereas when there's two stairs left, we can either take one step twice or two
-                            stpes once. </li>
-                        <li>Solution #2 is a shorter version of solution #1, with the same ideas. </li>
-                        <li>In solution #3, we consider the case where we've finished (<code
-                                class="hljs python">n == 0</code>)
-                            or found a unsuccessful combination of steps (<code class="hljs python">n < 0</code>).
-                        </li>
-                    </ul>
-                </div>
-            </section>
-
-            <section data-auto-animate data-background-gradient="linear-gradient(to top, #00527C, #1C8497)"
-                class="reg-cus">
-                <h4 class="text-start">Clarification on Q1</h4>
-                <hr>
-                <div class="text-start" style="font-size: 28px; line-height: 1.2;">
-                    <p>INCORRECT ANSWERS</p>
-                    <pre class="my-2" style="min-width: 100%;"><code class="hljs python py-2" data-trim>
-                    def count_stair_ways(n):
-                        if n == 1:
-                            return 1
-                        elif n < 0:
-                            return 0
-                        return count_stair_ways(n-1) + count_stair_ways(n-2)
-                    </code></pre>
-                    <ul class="spaced">
-                        <li>In this case, we miss the base case where <code class="hljs python">n == 0</code>
-                        </li>
-                    </ul>
-                    <p>To sum up, once <code class="hljs python">n</code> goes past 0, we'll need a base case where
-                        <code class="hljs python">n == 0</code>, since <code class="hljs python">n</code> could reach 0
-                        directly without reaching 1.
-                    </p>
                 </div>
             </section>
 
