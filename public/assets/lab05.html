@@ -65,9 +65,9 @@
                 <ul class="spaced" style="font-size: 28px; line-height: 1.2;">
                     <li>Lab 05 due Wed 09/28
                     </li>
-                    <li>CATS 😽😽😽
+                    <li>CATS 🐈
                         <ul>
-                            <li>Try out the game here: <a href="https://cats.cs61a.org">cats.cs61a.org</a> (not now lol)
+                            <li>Try out the game here: <a href="https://cats.cs61a.org">cats.cs61a.org</a> 
                             </li>
                             <li>Checkpoint 1 due tomorrow Tue 09/27</li>
                             <li>The whole project due Fri 09/30</li>
@@ -76,6 +76,13 @@
                     </li>
                     <li>NO homework due this week - homework 04 due next Thu 10/06</li>
                 </ul>
+            </section>
+
+            <section data-auto-animate data-background-gradient="linear-gradient(to top, #0C5D87, #002C42)"
+                class="reg-cus">
+                <h4 class="text-start">Highlight from last time 👀</h4>
+                <hr>
+                <img data-src="media\dis04-att-q.png">
             </section>
 
             <section data-auto-animate data-background-gradient="linear-gradient(to bottom, #0C5D87, #002C42)"
@@ -344,51 +351,29 @@
                 class="reg-cus">
                 <h4 class="text-start">Trees - Examples</h4>
                 <hr>
-                <div style="font-size: 28px; line-height: 1.2;">
+                <div style="font-size: 28px; line-height: 1.15;">
                     <pre class="my-3"><code class="hljs python py-3 px-3" data-trim>
                         sample_tree = tree(1, [tree(2), \
                                                tree(3, [tree(4), tree(5)]), \
                                                tree(6, [tree(7), tree(8)])])
                     </code></pre>
-                    <p style="line-height: 1;">Bonus: on <a href="https://code.cs61a.org/">code.cs61a.org/</a>, call 
-                        <code class="hljs python">draw(tree)</code> on a tree to visualize it!</p>
+                    <p class="fragment" style="line-height: 1;">Bonus: on <a href="https://code.cs61a.org/">code.cs61a.org</a>, call
+                        <code class="hljs python">draw(tree)</code> on a tree to visualize it!
+                    </p>
                     <ul class="spaced">
-                        <li>Constructor:
-                            <ul>
-                                <li>
-                                    <code class="hljs python">tree(label, branches=[])</code>:
-                                    <span class="bu">creates and returns a tree object</span>
-                                    with the given <code class="hljs python t">label</code> value at its root
-                                    node and list of <code class="hljs python t">branches</code>. Notice that the
-                                    second argument to this constructor, <code class="hljs python t">branches</code>, is
-                                    optional
-                                    - if you want to make a tree with no branches, leave this argument empty
-                                </li>
-                            </ul>
+                        <li class="fragment">To extract the number <code class="hljs python t">5</code> from this tree, which is the
+                            label of the root of its second branch's second branch,
+                            we would do this:
+                            <pre class="my-3"><code class="hljs python py-3 px-3" data-trim>
+                                label(branches(branches(sample_tree)[1])[1])
+                            </code></pre>
                         </li>
-                        <li>Selector:
+                        <li class="fragment">The <code class="hljs python">print_tree</code> function prints out a tree in a
+                            human-readable form, where the root is unindented, and each of its branches is
+                            indented one level further.
                             <ul>
-                                <li>
-                                    <code class="hljs python">label(tree)</code>: returns the value in the root
-                                    node of
-                                    <code class="hljs python t">tree</code>.
-                                </li>
-                                <li>
-                                    <code class="hljs python">branches(tree)</code>: returns the <span class="bu">list
-                                        of branches</span>
-                                    of
-                                    <code class="hljs python t">tree</code>.
-                                </li>
-                            </ul>
-                        </li>
-                        <li>Convenience function:
-                            <ul>
-                                <li>
-                                    <code class="hljs python">is_leaf(tree)</code>: returns <code
-                                        class="hljs python t">True</code> if <code class="hljs python t">tree</code>'s
-                                    list of branches is empty, and <code class="hljs python t">False</code>
-                                    otherwise.
-                                </li>
+                                <li>Don't worry too much about its implementation - just make sure that you are able to
+                                    interpret the structure of the tree from the output</li>
                             </ul>
                         </li>
                     </ul>
