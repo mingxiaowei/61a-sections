@@ -144,3 +144,7 @@ code.t {
     font-size: 28px !important;
     color: #DCEAD5 !important;
 }
+
+.ovf {
+    overflow: visible !important;
+}
