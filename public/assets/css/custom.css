@@ -148,3 +148,8 @@ code.t {
 .ovf {
     overflow: visible !important;
 }
+
+code.sfs {
+    font-size: 26px !important;
+    line-height: 1.15 !important;
+}
