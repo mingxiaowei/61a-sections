@@ -1,0 +1,191 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>Lab 07</title>
+
+    <link rel="stylesheet" href="dist/reset.css">
+    <link rel="stylesheet" href="dist/reveal.css">
+    <link rel="stylesheet" href="dist/theme/black.css">
+    <link rel="stylesheet" href="css/custom.css">
+
+    <!-- Theme used for syntax highlighted code -->
+    <link rel="stylesheet" href="plugin/highlight/night-owl.min.css">
+
+    <!-- fonts -->
+    <link href='https://fonts.googleapis.com/css?family=Open Sans' rel='stylesheet'>
+
+    <!-- icon -->
+    <link rel="icon" href="https://mingxiaowei.github.io/61a-sections/public/images/favicon.ico" sizes="32x32">
+
+    <!-- link to bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+
+    <!-- link to bootstrap icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
+
+    <script src="plugin/highlight/highlight.js"></script>
+
+</head>
+
+<body>
+    <div class="reveal">
+        <div class="slides">
+            <section data-auto-animate data-background-gradient="linear-gradient(to top, #0C5D87, #002C42)"
+                class="customizable">
+                <div class="my-auto mx-auto">
+                    <h1>Lab 07</h1>
+                    <hr class="hr-1">
+                    <p>Object-Oriented Programming</p>
+                </div>
+                <br>
+                <br>
+
+                <footer class="bottom-left">
+                    <!-- <hr> -->
+                    <p>Mingxiao Wei</p>
+                    <p><a href="mailto:mingxiaowei@berkeley.edu" class="email"
+                            style="color:#8BC24A; text-decoration: underline;">
+                            mingxiaowei@berkeley.edu</a>
+                        <span class="text-end">Oct 10, 2022</span>
+                    </p>
+
+                </footer>
+                <canvas class="background"></canvas>
+            </section>
+
+            <section data-auto-animate data-background-gradient="linear-gradient(to top, #0C5D87, #002C42)"
+                class="reg-cus">
+                <h3 class="text-start">Logistics 🏡</h3>
+                <hr>
+                <ul class="spaced" style="font-size: 28px; line-height: 1.2;">
+                    <li>Lab 07 due this Wed 10/12</li>
+                    <li>Homework 05 due this Thu 10/13</li>
+                    <li>ANTS is released! 🐜🐜🐜🐝🐝🐝
+                        <ul class="spaced">
+                            <li>Checkpoint 1 due this Fri 10/14</li>
+                            <li>Checkpoint 2 due next Tue 10/18</li>
+                            <li>The whole project due next Fri 10/21</li>
+                            <li>Submit by next Thu 10/20 for one extra point!</li>
+                        </ul>
+                    </li>
+                    <li>Reminder - if you want more review on discussion worksheet/exam prep, sign up for tutoring
+                        sections!
+                        (Ed post <a href="https://edstem.org/us/courses/25379/discussion/1915318">#1692</a>)</li>
+                </ul>
+            </section>
+
+            <section data-auto-animate data-background-gradient="linear-gradient(to top, #0C5D87, #002C42)"
+                class="reg-cus">
+                <h4 class="text-start">From last time... 👀</h4>
+                <hr>
+                <img data-src="media\dis06-att-q.png">
+            </section>
+
+            <section data-auto-animate data-background-gradient="linear-gradient(to top, #0C5D87, #002C42)"
+                class="reg-cus">
+                <h4 class="text-start">Highlight from your mid-semester feedback </h4>
+                <hr>
+                <div class="text-start" style="font-size: 28px;">
+                    <p>I really appreciate all of your feedback! They help me to tailor our section better toward your
+                        needs :))</p>
+                    <ul class="spaced" style="font-size: 28px; line-height: 1.2;">
+                        <li>More guidance on lab</li>
+                        <li>Maintaining a quiet environment when I'm talking</li>
+                        <li>More explanations on problems/concepts</li>
+                        <li>Going slower on harder problems</li>
+                        <li>More engagement</li>
+                        <li>More examples</li>
+                        <li>Various options on pacing</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section data-auto-animate data-background-gradient="linear-gradient(to top, #0C5D87, #002C42)"
+                class="reg-cus">
+                <h4 class="text-start">New lab format (?)</h4>
+                <hr>
+                <ul class="spaced" style="font-size: 28px; line-height: 1.2;">
+                    <li>I'll walkthrough each question as in discussion, but without giving you the exact solution</li>
+                    <li>A reminder on learning cooperatively:
+                        <ul>
+                            <li class="bu">For labs, you are allow to collaborate however you want as long as you are all learning
+                            </li>
+                            <li>For homework, you can only look at other's code to help them if you finish already</li>
+                            <li>For projects, you can share everything with your partner</li>
+                        </ul>
+                    </li>
+                    <li>When to ask for help in lab?
+                        <ul>
+                            <li>When you've be stuck on a problem for more than 5 minutes</li>
+                            <li>When you try to google something - the easier way may be to just ask! </li>
+                            <li class="bu">You don't need to make eye contact with any of us before asking for help! Just raise
+                                your hand and me or our AI's will come to you soon</li>
+                        </ul>
+                    </li>
+                </ul>
+            </section>
+
+            <section data-auto-animate data-background-gradient="linear-gradient(to top, #0C5D87, #002C42)"
+                class="reg-cus">
+                <p class="text-start" style="font-size: 56px; font-weight: 800;">Now let's welcome our AI Jiaxin (Claire) for a mini-lecture on OOP 🥳</p>
+                <hr>
+                <a href="https://docs.google.com/presentation/d/1bx85jnBM4gnKjUBR1A_cPm8YsQ0Z0-P2SbVHMmImOIY/edit?usp=sharing">Slides are here!</a>
+            </section>
+
+            <section data-auto-animate data-background-gradient="linear-gradient(to bottom, #0C5D87, #002C42)"
+                class="reg-cus">
+                <h2 class="text-start">Attendance! 🤠</h2>
+                <hr>
+                <a href="https://go.cs61a.org/mingxiao-att" style="font-size: 40px">go.cs61a.org/mingxiao-att</a>
+                <div class="text-start" style="font-size: 36px; line-height: 1.2;">
+                    <br>
+                    <ul>
+                        <li>The attendance form and slides are both linked on our <a
+                                href="https://go.cs61a.org/mingxiao-index">section website</a>!</li>
+                        <li>If you finish early, let me or any of the AI's know and we'll check you off</li>
+                        <li class="shade">Once again, please do remember to fill out the form by midnight today!!</li>
+                    </ul>
+                </div>
+            </section>
+
+        </div>
+    </div>
+
+    <script src="dist/reveal.js"></script>
+    <script src="plugin/notes/notes.js"></script>
+    <script src="plugin/markdown/markdown.js"></script>
+    <script src="plugin/highlight/highlight.js"></script>
+    <script src="plugin/math/math.js"></script>
+    <script>
+        // More info about initialization & config:
+        // - https://revealjs.com/initialization/
+        // - https://revealjs.com/config/
+        Reveal.initialize({
+            hash: true,
+            // Learn about plugins: https://revealjs.com/plugins/
+            plugins: [RevealMarkdown, RevealHighlight, RevealNotes, RevealMath.KaTeX]
+        });
+        Reveal.configure({ pdfSeparateFragments: false });
+    </script>
+
+    <script>
+        window.onload = function () {
+            Particles.init({
+                selector: '.background',
+                color: ['#334C75', '#D4A561', '#0C5D87'],
+                connectParticles: true,
+                maxParticles: 100,
+            });
+        };
+
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/particlesjs/2.2.2/particles.min.js"></script>
+</body>
+
+</html>
