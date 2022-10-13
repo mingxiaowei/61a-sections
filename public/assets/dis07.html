@@ -1,0 +1,483 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>Discussion 07</title>
+
+    <link rel="stylesheet" href="dist/reset.css">
+    <link rel="stylesheet" href="dist/reveal.css">
+    <link rel="stylesheet" href="dist/theme/black.css">
+    <link rel="stylesheet" href="css/custom.css">
+
+    <!-- Theme used for syntax highlighted code -->
+    <link rel="stylesheet" href="plugin/highlight/night-owl.min.css">
+
+    <!-- fonts -->
+    <link href='https://fonts.googleapis.com/css?family=Open Sans' rel='stylesheet'>
+
+    <!-- icon -->
+    <link rel="icon" href="https://mingxiaowei.github.io/61a-sections/public/images/favicon.ico" sizes="32x32">
+
+    <!-- link to bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+
+    <!-- link to bootstrap icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
+
+    <script src="plugin/highlight/highlight.js"></script>
+
+</head>
+
+<body>
+    <div class="reveal">
+        <div class="slides">
+            <section data-auto-animate data-background-gradient="linear-gradient(to top, #0C5D87, #002C42)"
+                class="customizable">
+                <div class="my-auto mx-auto">
+                    <h1>Discussion 07</h1>
+                    <hr class="hr-1">
+                    <p>OOP, String Representation</p>
+                </div>
+                <br>
+                <br>
+
+                <footer class="bottom-left">
+                    <!-- <hr> -->
+                    <p>Mingxiao Wei</p>
+                    <p><a href="mailto:mingxiaowei@berkeley.edu" class="email"
+                            style="color:#8BC24A; text-decoration: underline;">
+                            mingxiaowei@berkeley.edu</a>
+                        <span class="text-end">Oct 13, 2022</span>
+                    </p>
+
+                </footer>
+                <canvas class="background"></canvas>
+            </section>
+
+            <section data-auto-animate data-background-gradient="linear-gradient(to top, #0C5D87, #002C42)"
+                class="reg-cus">
+                <h3 class="text-start">Logistics 🏡</h3>
+                <hr>
+                <div class="text-start">
+                    <ul class="spaced text-start" style="font-size: 28px; line-height: 1.2;">
+                        <li>Homework 05 due today 10/13</li>
+                        <li>ANTS is released!
+                            <img class="mp0" data-src="media\ant_fire.gif" style="height: 50px; width:auto;">
+                            <img class="mp0" data-src="media\bee.gif" style="height: 50px; width:auto;">
+                            <ul class="spaced">
+                                <li>Checkpoint 1 due tomorrow 10/14</li>
+                                <li>Checkpoint 2 due next Tue 10/18</li>
+                                <li>The whole project due next Fri 10/21</li>
+                                <li>Submit by next Thu 10/20 for one extra point!</li>
+                                <li>There's one extra credit question, worth 2 pts - if you want the extra credit from
+                                    early submission
+                                    AND this question, make sure to finish this question by next Thursday as well!</li>
+                            </ul>
+                        </li>
+                        <li>Reminder - Homework 04 recovery (Ed post <a
+                                href="https://edstem.org/us/courses/25379/discussion/1928394">#1757</a>)</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section data-auto-animate data-background-gradient="linear-gradient(to top, #0C5D87, #002C42)"
+                class="reg-cus">
+                <h4 class="text-start">From last time... 👀</h4>
+                <hr>
+                <p class="text-start" style="line-height: 1; font-size: 30px;">When you put one lasagna on top of
+                    another, how many lasagna do you end up with? </p>
+                <img class="mt-0" data-src="media\lab07-att-q.png" style="height: 500px; width:auto;">
+            </section>
+
+            <section data-auto-animate data-background-gradient="linear-gradient(to top, #0C5D87, #002C42)"
+                class="reg-cus">
+                <h4 class="text-start">From last time... 👀</h4>
+                <hr>
+                <div class="text-start" style="font-size: 30px; line-height: 1.2;">
+                    <p>Other feedback: </p>
+                    <ul class="spaced">
+                        <li>Some of you liked the new lab format!
+                        </li>
+                        <li>Some of you preferred the old style because there's more time to think independently
+                        </li>
+                        <li>If you have other feedback for our section/for me, please do leave them in the attendance
+                            form (or use this <a href="https://forms.gle/a2JLQ5TdioMCQcFE7">anonymous feedback form</a>
+                            if you wish!)</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section data-auto-animate data-background-gradient="linear-gradient(to bottom, #0C5D87, #002C42)"
+                class="reg-cus">
+                <h1>Object-Oriented Programming 🥫</h1>
+                <hr>
+            </section>
+
+            <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #1C8497)"
+                class="reg-cus">
+                <h4 class="text-start">Object-Oriented Programming</h4>
+                <hr>
+                <div class="text-start" style="font-size: 30px; line-height: 1.2;">
+                    <p>OOP - a programming paradigm that allows us to treat code as objects, extending the idea of data
+                        abstraction. </p>
+                    <ul class="spaced">
+                        <li><span class="shade">class</span> - a template for objects
+                        </li>
+                        <li><span class="shade">instance</span> - a single object created from a class
+                        </li>
+                        <li><span class="shade">attributes</span>
+                            <ul class="spaced">
+                                <li><span class="shade">instance variable</span> - a data attribute of an object,
+                                    specific to an instance</li>
+                                <li><span class="shade">class variable</span> - a data attribute of an object, shared by
+                                    all instances of a class</li>
+                                <li><span class="shade">method</span> - a bound function that may be called on all
+                                    instances of a class</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #1C8497)"
+                class="reg-cus">
+                <h4 class="text-start">Class/Instance Attributes VS. other variables</h4>
+                <hr>
+                <div class="text-start" style="font-size: 28px; line-height: 1.2;">
+                    <ul class="spaced">
+                        <li>Attributes = class/instance variables + methods</li>
+                        <li>Class variables - use <code class="hljs python">ClassName.variable</code> or
+                            <code class="hljs python">InstanceName.variable</code> to
+                            access
+                            <ul>
+                                <li>The latter only works if the instance does not have an instance variable of the
+                                    same name as the class variable</li>
+                            </ul>
+                        </li>
+                        <li>Instance variables - use <code class="hljs python">InstanceName.variable</code> to access
+                        </li>
+                        <li>Other variables - arguments to a method, or otherwise initiated elsewhere, but are not
+                            class/instance variables</li>
+                    </ul>
+                    <pre class="my-2"><code class="hljs python py-2" data-trim>
+                        class Car :
+                            num_wheels = 4
+                            gas_level = 30
+
+                            def __init__(self, model):
+                                self.model = model 
+                                self.num_wheels = Car.num_wheels
+                                self.gas = Car.gas_level
+                    </code></pre>
+                </div>
+            </section>
+
+            <section data-auto-animate data-background-gradient="linear-gradient(to bottom, #0C5D87, #002C42)"
+                class="reg-cus">
+                <h1>Worksheet Q1, 2</h1>
+                <hr>
+            </section>
+
+            <section data-auto-animate data-background-gradient="linear-gradient(to bottom, #0C5D87, #002C42)"
+                class="reg-cus">
+                <h1>Inheritance 👩‍👧‍👦</h1>
+                <hr>
+            </section>
+
+            <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #1C8497)"
+                class="reg-cus">
+                <h4 class="text-start">Inheritance</h4>
+                <hr>
+                <div class="text-start" style="font-size: 30px; line-height: 1.2;">
+                    <ul class="spaced">
+                        <li>To avoid redefining attributes and methods for similar classes, we can write a single <span
+                                class="shade">base class</span> from which the similar classes
+                            <span class="shade">inherit</span>. A subclass <i>is a</i> more specific version of the base
+                            class.
+                        </li>
+                        <li><code class="hljs python">SubClass(BaseClass)</code></li>
+                        <li>By default, a subclass has the same behavior as its base class - unless we override/add
+                            additional attributes
+                        </li>
+                        <li><span class="shade">Overriding attributes</span>
+                            <ul>
+                                <li>Class variables - reassign</li>
+                                <li>Methods - <span class="bu">redefine the method with the same function signature
+                                        (name and arguments)</span> in the subclass,
+                                    but different function bodies. Use <code class="hljs python">super()</code> to call
+                                    the same method from the base class when necessary (DRY - Don't Repeat Yourself!)
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #1C8497)"
+                class="reg-cus">
+                <h4 class="text-start">Inheritance</h4>
+                <hr>
+                <div class="text-start" style="font-size: 30px; line-height: 1.2;">
+                    <ul class="spaced">
+                        <li><code class="hljs python">super().method(args)</code>
+                            <ul class="spaced">
+                                <li>Used to call the corresponding <code class="hljs python t">method</code> from the
+                                    base class</li>
+                                <li>Can only be used inside of a class method</li>
+                                <li><code class="hljs python t">self</code> is implicitly bound to the instance on which
+                                    the <code class="hljs python t">method</code> is called - no need to pass it in</li>
+                            </ul>
+                        </li>
+                        <li><code class="hljs python">Class.method(instance, args)</code>
+                            <ul class="spaced">
+                                <li>
+                                    Used to call the specific <code class="hljs python t">method</code> from a
+                                    specific <code class="hljs python t">Class</code> (can be any class - doesn't have
+                                    to be the base class!)
+                                </li>
+                                <li>
+                                    Can be used anywhere
+                                </li>
+                                <li>Need to explicitly pass in the <code class="hljs python t">instance</code></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #1C8497)"
+                class="reg-cus">
+                <h4 class="text-start">Inheritance</h4>
+                <hr>
+                <div class="text-start" style="font-size: 30px; line-height: 1.2;">
+                    <pre class="mp0"><code class="hljs python py-2" data-trim>
+                        class Pet :
+                            def __init__(self, name, owner):
+                                self.is_alive = True    # It's alive!!!
+                                self.name = name
+                                self.owner = owner
+
+                            def eat (self, thing):
+                                print(self.name + " ate a " + str(thing) + "!")
+
+                            def talk (self):
+                                print(self.name)
+
+                    </code></pre>
+                    <pre class="mp0"><code class="hljs python py-2" data-trim>
+                        # A dog is a pet!
+                        class Dog (Pet) :
+                            def talk (self):
+                                super().talk()
+                                print('This Dog says woof!')
+                    </code></pre>
+                </div>
+            </section>
+
+            <section data-auto-animate data-background-gradient="linear-gradient(to bottom, #0C5D87, #002C42)"
+                class="reg-cus">
+                <h1>Worksheet Q3, 4</h1>
+                <hr>
+            </section>
+
+            <section data-auto-animate data-background-gradient="linear-gradient(to bottom, #0C5D87, #002C42)"
+                class="reg-cus">
+                <h1>Class Methods 🎒</h1>
+                <hr>
+            </section>
+
+            <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #1C8497)"
+                class="reg-cus">
+                <h4 class="text-start">Decorators</h4>
+                <hr>
+                <div class="text-start" style="font-size: 30px; line-height: 1.2;">
+                    <ul class="spaced">
+                        <li>A decorator is a function that takes in a function and returns another function
+                        </li>
+                        <li>The <code class="hljs python">@decorator</code> syntax is a syntax sugar</li>
+                    </ul>
+                    <pre><code class="hljs python" data-trim>
+                        def f (arg):
+                            ...
+                        f = classmethod(f)
+                        # Above and below are equivalent ways of 
+                        # using the classmethod decorator
+                        @classmethod
+                        def f (arg):
+                            ...
+                    </code></pre>
+                </div>
+            </section>
+
+            <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #1C8497)"
+                class="reg-cus">
+                <h4 class="text-start">Class Methods</h4>
+                <hr>
+                <div class="text-start" style="font-size: 28px; line-height: 1.15;">
+                    <ul class="spaced">
+                        <li>Instead of receiving the instance as the first argument (<code
+                                class="hljs python t">self</code>), the method will receive the class itself (<code
+                                class="hljs python t">cls</code>)</li>
+                        <li>Commonly used to create "factory methods": methods that <span class="shade">construct and
+                                return a
+                                new instance of the class.</span>
+                        </li>
+                        <li>Use the <code class="hljs python">@classmethod</code> decorator to turn a method into a
+                            class method</li>
+                    </ul>
+                    <pre class="my-2"><code class="hljs python py-2" data-trim>
+                        class Dog (Pet) :
+                            # With the previously defined methods not written out
+                                 @classmethod
+                            def robo_factory (cls, owner):
+                                return cls("RoboDog", owner)
+                    </code></pre>
+                    <p>With <code class="hljs python">Dog.robo_factory(owner_name)</code>, we can create a Dog instance
+                        with the name <code class="hljs python t">"RoboDog"</code> whose owner has the name <code
+                            class="hljs python t">owner_name</code>,
+                        without having to call the Dog constructor with the dog name <code
+                            class="hljs python t">"RoboDog"</code> every time (<code
+                            class="hljs python">Dog("Robodog", owner_name)</code>)</p>
+                </div>
+            </section>
+
+            <section data-auto-animate data-background-gradient="linear-gradient(to bottom, #0C5D87, #002C42)"
+                class="reg-cus">
+                <h1>Worksheet Q5</h1>
+                <hr>
+            </section>
+
+            <section data-auto-animate data-background-gradient="linear-gradient(to bottom, #0C5D87, #002C42)"
+                class="reg-cus">
+                <h1>Representation 🎭</h1>
+                <hr>
+            </section>
+
+            <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #1C8497)"
+                class="reg-cus">
+                <h4 class="text-start">Representation</h4>
+                <hr>
+                <div class="text-start" style="font-size: 28px; line-height: 1.15;">
+                    <ul class="spaced">
+                        <li>To produce a string representation of an object in, we use <code
+                                class="hljs python t">str()</code> or
+                            <code class="hljs python t">repr()</code>
+                        </li>
+                        <li><code class="hljs python">str(obj)</code>
+                            <ul>
+                                <li>Returns <code class="hljs python t">obj.__str__()</code></li>
+                                <li>Used to describe the object in a human-readable form</li>
+                                <li>Called when an object gets printed - <code class="hljs python t">print(obj)</code>
+                                    is essentially <code class="hljs python t">print(str(obj))</code>
+                                    <ul>
+                                        <li>If <code class="hljs python t">__str__</code> is not defined for <code
+                                                class="hljs python t">obj</code>, use <code
+                                                class="hljs python t">repr(obj)</code> instead</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li><code class="hljs python">repr(obj)</code>
+                            <ul>
+                                <li>Returns <code class="hljs python t">obj.__repr__()</code></li>
+                                <li>Used to describe the object in a computer-readable form</li>
+                                <li>Evaluating an object in the interpreter is essentially <code
+                                        class="hljs python t">print(repr(obj))</code></li>
+                                <li>By convention, this should return a string that, when evaluated, returns an object
+                                    with the same value</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #1C8497)"
+                class="reg-cus">
+                <h4 class="text-start">Inheritance</h4>
+                <hr>
+                <div class="text-start" style="font-size: 30px; line-height: 1.2;">
+                    <pre class="mp0"><code class="hljs python py-2" data-trim>
+                        class Rational :
+                            def __init__(self, numer, denom):
+                                self.numer = numer
+                                self.denom = denom
+                            def __str__(self):
+                                return f"{self.numer}/{self.denom}"
+                            def __repr__(self):
+                                return f"Rational({self.numer}, {self.denom})"
+                    </code></pre>
+                    <pre class="mp0"><code class="hljs python-repl py-2" data-trim>
+                        >>> a = Rational(1, 2)
+                        >>> str (a)
+                        '1/2'
+                        >>> repr (a)
+                        'Rational(1, 2)'
+                        >>> print (a)
+                        1/2
+                        >>> a
+                        Rational(1, 2)
+                    </code></pre>
+                </div>
+            </section>
+
+            <section data-auto-animate data-background-gradient="linear-gradient(to bottom, #0C5D87, #002C42)"
+                class="reg-cus">
+                <h1>Worksheet Q6</h1>
+                <hr>
+            </section>
+
+            <section data-auto-animate data-background-gradient="linear-gradient(to bottom, #0C5D87, #002C42)"
+                class="reg-cus">
+                <h2 class="text-start">Attendance! 🤠</h2>
+                <hr>
+                <a href="https://go.cs61a.org/mingxiao-att" style="font-size: 40px">go.cs61a.org/mingxiao-att</a>
+                <div class="text-start" style="font-size: 36px; line-height: 1.2;">
+                    <br>
+                    <ul>
+                        <li>The attendance form and slides are both linked on our <a
+                                href="https://go.cs61a.org/mingxiao-index">section website</a>!</li>
+                        <li class="shade">Once again, please do remember to fill out the form by midnight today!!</li>
+                    </ul>
+                </div>
+            </section>
+
+        </div>
+    </div>
+
+    <script src="dist/reveal.js"></script>
+    <script src="plugin/notes/notes.js"></script>
+    <script src="plugin/markdown/markdown.js"></script>
+    <script src="plugin/highlight/highlight.js"></script>
+    <script src="plugin/math/math.js"></script>
+    <script>
+        // More info about initialization & config:
+        // - https://revealjs.com/initialization/
+        // - https://revealjs.com/config/
+        Reveal.initialize({
+            hash: true,
+            // Learn about plugins: https://revealjs.com/plugins/
+            plugins: [RevealMarkdown, RevealHighlight, RevealNotes, RevealMath.KaTeX]
+        });
+        Reveal.configure({ pdfSeparateFragments: false });
+    </script>
+
+    <script>
+        window.onload = function () {
+            Particles.init({
+                selector: '.background',
+                color: ['#334C75', '#D4A561', '#0C5D87'],
+                connectParticles: true,
+                maxParticles: 100,
+            });
+        };
+
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/particlesjs/2.2.2/particles.min.js"></script>
+</body>
+
+</html>
