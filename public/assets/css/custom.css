@@ -118,6 +118,11 @@ ul.spaced>li {
     margin-bottom: 8px;
 }
 
+ol.spaced>li {
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+
 .background {
     position: absolute;
     display: flex;
