@@ -156,3 +156,13 @@ button.invisible {
     padding-bottom: 1.5px !important;
     /* font-family: Consolas, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, serif !important; */
 }
+
+ul.spaced>li {
+    margin-top: 4px;
+    margin-bottom: 4px;
+}
+
+ol.spaced>li {
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
