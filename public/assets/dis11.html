@@ -375,158 +375,34 @@
                 class="reg-cus">
                 <h4 class="text-start">Quasiquote & Unquote - Example</h4>
                 <hr>
-                <div class="text-start" style="font-size: 30px; line-height: 1.2;">
-                    <p><code class="hljs scheme">(quasiquote &lt;expr&gt;)</code> or <code class="hljs scheme">`&lt;expr&gt;</code></p>
-                    <p><code class="hljs scheme">(unquote &lt;expr&gt;)</code> or <code class="hljs scheme">,&lt;expr&gt;</code></p>
-                    <ul class="spaced">
-                        <li>Without <code class="hljs scheme">unquote</code>, <code class="hljs scheme">quasiquote</code> behaves the same as <code class="hljs scheme">quote</code></li>
-                        <li><code class="hljs scheme">unquote</code> allows an expression to be evaluated before the entire list is returned</li>
-                        <li>Together, they are analogous to f-strings in Python and are useful for creating lists that represent expressions
-                        </li>
-                    </ul>
-                </div>
-            </section>
-
-            <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #1C8497)"
-                class="reg-cus">
-                <h4 class="text-start">Internal Representations</h4>
-                <hr>
                 <div class="text-start" style="font-size: 28px; line-height: 1.2;">
-                    <table class="table table-bordered" style="color: white;">
-                        <thead>
-                            <th scope="col-6" class="shade">Scheme</th>
-                            <th scope="col-6" class="shade">Python</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td style="width:40%;">
-                                    Numbers
-                                </td>
-                                <td style="width:60%;">
-                                    Python's built-in <code class="hljs python t">int</code>
-                                    and <code class="hljs python t">float</code> values
-                                </td>
-                            </tr>
-                            <tr>
-                                <td style="width:40%;">
-                                    Symbols
-                                </td>
-                                <td style="width:60%;">
-                                    Python's built-in <code class="hljs python t">string</code> values
-                                </td>
-                            </tr>
-                            <tr>
-                                <td style="width:40%;">
-                                    Booleans (<code class="hljs scheme t">#t</code>, <code
-                                        class="hljs scheme t">#f</code>)
-                                </td>
-                                <td style="width:60%;">
-                                    Python's built-in <code class="hljs python t">True</code>, <code
-                                        class="hljs python t">False</code> values
-                                </td>
-                            </tr>
-                            <tr>
-                                <td style="width:40%;">
-                                    Combinations (lists, call expressions, special forms)
-                                </td>
-                                <td style="width:60%;">
-                                    Instances of the <code class="hljs python t">Pair</code> class, defined in <code
-                                        class="hljs python t">pair.py</code>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td style="width:40%;">
-                                    <code class="hljs scheme t">nil</code>
-                                </td>
-                                <td style="width:60%;">
-                                    The <code class="hljs python t">nil</code> object, defined in <code
-                                        class="hljs python t">pair.py</code>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </section>
-
-            <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #1C8497)"
-                class="reg-cus">
-                <h4 class="text-start">The Pair Class</h4>
-                <hr>
-                <div class="text-start" style="font-size: 28px; line-height: 1.2;">
-                    <ul class="spaced">
-                        <li>Full definition in <code class="hljs python t">pair.py</code></li>
-                        <li>Similar to a linked list - each instance has <code class="hljs python">first</code> and
-                            <code class="hljs python">rest</code> attributes
-                        </li>
-                        <li>Empty pair - <code class="hljs python">nil</code>, an object, not a class attribute</li>
-                        <li>We can call <code class="hljs python">len()</code> on a <code
-                                class="hljs python t">Pair</code> object to get its length</li>
-                        <li>The <code class="hljs python">map(fn)</code> method maps the <span
-                                class="bu">one-argument</span> function <code class="hljs python">fn</code> to each
-                            element, and returns a new <code class="hljs python t">Pair</code> object (non-mutative)
-                        </li>
-                    </ul>
-                    <pre class="my-2"><code class="hljs python-repl py-2" data-trim>
-                        >>> p = Pair('+', Pair(1, Pair(2, nil)))
-                        >>> p.first 
-                        '+'
-                        >>> p.rest 
-                        Pair(1, Pair(2, nil))
-                        >>> p.rest.first 
-                        1
-                        >>> p.rest.rest.rest is nil 
-                        True
+                    <pre class="mb-0 pb-0"><code class="hljs scheme py-2" data-trim data-noescape>
+                        scm&gt; (define a 6)
+                        <span class="fragment">a</span>
+                        scm&gt; (define b 1)
+                        <span class="fragment">b</span>
+                        scm&gt; `(,a ,b a)
+                        <span class="fragment">(6 1 a)</span>
+                        scm&gt; '(a b ,a)
+                        <span class="fragment">(a b (unquote a))</span>
+                    </code></pre>
+                    <pre class="mt-0 pt-0"><code class="hljs scheme py-2" data-trim data-noescape>
+                        scm&gt; `(+ ,a ,b)
+                        <span class="fragment">(+ 6 1)</span>
+                        scm&gt; (eval `(+ ,a ,b))
+                        <span class="fragment">7</span>
+                        scm&gt; (eval `(,a ,b a))
+                        <span class="fragment">Error: int is not callable: 6</span>
+                        scm&gt; (eval (cons 'list '(a b 'a)))
+                        <span class="fragment">(6 1 a)</span>
                     </code></pre>
                 </div>
             </section>
 
-            <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #1C8497)"
+            <section data-auto-animate data-background-gradient="linear-gradient(to bottom, #0C5D87, #002C42)"
                 class="reg-cus">
-                <h4 class="text-start">Parsing Scheme Combinations Into Pairs</h4>
+                <h1>Worksheet Q2-7</h1>
                 <hr>
-                <div class="text-start" style="font-size: 28px; line-height: 1.2;">
-                    <ul class="spaced">
-                        <li><span class="shade">A Scheme combination <code class="hljs scheme">(a b c)</code> is parsed
-                                into a <code class="hljs python t">Pair</code> object <br> <code
-                                    class="hljs python">Pair(a, Pair(b, Pair(c, nil))</code></span>
-                            <ul class="spaced">
-                                <li><code class="hljs scheme t">a</code>, <code class="hljs scheme t">b</code>, and
-                                    <code class="hljs scheme t">c</code>
-                                    can be <i>anything</i> - symbol, number, another combination, etc
-                                </li>
-                            </ul>
-                        </li>
-                        <li>This happens in the read stage - <span class="bu">no evaluation yet</span>, everything is
-                            either a number, a boolean, or a string (in Python)</li>
-                        <li>Done by <code class="hljs python t">read_line</code> (implemented already)</li>
-                    </ul>
-                    <pre class="my-2"><code class="hljs python-repl py-2" data-trim>
-                        >>> read_line( '(+ 1 2)' )
-                        Pair('+', Pair(1, Pair(2, nil)))
-                        >>> read_line( '(define x 3)' )
-                        Pair('define', Pair('x', Pair(3, nil)))
-                        >>> read_line( '(length (list 6))' )
-                        Pair('length', Pair(Pair('list', Pair(6, nil)), nil))
-                        >>> read_line( '(cons 4 (cons 5 nil))' )
-                        Pair('cons', Pair(4, Pair(Pair('cons',
-                        Pair(5, Pair('nil', nil))), nil)))
-                    </code></pre>
-                </div>
-            </section>
-
-            <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #1C8497)"
-                class="reg-cus">
-                <h4 class="text-start">pro Tips for the project</h4>
-                <hr>
-                <div class="text-start" style="font-size: 30px; line-height: 1.2;">
-                    <ul class="spaced">
-                        <li>Get started early!</li>
-                        <li>READ THE SPEC - we are really trying to tell you what to do</li>
-                        <li>Consult the <a href="https://cs61a.org/proj/scheme/#getting-started-videos">Getting Started
-                                Videos</a> if you're not sure where to start!</li>
-                    </ul>
-                </div>
             </section>
 
             <section data-auto-animate data-background-gradient="linear-gradient(to bottom, #0C5D87, #002C42)"
@@ -539,7 +415,7 @@
                     <ul>
                         <li>The attendance form and slides are both linked on our <a
                                 href="https://go.cs61a.org/mingxiao-index">section website</a>!</li>
-                        <li>If you finish early, let me or any of the AI's know and we'll check you off</li>
+                        <!-- <li>If you finish early, let me or any of the AI's know and we'll check you off</li> -->
                         <li class="shade">Once again, please do remember to fill out the form by midnight today!!</li>
                     </ul>
                 </div>
