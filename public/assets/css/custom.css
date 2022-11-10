@@ -163,3 +163,10 @@ code.sfs {
     margin: 0 !important;
     padding: 0 !important;
 }
+
+.ctr {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 60%;
+  }
