@@ -1,0 +1,498 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>Discussion 01</title>
+
+    <link rel="stylesheet" href="dist/reset.css">
+    <link rel="stylesheet" href="dist/reveal.css">
+    <link rel="stylesheet" href="dist/theme/black.css">
+    <link rel="stylesheet" href="css/custom.css">
+
+    <!-- Theme used for syntax highlighted code -->
+    <link rel="stylesheet" href="plugin/highlight/night-owl.min.css">
+
+    <!-- fonts -->
+    <link href='https://fonts.googleapis.com/css?family=Open Sans' rel='stylesheet'>
+
+    <!-- icon -->
+    <link rel="icon" href="https://mingxiaowei.github.io/61a-sections/public/images/favicon.ico" sizes="32x32">
+
+    <!-- link to bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+
+    <!-- link to bootstrap icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
+
+    <script src="plugin/highlight/highlight.js"></script>
+
+</head>
+
+<body>
+    <div class="reveal">
+        <div class="slides">
+            <section data-auto-animate data-background-gradient="linear-gradient(to top, #0C5D87, #002C42)"
+                class="customizable">
+                <div class="my-auto mx-auto">
+                    <h2>Discussion 01</h2>
+                    <hr class="hr-1">
+                    <p>Control, Environment Diagrams</p>
+                </div>
+                <br>
+                <br>
+
+                <footer class="bottom-left">
+                    <!-- <hr> -->
+                    <p>Mingxiao Wei</p>
+                    <p><a href="mailto:mingxiaowei@berkeley.edu" class="email"
+                            style="color:#8BC24A; text-decoration: underline;">
+                            mingxiaowei@berkeley.edu</a>
+                        <span class="text-end">Sep 1, 2022</span>
+                    </p>
+
+                </footer>
+                <canvas class="background"></canvas>
+            </section>
+
+            <section data-auto-animate data-background-gradient="linear-gradient(to bottom, #0C5D87, #002C42)"
+                class="reg-cus">
+                <h3 class="text-start">Logistics 🏡</h3>
+                <hr>
+                <ul class="spaced" style="font-size: 28px; line-height: 1.3;">
+                    <li>Homework 01 due today 09/01 @ 11:59pm</li>
+                    <li>Hog is released! 🎲🎲🎲
+                        <ul>
+                            <li>You can choose to work alone or in group of 2</li>
+                            <li>Checkpoint 1 due next Tue 09/06</li>
+                            <li>The whole project due next Fri 09/09</li>
+                            <li>Submit the whole project by next Thu 09/08 for one extra point!</li>
+                        </ul>
+                    </li>
+                    <li>About office hours:
+                        <ul class="spaced">
+                            <li>My OH is listed on our <a
+                                    href="https://mingxiaowei.github.io/61a-sections/public/"></a>section website</li>
+                            <li>Before the first midterm, my OH varies weekly AND both online and in-person ones are
+                                queue-based - just drop in and make a ticket, no appointment needed</li>
+                            <li>Check out the <a href="https://cs61a.org/office-hours/">OH calendar</a> for the most
+                                updated OH schedule!</li>
+                        </ul>
+                    </li>
+                </ul>
+            </section>
+
+            <section data-auto-animate data-background-gradient="linear-gradient(to top, #0C5D87, #002C42)"
+                class="reg-cus">
+                <h3 class="text-start">Logistics 🏡</h3>
+                <hr>
+                <ul class="spaced" style="font-size: 28px; line-height: 1.3;">
+                    <li>One-time tutorial section signups are open! (Check out Ed post <a
+                            href="https://edstem.org/us/courses/25379/discussion/1708847">#176</a> for more
+                        info)
+                        <ul>
+                            <li>Tutorials are smaller sections (~5) where the tutor/mentor will go over some additional
+                                practice problems</li>
+                            <li>Signups for recurring sections will open after the first midterm</li>
+                        </ul>
+                    </li>
+                    <li>Next Monday is a holiday - no 61A events happening (lecture, lab, OH)
+                        <ul>
+                            <li>More logistics will be announced on Ed once they are finalized</li>
+                            <li>Enjoy your long weekend :)</li>
+                        </ul>
+                    </li>
+                    <li>Check out Ed for more announcements!</li>
+                    <li>When emailing me, please try to put sth like <code class="hljs python">[CS 61A]</code> in the
+                        title so it's easier for me to sort things out!</li>
+                </ul>
+            </section>
+
+            <section data-auto-animate data-background-gradient="linear-gradient(to top, #0C5D87, #002C42)"
+                class="reg-cus">
+                <h1>Values, Expressions, and Statements 🧮</h1>
+                <hr>
+            </section>
+
+            <section data-transition="slide" data-background-gradient="linear-gradient(to top, #00527C, #17b2c3)"
+                class="reg-cus">
+                <h4 class="text-start">Expressions and Values</h4>
+                <hr>
+                <div style="font-size: 28px; line-height: 1.3;">
+                    <ul class="spaced">
+                        <li>Think of expressions as "questions" and values as "answers" - Python takes your questions,
+                            thinks a bit, and then give syou answers.</li>
+                        <li>
+                            The act of evaluation (and in fact, the whole point of an interpreter) is to turn
+                            expressions into values
+                        </li>
+                        <li><span class="shade">Expressions</span>
+                            <ul>
+                                <li>Expressions evaluate to values</li>
+                                <li>Eg: call expressions, arithmetic expressions, boolean expressions</li>
+                            </ul>
+                        </li>
+                        <li><span class="shade">Values</span>
+                            <ul>
+                                <li>Values are the only thing we can assign to variables, return from functions, pass
+                                    into functions, etc.</li>
+                                <li>Eg: numbers, strings, lists, functions, objects, etc.</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <section data-transition="slide" data-background-gradient="linear-gradient(to top, #00527C, #17b2c3)"
+                class="reg-cus">
+                <h4 class="text-start">Expressions vs. Statements</h4>
+                <hr>
+                <div style="font-size: 26px; line-height: 1.2;">
+                    <ul class="spaced">
+                        <li><span class="shade">Expressions</span>
+                            <ul>
+                                <li>Every expression evalutes to a value</li>
+                                <li>Some may have side effects that modify the state of our program</li>
+                            </ul>
+                        </li>
+                        <li><span class="shade">Statements</span>
+                            <ul>
+                                <li>Do not evaluate to values</li>
+                                <li>They serve some purposes in modifying the state of our program
+                                    <ul>
+                                        <li>For example, <code class="hljs python">while</code> loops allow us to repeat
+                                            blocks of code multiple times</li>
+                                    </ul>
+                                </li>
+                                <li>Although <code class="hljs python">def</code> statements create function values,
+                                    they don't <i>evaluate</i> to function values themselves - instead, they <i>create a
+                                        local binding</i> that binds the function name to the function value, like an
+                                    assignment statement</li>
+                            </ul>
+                        </li>
+                        <li class="fragment">
+                            Why do we care about this?
+                            <ul>
+                                <li>It means we cannot return or print an assignment statement, or any other statement
+                                </li>
+                                <li>We'll learn some expressions (namely, lambdas) that looks like statements but are
+                                    different in some key ways, so it's good to learn the difference early</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <section data-auto-animate data-background-gradient="linear-gradient(to top, #0C5D87, #002C42)"
+                class="reg-cus">
+                <h1>Control Structures 🕹</h1>
+                <hr>
+            </section>
+
+            <section data-transition="slide" data-background-gradient="linear-gradient(to top, #00527C, #17b2c3)"
+                class="reg-cus">
+                <h4 class="text-start">Conditional Statements</h4>
+                <hr>
+                <div style="font-size: 26px; line-height: 1.2;">
+                    <div class="row g-0 mx-0 px-0">
+                        <div class="col-5 mx-0 px-0">
+                            <code class="hljs python">if-elif-else</code>
+                            Syntax
+                            <pre><code class="hljs python" data-trim>
+                                        if &lt;cond_expr_1&gt;:
+                                            &lt;suite_1&gt;
+                                        elif &lt;cond_expr_2&gt;:
+                                            &lt;suite_2&gt;
+                                        else:
+                                            &lt;suite_3&gt;
+                                    </code></pre>
+                        </div>
+
+                        <div class="col-7 mx-0 px-0">
+                            <ul>
+                                <li><span class="shade">Conditional expressions</span> - essentially any expression can
+                                    be a conditional
+                                    expression, and it evaluates to some value that's either truthy or falsy</li>
+                                <li>There can be 0 or 1 <code class="hljs python">else</code></li>
+                                <li>There can be &ge; 0 <code class="hljs python">elif</code></li>
+                                <li>Only the first <code class="hljs python">if</code> or <code
+                                        class="hljs python px-1">elif</code> that evaluates to a truthy value will
+                                    have its
+                                    corresponding indented suite be executed</li>
+                                <li>If none of the conditional expressions evaluate to a truthy value, the <code
+                                        class="hljs python">else</code> suite is executed.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section data-auto-animate data-background-gradient="linear-gradient(to top, #0C5D87, #002C42)"
+                class="reg-cus">
+                <h1>Boolean Operators 🎏</h1>
+                <hr>
+            </section>
+
+            <section data-auto-animate data-background-gradient="linear-gradient(to bottom, #0C5D87, #0D8BB5)"
+                class="reg-cus">
+                <h4 class="text-start">Truthiness and Falsiness</h4>
+                <hr>
+                <div class="text-start" style="font-size: 28px; line-height: 1.3;">
+                    <div class="row">
+                        <div class="col-6">
+                            <p class="text-center shade"><b>Truthy Values</b></p>
+                            <ul>
+                                <li>Treated as practically "true" in boolean contexts (if/while conditions, and/or/not
+                                    expressions)</li>
+                                <li>Everything that's not falsy is truthy</li>
+                            </ul>
+                        </div>
+                        <div class="col-6">
+                            <p class="text-center shade"><b>Falsy Values</b></p>
+                            <ul>
+                                <li>Treated as practically "false" in boolean contexts (if/while conditions, and/or/not
+                                    expressions)</li>
+                                <li>Including: <code class="hljs python">0</code>,
+                                    <code class="hljs python">None</code>,
+                                    <code class="hljs python">""</code> (empty string),
+                                    <code class="hljs python">[]</code> (empty list), etc.
+                                </li>
+                                <li>See <a
+                                        href="https://www.geeksforgeeks.org/truthy-vs-falsy-values-in-python/">here</a>
+                                    for a comprehensive list</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section data-auto-animate data-background-gradient="linear-gradient(to top, #0C5D87, #0D8BB5)"
+                class="reg-cus">
+                <h4 class="text-start">Boolean Operators</h4>
+                <hr>
+                <div class="text-start" style="font-size: 28px">
+                    <ul>
+                        <li>Some arithmetic expressions evaluate to boolean values
+                            <pre class="my-1"><code class="hljs python-repl px-3 py-2" data-trim>
+>>> 6 + 1 == 7
+True 
+>>> 8 > 9
+False
+                        </code></pre>
+                        </li>
+                        <li>Python boolean operators: <code class="hljs python">not</code>, <code
+                                class="hljs python">and</code>, and <code class="hljs python">or</code>
+                            <ul>
+                                <li>Priority: <code class="hljs python">not</code> &gt; <code
+                                        class="hljs python">and</code>
+                                    &gt; <code class="hljs python">or</code></li>
+                                <li>Use parenthesis to make your code more readable!</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <code class="hljs python">not</code> - returns the opposite boolean value of the following
+                            expression
+                            <ul>
+                                <li class="shade">
+                                    always return either <code class="hljs python">True</code> or <code
+                                        class="hljs python">False</code>
+                                </li>
+                            </ul>
+                            <pre class="my-2"><code class="hljs python-repl px-3 py-2" data-trim>
+                                >>> not  0
+                                True 
+                                >>> not  -1
+                                False
+                            </code></pre>
+                        </li>
+                    </ul>
+                </div>
+
+            </section>
+
+            <section data-auto-animate data-background-gradient="linear-gradient(to top, #0C5D87, #0D8BB5)"
+                class="reg-cus">
+                <h4 class="text-start">Short Circuiting</h4>
+                <hr>
+                <div class="text-start" style="font-size: 28px">
+                    <ul>
+                        <li>Short circuit - not every operand gets evaluated</li>
+                        <li><code class="hljs python">and</code>
+                            <ul>
+                                <li>evalutes from left to right until
+                                    <span class="shade">the first FALSY value or the last value</span>
+                                </li>
+                                <li>return the last thing that's evaluated</li>
+                            </ul>
+                        </li>
+                        <li><code class="hljs python">or</code>
+                            <ul>
+                                <li>evalutes from left to right until
+                                    <span class="shade">the first TRUTHY value or the last value</span>
+                                </li>
+                                <li>return the last thing that's evaluated</li>
+                            </ul>
+                        </li>
+                        <li style="text-decoration: underline">If an error occurs, the execution flow is terminated immediately</li>
+                    </ul>
+                    <div class="row g-0">
+                        <div class="col-6">
+                            <pre><code class="hljs python-repl py-3 px-3" data-trim data-noescape>
+                                >>> True and  1 / 0 and  2
+                                <span class="fragment code-seg style="line-height: 0;">ZeroDivisionError</span>
+                                >>> True or  1 / 0 or  2
+                                <span class="fragment code-seg" style="line-height: 0;">True</span>
+                                </code></pre>
+                        </div>
+                        <div class="col-6">
+                            <pre><code class="hljs python-repl py-3 px-3" data-trim data-noescape>
+                                >>> 1 and  2 and  3 
+                                <span class="fragment code-seg" style="line-height: 0;">3</span>
+                                >>> 1 or  2 or  3
+                                <span class="fragment code-seg" style="line-height: 0;">1</span>
+                                </code></pre>
+                        </div>
+                    </div>
+
+                </div>
+
+            </section>
+
+            <section data-auto-animate data-background-gradient="linear-gradient(to top, #0C5D87, #002C42)"
+                class="reg-cus">
+                <h1>Worksheet!</h1>
+                <hr>
+            </section>
+
+            <section data-auto-animate data-background-gradient="linear-gradient(to top, #0C5D87, #002C42)"
+                class="reg-cus">
+                <h1>Evaluation Rules 📡</h1>
+                <hr>
+            </section>
+
+            <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #17b2c3)"
+                class="reg-cus">
+                <h4 class="text-start">Evaluation Rules</h4>
+                <hr>
+                <div style="font-size: 28px; line-height: 1.2;">
+                    <!-- <ul class="spaced"> -->
+                    <span class="shade" style="font-size: 32; line-height: 2;"><b>Function Calls</b></span>
+                    <ol type="a">
+                        <li>Evaluate the operators</li>
+                        <li>Evaluate the operands</li>
+                        <li>Apply the operator to the values from evaluating the operands
+                            <ol type="a">
+                                <li>Create a new frame, bind the formal parameters to the actual argument values</li>
+                                <li>Evaluate the body of the function in the context of this new frame</li>
+                                <!-- <li></li> -->
+                            </ol>
+                        </li>
+                    </ol>
+                    </li>
+                </div>
+            </section>
+
+            <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #17b2c3)"
+                class="reg-cus">
+                <h4 class="text-start">Evaluation Rules</h4>
+                <hr>
+                <div style="font-size: 28px; line-height: 1.2;">
+                    <span class="shade" style="font-size: 32; line-height: 1.5;"><b>Assignment Statements</b></span>
+                    <ol>
+                        <li>Evaluate all of the expressions on the RHS of the assignment operator (the single equal
+                            sign) from left to right</li>
+                        <li>Bind all the names on the LHS to the resulting values in the current frame</li>
+                        <p style="line-height: 1">* Names can only bind to values, not other names!</p>
+                    </ol>
+                    <pre class="my-0 py-0"><code class="hljs python py-2" data-trim data-noescape>
+                        a, b = 1, 2
+                        a, b = b, a 
+                        # In Python, you can swap the values of multiple variables in one line
+                        a, b = b + 1, a + b 
+                        # If there are multiple arguments to print, they will be seperated 
+                        # by a whitespace in the outputted line
+                        print("a =", a, ", b =", b)
+                        <span class="fragment"># output: a = 3, b = 3</span>
+                    </code></pre>
+                </div>
+            </section>
+
+            <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #17b2c3)"
+                class="reg-cus">
+                <h4 class="text-start">Evaluation Rules</h4>
+                <hr>
+                <div style="font-size: 28px; line-height: 1.2;">
+                    <span class="shade" style="font-size: 32; line-height: 1.5;"><b>Variable Lookup</b></span>
+                    <ol>
+                        <li>Look it up in the current frame</li>
+                        <li>If not found, go look in the parent frame, and up and up until global. If it's not there,
+                            then error. </li>
+                        <p style="line-height: 1">* Built-in functions like <code class="hljs python">max</code> and
+                            <code class="hljs python">min</code> are usually not displayed on the environment diagram.
+                        </p>
+                    </ol>
+                    <pre class="my-0 py-0"><code class="hljs python py-2" data-trim data-noescape>
+                        a, b = 1, 2
+                        a, b = b, a 
+                        # In Python, you can swap the values of multiple variables in one line
+                        a, b = b + 1, a + b 
+                        # If there are multiple arguments to print, they will be seperated 
+                        # by a whitespace in the outputted line
+                        print("a =", a, ", b =", b)
+                        <span class="fragment"># output: a = 3, b = 3</span>
+                    </code></pre>
+                </div>
+            </section>
+
+            <section data-auto-animate data-background-gradient="linear-gradient(to bottom, #0C5D87, #002C42)"
+				class="reg-cus">
+				<h2 class="text-start">Attendance! 🤠</h2>
+				<hr>
+				<a href="https://go.cs61a.org/mingxiao-att" style="font-size: 40px">go.cs61a.org/mingxiao-att</a>
+				<div class="text-start" style="font-size: 36px">
+					<br>
+					<ul>
+						<li>Also linked on our section website!</li>
+						<li>Slides: <a href="https://go.cs61a.org/mingxiao-index">go.cs61a.org/mingxiao-index</a></li>
+					</ul>
+				</div>
+			</section>
+
+        </div>
+    </div>
+
+    <script src="dist/reveal.js"></script>
+    <script src="plugin/notes/notes.js"></script>
+    <script src="plugin/markdown/markdown.js"></script>
+    <script src="plugin/highlight/highlight.js"></script>
+    <script>
+        // More info about initialization & config:
+        // - https://revealjs.com/initialization/
+        // - https://revealjs.com/config/
+        Reveal.initialize({
+            hash: true,
+            // Learn about plugins: https://revealjs.com/plugins/
+            plugins: [RevealMarkdown, RevealHighlight, RevealNotes]
+        });
+        Reveal.configure({ pdfSeparateFragments: false });
+    </script>
+
+    <script>
+        window.onload = function () {
+            Particles.init({
+                selector: '.background',
+                color: ['#334C75', '#D4A561', '#0C5D87'],
+                connectParticles: true,
+                maxParticles: 100,
+            });
+        };
+
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/particlesjs/2.2.2/particles.min.js"></script>
+</body>
+
+</html>

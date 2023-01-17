@@ -1,0 +1,506 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>Lab 04</title>
+
+    <link rel="stylesheet" href="dist/reset.css">
+    <link rel="stylesheet" href="dist/reveal.css">
+    <link rel="stylesheet" href="dist/theme/black.css">
+    <link rel="stylesheet" href="css/custom.css">
+
+    <!-- Theme used for syntax highlighted code -->
+    <link rel="stylesheet" href="plugin/highlight/night-owl.min.css">
+
+    <!-- fonts -->
+    <link href='https://fonts.googleapis.com/css?family=Open Sans' rel='stylesheet'>
+
+    <!-- icon -->
+    <link rel="icon" href="https://mingxiaowei.github.io/61a-sections/public/images/favicon.ico" sizes="32x32">
+
+    <!-- link to bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+
+    <!-- link to bootstrap icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
+
+    <script src="plugin/highlight/highlight.js"></script>
+
+</head>
+
+<body>
+    <div class="reveal">
+        <div class="slides">
+            <section data-auto-animate data-background-gradient="linear-gradient(to top, #0C5D87, #002C42)"
+                class="customizable">
+                <div class="my-auto mx-auto">
+                    <h1>Lab 04</h1>
+                    <hr class="hr-1">
+                    <p>Recursion, Tree Recursion, Python Lists</p>
+                </div>
+                <br>
+                <br>
+
+                <footer class="bottom-left">
+                    <!-- <hr> -->
+                    <p>Mingxiao Wei</p>
+                    <p><a href="mailto:mingxiaowei@berkeley.edu" class="email"
+                            style="color:#8BC24A; text-decoration: underline;">
+                            mingxiaowei@berkeley.edu</a>
+                        <span class="text-end">Sep 19, 2022</span>
+                    </p>
+
+                </footer>
+                <canvas class="background"></canvas>
+            </section>
+
+            <section data-auto-animate data-background-gradient="linear-gradient(to top, #0C5D87, #002C42)"
+                class="reg-cus">
+                <h3 class="text-start">Logistics 🏡</h3>
+                <hr>
+                <ul class="spaced" style="font-size: 28px; line-height: 1.2;">
+                    <li>Lab 04 (this lab) due Wed 09/21</li>
+                    <li>Homework 03 due Thu 09/22
+                        <ul>
+                            <li>There's an optional contest in the homework! - Not worth any credit, but if you want to
+                                have fun with higher order functions, go for it 😼</li>
+                        </ul>
+                    </li>
+                    <li>If you late-enroll in the course, talk to me after section or email me - we have some new
+                        accommodation policies! </li>
+                    <li>The second round of scores has been released on <a
+                            href="https://howamidoing.cs61a.org/">howamidoing.cs61a.org</a>. If you have any issues with
+                        your grade:
+                        <ul>
+                            <li>
+                                For assignments, submit a regrade request on <a
+                                    href="https://howamidoing.cs61a.org/">howamidoing.cs61a.org</a> - please keep it
+                                short (~ 2 sentences) since there's a character limit and words exceeding the limit will
+                                not go through!
+                            </li>
+                            <li>
+                                For section attendance, email me.
+                                If you were not able to make it to section and emailed me beforehand, you should be
+                                marked as excused absence and receive attendance credit for that section.
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </section>
+
+            <section data-auto-animate data-background-gradient="linear-gradient(to top, #0C5D87, #002C42)"
+                class="reg-cus">
+                <h4 class="text-start">Highlight from last time 👀</h4>
+                <hr>
+                <div class="text-start" style="font-size: 26px; line-height: 1.2;">
+                    <p>If you could hold any number of pigeons, how many would you hold and why?</p>
+                </div>
+                <ul class="spaced" style="font-size: 27px; line-height: 1.2;">
+                    <li>"0 i am not risking getting pecked</li>
+                    <li>"1, handle w care"</li>
+                    <li>"One because I would like to bond on an individual level with my pigeon."</li>
+                    <li>"1 and make sure it doesn't poop"</li>
+                    <li>"2 so i can hold one in each hand"</li>
+                    <li>"I think 3 would be a solid number, one for each hand and a squishy bird for the middle :)"</li>
+                    <li>"3 cuz my lucky number is 3"</li>
+                    <li>"4 because two is too few and I want each pigeon to have a partner"</li>
+                    <li>"Four pigeons, two on the shoulders and two on my hands, as there is already someone who does
+                        this near Telegraph, Seeing another person holding as much pigeons would be strange."</li>
+                    <li>"300 bcz I want to be in the Guiness Book of World Records"</li>
+                    <li>"1000, I just wanna see if I can hold all of them."</li>
+                    <li>"99999999999999999999999999999999"</li>
+                </ul>
+            </section>
+
+            <section data-auto-animate data-background-gradient="linear-gradient(to top, #0C5D87, #002C42)"
+                class="reg-cus">
+                <h2 class="text-start">Introducing our AI's 🥳</h2>
+                <hr>
+                <div class="text-start" >
+                    <p>AI = Academic Intern</p>
+                    <p>They are excellent helpers in labs!</p>
+                    <ul class="shade">
+                        <li>Christy Quang</li>
+                        <li>Gabriella Skavdahl</li>
+                        <li>Jiaxin Fang</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section data-auto-animate data-background-gradient="linear-gradient(to bottom, #0C5D87, #002C42)"
+                class="reg-cus">
+                <h1>Recursion 🐚</h1>
+                <hr>
+            </section>
+
+            <section data-transition="slide" data-background-gradient="linear-gradient(to top, #00527C, #1C8497)"
+                class="reg-cus">
+                <h4 class="text-start">Introduction</h4>
+                <hr>
+                <div style="font-size: 28px; line-height: 1.3;">
+                    <ul>
+                        <li>A recursive function is a function that is defined in terms of itself - i.e., the function
+                            calls itself</li>
+                        <li>3 main steps in a recursive function:
+                            <ol>
+                                <li><span class="shade">Base case</span>
+                                    - the simplest function input, or the stopping condition for the recursion
+                                </li>
+                                <li>
+                                    <span class="shade">Recursive call on a smaller problem</span>
+                                    - calling the function on a smaller problem that our current problem depends on. We
+                                    can assume that a recursive call on this smaller problem will give us the expected
+                                    result
+                                    as long as the we implement other parts correctly - the idea of the
+                                    <span class="shade">"recursive leap of faith"</span>.
+                                </li>
+                                <li>
+                                    <span class="shade">Solve the larger problem / Combination step</span> - usually by
+                                    using the result
+                                    from the recursive call to figure out the result of our current problem
+                                </li>
+                            </ol>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <section data-transition="slide" data-background-gradient="linear-gradient(to top, #00527C, #1C8497)"
+                class="reg-cus">
+                <h4 class="text-start">Problem-Solving Strategies</h4>
+                <hr>
+                <div style="font-size: 28px; line-height: 1.3;">
+                    <ul>
+                        <li>Base case:
+                            <ul>
+                                <li>Usually hinted in the doctests - make sure to read them!</li>
+                                <li>Think about different possibilities of "when to stop"</li>
+                                <li>If multiple arguments change throughout the recursive calls, make sure to
+                                    include a base case for <i>each</i> argument - this is especially relevant in tree
+                                    recursion</li>
+                                <li>If there are multiple base cases, think about whether or not the order of them
+                                    matters</li>
+                            </ul>
+                        </li>
+                        <li>Recursive call:
+                            <ul>
+                                <li>Think about how to break down the problem into smaller ones</li>
+                                <li>Make sure that the base cases are <i>reachable</i> - that is, the argument changes
+                                    toward the base case each time</li>
+                            </ul>
+                        </li>
+                        <li>Combination step:
+                            <ul>
+                                <li>Assuming the implementation is correct (this is the recursive leap of faith), ask
+                                    yourself:
+                                    <span class="shade">what will the recursive call return?</span>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #1C8497)"
+                class="reg-cus">
+                <h4 class="text-start">Helper functions for recursion</h4>
+                <hr>
+                <div style="font-size: 28px; line-height: 1.3;">
+                    <ul>
+                        <li>When to use:
+                            <ul>
+                                <li>Need to keep track of more variables than the given parameters of the outer function
+                                </li>
+                                <li>Need the original parameter from the outer function for each recursive call AND some
+                                    other parameters that change throughout the recursive call</li>
+                            </ul>
+                        </li>
+                        <li>Where - usually, though not necessarily, nested within the original function
+                        </li>
+                        <li>How - define the helper function, and return a call to it with appropriate initial arguments
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <section data-auto-animate data-background-gradient="linear-gradient(to bottom, #0C5D87, #002C42)"
+                class="reg-cus">
+                <h1>Tree Recursion 🌴</h1>
+                <hr>
+            </section>
+
+            <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #1C8497)"
+                class="reg-cus">
+                <h4 class="text-start">Tree Recursion</h4>
+                <hr>
+                <div style="font-size: 28px; line-height: 1.2;">
+                    <ul>
+                        <li>A tree recursive function is a recursive function that <span class="shade">makes more than
+                                one call to itself</span>, resulting in a tree-like series of calls.
+                        </li>
+                        <li>For example, let's say we want to recursively calculate the $n^{th}$ Fibonacci number,
+                            defined as:
+                        </li>
+                        <pre class="my-3"><code class="hljs python py-3" data-trim>
+                        def fib (n):
+                            if n == 0 or n == 1:
+                                return n
+                            return fib(n - 1) + fib(n - 2)
+                        </code></pre>
+                        <li>
+                            Now, what happens when we call <code class="hljs python">fib(4)</code>?
+                            <ul>
+                                <li class="fragment">
+                                    Each <code class="hljs python">fib(i)</code> node represents a recursive call to
+                                    <code class="hljs python">fib</code>.
+                                </li>
+                                <li class="fragment">
+                                    For <code class="hljs python">i >= 2</code>, each recursive call <code
+                                        class="hljs python">fib(i)</code>
+                                    makes another two recursive calls, which are to
+                                    <code class="hljs python">fib(i - 1)</code> and
+                                    <code class="hljs python">fib(i - 2)</code>.
+                                </li>
+                                <li class="fragment">
+                                    Whenever we reach a <code class="hljs python">fib(0)</code> or <code
+                                        class="hljs python">fib(1)</code> node, we can directly return 0 or 1, since
+                                    these are our base cases.
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #1C8497)"
+                class="reg-cus">
+                <h4 class="text-start">Count Partitions Revisit</h4>
+                <hr>
+                <div style="font-size: 28px; line-height: 1.2;">
+                    <p class="text-start">Given two positive integers <code class="hljs python">n</code> and <code
+                            class="hljs python">m</code>,
+                        return the number of ways in which <code class="hljs python">n</code> can be expressed as the
+                        sum of positive integer parts up to <code class="hljs python">m</code> in
+                        increasing order.</p>
+                    <ul style="font-size: 27px; line-height: 1.2;">
+                        <li class="fragment">Recursive case: Since each integer part is up to <code class="hljs python">m</code>, at each
+                            step, where
+                            each step generates one number in the partition, we have two choices:
+                            <ol>
+                                <li>Use <code class="hljs python">m</code> to partition <code
+                                        class="hljs python">n</code>,
+                                    so that at the next step, <code class="hljs python">n</code> becomes
+                                    <code class="hljs python">n - m</code>, and the largest possible part is still
+                                    <code class="hljs python">m</code>
+                                </li>
+                                <li>Don't use <code class="hljs python">m</code>. So at the next step,
+                                    <code class="hljs python">n</code> remains unchanged, but <code
+                                        class="hljs python">m</code>
+                                    becomes <code class="hljs python">m - 1</code> (we choose not to use the largest
+                                    possible part,
+                                    <code class="hljs python">m</code>, so the next largest possible one is
+                                    <code class="hljs python">m - 1</code>)
+                                </li>
+                            </ol>
+                        </li>
+                        <li class="fragment">The two choices will result in two distinct sets of results, since in the first one we use
+                            <code class="hljs python">m</code> to partition, while in the second one we use at most
+                            <code class="hljs python">m - 1</code>
+                        </li>
+                        <li class="fragment">Therefore, the total # of partitions = # partitions from choice 1 + # partitions from choice
+                            2</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #1C8497)"
+                class="reg-cus">
+                <h4 class="text-start">Count Partitions Revisit</h4>
+                <hr>
+                <div style="font-size: 28px; line-height: 1.2;">
+                    <p class="text-start">Given two positive integers <code class="hljs python">n</code> and <code
+                            class="hljs python">m</code>,
+                        return the number of ways in which <code class="hljs python">n</code> can be expressed as the
+                        sum of positive integer parts up to <code class="hljs python">m</code> in
+                        increasing order.</p>
+                    <ul>
+                        <li>Base case:
+                            <ul style="font-size: 26px; line-height: 1.2;">
+                                <li><code class="hljs python">n == 0</code> - note that since <code
+                                        class="hljs python">n</code> and <code class="hljs python">m</code> are positive
+                                    integers according to the problem description, when
+                                    <code class="hljs python">n</code> is 0, it could only be the case where <code
+                                        class="hljs python">n - m</code>
+                                    results in 0 from the previous recursive call. In other words, when <code
+                                        class="hljs python">n</code> is 0,
+                                    it menas that we've successfully partitioned <code class="hljs python">n</code> so
+                                    that there's nothing left to
+                                    partition. In this case, return 1, since we found one valid parition.
+                                </li>
+                                <li>
+                                    <code class="hljs python">n < 0</code> - similarly, since the original input to the
+                                    function must be positive
+                                    integers, a negative <code class="hljs python">n</code> can only result from
+                                    <code class="hljs python">n - m</code> from the last step. In this case, <code
+                                        class="hljs python">m</code> was
+                                    greater than <code class="hljs python">n</code> from the last step, indicating that
+                                    the partition was not
+                                    succeessful.
+                                </li>
+                                <li>
+                                    <code class="hljs python">m == 0</code> - also similarly, a negative <code
+                                        class="hljs python">m</code> can only
+                                    result from <code class="hljs python">m - 1</code> from the last step. Since the
+                                    question requires that all
+                                    parts of a partition are positive integers, such an partition is invalid.
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #1C8497)"
+                class="reg-cus">
+                <h4 class="text-start">Count Partitions Revisit</h4>
+                <hr>
+                <div style="font-size: 28px; line-height: 1.2;">
+                    <p class="text-start">Given two positive integers <code class="hljs python">n</code> and <code
+                            class="hljs python">m</code>,
+                        return the number of ways in which <code class="hljs python">n</code> can be expressed as the
+                        sum of positive integer parts up to <code class="hljs python">m</code> in
+                        increasing order.</p>
+                    <pre><code class="hljs python" data-trim>
+                    def count_partitions (n, m):
+                        if n == 0:
+                            return 1
+                        elif n < 0 or m == 0:
+                            return 0
+                        else:
+                            with_m = count_partitions(n-m, m)
+                            without_m = count_partitions(n, m-1)
+                            return with_m + without_m
+                    </code></pre>
+                </div>
+            </section>
+
+            <section data-auto-animate data-background-gradient="linear-gradient(to bottom, #0C5D87, #002C42)"
+                class="reg-cus">
+                <h1>List Comprehension 📑</h1>
+                <hr>
+            </section>
+
+            <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #1C8497)"
+                class="reg-cus">
+                <h4 class="text-start">List Comprehension</h4>
+                <hr>
+                <div style="font-size: 28px; line-height: 1.2;">
+                    <ul>
+                        <li>List comprehensions are a compact and powerful way of creating new lists out of sequences.
+                        </li>
+                        <pre class="my-3"><code class="hljs python py-3" data-trim>
+                            [&lt;expr&gt; for &lt;var&gt; in &lt;seq&gt; if &lt;cond&gt;]
+                            </code></pre>
+                        <li>In English, this translates to:
+                            <ol>
+                                <li>
+                                    For each element in the sequence <code class="hljs python">&lt;seq&gt;</code>,
+                                    bind it to the variable name <code class="hljs python">&lt;var&gt;</code>.
+                                </li>
+                                <li>
+                                    If the element satisfy the condition <code class="hljs python">&lt;cond&gt;</code>
+                                    (or skip this check if there's no condition),
+                                    evaluate the expression <code class="hljs python">&lt;expr&gt;</code>, and add the
+                                    value from <code class="hljs python">&lt;expr&gt;</code> to the resulting list.
+                                </li>
+                            </ol>
+                        </li>
+                        <li>Note:
+                            <ul>
+                                <li><code class="hljs python">if &lt;cond&gt;</code>is optional. </li>
+                                <li><code class="hljs python">&lt;expr&gt;</code> and <code
+                                        class="hljs python">&lt;cond&gt;</code>
+                                    may refer to <code class="hljs python">&lt;var&gt;</code>, which is essentially
+                                    every element in the sequence</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <section data-transition="slide" data-background-gradient="linear-gradient(to top, #00527C, #1C8497)"
+                class="reg-cus">
+                <h4 class="text-start">List Comprehension - WWPD</h4>
+                <hr>
+                <div style="font-size: 28px; line-height: 1.2;">
+                    <pre><code class="hljs python-repl" data-trim data-noescape>
+                    >>> lst_1 = [1, 2, 3, 4]
+                    >>> lst_2 = [5, 6, 7, 8]
+                    >>> [i ** 2 for  i in  lst_1]
+                    <span class="fragment">[1, 4, 9, 16]</span>
+                    >>> ['go' for j in  lst_2 if  j > 5]
+                    <span class="fragment">['go', 'go', 'go']</span>
+                    >>> [print (k) for  k in  lst_2 if  k % 2 == 0] 
+                    <span class="fragment">6</span>
+                    <span class="fragment">8</span>
+                    <span class="fragment">[None, None]</span>
+                    </code></pre>
+                </div>
+            </section>
+
+            <section data-auto-animate data-background-gradient="linear-gradient(to bottom, #0C5D87, #002C42)"
+                class="reg-cus">
+                <h2 class="text-start">Attendance! 🤠</h2>
+                <hr>
+                <a href="https://go.cs61a.org/mingxiao-att" style="font-size: 40px">go.cs61a.org/mingxiao-att</a>
+                <div class="text-start" style="font-size: 36px; line-height: 1.2;">
+                    <br>
+                    <ul>
+                        <li>The attendance form and slides are both linked on our <a
+                                href="https://go.cs61a.org/mingxiao-index">section website</a>!</li>
+                        <li>If you finish early, let me or any of the AI's know and we'll check you off</li>
+                        <li class="shade">Once again, please do remember to fill out the form by midnight today!!</li>
+                    </ul>
+                </div>
+            </section>
+
+        </div>
+    </div>
+
+    <script src="dist/reveal.js"></script>
+    <script src="plugin/notes/notes.js"></script>
+    <script src="plugin/markdown/markdown.js"></script>
+    <script src="plugin/highlight/highlight.js"></script>
+    <script src="plugin/math/math.js"></script>
+    <script>
+        // More info about initialization & config:
+        // - https://revealjs.com/initialization/
+        // - https://revealjs.com/config/
+        Reveal.initialize({
+            hash: true,
+            // Learn about plugins: https://revealjs.com/plugins/
+            plugins: [RevealMarkdown, RevealHighlight, RevealNotes, RevealMath.KaTeX]
+        });
+        Reveal.configure({ pdfSeparateFragments: false });
+    </script>
+
+    <script>
+        window.onload = function () {
+            Particles.init({
+                selector: '.background',
+                color: ['#334C75', '#D4A561', '#0C5D87'],
+                connectParticles: true,
+                maxParticles: 100,
+            });
+        };
+
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/particlesjs/2.2.2/particles.min.js"></script>
+</body>
+
+</html>

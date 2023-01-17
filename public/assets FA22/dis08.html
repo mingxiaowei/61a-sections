@@ -1,0 +1,561 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>Discussion 08</title>
+
+    <link rel="stylesheet" href="dist/reset.css">
+    <link rel="stylesheet" href="dist/reveal.css">
+    <link rel="stylesheet" href="dist/theme/black.css">
+    <link rel="stylesheet" href="css/custom.css">
+
+    <!-- Theme used for syntax highlighted code -->
+    <link rel="stylesheet" href="plugin/highlight/night-owl.min.css">
+
+    <!-- fonts -->
+    <link href='https://fonts.googleapis.com/css?family=Open Sans' rel='stylesheet'>
+
+    <!-- icon -->
+    <link rel="icon" href="https://mingxiaowei.github.io/61a-sections/public/images/favicon.ico" sizes="32x32">
+
+    <!-- link to bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+
+    <!-- link to bootstrap icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
+
+    <script src="plugin/highlight/highlight.js"></script>
+
+</head>
+
+<body>
+    <div class="reveal">
+        <div class="slides">
+            <section data-auto-animate data-background-gradient="linear-gradient(to top, #0C5D87, #002C42)"
+                class="customizable">
+                <div class="my-auto mx-auto">
+                    <h1>Discussion 08</h1>
+                    <hr class="hr-1">
+                    <p>Linked Lists, Mutable Trees, Efficiency</p>
+                </div>
+                <br>
+                <br>
+
+                <footer class="bottom-left">
+                    <!-- <hr> -->
+                    <p>Mingxiao Wei</p>
+                    <p><a href="mailto:mingxiaowei@berkeley.edu" class="email"
+                            style="color:#8BC24A; text-decoration: underline;">
+                            mingxiaowei@berkeley.edu</a>
+                        <span class="text-end">Oct 20, 2022</span>
+                    </p>
+
+                </footer>
+                <canvas class="background"></canvas>
+            </section>
+
+            <section data-auto-animate data-background-gradient="linear-gradient(to top, #0C5D87, #002C42)"
+                class="reg-cus">
+                <h3 class="text-start">Logistics 🏡</h3>
+                <hr>
+                <div class="text-start">
+                    <ul class="spaced text-start" style="font-size: 28px; line-height: 1.2;">
+                        <li>Homework 06 due today 10/20</li>
+                        <li>ANTS
+                            <img class="mp0" data-src="media\ant_fire.gif" style="height: 50px; width:auto;">
+                            <img class="mp0" data-src="media\bee.gif" style="height: 50px; width:auto;">
+                            <ul class="spaced">
+                                <li>The whole project tomorrow 10/21</li>
+                                <li>Submit by today for one extra point!</li>
+                            </ul>
+                        </li>
+                        <li>Reminder - Homework 05 Recovery
+                            (Ed post <a href="https://edstem.org/us/courses/25379/discussion/1982400">#2128</a>)</li>
+                    </ul>
+                </div>
+
+            </section>
+
+            <section data-auto-animate data-background-gradient="linear-gradient(to top, #0C5D87, #002C42)"
+                class="reg-cus">
+                <h3 class="text-start">About the midterm 😮</h3>
+                <hr>
+                <ul class="spaced" style="font-size: 28px; line-height: 1.2;">
+                    <li>Logistics -
+                        Ed post <a href="https://edstem.org/us/courses/25379/discussion/1983557">#2141</a>
+                        <ul>
+                            <li>If you need ANY alterations (left-handed desk, mask-required rooms, remote, other
+                                accommodations due to DSP or otherwise), please
+                                <a href="https://go.cs61a.org/exam-alts">fill out this form</a>
+                                by Sun 10/23!!
+                            </li>
+                        </ul>
+                    </li>
+                    <li>Familiarize yourself with the <a
+                            href="https://cs61a.org/assets/pdfs/61a-mt2-study-guide.pdf">study guide</a> -
+                        this is a good starting point to go over the topics!</li>
+                    <li>Preparations
+                        <ul class="spaced">
+                            <li>Familiarize yourself with the topics in scope</li>
+                            <li>Attend review session (or watch recordings/slides) for more topical review - see Ed for
+                                more info</li>
+                            <li>Do practice exams!
+                                <ul>
+                                    <li>Quality > quantity</li>
+                                    <li>Post on exam threads on Ed for help</li>
+                                    <li>Walkthrough videos/guide are your friend!</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </section>
+
+            <section data-auto-animate data-background-gradient="linear-gradient(to top, #0C5D87, #002C42)"
+                class="reg-cus">
+                <h4 class="text-start">From last time... 👀</h4>
+                <hr>
+                <p class="text-start" style="line-height: 1; font-size: 30px;">What's the best fruit?</p>
+                <img class="mt-0" data-src="media\lab08-att-q.png" style="height: 530px; width:auto;">
+            </section>
+
+            <section data-auto-animate data-background-gradient="linear-gradient(to bottom, #0C5D87, #002C42)"
+                class="reg-cus">
+                <h1>Linked List 🍻</h1>
+                <hr>
+            </section>
+
+            <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #1C8497)"
+                class="reg-cus">
+                <h4 class="text-start">Linked List</h4>
+                <hr>
+                <div class="text-start" style="font-size: 30px; line-height: 1.2;">
+                    <ul class="spaced">
+                        <li>A linked list is either:
+                            <ul>
+                                <li>An empty linked list - <code class="hljs python">Link.empty</code></li>
+                                <li>An instance from the <code class="hljs python t">Link</code> class, containing a
+                                    <code class="hljs python t">first</code> value and the <code
+                                        class="hljs python t">rest</code> of the linked list, which is another linked
+                                    list - recursive object
+                                </li>
+                            </ul>
+                        </li>
+                        <li>When we say a "node" of the linked list, we usually refer to a <code
+                                class="hljs python t">Link</code> object</li>
+                        <li>To check whether or not a linked list is empty, use <code class="hljs python">is</code> to
+                            compare it against <code class="hljs python">Link.empty</code></li>
+                    </ul>
+                </div>
+            </section>
+
+            <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #1C8497)"
+                class="reg-cus">
+                <h4 class="text-start">Linked List - Implementation</h4>
+                <hr>
+                <div class="text-start" style="font-size: 30px; line-height: 1.2;">
+                    <pre><code class="hljs python px-2 py-2" data-trim>
+                        class Link :
+                            empty = ()
+
+                            def __init__(self, first, rest=empty):
+                                assert rest is Link.empty or isinstance(rest, Link)
+                                self.first = first
+                                self.rest = rest     
+                    </code></pre>
+                    <ul>
+                        <li><code class="hljs python t">Link.empty</code> can be implemented as literally anything as
+                            long as we use <code class="hljs python t">is</code> to compare it against other linked
+                            lists</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #1C8497)"
+                class="reg-cus">
+                <h4 class="text-start">Linked List - Repr</h4>
+                <hr>
+                <div class="text-start" style="font-size: 30px; line-height: 1.2;">
+                    <pre><code class="hljs python px-2 py-2" data-trim>
+                        class Link :
+                            empty = ()
+                            ...
+                            def __repr__(self):
+                                if self.rest:
+                                    rest_repr = ', ' + repr(self.rest)
+                                else:
+                                    rest_repr = ''
+                                return 'Link(' + repr(self.first) + rest_repr + ')'    
+                    </code></pre>
+                    <ul>
+                        <li><code class="hljs python t">__repr__</code> returns a string, that, when evaluated, returns
+                            a <code class="hljs python t">Link</code> object containing the same values
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #1C8497)"
+                class="reg-cus">
+                <h4 class="text-start">Linked List - Str</h4>
+                <hr>
+                <div class="text-start" style="font-size: 30px; line-height: 1.2;">
+                    <pre><code class="hljs python px-2 py-2" data-trim>
+                        class Link :
+                            empty = ()
+                            ...
+                            def __str__(self):
+                                string = '<'
+                                while self.rest is not Link.empty:
+                                    string += str(self.first) + ' '
+                                    self = self.rest
+                                return string + str(self.first) + '>' 
+                    </code></pre>
+                    <ul class="spaced">
+                        <li><code class="hljs python t">__str__</code> returns a string where:
+                            <ul class="spaced">
+                                <li>the whole linked list is wrapped by angle brackets</li>
+                                <li>Each item is represented by their own <code class="hljs python t">str()</code>
+                                    method</li>
+                                <li>Every two adjacent items are separated by a whitespace</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #1C8497)"
+                class="reg-cus">
+                <h4 class="text-start">Constructing a Linked List</h4>
+                <hr>
+                <div class="text-start" style="font-size: 30px; line-height: 1.2;">
+                    <pre class="mp0"><code class="hljs python pb-0 pt-2 mb-0" data-trim>
+                        lst = [1, 2, 3, 4]
+                        
+                        # -------- Iterative Approach ---------
+                        def iterative_constructor (lst): 
+                            iterative_link = Link.empty
+                            for elem in lst: 
+                                iterative_link = Link(elem, iterative_link)
+                            return iterative_link 
+
+                    </code></pre>
+                    <pre class="mp0"><code class="hljs python pb-2 pt-0 mt-0" data-trim>
+                        # -------- Recursive Approach ---------
+                        def recursive_constructor (lst): 
+                            if lst == []:
+                                return Link.empty 
+                            return Link(lst[0], recursive_constructor(lst[1:])) 
+                    </code></pre>
+                    <ul class="spaced">
+                        <li>recursion - construct from the front</li>
+                        <li>iteration - construct from the back</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #1C8497)"
+                class="reg-cus">
+                <h4 class="text-start">Linked List - Problem Solving Strategies</h4>
+                <hr>
+                <div class="text-start" style="font-size: 30px; line-height: 1.2;">
+                    <ul class="spaced">
+                        <li>Pay attention to whether it's <span class="bu">mutation</span> or <span
+                                class="bu">constructing a new linked list</span>
+                            <ul class="spaced">
+                                <li>For mutation problems, the return value is often <code
+                                        class="hljs python t">None</code></li>
+                                <li>For problems that return a new linked list, in what order should we constrcut the
+                                    list?</li>
+                            </ul>
+                        </li>
+                        <li>To mutate a linked list, reassign its instance attributes (<code
+                                class="hljs python t">link.first = ...</code> or <code
+                                class="hljs python t">link.rest = ...</code>)</li>
+                        <li>Before accessing any instance attributes from a <code class="hljs python t">Link</code>
+                            object, make sure that it's not <code class="hljs python t">Link.empty</code>!</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section data-auto-animate data-background-gradient="linear-gradient(to bottom, #0C5D87, #002C42)"
+                class="reg-cus">
+                <h1>Worksheet Q2-5</h1>
+                <hr>
+            </section>
+
+            <section data-auto-animate data-background-gradient="linear-gradient(to bottom, #0C5D87, #002C42)"
+                class="reg-cus">
+                <h1>Trees 🌳</h1>
+                <hr>
+            </section>
+
+            <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #1C8497)"
+                class="reg-cus">
+                <h4 class="text-start">Trees</h4>
+                <hr>
+                <div class="text-start" style="font-size: 30px; line-height: 1.2;">
+                    <ul class="spaced">
+                        <li>OOP trees - mutable, use <code class="hljs python t">Tree(...)</code> to construct</li>
+
+                    </ul>
+                    <pre class="mp0"><code class="hljs python pb-2 pt-0 mt-0" data-trim>
+                        class Tree :
+                            def __init__(self, label, branches=[]):
+                                for b in branches:
+                                    assert isinstance(b, Tree)
+                                self.label = label
+                                self.branches = branches
+
+                            def is_leaf (self):
+                                return not self.branches
+                    </code></pre>
+                </div>
+            </section>
+
+            <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #1C8497)"
+                class="reg-cus">
+                <h4 class="text-start">Trees - Problem Solving Strategies</h4>
+                <hr>
+                <div class="text-start" style="font-size: 30px; line-height: 1.2;">
+                    <ul class="spaced">
+                        <li>Pay attention to whether it's <span class="bu">mutation</span> or <span
+                                class="bu">constructing a new linked trees</span>
+                        </li>
+                        <li>To mutate a tree object:
+                            <ul>
+                                <li>reassign its instance attributes (<code class="hljs python t">t.label = ...</code>
+                                    or <code class="hljs python t">t.label = ...</code>)</li>
+                                <li>use list mutation method on its branches - <code
+                                        class="hljs python t">t.branches</code> is a <span class="bu">list</span> of
+                                    trees!</li>
+                            </ul>
+                        </li>
+                        <li>For mutation problems: 
+                            <ul class="spaced">
+                                <li>
+                                    Think about which should be mutated first - the root node or its branches?
+                                </li>
+                                <li>The return value is often <code class="hljs python t">None</code></li>
+                                <li>Sometimes the case case is implicit - if we have for loop that iterates through all the branches, the body of the for loop will not be executed if <code class="hljs python t">t.branches</code> is an empty list (i.e., when <code class="hljs python t">t</code> is a leaf</li>
+                            </ul>
+                            </li>
+                    </ul>
+                </div>
+            </section>
+
+            <section data-auto-animate data-background-gradient="linear-gradient(to bottom, #0C5D87, #002C42)"
+                class="reg-cus">
+                <h1>Worksheet Q6, 7</h1>
+                <hr>
+            </section>
+
+            
+
+            <section data-auto-animate data-background-gradient="linear-gradient(to bottom, #0C5D87, #002C42)"
+                class="reg-cus">
+                <h1>Order of Growth 📈</h1>
+                <hr>
+            </section>
+
+            <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #1C8497)"
+                class="reg-cus">
+                <h4 class="text-start">Order of Growth</h4>
+                <hr>
+                <div class="text-start" style="font-size: 30px; line-height: 1.2;">
+                    <ul class="spaced">
+                        <li>Order of growth (efficiency) - how the runtime of the function changes as the input size increases</li>
+                        <li><span class="shade">Input size</span> (not the definition, but as a rule of thumb)
+                            <ul class="spaced">
+                                <li>numeric input - magnitude of the number</li>
+                                <li>Python lists - length of the list</li>
+                                <li>linked list/trees/other recursive objects - number of nodes</li>
+                            </ul>
+                        </li>
+                        <li><span class="shade">Runtime</span> (not the definition, but as a rule of thumb)
+                            <ul class="spaced">
+                                <li>often measured as the number of operations</li>
+                            </ul>
+                        </li>
+                        <li>For 61A, we use the theta notation - for input of size $n$, the runtime of the function is denoted by $\Theta(f(n))$</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #1C8497)"
+                class="reg-cus">
+                <h4 class="text-start">Order of Growth - Constant</h4>
+                <hr>
+                <div class="text-start" style="font-size: 30px; line-height: 1.2;">
+                    <ul class="spaced">
+                        <li>Constant $\leftrightarrow \Theta(1)$</li>
+                        <li>The runtime of the function does not change as the input size changes</li>
+                        <li>For example:
+                            <pre><code class="hljs python py-2" data-trim>
+                                def square (x):
+                                    return x * x
+                            </code></pre>
+                        </li>
+                        <img class="mt-0" data-src="media\dis08-p1.png" >
+                    </ul>
+                </div>
+            </section>
+
+            <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #1C8497)"
+                class="reg-cus">
+                <h4 class="text-start">Order of Growth - Logarithmic</h4>
+                <hr>
+                <div class="text-start" style="font-size: 30px; line-height: 1.2;">
+                    <ul class="spaced">
+                        <li>Logarithmic $\leftrightarrow \Theta(\log n)$</li>
+                        <li>Often when we keep dividing the input by a constant</li>
+                        <li>For example:
+                            <pre class="my-2"><code class="hljs python py-2" data-trim>
+                                def foo (x):
+                                    while x > 0:
+                                        print('hey')
+                                        x //= 2
+                            </code></pre>
+                        </li>
+                        <!-- <img class="mt-0" data-src="media\dis08-p2.png" > -->
+                    </ul>
+                </div>
+            </section>
+
+            <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #1C8497)"
+                class="reg-cus">
+                <h4 class="text-start">Order of Growth - Linear</h4>
+                <hr>
+                <div class="text-start" style="font-size: 30px; line-height: 1.2;">
+                    <ul class="spaced">
+                        <li>Linear $\leftrightarrow \Theta(n)$</li>
+                        <li>For example:
+                            <pre class="my-2"><code class="hljs python py-2" data-trim>
+                                def factorial (x):
+                                    prod = 1
+                                    for i in range(1, x + 1):
+                                        prod *= i 
+                                    return prod
+                            </code></pre>
+                        </li>
+                        <img class="mt-0" data-src="media\dis08-p2.png" >
+                    </ul>
+                </div>
+            </section>
+
+            <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #1C8497)"
+                class="reg-cus">
+                <h4 class="text-start">Order of Growth - Quadratic</h4>
+                <hr>
+                <div class="text-start" style="font-size: 30px; line-height: 1.2;">
+                    <ul class="spaced">
+                        <li>Quadratic $\leftrightarrow \Theta(n^2)$</li>
+                        <li>For example:
+                            <pre class="my-2"><code class="hljs python py-2" data-trim>
+                                def bar(n):
+                                    for a in range(n):
+                                        for b in range(n):
+                                            print(a,b)
+                            </code></pre>
+                        </li>
+                        <img class="mt-0" data-src="media\dis08-p3.png" >
+                    </ul>
+                </div>
+            </section>
+
+            <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #1C8497)"
+                class="reg-cus">
+                <h4 class="text-start">Order of Growth - Exponential</h4>
+                <hr>
+                <div class="text-start" style="font-size: 30px; line-height: 1.2;">
+                    <ul class="spaced">
+                        <li>Exponential $\leftrightarrow \Theta(c^n)$, where $c$ is a constant</li>
+                        <li>For example:
+                            <pre class="my-2"><code class="hljs python py-2" data-trim>
+                                def rec(n):
+                                    if n == 0:
+                                        return 1
+                                    else:
+                                        return rec(n - 1) + rec(n - 1)
+                            </code></pre>
+                        </li>
+                        <img class="mt-0" data-src="media\dis08-p4.png" >
+                    </ul>
+                </div>
+            </section>
+
+            <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #1C8497)"
+                class="reg-cus">
+                <h4 class="text-start">Order of Growth - Other Notes</h4>
+                <hr>
+                <div class="text-start" style="font-size: 30px; line-height: 1.2;">
+                    <ul class="spaced">
+                        <li>constant &lt; logarithmic &lt; linear &lt; quadratic &lt; exponential</li>
+                        <li>Constants are ignored</li>
+                        <li>We only consider the term that grows fastest</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section data-auto-animate data-background-gradient="linear-gradient(to bottom, #0C5D87, #002C42)"
+                class="reg-cus">
+                <h1>Worksheet Q8</h1>
+                <hr>
+            </section>
+
+            <section data-auto-animate data-background-gradient="linear-gradient(to bottom, #0C5D87, #002C42)"
+                class="reg-cus">
+                <h2 class="text-start">Attendance! 🤠</h2>
+                <hr>
+                <a href="https://go.cs61a.org/mingxiao-att" style="font-size: 40px">go.cs61a.org/mingxiao-att</a>
+                <div class="text-start" style="font-size: 36px; line-height: 1.2;">
+                    <br>
+                    <ul>
+                        <li>The attendance form and slides are both linked on our <a
+                                href="https://go.cs61a.org/mingxiao-index">section website</a>!</li>
+                        <!-- <li>If you finish early, let me or any of the AI's know and we'll check you off</li> -->
+                        <li class="shade">Once again, please do remember to fill out the form by midnight today!!</li>
+                    </ul>
+                </div>
+            </section>
+
+        </div>
+    </div>
+
+    <script src="dist/reveal.js"></script>
+    <script src="plugin/notes/notes.js"></script>
+    <script src="plugin/markdown/markdown.js"></script>
+    <script src="plugin/highlight/highlight.js"></script>
+    <script src="plugin/math/math.js"></script>
+    <script>
+        // More info about initialization & config:
+        // - https://revealjs.com/initialization/
+        // - https://revealjs.com/config/
+        Reveal.initialize({
+            hash: true,
+            // Learn about plugins: https://revealjs.com/plugins/
+            plugins: [RevealMarkdown, RevealHighlight, RevealNotes, RevealMath.KaTeX]
+        });
+        Reveal.configure({ pdfSeparateFragments: false });
+    </script>
+
+    <script>
+        window.onload = function () {
+            Particles.init({
+                selector: '.background',
+                color: ['#334C75', '#D4A561', '#0C5D87'],
+                connectParticles: true,
+                maxParticles: 100,
+            });
+        };
+
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/particlesjs/2.2.2/particles.min.js"></script>
+</body>
+
+</html>

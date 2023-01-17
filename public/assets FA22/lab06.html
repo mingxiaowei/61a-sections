@@ -1,0 +1,642 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>Lab 06</title>
+
+    <link rel="stylesheet" href="dist/reset.css">
+    <link rel="stylesheet" href="dist/reveal.css">
+    <link rel="stylesheet" href="dist/theme/black.css">
+    <link rel="stylesheet" href="css/custom.css">
+
+    <!-- Theme used for syntax highlighted code -->
+    <link rel="stylesheet" href="plugin/highlight/night-owl.min.css">
+
+    <!-- fonts -->
+    <link href='https://fonts.googleapis.com/css?family=Open Sans' rel='stylesheet'>
+
+    <!-- icon -->
+    <link rel="icon" href="https://mingxiaowei.github.io/61a-sections/public/images/favicon.ico" sizes="32x32">
+
+    <!-- link to bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+
+    <!-- link to bootstrap icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
+
+    <script src="plugin/highlight/highlight.js"></script>
+
+</head>
+
+<body>
+    <div class="reveal">
+        <div class="slides">
+            <section data-auto-animate data-background-gradient="linear-gradient(to top, #0C5D87, #002C42)"
+                class="customizable">
+                <div class="my-auto mx-auto">
+                    <h1>Lab 06</h1>
+                    <hr class="hr-1">
+                    <p>Iterators, Mutability</p>
+                </div>
+                <br>
+                <br>
+
+                <footer class="bottom-left">
+                    <!-- <hr> -->
+                    <p>Mingxiao Wei</p>
+                    <p><a href="mailto:mingxiaowei@berkeley.edu" class="email"
+                            style="color:#8BC24A; text-decoration: underline;">
+                            mingxiaowei@berkeley.edu</a>
+                        <span class="text-end">Oct 03, 2022</span>
+                    </p>
+
+                </footer>
+                <canvas class="background"></canvas>
+            </section>
+
+            <section data-auto-animate data-background-gradient="linear-gradient(to top, #0C5D87, #002C42)"
+                class="reg-cus">
+                <h3 class="text-start">Logistics 🏡</h3>
+                <hr>
+                <ul class="spaced" style="font-size: 28px; line-height: 1.2;">
+                    <li>Lab 06 due this Wed 10/05</li>
+                    <li>Homework 04 due this Thu 10/06</li>
+                    <li>Reminder - if you want more review on discussion worksheet/exam prep, sign up for tutoring
+                        sections!
+                        (Ed post <a href="https://edstem.org/us/courses/25379/discussion/1870775">#1528</a>)</li>
+                    <li>Reminder - homework 03 recovery (Ed post <a
+                            href="https://edstem.org/us/courses/25379/discussion/1843483">#1370</a>)</li>
+                </ul>
+            </section>
+
+            <!-- <section data-auto-animate data-background-gradient="linear-gradient(to top, #0C5D87, #002C42)"
+                class="reg-cus">
+                <h4 class="text-start">Highlight from last time 👀</h4>
+                <hr>
+                <img data-src="media\lab05-att-q.png">
+            </section> -->
+
+            <section data-auto-animate data-background-gradient="linear-gradient(to bottom, #0C5D87, #002C42)"
+                class="reg-cus">
+                <h1>Mutability 🦁</h1>
+                <hr>
+            </section>
+
+            <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #1C8497)"
+                class="reg-cus">
+                <h4 class="text-start">Mutability - Intro</h4>
+                <hr>
+                <div style="font-size: 28px; line-height: 1.2;">
+                    <ul class="spaced">
+                        <li><span class="shade">Mutable: </span>
+                            contents or state of an object can be changed after the object is created
+                            <ul>
+                                <li>Eg: lists, dictionaries</li>
+                            </ul>
+                        </li>
+                        <li><span class="shade">Immutable: </span>
+                            contents or state of an object CANNOT be changed after the object is created
+                            <ul class="spaced" style="line-height: 1.1;">
+                                <li>Eg: numeric types, tuples, strings</li>
+                                <li>Note: even though we can <i>reassign a different value to a variable of numeric
+                                        values</i>, we cannot change
+                                    the <i>value of a number</i> (1 is always 1)</li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <div class="row g-0 px-0 mx-0">
+                        <div class="col-6 px-0 mx-0">
+                            <pre class="my-2"><code class="hljs python-repl py-2" data-trim data-noescape>
+                                >>> a = (1, 2, 3)
+                                >>> a[1] 
+                                <span class="fragment">2</span> 
+                                >>> a[1] = 4
+                                <span class="fragment">TypeError: 'tuple' object does not <br>support item assignment</span> 
+                            </code></pre>
+                        </div>
+                        <div class="col-6 px-0 mx-0">
+                            <pre class="my-2"><code class="hljs python-repl py-2" data-trim data-noescape>
+                                >>> b = [1, 2, 3]
+                                >>> b[1] = 4 
+                                >>> b
+                                <span class="fragment">[1, 4, 3]</span> 
+                            </code></pre>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #1C8497)"
+                class="reg-cus">
+                <h4 class="text-start">List Mutation Methods</h4>
+                <hr>
+                <div style="font-size: 28px; line-height: 1.2;">
+                    <p style="line-height: 1;">To call a method on a list, use dot notation: <code
+                            class="hljs python">lst.method(arg)</code></p>
+                    <ul class="spaced">
+                        <li><code class="hljs python">append(elem)</code>
+                            <ul style="line-height: 1.2;">
+                                <li>Add <code class="hljs python t">elem</code>
+                                    to the end of the list</li>
+                                <li><code class="hljs python t">elem</code> can be of any type</li>
+                                <li>Append only one element at a time - if <code class="hljs python t">elem</code>
+                                    is another list, the resulting list is nested</li>
+                                <li>Return <code class="hljs python">None</code></li>
+                            </ul>
+                            <pre class="my-3"><code class="hljs python-repl py-2" data-trim data-noescape>
+                                >>> lst = [1, 2, 3] 
+                                >>> lst.append(4) 
+                                >>> lst 
+                                <span class="fragment">[1, 2, 3, 4]</span>
+                                >>> print (lst.append([5, 6]))
+                                <span class="fragment">None</span> 
+                                >>> lst 
+                                <span class="fragment">[1, 2, 3, 4, [5, 6]]</span>
+                            </code></pre>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #1C8497)"
+                class="reg-cus">
+                <h4 class="text-start">List Mutation Methods</h4>
+                <hr>
+                <div style="font-size: 28px; line-height: 1.2;">
+                    <p style="line-height: 1;">To call a method on a list, use dot notation: <code
+                            class="hljs python">lst.method(arg)</code></p>
+                    <ul class="spaced">
+                        <li><code class="hljs python">extend(lst)</code>
+                            <ul style="line-height: 1.2;">
+                                <li>extend the list by concatenating it with
+                                    <code class="hljs python t">lst</code>
+                                </li>
+                                <li><code class="hljs python t">lst</code> must be another list</li>
+                                <li>If we need to add one element, <code class="hljs python t">elem</code> to a list,
+                                    <code class="hljs python t">lst</code>,
+                                    <code class="hljs python t">lst.append(elem)</code> has the same effect as
+                                    <code class="hljs python t">lst.extend([elem])</code>
+                                </li>
+                                <li>Return <code class="hljs python">None</code></li>
+                            </ul>
+                            <pre class="my-3"><code class="hljs python-repl py-2" data-trim data-noescape>
+                                >>> lst = [1, 2, 3] 
+                                >>> lst.append(4) 
+                                >>> lst 
+                                <span class="fragment">[1, 2, 3, 4]</span>
+                                >>> lst.extend([5, 6])
+                                >>> lst 
+                                <span class="fragment">[1, 2, 3, 4, 5, 6]</span>
+                            </code></pre>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #1C8497)"
+                class="reg-cus">
+                <h4 class="text-start">List Mutation Methods</h4>
+                <hr>
+                <div style="font-size: 28px; line-height: 1.2;">
+                    <p style="line-height: 1;">To call a method on a list, use dot notation: <code
+                            class="hljs python">lst.method(arg)</code></p>
+                    <ul class="spaced">
+                        <li><code class="hljs python">insert(i, elem)</code>
+                            <ul style="line-height: 1.2;">
+                                <li>insert an element <code class="hljs python t">elem</code>
+                                    at index <code class="hljs python t">i</code></li>
+                                <li>This does not replace any existing element - everything after the inserted element
+                                    is
+                                    "pushed back" by one element</li>
+                                <li><code class="hljs python t">elem</code> can be of any type</li>
+                                <li>Return <code class="hljs python">None</code></li>
+                            </ul>
+                            <pre class="my-3"><code class="hljs python-repl py-2" data-trim data-noescape>
+                                >>> lst = [1, 2, 3] 
+                                >>> lst.insert(0, 0)
+                                >>> lst 
+                                <span class="fragment">[0, 1, 2, 3]</span>
+                                >>> lst.insert(2, 'hi')
+                                >>> lst 
+                                <span class="fragment">[0, 1, 'hi', 2, 3]</span>
+                            </code></pre>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #1C8497)"
+                class="reg-cus">
+                <h4 class="text-start">List Mutation Methods</h4>
+                <hr>
+                <div style="font-size: 28px; line-height: 1.2;">
+                    <p style="line-height: 1;">To call a method on a list, use dot notation: <code
+                            class="hljs python">lst.method(arg)</code></p>
+                    <ul class="spaced">
+                        <li><code class="hljs python">remove(elem)</code>
+                            <ul style="line-height: 1.2;">
+                                <li>remove the <i>first</i> occurence of <code class="hljs python t">elem</code></li>
+                                <li>If <code class="hljs python t">elem</code> is not in the list, it errors.
+                                    Otherwise return <code class="hljs python">None</code>.</li>
+                            </ul>
+                            <pre class="my-3"><code class="hljs python-repl py-2" data-trim data-noescape>
+                                >>> lst = [1, 2, 3, 4, 1, 6] 
+                                >>> lst.remove(1)
+                                >>> lst 
+                                <span class="fragment">[2, 3, 4, 1, 6]</span>
+                                >>> lst.remove(5)
+                                <span class="fragment">ValueError: list.remove(x): x not in list</span>
+                            </code></pre>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #1C8497)"
+                class="reg-cus">
+                <h4 class="text-start">List Mutation Methods</h4>
+                <hr>
+                <div style="font-size: 28px; line-height: 1.2;">
+                    <p style="line-height: 1;">To call a method on a list, use dot notation: <code
+                            class="hljs python">lst.method(arg)</code></p>
+                    <ul class="spaced">
+                        <li><code class="hljs python">pop(i)</code>
+                            <ul style="line-height: 1.2;">
+                                <li>remove and <i>return</i> the element at index <code class="hljs python t">i</code>
+                                </li>
+                                <li><code class="hljs python t">i</code> is optional - if not specified, defaulted to
+                                    <code class="hljs python t">len(lst)-1</code>
+                                </li>
+                            </ul>
+                            <pre class="my-3"><code class="hljs python-repl py-2" data-trim data-noescape>
+                                >>> lst = [1, 2, 3, 4] 
+                                >>> lst.pop(1)
+                                <span class="fragment">2</span>
+                                >>> lst
+                                <span class="fragment">[1, 3, 4]</span>
+                                >>> lst.pop()
+                                <span class="fragment">4</span>
+                                >>> lst 
+                                <span class="fragment">[1, 3]</span>
+                            </code></pre>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #1C8497)"
+                class="reg-cus">
+                <h4 class="text-start">Other ways to mutate a list</h4>
+                <hr>
+                <div style="font-size: 26px; line-height: 1.2;">
+                    <ul class="spaced">
+                        <li><code class="hljs python">lst[i] = elem</code></li>
+                        <li><code class="hljs python">lst += another_lst</code>
+                            <ul style="line-height: 1.2;">
+                                <li>This is equivalent to <code class="hljs python">lst.extend(another_lst)</code>, both
+                                    of which
+                                    <i>mutate</i> the original list <code class="hljs python t">lst</code>
+                                </li>
+                                <li><code class="hljs python">lst = lst + another_lst</code> is different - this creates
+                                    a <i>copy</i> of
+                                    <code class="hljs python t">lst</code>, concatenates it with
+                                    <code class="hljs python t">another_lst</code>, and returns the new list; the
+                                    original
+                                    <code class="hljs python t">lst</code> is <i>unchanged</i>
+                                </li>
+                                <!-- pdf -->
+                                <!-- <iframe width="800" height="500" frameborder="0" -->
+                                    <!-- src="https://pythontutor.com/iframe-embed.html#code=a%20%3D%20%5B1,%202,%203%5D%0Ab%20%3D%20%5B4,%205%5D%0Ac%20%3D%20a%20%0Aa%20%2B%3D%20b%20%0Ad%20%3D%20a%20%2B%20b&codeDivHeight=400&codeDivWidth=350&cumulative=true&curInstr=5&origin=composingprograms.js&py=3&rawInputLstJSON=%5B%5D"> -->
+                                <!-- </iframe> -->
+                                <!-- html -->
+                                <iframe width="800" height="500" frameborder="0" src="https://pythontutor.com/iframe-embed.html#code=a%20%3D%20%5B1,%202,%203%5D%0Ab%20%3D%20%5B4,%205%5D%0Ac%20%3D%20a%20%0Aa%20%2B%3D%20b%20%0Ad%20%3D%20a%20%2B%20b&codeDivHeight=400&codeDivWidth=350&cumulative=true&curInstr=0&origin=composingprograms.js&py=3&rawInputLstJSON=%5B%5D"> </iframe>    
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #1C8497)"
+                class="reg-cus">
+                <h4 class="text-start">Mutation - Problem Solving Strategies</h4>
+                <hr>
+                <div style="font-size: 28px; line-height: 1.2;">
+                    <ul class="spaced">
+                        <li>Always keep in mind that all list mutation methods, except for <code
+                                class="hljs python t">pop()</code> , return <code class="hljs python">None</code>
+                            <ul>
+                                <li>If you need to mutate a list and then return it, do the mutation before the return
+                                    statement (i.e., be careful not to accidentally return <code
+                                        class="hljs python t">None</code>!)</li>
+                            </ul>
+                        </li>
+                        <li>
+                            Do not mutate a list and iterate through it at the same time - this can lead to infinite
+                            loop!
+                            <ul>
+                                <li>Instead, iterate through a copy of the list and operate on the original list or
+                                    iterate through the list using indices and modify the index when appropriate. </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <section data-auto-animate data-background-gradient="linear-gradient(to bottom, #0C5D87, #002C42)"
+                class="reg-cus">
+                <h1>Iterators 🛸</h1>
+                <hr>
+            </section>
+
+            <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #1C8497)"
+                class="reg-cus">
+                <h4 class="text-start">Iterables and Iterators - Intro</h4>
+                <hr>
+                <div style="font-size: 26px; line-height: 1.2;">
+                    <ul class="spaced">
+                        <li>Iterables
+                            <ul>
+                                <li>An object that can be iterated through using a for loop:
+                                    <pre class="my-2"><code class="hljs python py-2" data-trim>
+                                        for elem in iterable:
+                                            # do something
+                                    </code></pre>
+                                </li>
+                                <li>Includes, but are not limited to, sequences (lists, tuples, dictionaries, etc.)</li>
+                                <li class="shade">Calling <code class="hljs python">iter()</code> on an iterable returns
+                                    a new
+                                    iterator
+                                </li>
+                                <!-- <li>Analogous to a book, where one can flip through the pages and goes back and forth however they want</li> -->
+                            </ul>
+                        </li>
+                        <li>Iterators
+                            <ul>
+                                <li>An object that allows us to iterate through an iterable by keeping track of which
+                                    element is the next in the sequence</li>
+                                <li><span class="shade">Calling <code class="hljs python">next()</code> on an iterator
+                                        gives the next
+                                        element from the iterator</span> -
+                                    once an element is returned from calling <code class="hljs python t">next()</code>,
+                                    we can never go back to that
+                                    element again by with the same iterator. <br>If there's no more remaining element,
+                                    raise an
+                                    <code class="hljs python t">StopIteration</code> error.
+                                </li>
+                                <li><span class="shade">Calling <code class="hljs python">iter()</code> on an iterator
+                                        returns the iterator
+                                        <i>itself</i></span>, without resetting the position
+                                </li>
+                                <!-- <li>Analogous to a one-way bookmark, which saves its current position and can locate the next page, but cannot go backwards</li> -->
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #1C8497)"
+                class="reg-cus">
+                <h4 class="text-start">Iterables and Iterators - Analogies</h4>
+                <hr>
+                <div class="text-start" style="font-size: 28px; line-height: 1.2;">
+                    <ul class="spaced">
+                        <li>Iterables
+                            <ul>
+                                <li>Analogous to a book - one can flip through the pages and go back and forth however
+                                    they like
+                                </li>
+                            </ul>
+                        </li>
+                        <li>Iterators
+                            <ul>
+                                <li>Analogous a one-way (forward-only) bookmark, which saves its current position and
+                                    can locate the next
+                                    page, but cannot go backwards</li>
+                                <li>There can be multiple bookmarks on a book, all of which are independent of one
+                                    another</li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <p style="line-height: 1.15; font-size: 26px;">Note: since you can call <code
+                            class="hljs python t">iter()</code> on
+                        an iterator, which will return the iterator itself, iterators are also iterables. But
+                        iterables are not necessarily iterators. You can use iterators wherever you can use
+                        iterables, but note that since iterators keep their state, they're only good to be iterated
+                        through once.
+                    </p>
+                </div>
+            </section>
+
+            <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #1C8497)"
+                class="reg-cus">
+                <h4 class="text-start">More on for loops</h4>
+                <hr>
+                <div class="text-start" style="font-size: 26px; line-height: 1.2;">
+                    <p style="line-height: 1;">When we use a for loop to iterate over an iterable... </p>
+                    <pre class="my-0"><code class="hljs python py-2" data-trim>
+                        for elem in iterable:
+                            # do something
+                    </code></pre>
+                    <p style="line-height: 1;">Here's what happens behind the scene... </p>
+                    <pre class="my-0"><code class="hljs python py-2" data-trim>
+                        iterator = iter(iterable)
+                        # creates a new iterator from the iterable
+                        try:
+                            while True:
+                                elem = next(iterator)
+                                # do something
+                        except StopIteration: 
+                        # when there's no more element to iterate through
+                            pass # do nothing and exit the loop
+                    </code></pre>
+                    <p style="line-height: 1;">Using a for loop to iterate through an iterator essentially "uses up" the
+                        iterator!</p>
+                </div>
+            </section>
+
+            <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #1C8497)"
+                class="reg-cus" style="min-height: 100%;">
+                <!-- <h5 class="text-start">Iterators - Examples</h5> -->
+                <!-- <hr> -->
+                <div class="pt-0 mt-0" style="font-size: 28px; line-height: 1.2; min-height: 100%;">
+                    <pre class="my-0" style="min-height: 100%;"><code class="hljs python-repl py-2 sfs" style="min-height: 100%;" data-trim data-noescape>
+                        >>> lst = [1, 2, 3, 4]
+                        >>> next (lst)             # Calling next on an iterable
+                        <span class="fragment" style="line-height: 1;">TypeError: 'list' object is not an iterator</span>
+                        >>> list_iter = iter (lst) # Creates an iterator for the list
+                        >>> list_iter
+                        <span class="fragment" style="line-height: 1;">&lt;list_iterator object ...&gt;</span>
+                        >>> next (list_iter)       # Calling next on an iterator
+                        <span class="fragment" style="line-height: 1;">1</span>
+                        >>> next (list_iter)       # Calling next on the same iterator
+                        <span class="fragment" style="line-height: 1;">2</span>
+                        >>> next (iter (list_iter)) # Calling iter on an iterator returns itself
+                        <span class="fragment" style="line-height: 1;">3</span>
+                    </code></pre>
+                    <pre class="my-0" style="min-height: 100%;"><code class="hljs python-repl pt-0" style="min-height: 100%;" data-trim data-noescape>
+                        >>> list_iter2 = iter (lst)
+                        >>> next (list_iter2)      # Second iterator has new state
+                        <span class="fragment" style="line-height: 1;">1</span>
+                        >>> next (list_iter)       # First iterator is unaffected by second iterator
+                        <span class="fragment" style="line-height: 1;">4</span>
+                        >>> next (list_iter)       # No elements left!
+                        <span class="fragment" style="line-height: 1;">StopIteration</span>
+                        >>> lst                   # Original iterable is unaffected
+                        <span class="fragment" style="line-height: 1;">[1, 2, 3, 4]</span>
+                    </code></pre>
+                </div>
+            </section>
+
+            <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #1C8497)"
+                class="reg-cus">
+                <h4 class="text-start">Iterable Uses</h4>
+                <hr>
+                <div class="text-start mb-1" style="font-size: 27px; line-height: 1.2;">
+                    <ul class="spaced">
+                        <li><code class="hljs python">map(f, iterable)</code>:
+                            Creates an <span class="bu">iterator</span> over <code class="hljs python t">f(x)</code> for <code
+                                class="hljs python t">x</code> in iterable
+                        </li>
+                        <li><code class="hljs python">filter(f, iterable)</code>:
+                            Creates an <span class="bu">iterator</span> over <code class="hljs python t">x</code> for <code
+                                class="hljs python t">x</code> in iterable if <code class="hljs python t">f(x)</code>
+                        </li>
+                        <li><code class="hljs python">reversed(iterable)</code>:
+                            Creates an <span class="bu">iterator</span> over all the elements in the input iterable in reverse order
+                        </li>
+                        <li><code class="hljs python">list(iterable)</code>:
+                            Creates a <span class="bu">list</span> containing all the elements in the input <code
+                                class="hljs python t">iterable</code>
+                        </li>
+                        <li><code class="hljs python">tuple(iterable)</code>:
+                            Creates a <span class="bu">tuple</span> containing all the elements in the input <code
+                                class="hljs python t">iterable</code>
+                        </li>
+                        <li><code class="hljs python">sorted(iterable)</code>:
+                            Creates a sorted <span class="bu">list</span> containing all the elements in the input <code
+                                class="hljs python t">iterable</code>
+                        </li>
+                        <li><code class="hljs python">zip(iterables*)</code>:
+                            Creates an <span class="bu">iterator</span> over co-indexed tuples with elements from each of the <code
+                                class="hljs python t">iterables</code> 
+                            <a href="https://code.cs61a.org/GentlyWon'TPale">(demo)</a>
+                        </li>
+                        <li><code class="hljs python">reduce(f, iterable)</code>:
+                            Must be imported with <code class="hljs python">functools</code>. Apply function of two
+                            arguments <code class="hljs python">f</code> cumulatively to the items
+                            of <code class="hljs python">iterable</code>, from left to right, so as to reduce the sequence to a <span class="bu">single value</span>.
+                            <a href="https://code.cs61a.org/TooSplitPocket">(demo)</a>
+                        </li>
+                    </ul>
+                    <!-- <p style="line-height: 1.15; font-size: 26px;">Note: since you can call <code
+                            class="hljs python t">iter()</code> on
+                        an iterator, which will return the iterator itself, iterators are also iterables. But
+                        iterables are not necessarily iterators. You can use iterators wherever you can use
+                        iterables, but note that since iterators keep their state, they're only good to be iterated
+                        through once.
+                    </p> -->
+                    <p class="mt-1" style="line-height: 1.15; font-size: 26px;">
+                        * Though technically iterators are iterables as well, here, by "iterables", we refer to the set
+                        of objects that are only iterables, but not iterators
+                    </p>
+                </div>
+            </section>
+
+            <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #1C8497)"
+                class="reg-cus">
+                <h4 class="text-start">Iterators - Problem Solving Strategies</h4>
+                <hr>
+                <div class="text-start mb-1" style="font-size: 27px; line-height: 1.2;">
+                    <ul class="spaced">
+                        <li>Situations where an iterator gets "used up" implicitly:
+                            <ul>
+                                <li>Using a for loop / list comprehension to iterate through the iterator</li>
+                                <li>Calling the list constructor <code class="hljs python">list()</code> on an iterator
+                                </li>
+                            </ul>
+                        </li>
+                        <li>Difference between calling <code class="hljs python">iter()</code> on an iterable vs. an
+                            iterator *:
+                            <ul>
+                                <li>on an iterable - returns a new iterator that starts from the beginning</li>
+                                <li>on an iterator - returns the iterator itself, without resetting its position</li>
+                            </ul>
+                        </li>
+                        <li>Try to avoid calling <code class="hljs python">next()</code> on an iterator more than once
+                            in a for/while loop - if you need to reuse the element, store it in some variables and use
+                            that variable instead! </li>
+                        <li>Pay attention to how you should iterate through the iterators (how many times you should
+                            call <code class="hljs python t">next()</code> on it) as indicated by the problem statement
+                        </li>
+
+                    </ul>
+                    <!-- <p style="line-height: 1.15; font-size: 26px;">Note: since you can call <code
+                            class="hljs python t">iter()</code> on
+                        an iterator, which will return the iterator itself, iterators are also iterables. But
+                        iterables are not necessarily iterators. You can use iterators wherever you can use
+                        iterables, but note that since iterators keep their state, they're only good to be iterated
+                        through once.
+                    </p> -->
+                    <p class="mt-1" style="line-height: 1.15; font-size: 26px;">
+                        * Though technically iterators are iterables as well, here, by "iterables", we refer to the set
+                        of objects that are only iterables, but not iterators
+                    </p>
+                </div>
+            </section>
+
+            <section data-auto-animate data-background-gradient="linear-gradient(to bottom, #0C5D87, #002C42)"
+                class="reg-cus">
+                <h2 class="text-start">Attendance! 🤠</h2>
+                <hr>
+                <a href="https://go.cs61a.org/mingxiao-att" style="font-size: 40px">go.cs61a.org/mingxiao-att</a>
+                <div class="text-start" style="font-size: 36px; line-height: 1.2;">
+                    <br>
+                    <ul>
+                        <li>The attendance form and slides are both linked on our <a
+                                href="https://go.cs61a.org/mingxiao-index">section website</a>!</li>
+                        <li>If you finish early, let me or any of the AI's know and we'll check you off</li>
+                        <li class="shade">Once again, please do remember to fill out the form by midnight today!!</li>
+                    </ul>
+                </div>
+            </section>
+
+        </div>
+    </div>
+
+    <script src="dist/reveal.js"></script>
+    <script src="plugin/notes/notes.js"></script>
+    <script src="plugin/markdown/markdown.js"></script>
+    <script src="plugin/highlight/highlight.js"></script>
+    <script src="plugin/math/math.js"></script>
+    <script>
+        // More info about initialization & config:
+        // - https://revealjs.com/initialization/
+        // - https://revealjs.com/config/
+        Reveal.initialize({
+            hash: true,
+            // Learn about plugins: https://revealjs.com/plugins/
+            plugins: [RevealMarkdown, RevealHighlight, RevealNotes, RevealMath.KaTeX]
+        });
+        Reveal.configure({ pdfSeparateFragments: false });
+    </script>
+
+    <script>
+        window.onload = function () {
+            Particles.init({
+                selector: '.background',
+                color: ['#334C75', '#D4A561', '#0C5D87'],
+                connectParticles: true,
+                maxParticles: 100,
+            });
+        };
+
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/particlesjs/2.2.2/particles.min.js"></script>
+</body>
+
+</html>

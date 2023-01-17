@@ -1,0 +1,415 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>Lab 09</title>
+
+    <link rel="stylesheet" href="dist/reset.css">
+    <link rel="stylesheet" href="dist/reveal.css">
+    <link rel="stylesheet" href="dist/theme/black.css">
+    <link rel="stylesheet" href="css/custom.css">
+
+    <!-- Theme used for syntax highlighted code -->
+    <link rel="stylesheet" href="plugin/highlight/night-owl.min.css">
+
+    <!-- fonts -->
+    <link href='https://fonts.googleapis.com/css?family=Open Sans' rel='stylesheet'>
+
+    <!-- icon -->
+    <link rel="icon" href="https://mingxiaowei.github.io/61a-sections/public/images/favicon.ico" sizes="32x32">
+
+    <!-- link to bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+
+    <!-- link to bootstrap icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
+
+    <script src="plugin/highlight/highlight.js"></script>
+
+</head>
+
+<body>
+    <div class="reveal">
+        <div class="slides">
+            <section data-auto-animate data-background-gradient="linear-gradient(to top, #0C5D87, #002C42)"
+                class="customizable">
+                <div class="my-auto mx-auto">
+                    <h1>Lab 09</h1>
+                    <hr class="hr-1">
+                    <p>Midterm Review</p>
+                </div>
+                <br>
+                <br>
+
+                <footer class="bottom-left">
+                    <!-- <hr> -->
+                    <p>Mingxiao Wei</p>
+                    <p><a href="mailto:mingxiaowei@berkeley.edu" class="email"
+                            style="color:#8BC24A; text-decoration: underline;">
+                            mingxiaowei@berkeley.edu</a>
+                        <span class="text-end">Oct 24, 2022</span>
+                    </p>
+
+                </footer>
+                <canvas class="background"></canvas>
+            </section>
+
+            <section data-auto-animate data-background-gradient="linear-gradient(to top, #0C5D87, #002C42)"
+                class="reg-cus">
+                <h3 class="text-start">Logistics 🏡</h3>
+                <hr>
+                <div class="text-start">
+                    <ul class="spaced text-start" style="font-size: 28px; line-height: 1.2;">
+                        <li>No assignment due! Focus on the midterm :)</li>
+                        <li>Email confirmations for alteration requests will be sent out by Tue 10/25</li>
+                        <li>Seating assignments will be released via email by Wed 10/26</li>
+                        <li>Reminder - Homework 05 Recovery
+                            (Ed post <a href="https://edstem.org/us/courses/25379/discussion/1982400">#2128</a>) due
+                            today 10/24</li>
+                    </ul>
+                </div>
+
+            </section>
+
+            <section data-auto-animate data-background-gradient="linear-gradient(to top, #0C5D87, #002C42)"
+                class="reg-cus">
+                <h3 class="text-start">About the midterm 😮</h3>
+                <hr>
+                <ul class="spaced" style="font-size: 28px; line-height: 1.2;">
+                    <li>Logistics -
+                        Ed post <a href="https://edstem.org/us/courses/25379/discussion/1983557">#2141</a>
+                        <ul>
+                            <li>If you need alterations, you can still <a href="https://go.cs61a.org/exam-alts">fill out
+                                    this form</a>
+                                - approval is not guaranteed though since it's past the priority deadline
+                            </li>
+                        </ul>
+                    </li>
+                    <li>Familiarize yourself with the <a
+                            href="https://cs61a.org/assets/pdfs/61a-mt2-study-guide.pdf">study guide</a> -
+                        this is a good starting point to go over the topics!</li>
+                    <li>Preparations
+                        <ul class="spaced">
+                            <li>Familiarize yourself with the topics in scope</li>
+                            <li>Attend review session (or watch recordings/slides) for more topical review - see Ed for
+                                more info</li>
+                            <li>Do practice exams!
+                                <ul>
+                                    <li>Quality > quantity</li>
+                                    <li>Post on exam threads on Ed for help</li>
+                                    <li>Walkthrough videos/guide are your friend!</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </section>
+
+            <section data-auto-animate data-background-gradient="linear-gradient(to top, #0C5D87, #002C42)"
+                class="reg-cus">
+                <h4 class="text-start">From last time... 👀</h4>
+                <hr>
+                <p class="text-start" style="line-height: 1; font-size: 28px;">How are you feeling now?</p>
+                <img class="mt-0" data-src="media\lab09-att-q.png" style="height: 500px; width:auto;">
+            </section>
+
+            <section data-auto-animate data-background-gradient="linear-gradient(to bottom, #0C5D87, #002C42)"
+                class="reg-cus">
+                <h1>Order of Growth 📈</h1>
+                <hr>
+            </section>
+
+            <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #1C8497)"
+                class="reg-cus">
+                <h4 class="text-start">Order of Growth</h4>
+                <hr>
+                <div class="text-start" style="font-size: 30px; line-height: 1.2;">
+                    <ul class="spaced">
+                        <li>Order of growth (efficiency) - how the runtime of the function changes as the input size
+                            increases</li>
+                        <li><span class="shade">Input size</span> (not the definition, but as a rule of thumb)
+                            <ul class="spaced">
+                                <li>numeric input - magnitude of the number</li>
+                                <li>Python lists - length of the list</li>
+                                <li>linked list/trees/other recursive objects - number of nodes</li>
+                            </ul>
+                        </li>
+                        <li><span class="shade">Runtime</span> (not the definition, but as a rule of thumb)
+                            <ul class="spaced">
+                                <li>often measured as the number of operations</li>
+                            </ul>
+                        </li>
+                        <li>For 61A, we use the theta notation - for input of size $n$, the runtime of the function is
+                            denoted by $\Theta(f(n))$</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #1C8497)"
+                class="reg-cus">
+                <h4 class="text-start">Order of Growth - Other Notes</h4>
+                <hr>
+                <div class="text-start" style="font-size: 30px; line-height: 1.2;">
+                    <ul class="spaced">
+                        <li>constant &lt; logarithmic &lt; linear &lt; quadratic &lt; exponential</li>
+                        <li>Constants are ignored
+                            <ul>
+                                <li>For example, $\Theta(2n+3)$ is essentially $\Theta(n)$</li>
+                            </ul>
+                        </li>
+                        <li>We only consider the term that grows fastest
+                            <ul>
+                                <li>For example, $\Theta(n^2+2n+3)$ is essentially $\Theta(n^2)$</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #1C8497)"
+                class="reg-cus">
+                <h4 class="text-start">Order of Growth - Constant</h4>
+                <hr>
+                <div class="text-start" style="font-size: 30px; line-height: 1.2;">
+                    <ul class="spaced">
+                        <li>Constant $\leftrightarrow \Theta(1)$</li>
+                        <li>The runtime of the function does not change as the input size changes</li>
+                        <li>For example:
+                            <pre><code class="hljs python py-2" data-trim>
+                                def square (x):
+                                    return x * x
+                            </code></pre>
+                        </li>
+                        <img class="mt-0" data-src="media\dis08-p1.png">
+                    </ul>
+                </div>
+            </section>
+
+            <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #1C8497)"
+                class="reg-cus">
+                <h4 class="text-start">Order of Growth - Logarithmic</h4>
+                <hr>
+                <div class="text-start" style="font-size: 30px; line-height: 1.2;">
+                    <ul class="spaced">
+                        <li>Logarithmic $\leftrightarrow \Theta(\log n)$</li>
+                        <li>Often when we keep dividing the input by a constant</li>
+                        <li>For example:
+                            <pre class="my-2"><code class="hljs python py-2" data-trim>
+                                def foo (x):
+                                    while x > 0:
+                                        print('hey')
+                                        x //= 2
+                            </code></pre>
+                        </li>
+                        <li>Suppose the while loop runs $n$ times before $x$ reaches 0.</li>
+                        <li>Since we divide $x$ by 2 for $n$ times, $\frac{x}{2^n} = 1 \implies 2^n = x \implies n =
+                            \log_2 x$</li>
+                        <!-- <img class="mt-0" data-src="media\dis08-p2.png" > -->
+                    </ul>
+                </div>
+            </section>
+
+            <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #1C8497)"
+                class="reg-cus">
+                <h4 class="text-start">Order of Growth - Linear</h4>
+                <hr>
+                <div class="text-start" style="font-size: 30px; line-height: 1.2;">
+                    <ul class="spaced">
+                        <li>Linear $\leftrightarrow \Theta(n)$</li>
+                        <!-- <li>Often when we have a for/while loops that runs $n$ times, each time doing some work in constant time</li> -->
+                        <li>For example:
+                            <pre class="my-2"><code class="hljs python py-2" data-trim>
+                                def factorial (x):
+                                    prod = 1
+                                    for i in range(1, x + 1):
+                                        prod *= i 
+                                    return prod
+                            </code></pre>
+                        </li>
+                        <img class="mt-0" data-src="media\dis08-p2.png">
+                    </ul>
+                </div>
+            </section>
+
+            <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #1C8497)"
+                class="reg-cus">
+                <h4 class="text-start">Order of Growth - Quadratic</h4>
+                <hr>
+                <div class="text-start" style="font-size: 30px; line-height: 1.2;">
+                    <ul class="spaced">
+                        <li>Quadratic $\leftrightarrow \Theta(n^2)$</li>
+                        <li>For example:
+                            <pre class="my-2"><code class="hljs python py-2" data-trim>
+                                def bar (n):
+                                    for a in range(n):
+                                        for b in range(n):
+                                            print(a,b)
+                            </code></pre>
+                        </li>
+                        <img class="mt-0" data-src="media\dis08-p3.png">
+                    </ul>
+                </div>
+            </section>
+
+            <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #1C8497)"
+                class="reg-cus">
+                <h4 class="text-start">Order of Growth - Exponential</h4>
+                <hr>
+                <div class="text-start" style="font-size: 30px; line-height: 1.2;">
+                    <ul class="spaced">
+                        <li>Exponential $\leftrightarrow \Theta(c^n)$, where $c$ is a constant</li>
+                        <li>For example:
+                            <pre class="my-2"><code class="hljs python py-2" data-trim>
+                                def rec (n):
+                                    if n == 0:
+                                        return 1
+                                    else:
+                                        return rec(n - 1) + rec(n - 1)
+                            </code></pre>
+                        </li>
+                        <img class="mt-0" data-src="media\dis08-p4.png">
+                    </ul>
+                </div>
+            </section>
+
+            <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #1C8497)"
+                class="reg-cus">
+                <h4 class="text-start">Order of Growth - Tree Recursion</h4>
+                <hr>
+                <div class="text-start" style="font-size: 30px; line-height: 1.2;">
+                    <p>Draw out the tree recursion diagram, and do either of the following: </p>
+                    <ul class="spaced">
+                        <li>Count by level
+                            <ul class="spaced">
+                                <li><span class="shade">(work per level) * (# of levels)</span></li>
+                                <li>useful when the work per level sums to the same number</li>
+                            </ul>
+                        </li>
+                        <li>Count by node
+                            <ul class="spaced">
+                                <li><span class="shade">(work per node) * (# of nodes)</span></li>
+                                <li>useful when the work per node is the same</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #1C8497)"
+                class="reg-cus">
+                <h4 class="text-start">Order of Growth - Nested Loops</h4>
+                <hr>
+                <div class="text-start" style="font-size: 30px; line-height: 1.2;">
+                    <ul class="spaced">
+                        <li>(outer loops) * (middle loops) * (inner loops) * (work done in the inner loop)</li>
+                        <li>More generally, (# times the loops run) * (work done each time)</li>
+
+                        <pre class="my-2"><code class="hljs python py-2" data-trim>
+                        def factorial (n):
+                            # returns n! in linear time 
+                            ... 
+                        
+                        def foo (n):
+                            for i in range(n):
+                                for j in range(n):
+                                    print(factorial(n))
+                    </code></pre>
+                        <li><code class="hljs python t">foo(n)</code> runs in $\Theta(n^3)$ time</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #1C8497)"
+                class="reg-cus">
+                <h4 class="text-start">Order of Growth - Nested Function Calls</h4>
+                <hr>
+                <div class="text-start" style="font-size: 28px; line-height: 1.15;">
+                    <ul class="spaced">
+                        <li>Evaluate from the innermost call to the outermost one, and <span class="bu">add</span> the
+                            runtime together</li>
+                        <li>For outer functions, pay attention to their input in terms of $n$</li>
+                        <pre class="my-2"><code class="hljs python py-2" data-trim>
+                        def square (n):
+                            # returns n * n in constant time
+                        def fact (n):
+                            # returns n! in linear time 
+                        def boo (n):
+                            for i in range(n):
+                                print('hi')
+                            return n 
+                    </code></pre>
+                        <li><code class="hljs python t">fact(square(n))</code>: $\Theta(1 + n^2) = \Theta(n^2)$</li>
+                        <li><code class="hljs python t">fact(boo(n))</code>: $\Theta(n + n) = \Theta(n)$</li>
+                        <li><code class="hljs python t">boo(square(n))</code>: $\Theta(1 + n^2) = \Theta(n^2)$</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- <section data-auto-animate data-background-gradient="linear-gradient(to bottom, #0C5D87, #002C42)"
+                class="reg-cus">
+                <h1>Recursion / Tree Recursion 🍭</h1>
+                <hr>
+            </section>
+
+            <section data-auto-animate data-background-gradient="linear-gradient(to bottom, #0C5D87, #002C42)"
+                class="reg-cus">
+                <h1>Iterators / Generators 🍶</h1>
+                <hr>
+            </section> -->
+
+            <section data-auto-animate data-background-gradient="linear-gradient(to bottom, #0C5D87, #002C42)"
+                class="reg-cus">
+                <h2 class="text-start">Attendance! 🤠</h2>
+                <hr>
+                <a href="https://go.cs61a.org/mingxiao-att" style="font-size: 40px">go.cs61a.org/mingxiao-att</a>
+                <div class="text-start" style="font-size: 36px; line-height: 1.2;">
+                    <br>
+                    <ul>
+                        <li>The attendance form and slides are both linked on our <a
+                                href="https://go.cs61a.org/mingxiao-index">section website</a>!</li>
+                        <!-- <li>If you finish early, let me or any of the AI's know and we'll check you off</li> -->
+                        <li class="shade">Once again, please do remember to fill out the form by midnight today!!</li>
+                    </ul>
+                </div>
+            </section>
+
+        </div>
+    </div>
+
+    <script src="dist/reveal.js"></script>
+    <script src="plugin/notes/notes.js"></script>
+    <script src="plugin/markdown/markdown.js"></script>
+    <script src="plugin/highlight/highlight.js"></script>
+    <script src="plugin/math/math.js"></script>
+    <script>
+        // More info about initialization & config:
+        // - https://revealjs.com/initialization/
+        // - https://revealjs.com/config/
+        Reveal.initialize({
+            hash: true,
+            // Learn about plugins: https://revealjs.com/plugins/
+            plugins: [RevealMarkdown, RevealHighlight, RevealNotes, RevealMath.KaTeX]
+        });
+        Reveal.configure({ pdfSeparateFragments: false });
+    </script>
+
+    <script>
+        window.onload = function () {
+            Particles.init({
+                selector: '.background',
+                color: ['#334C75', '#D4A561', '#0C5D87'],
+                connectParticles: true,
+                maxParticles: 100,
+            });
+        };
+
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/particlesjs/2.2.2/particles.min.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,314 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>Discussion 03</title>
+
+    <link rel="stylesheet" href="dist/reset.css">
+    <link rel="stylesheet" href="dist/reveal.css">
+    <link rel="stylesheet" href="dist/theme/black.css">
+    <link rel="stylesheet" href="css/custom.css">
+
+    <!-- Theme used for syntax highlighted code -->
+    <link rel="stylesheet" href="plugin/highlight/night-owl.min.css">
+
+    <!-- fonts -->
+    <link href='https://fonts.googleapis.com/css?family=Open Sans' rel='stylesheet'>
+
+    <!-- icon -->
+    <link rel="icon" href="https://mingxiaowei.github.io/61a-sections/public/images/favicon.ico" sizes="32x32">
+
+    <!-- link to bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+
+    <!-- link to bootstrap icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
+
+    <script src="plugin/highlight/highlight.js"></script>
+
+</head>
+
+<body>
+    <div class="reveal">
+        <div class="slides">
+            <section data-auto-animate data-background-gradient="linear-gradient(to top, #0C5D87, #002C42)"
+                class="customizable">
+                <div class="my-auto mx-auto">
+                    <h1>Discussion 03</h1>
+                    <hr class="hr-1">
+                    <p>Recursion</p>
+                </div>
+                <br>
+                <br>
+
+                <footer class="bottom-left">
+                    <!-- <hr> -->
+                    <p>Mingxiao Wei</p>
+                    <p><a href="mailto:mingxiaowei@berkeley.edu" class="email"
+                            style="color:#8BC24A; text-decoration: underline;">
+                            mingxiaowei@berkeley.edu</a>
+                        <span class="text-end">Sep 14, 2022</span>
+                    </p>
+
+                </footer>
+                <canvas class="background"></canvas>
+            </section>
+
+            <section data-auto-animate data-background-gradient="linear-gradient(to top, #0C5D87, #002C42)"
+                class="reg-cus">
+                <h3 class="text-start">Logistics 🏡</h3>
+                <hr>
+                <ul class="spaced" style="font-size: 28px; line-height: 1.3;">
+                    <li>NO assignments due this week :)) Take some good post-midterm relaxation!</li>
+                    <li>The second round of scores has been released on <a
+                            href="https://howamidoing.cs61a.org/">howamidoing.cs61a.org</a>. Please email me if you have
+                        any issues with section attendance score!
+                        <ul>
+                            <li>
+                                If you were not able to make it to section and emailed me beforehand, you should be
+                                marked as excused absence and receive attendance credit for that section - if that's not
+                                the case,
+                                please let me know!
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="shade">*** Please remember to fill out the attendance form right after section! ***</li>
+                    <li>The deadline to add/drop classes and swap section was yesterday. Congrats on making it through
+                        61A thus far! Let's continue the journey together 🚀</li>
+                </ul>
+            </section>
+
+            <section data-auto-animate data-background-gradient="linear-gradient(to top, #0C5D87, #002C42)"
+                class="reg-cus">
+                <h3 class="text-start">Some Post-Midterm Words... 🔅</h3>
+                <hr>
+                <ul class="spaced" style="font-size: 28px; line-height: 1.3;">
+                    <li>It's only 10% (30 pts) of your total grade!</li>
+                    <li>Keep in mind that we have ~10 pts of extra credit (for example, early submission for projects)
+                    </li>
+                    <li>The first midterm is more of a learning experience to take into midterm 2</li>
+                    <li>Your grade is in no way a reflection of your worth as a programmer!</li>
+                    <li>Also a reminder that this class is not curved</li>
+                    <li>If you'd like to chat with me about non-content-related stuff (advising, etc.), feel free to
+                        email me!</li>
+                    <li>Other resources:
+                        <ul>
+                            <li><a href="https://cs61a.org/articles/studying/">Studying Guide</a></li>
+                            <li><a href="https://cs61a.org/articles/advising/">Advising OH from other experienced course
+                                    staff</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </section>
+
+            <section data-auto-animate data-background-gradient="linear-gradient(to bottom, #0C5D87, #002C42)"
+                class="reg-cus">
+                <h1>Recursion 🐚</h1>
+                <hr>
+            </section>
+
+            <section data-transition="slide" data-background-gradient="linear-gradient(to top, #00527C, #1C8497)"
+                class="reg-cus">
+                <h4 class="text-start">Introduction</h4>
+                <hr>
+                <div style="font-size: 28px; line-height: 1.3;">
+                    <ul>
+                        <li>A recursive function is a function that is defined in terms of itself - i.e., the function
+                            calls itself</li>
+                        <li>3 main steps in a recursive function:
+                            <ol>
+                                <li><span class="shade">Base case</span>
+                                    - the simplest function input, or the stopping condition for the recursion
+                                </li>
+                                <li>
+                                    <span class="shade">Recursive call on a smaller problem</span>
+                                    - calling the function on a smaller problem that our current problem depends on. We
+                                    can assume that a recursive call on this smaller problem will give us the expected
+                                    result
+                                    as long as the we implement other parts correctly - the idea of the
+                                    <span class="shade">"recursive leap of faith"</span>.
+                                </li>
+                                <li>
+                                    <span class="shade">Solve the larger problem / Combination step</span> - usually by
+                                    using the result
+                                    from the recursive call to figure out the result of our current problem
+                                </li>
+                            </ol>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #17b2c3)"
+                class="reg-cus">
+                <h4 class="text-start">Recursion - non-CS analogy</h4>
+                <hr>
+                <div class="text-start" style="font-size: 28px; line-height: 1.3;">
+                    <ul>
+                        <li>Imagine that you were waiting in a line and wanted to know how many people are in front of
+                            you, you can ask the person before you how many people are in front of them, then they'll
+                            ask the same question to the person in front of them, etc.</li>
+                        <li><span class="bu">Base case:</span> the first person in line, responds 0
+                        </li>
+                        <li><span class="bu">Recursive call:</span> asking the person before you the same question
+                        </li>
+                        <li><span class="bu">Combination step:</span> add one to the response from the person before
+                        </li>
+                    </ul>
+                    <p style="line-height: 1.2">Note that the first person to ask is the last person to get their
+                        response - in recursion, the
+                        first frame to open is the last frame to close</p>
+                </div>
+            </section>
+
+            <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #17b2c3)"
+                class="reg-cus">
+                <h4 class="text-start">Recursion - Example</h4>
+                <hr>
+                <div style="font-size: 28px; line-height: 1.3;">
+                    <pre class="my-2"><code class="hljs python py-2" data-trim>
+                        def factorial (n):
+                            """Return the factorial of N, a positive integer."""
+                            if n == 1:
+                                return 1
+                            else:
+                                return n * factorial(n - 1)
+                    </code></pre>
+                    <ul>
+                        <li><span class="bu">Base case:</span> When n is 1, return 1</li>
+                        <li><span class="bu">Recursive call:</span> <code class="hljs python">factorial(n - 1)</code>
+                        </li>
+                        <li><span class="bu">Combination step:</span>
+                            By the recursive leap of faith, we can assume that <code class="hljs
+                                    python">factorial(n - 1)</code> returns the correct result of <code
+                                class="hljs python">(n - 1)!</code>.
+                            Therefore, to obtain <code class="hljs python">n!</code>, we just need to multiply the
+                            result from the recursive call by n (<code class="hljs python">n! = n * (n - 1)!</code>)
+                        </li>
+
+                    </ul>
+                </div>
+            </section>
+
+            <section data-auto-animate data-background-gradient="linear-gradient(to top, #0C5D87, #002C42)"
+                class="reg-cus">
+                <h1>Worksheet - Q1,2,3</h1>
+                <hr>
+            </section>
+
+            <section data-transition="slide" data-background-gradient="linear-gradient(to top, #00527C, #1C8497)"
+                class="reg-cus">
+                <h4 class="text-start">Problem-Solving Strategies</h4>
+                <hr>
+                <div style="font-size: 28px; line-height: 1.3;">
+                    <ul>
+                        <li>Base case:
+                            <ul>
+                                <li>Usually hinted in the doctests - make sure to read them!</li>
+                                <li>Think about different possibilities of "when to stop"</li>
+                                <li>If multiple arguments change throughout the recursive calls, make sure to
+                                    include a base case for <i>each</i> argument - this is especially relevant in tree
+                                    recursion</li>
+                                <li>If there are multiple base cases, think about whether or not the order of them matters</li>
+                            </ul>
+                        </li>
+                        <li>Recursive call:
+                            <ul>
+                                <li>Think about how to break down the problem into smaller ones</li>
+                                <li>Make sure that the base cases are <i>reachable</i> - that is, the argument changes
+                                    toward the base case each time</li>
+                            </ul>
+                        </li>
+                        <li>Combination step:
+                            <ul>
+                                <li>Assuming the implementation is correct (this is the recursive leap of faith), ask yourself:
+                                    <span class="shade">what will the recursive call return?</span>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #1C8497)"
+                class="reg-cus">
+                <h4 class="text-start">Helper functions for recursion</h4>
+                <hr>
+                <div style="font-size: 28px; line-height: 1.3;">
+                    <ul>
+                        <li>When to use:
+                            <ul>
+                                <li>Need to keep track of more variables than the given parameters of the outer function
+                                </li>
+                                <li>Need the original parameter from the outer function for each recursive call AND some
+                                    other parameters that change throughout the recursive call</li>
+                            </ul>
+                        </li>
+                        <li>Where - usually, though not necessarily, nested within the original function
+                        </li>
+                        <li>How - define the helper function, and return a call to it with appropriate initial arguments
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <section data-auto-animate data-background-gradient="linear-gradient(to top, #0C5D87, #002C42)"
+                class="reg-cus">
+                <h1>Worksheet - Q4,5,6</h1>
+                <hr>
+            </section>
+
+            <section data-auto-animate data-background-gradient="linear-gradient(to bottom, #0C5D87, #002C42)"
+                class="reg-cus">
+                <h2 class="text-start">Attendance! 🤠</h2>
+                <hr>
+                <a href="https://go.cs61a.org/mingxiao-att" style="font-size: 40px">go.cs61a.org/mingxiao-att</a>
+                <div class="text-start" style="font-size: 36px">
+                    <br>
+                    <ul>
+                        <li>The attendance form and slides are both linked on our <a
+                                href="https://go.cs61a.org/mingxiao-index">section website</a>!</li>
+                        <li class="shade">Once again, please do remember to fill out the form by midnight today!!</li>
+                    </ul>
+                </div>
+            </section>
+
+        </div>
+    </div>
+
+    <script src="dist/reveal.js"></script>
+    <script src="plugin/notes/notes.js"></script>
+    <script src="plugin/markdown/markdown.js"></script>
+    <script src="plugin/highlight/highlight.js"></script>
+    <script>
+        // More info about initialization & config:
+        // - https://revealjs.com/initialization/
+        // - https://revealjs.com/config/
+        Reveal.initialize({
+            hash: true,
+            // Learn about plugins: https://revealjs.com/plugins/
+            plugins: [RevealMarkdown, RevealHighlight, RevealNotes]
+        });
+        Reveal.configure({ pdfSeparateFragments: false });
+    </script>
+
+    <script>
+        window.onload = function () {
+            Particles.init({
+                selector: '.background',
+                color: ['#334C75', '#D4A561', '#0C5D87'],
+                connectParticles: true,
+                maxParticles: 100,
+            });
+        };
+
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/particlesjs/2.2.2/particles.min.js"></script>
+</body>
+
+</html>

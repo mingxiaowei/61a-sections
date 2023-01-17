@@ -1,0 +1,172 @@
+.bottom-left {
+    position: absolute !important;
+    /* display: flex !important; */
+    bottom: 0 !important;
+    left: 0 !important;
+    margin-left: auto !important;
+    margin-bottom: auto !important;
+    font-size: 28px;
+    text-align: left;
+    padding-left: 10% !important;
+    min-width: 100% !important;
+    /* padding-right: 0 !important; */
+}
+
+.customizable {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    padding-top: 10% !important;
+    padding-bottom: 10% !important;
+    min-height: 100% !important;
+    justify-content: center !important;
+}
+
+.reg-cus {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    padding-top: 2% !important;
+    padding-bottom: 5% !important;
+    /* padding-left: 3% !important;
+    padding-right: 3% !important; */
+    min-height: 100% !important;
+    min-width: 80% !important;
+    justify-content: center !important;
+}
+
+footer>p {
+    line-height: 0.6 !important;
+}
+
+a {
+    color: #8BC24A !important;
+    text-decoration: underline !important;
+}
+
+.text-end {
+    position: absolute !important;
+    right: 0 !important;
+    justify-content: right !important;
+    text-align: right !important;
+    padding-right: 10% !important;
+    /* display:inline !important; */
+    /* min-width: 100% !important; */
+}
+
+.hr-1 {
+    border: 3px solid #DFFFB8;
+    border-radius: 1.5px;
+    /* margin-left: 40% !important;
+    margin-right: 40% !important; */
+    width: 10% !important;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #DFFFB8;
+}
+
+.bold-it {
+    /* font-style: italic; */
+    font-weight: 700;
+    /* color:#DFFFB8; */
+    text-shadow: 1px 1px 5px #8BC24A;
+}
+
+.code-seg {
+    /* font-size: 28px; */
+    font: 26px "Roboto Mono", monospace !important;
+    background-color: #002E5B !important;
+    padding-left: 4px !important;
+    padding-right: 4px !important;
+    padding-top: 1.5px !important;
+    padding-bottom: 1.5px !important;
+    /* font-family: Consolas, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, serif !important; */
+}
+
+.code-title-h4 {
+    font: "Roboto Mono", monospace !important;
+    background-color: #002E5B !important;
+    padding-left: 4px !important;
+    padding-right: 4px !important;
+    padding-top: 1.5px !important;
+    padding-bottom: 1.5px !important;
+    text-transform: lowercase !important;
+}
+
+code {
+    background-color: #002E5B !important;
+    /* padding-left: 4px !important;
+    padding-right: 4px !important;
+    padding-top: 1px !important;
+    padding-bottom: 1px !important; */
+    font: 26px "Roboto Mono", monospace !important;
+}
+
+.shade {
+    text-shadow: 1px 1px 5px #8BC24A;
+}
+
+.m0 {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+}
+
+ul.spaced>li {
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+
+ol.spaced>li {
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+
+.background {
+    position: absolute;
+    display: flex;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: -1;
+    z-index: -1;
+    margin: 0;
+    padding: 0;
+    min-width: max-content;
+    min-height: max-content;
+    overflow: scroll;
+}
+
+.bu {
+    font-weight: 800 !important;
+    text-decoration: underline !important;
+}
+
+code.t {
+    background: none !important;
+    font-size: 28px !important;
+    color: #DCEAD5 !important;
+}
+
+.ovf {
+    overflow: visible !important;
+}
+
+code.sfs {
+    font-size: 26px !important;
+    line-height: 1.15 !important;
+}
+
+.mp0 {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.ctr {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 60%;
+  }
