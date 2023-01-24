@@ -38,7 +38,7 @@
             <section data-auto-animate data-background-gradient="linear-gradient(to top, #0C5D87, #002C42)"
                 class="customizable">
                 <div class="my-auto mx-auto">
-                    <h2>Lab 01</h2>
+                    <h1>Lab 01</h1>
                     <hr class="hr-1">
                     <p>Functions, Control</p>
                 </div>
@@ -51,11 +51,26 @@
                     <p><a href="mailto:mingxiaowei@berkeley.edu" class="email"
                             style="color:#8BC24A; text-decoration: underline;">
                             mingxiaowei@berkeley.edu</a>
-                        <span class="text-end">Aug 29, 2022</span>
+                        <span class="text-end">Jan 24, 2023</span>
                     </p>
 
                 </footer>
                 <canvas class="background"></canvas>
+            </section>
+
+            <section data-auto-animate data-background-gradient="linear-gradient(to top, #0C5D87, #002C42)"
+                class="reg-cus">
+                <h2 class="text-start">Introducing our AI's 🥳</h2>
+                <hr>
+                <div class="text-start">
+                    <p>AI = Academic Intern</p>
+                    <p>They are excellent helpers in labs!</p>
+                    <ul class="shade">
+                        <li>Evelyn Cheng</li>
+                        <li>Jeremy Yoo</li>
+                        <li>Jessica ng</li>
+                    </ul>
+                </div>
             </section>
 
             <section data-auto-animate data-background-gradient="linear-gradient(to bottom, #0C5D87, #002C42)"
@@ -63,21 +78,66 @@
                 <h3 class="text-start">Logistics 🏡</h3>
                 <hr>
                 <ul style="font-size: 30px; line-height: 1.3;">
-                    <li>Lab 00 due Wed 08/31</li>
+                    <li>Lab 00 due tomorrow 01/25</li>
                     <ul>
                         <li>Make sure to finish lab 00 before doing any other assignment!</li>
                     </ul>
-                    <li>Lab 01 also due Wed 08/31</li>
-                    <li>Homework 01 due Thu 09/01
+                    <li>Lab 01 also due tomorrow 01/25</li>
+                    <li>Homework 01 due Thu 01/26
                         <ul>
                             <li>In general, it's recommended to finish lab first, then do the homework</li>
                         </ul>
                     </li>
                     <li>Look for study buddy or project partners? Talk to your neighbors or check out
-                        <a href="https://edstem.org/us/courses/25379/discussion/1703396">Ed post #128!</a>
+                        <a href="https://edstem.org/us/courses/34756/discussion/2395586">Ed post #19!</a>
                         <ul>
                             <li>The first project is coming soon! You can choose to work alone or in group of 2
                                 🧑‍💻🧑‍💻</li>
+                        </ul>
+                    </li>
+                </ul>
+            </section>
+
+            <section data-auto-animate data-background-gradient="linear-gradient(to bottom, #0C5D87, #002C42)"
+                class="reg-cus">
+                <h3 class="text-start">Update on Lab Attendance Policy 💡</h3>
+                <hr>
+                <ul style="font-size: 28px;" class="spaced">
+                    <li>To receive points for lab, you must get <span class="shade bu">CHECKED OFF</span></li>
+                    <li>To get checked off, you should do either of the following:
+                        <ul class="spaced">
+                            <li>Finish <span class="bu">both the required questions and the optional ones before the
+                                    start of our lab
+                                    section</span> and email me a screenshot of your terminal after running <code
+                                    class="hljs python">python3 ok --all</code> AND your solution file (e.g., <code
+                                    class="hljs python t">lab01.py</code>)
+                            </li>
+                            <li>Come to lab, work on the assignment, and get checked off at the end
+                                <ul>
+                                    <li>If you want to leave early, finish all quetions, including the optional ones,
+                                        and get checked off</li>
+                                    <li>Otherwise, as long as you are engaged throughout the section, I'll check you off
+                                        - you don't have to finish all quetions in this case! </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>Your lab score on Gradescope will be updated <span class="bu">after</span> the lab is due</li>
+                </ul>
+            </section>
+
+            <section data-auto-animate data-background-gradient="linear-gradient(to bottom, #0C5D87, #002C42)"
+                class="reg-cus">
+                <h3 class="text-start">Update on Lab Attendance Policy 💡</h3>
+                <hr>
+                <ul style="font-size: 28px;" class="spaced">
+                    <li>As a result, you won't be able to request an extension on lab assignments. If you cannot come
+                        due to extenuating circumstances, email me beforehand or use one of you lab drops</li>
+                    <li>If you have to miss a lab due to non-extenuating circumstances (e.g., event conflict), you <span
+                            class="bu">might</span> be able to attend another lab section the same week to make up for
+                        it
+                        <ul>
+                            <li>If this is the case, let me know in advance and I'll ask the other TA to see if they have space</li>
                         </ul>
                     </li>
                 </ul>
@@ -188,16 +248,6 @@
                                 <ul>
                                     <li>run all tests and show your sore</li>
                                 </ul>
-
-                            </li>
-
-                            <li class="fragment">
-                                <!-- <pre width="max-content"><code>
-                                    <script type="text/template">python3 <filename> </script></code></pre> -->
-                                <span class="code-seg">python3 ok --submit</span>
-                                <ul>
-                                    <li>REMEMBER TO RUN THIS EVERY TIME YOU FINISH AN ASSINGMENT!</li>
-                                </ul>
                             </li>
 
                             <li class="fragment">
@@ -210,6 +260,11 @@
                                         will be ignored by the ok autograder
                                     </li>
                                 </ul>
+                            </li>
+
+                            <li class="fragment">
+                                This semester, ok is mainly for running tests locally. Remember to submit to Gradescope
+                                afterwards!
                             </li>
                         </ul>
                     </div>
@@ -555,7 +610,8 @@ False
 
             </section>
 
-            <section data-auto-animate data-background-gradient="linear-gradient(to top, #0C5D87, #0D8BB5)"
+            <!-- short-circuiting stuff is here -->
+            <!-- <section data-auto-animate data-background-gradient="linear-gradient(to top, #0C5D87, #0D8BB5)"
                 class="reg-cus">
                 <h4 class="text-start">Short Circuiting</h4>
                 <hr>
@@ -600,7 +656,7 @@ False
 
                 </div>
 
-            </section>
+            </section> -->
 
             <section data-auto-animate data-background-gradient="linear-gradient(to top, #0C5D87, #002C42)"
                 class="reg-cus">
@@ -622,7 +678,9 @@ elif &lt;cond_2&gt;: # elif is optional
     &lt;case_2&gt;
 else: # else is also optional
     &lt;case_3&gt;</code></pre>
-                        <ul><li>Only one of the three cases will be executed.</li></ul>
+                                <ul>
+                                    <li>Only one of the three cases will be executed.</li>
+                                </ul>
                             </div>
                             <div class="col-6">
                                 <pre><code class="hljs python px-3 py-4" data-trim>if &lt;cond_1&gt;:
@@ -631,11 +689,13 @@ if &lt;cond_2&gt;:
     &lt;case_2&gt;
 if &lt;cond_3&gt;: 
     &lt;case_3&gt;</code></pre>
-                        <ul><li>Here, more than one case could be executed.</li></ul>
+                                <ul>
+                                    <li>Here, more than one case could be executed.</li>
+                                </ul>
                             </div>
                         </div>
-                        
-                        
+
+
                     </div>
 
             </section>
@@ -655,7 +715,7 @@ elif "huh": # elif is optional
 else: # else is also optional
     print("QAQ")
 # output
-<span class="fragment code-seg" style="line-height: 0;">hell</span>
+<span class="fragment code-seg" style="line-height: 0;">hello</span>
 <br></code></pre>
                             </div>
                             <div class="col-6">
@@ -670,44 +730,48 @@ if 0: # else is also optional
 <span class="fragment code-seg" style="line-height: 0;">hi</span></code></pre>
                             </div>
                         </div>
-                        
-                        
+
+
                     </div>
 
             </section>
 
             <section data-auto-animate data-background-gradient="linear-gradient(to top, #0C5D87, #0D8BB5)"
                 class="reg-cus">
-                    <h4 class="text-start"><span class="code-title-h4">while</span> loops</h4>
-                    <hr>
-                    <div class="text-start" style="font-size: 28px">
-                                <pre><code class="hljs python px-3 py-3" data-trim>while &lt;condition&gt;:
+                <h4 class="text-start"><span class="code-title-h4">while</span> loops</h4>
+                <hr>
+                <div class="text-start" style="font-size: 28px">
+                    <pre><code class="hljs python px-3 py-3" data-trim>while &lt;condition&gt;:
     &lt;do something&gt;</code></pre>
-                        <ul><li>While <code class="hljs python">&lt;condition&gt;</code> is truthy, 
-                            execute the body of the loop, and evaluate the condition again.</li></ul>
-                    </div>
+                    <ul>
+                        <li>While <code class="hljs python">&lt;condition&gt;</code> is truthy,
+                            execute the body of the loop, and evaluate the condition again.</li>
+                        <li>To avoid infinite loops, make sure that the condition is tending towards a falsy value in the body of the loop!</li>
+                    </ul>
+                </div>
             </section>
 
             <section data-auto-animate data-background-gradient="linear-gradient(to top, #0C5D87, #0D8BB5)"
                 class="reg-cus">
-                    <h4 class="text-start"><span class="code-title-h4">while</span> loops that execute 
-                        <span class="code-title-h4">k</span> times</h4>
-                    <hr>
-                    <div class="text-start" style="font-size: 28px">
-                        <pre><code class="hljs python px-3 py-3" data-trim>
+                <h4 class="text-start"><span class="code-title-h4">while</span> loops that execute
+                    <span class="code-title-h4">k</span> times
+                </h4>
+                <hr>
+                <div class="text-start" style="font-size: 28px">
+                    <pre><code class="hljs python px-3 py-3" data-trim>
                             count = 1
                             while count <= k: # pay attention to the equal sign here
                                 &lt;do something&gt;
                                 count += 1 # equivalent to count = count + 1
-                        </code></pre>  
+                        </code></pre>
 
-                        <pre><code class="hljs python px-3 py-3" data-trim>
+                    <pre><code class="hljs python px-3 py-3" data-trim>
                             while k: # when k reaches 0, the condition becomes falsy
                                 &lt;do something&gt;
                                 k -= 1 # equivalent to k = k - 1
-                        </code></pre>   
-                        <p>Both are useful templates to remember!</p>
-                    </div>
+                        </code></pre>
+                    <p>Both are useful templates to remember!</p>
+                </div>
             </section>
 
             <section data-auto-animate data-background-gradient="linear-gradient(to top, #0C5D87, #002C42)"
@@ -723,14 +787,15 @@ if 0: # else is also optional
                 <div style="font-size: 28px; text-align: left;">
                     <ul>
                         <li class="fragment">
-                            <code class="hljs python">num % 10</code> retrives the last digit of 
+                            <code class="hljs python">num % 10</code> retrives the last digit of
                             <code class="hljs python">num</code>
                         </li>
                         <li class="fragment">
-                            <code class="hljs python">num // 10</code> removes the last digit of 
+                            <code class="hljs python">num // 10</code> removes the last digit of
                             <code class="hljs python">num</code>
                         </li>
-                        <li class="fragment">Example: prints the digits of a number <code class="hljs python" data-trim>n</code> in reverse order
+                        <li class="fragment">Example: prints the digits of a number <code class="hljs python"
+                                data-trim>n</code> in reverse order
                             <pre class="py-0 my-0 px-0 mx-0">
                                 <code class="hljs python mt-3 px-3 " data-trim>
                                 while n:
@@ -748,21 +813,17 @@ if 0: # else is also optional
 
             <section data-auto-animate data-background-gradient="linear-gradient(to top, #0C5D87, #002C42)"
                 class="reg-cus">
-                <h2 class="text-start"></h2>
+                <h2 class="text-start">Now it's Lab Time 🤠</h2>
                 <hr>
-                <div class="text-start" style="line-height: 1.15; font-size: 36px">
-                    <ul class="spaced-li">
+                <div class="text-start" style="line-height: 1.15; font-size: 34px">
+                    <ul class="spaced">
                         <li>Get started on the lab and raise your hand whenever you need help!</li>
-                        <li>Attendance: <a href="https://go.cs61a.org/mingxiao-att">go.cs61a.org/mingxiao-att</a>
-                            <ul class="spaced-li">
-                                <li>By default, password will be released at the end of lab.</li>
-                                <li>If you finish early, let me know and I'll check you off.</li>
-                            </ul>
-                        </li>
+                        <li>Get to know your neighbors and collaborate if you'd like!</li>
                         <li>Slides: <a href="https://go.cs61a.org/mingxiao-index">go.cs61a.org/mingxiao-index</a></li>
+                        <li>Leave any anonymous feedback here: <a href="https://go.cs61a.org/mingxiao-anon">go.cs61a.org/mingxiao-anon</a></li>
                     </ul>
                 </div>
-                
+
             </section>
 
         </div>
