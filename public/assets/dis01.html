@@ -60,6 +60,14 @@
 
             <section data-auto-animate data-background-gradient="linear-gradient(to bottom, #0C5D87, #002C42)"
                 class="reg-cus">
+                <h4 class="text-start">From last time... 👀</h4>
+                <hr>
+                <p class="text-start" style="line-height: 1; font-size: 28px;">What's the best time of the day?</p>
+                <img class="mt-0" data-src="media\sp23-dis01-att.png" style="height: 550px; width:auto;">
+            </section>
+
+            <section data-auto-animate data-background-gradient="linear-gradient(to bottom, #0C5D87, #002C42)"
+                class="reg-cus">
                 <h3 class="text-start">Logistics 🏡</h3>
                 <hr>
                 <ul class="spaced" style="font-size: 28px; line-height: 1.3;">
@@ -74,47 +82,22 @@
                     </li> -->
                     <li>About office hours:
                         <ul class="spaced">
-                            <li>We are experimenting with a new OH system this semester - basically I'll be appointed some time slots, not necessarily every week, and I still don't know when they will be yet :/</li>
-                            <li>That being said, we do have OH throughout the week and you can check the time/location on our <a href="https://cs61a.org/office-hours/">course calendar</a></li>
-                            
-                        </ul>
-                    </li>
-                </ul>
-            </section>
+                            <li>We are experimenting with a new OH system this semester - basically I'll be appointed
+                                some time slots, not necessarily every week, and I still don't know when they will be
+                                yet :/</li>
+                            <li>That being said, we do have OH throughout the week and you can check the time/location
+                                on our <a href="https://cs61a.org/office-hours/">course calendar</a></li>
 
-            <section data-auto-animate data-background-gradient="linear-gradient(to top, #0C5D87, #002C42)"
-                class="reg-cus">
-                <h3 class="text-start">Logistics 🏡</h3>
-                <hr>
-                <ul class="spaced" style="font-size: 28px; line-height: 1.3;">
-                    <li>One-time tutorial section signups are open! (Check out Ed post <a
-                            href="https://edstem.org/us/courses/25379/discussion/1708847">#176</a> for more
-                        info)
-                        <ul>
-                            <li>Tutorials are smaller sections (~5) where the tutor/mentor will go over some additional
-                                practice problems</li>
-                            <li>Signups for recurring sections will open after the first midterm</li>
                         </ul>
                     </li>
-                    <li>Next Monday is a holiday - no 61A events happening (lecture, lab, OH)
-                        <ul>
-                            <li>More logistics will be announced on Ed once they are finalized</li>
-                            <li>Enjoy your long weekend :)</li>
-                        </ul>
-                    </li>
-                    <li>Check out Ed for more announcements!</li>
+                    <li>Make sure to check Ed frequently! </li>
                     <li>When emailing me, please try to put sth like <code class="hljs python">[CS 61A]</code> in the
                         title so it's easier for me to sort things out!</li>
                 </ul>
             </section>
 
-            <section data-auto-animate data-background-gradient="linear-gradient(to top, #0C5D87, #002C42)"
-                class="reg-cus">
-                <h1>Values, Expressions, and Statements 🧮</h1>
-                <hr>
-            </section>
-
-            <section data-transition="slide" data-background-gradient="linear-gradient(to top, #00527C, #17b2c3)"
+            <!-- Expressions/Values/Statements -->
+            <!-- <section data-transition="slide" data-background-gradient="linear-gradient(to top, #00527C, #17b2c3)"
                 class="reg-cus">
                 <h4 class="text-start">Expressions and Values</h4>
                 <hr>
@@ -181,7 +164,7 @@
                         </li>
                     </ul>
                 </div>
-            </section>
+            </section> -->
 
             <section data-auto-animate data-background-gradient="linear-gradient(to top, #0C5D87, #002C42)"
                 class="reg-cus">
@@ -209,7 +192,7 @@
                         </div>
 
                         <div class="col-7 mx-0 px-0">
-                            <ul>
+                            <ul class="spaced">
                                 <li><span class="shade">Conditional expressions</span> - essentially any expression can
                                     be a conditional
                                     expression, and it evaluates to some value that's either truthy or falsy</li>
@@ -224,6 +207,23 @@
                             </ul>
                         </div>
                     </div>
+                </div>
+            </section>
+
+            <section data-auto-animate data-background-gradient="linear-gradient(to top, #0C5D87, #0D8BB5)"
+                class="reg-cus">
+                <h4 class="text-start"><span class="code-title-h4">while</span> loops</h4>
+                <hr>
+                <div class="text-start" style="font-size: 30px">
+                    <pre><code class="hljs python px-3 py-3" data-trim>while &lt;condition&gt;:
+    &lt;do something&gt;</code></pre>
+                    <ul class="spaced">
+                        <li>While <code class="hljs python">&lt;condition&gt;</code> is truthy,
+                            execute the body of the loop. Then come back to the condition to re-evaluate it. If truthy,
+                            execute the loop body again. Continue until the condition becomes falsy.</li>
+                        <li>To avoid infinite loops, make sure that the condition is tending towards a falsy value in
+                            the body of the loop!</li>
+                    </ul>
                 </div>
             </section>
 
@@ -333,7 +333,8 @@ False
                                 <li>return the last thing that's evaluated</li>
                             </ul>
                         </li>
-                        <li style="text-decoration: underline">If an error occurs, the execution flow is terminated immediately</li>
+                        <li style="text-decoration: underline">If an error occurs, the execution flow is terminated
+                            immediately</li>
                     </ul>
                     <div class="row g-0">
                         <div class="col-6">
@@ -360,103 +361,113 @@ False
 
             <section data-auto-animate data-background-gradient="linear-gradient(to top, #0C5D87, #002C42)"
                 class="reg-cus">
-                <h1>Worksheet!</h1>
+                <h1>Worksheet Q1-6</h1>
                 <hr>
             </section>
 
             <section data-auto-animate data-background-gradient="linear-gradient(to top, #0C5D87, #002C42)"
                 class="reg-cus">
-                <h1>Evaluation Rules 📡</h1>
+                <h1>Environment Diagrams 🏞️</h1>
                 <hr>
             </section>
 
             <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #17b2c3)"
                 class="reg-cus">
-                <h4 class="text-start">Evaluation Rules</h4>
+                <h4 class="text-start">Environment Diagrams</h4>
                 <hr>
                 <div style="font-size: 28px; line-height: 1.2;">
-                    <!-- <ul class="spaced"> -->
-                    <span class="shade" style="font-size: 32; line-height: 2;"><b>Function Calls</b></span>
-                    <ol type="a">
-                        <li>Evaluate the operators</li>
-                        <li>Evaluate the operands</li>
-                        <li>Apply the operator to the values from evaluating the operands
-                            <ol type="a">
-                                <li>Create a new frame, bind the formal parameters to the actual argument values</li>
-                                <li>Evaluate the body of the function in the context of this new frame</li>
-                                <!-- <li></li> -->
+                    <ul class="spaced">
+                        <li>A model used to keep track of variables defined and the corresponding values they are bound
+                            to</li>
+                        <li><span class="shade">Frame</span> - a frame keeps track of what variables have been defined
+                            in the current execution environment</li>
+                        <li><span class="shade">Global frame</span> - the frame we start off with when executing a
+                            program from scratch</li>
+                    </ul>
+                    <iframe width="1200" height="350" frameborder="0"
+                        src="https://pythontutor.com/iframe-embed.html#code=x%20%3D%203%20%0A%0Adef%20square%28x%29%3A%0A%20%20%20%20return%20x%20**%202%20%0A%0Asquare%282%29&codeDivHeight=400&codeDivWidth=350&cumulative=true&curInstr=0&origin=composingprograms.js&py=3&rawInputLstJSON=%5B%5D">
+                    </iframe>
+                </div>
+            </section>
+
+            <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #17b2c3)"
+                class="reg-cus">
+                <h4 class="text-start">Assignment Statements</h4>
+                <hr>
+                <div style="font-size: 28px; line-height: 1.2;">
+                    <p>Anatomy: <code class="hljs python">&lt;variable name&gt; = &lt;expression&gt;</code></p>
+                    <ul class="spaced">
+                        <li>Assignment statements define variable in programs</li>
+                        <li>To execute an assignment statement:
+                            <ol class="spaced">
+                                <li>Evaluate all of the expressions on the RHS of the assignment operator (the single
+                                    equal
+                                    sign) from left to right</li>
+                                <li>Bind all the names on the LHS to the corresponding resulting values in the current
+                                    frame</li>
+                                <p style="line-height: 1">* Names can only bind to values, not other names!</p>
                             </ol>
                         </li>
-                    </ol>
-                    </li>
+                    </ul>
                 </div>
+            </section>
+
+            <section data-auto-animate data-background-gradient="linear-gradient(to top, #0C5D87, #002C42)"
+                class="reg-cus">
+                <h1>Worksheet Q7</h1>
+                <hr>
             </section>
 
             <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #17b2c3)"
                 class="reg-cus">
-                <h4 class="text-start">Evaluation Rules</h4>
+                <h4 class="text-start">def Statements</h4>
                 <hr>
                 <div style="font-size: 28px; line-height: 1.2;">
-                    <span class="shade" style="font-size: 32; line-height: 1.5;"><b>Assignment Statements</b></span>
-                    <ol>
-                        <li>Evaluate all of the expressions on the RHS of the assignment operator (the single equal
-                            sign) from left to right</li>
-                        <li>Bind all the names on the LHS to the resulting values in the current frame</li>
-                        <p style="line-height: 1">* Names can only bind to values, not other names!</p>
-                    </ol>
-                    <pre class="my-0 py-0"><code class="hljs python py-2" data-trim data-noescape>
-                        a, b = 1, 2
-                        a, b = b, a 
-                        # In Python, you can swap the values of multiple variables in one line
-                        a, b = b + 1, a + b 
-                        # If there are multiple arguments to print, they will be seperated 
-                        # by a whitespace in the outputted line
-                        print("a =", a, ", b =", b)
-                        <span class="fragment"># output: a = 3, b = 3</span>
+                    <pre><code class="hljs python" data-trim="">
+                        def  &lt;function name &gt;:
+                            &lt;function body&gt;
+                            return ...
                     </code></pre>
+                    <ul class="spaced">
+                        <li>A <code class="hljs python">def</code> statement creates a function object and binds it to a
+                            name </li>
+                        <li>In an environment diagram:
+                            <ul class="spaced">
+                                <li>
+                                    Write the function object to the right-hand-side of the frames, denoting the
+                                    intrinsic name of the function, its parameters, and the parent frame (e.g., <code
+                                        class="hljs python">func square(x) [parent = Global]</code>)
+                                    <ul class="spaced">
+                                        <li><span class="shade">parent frame</span> = the frame where the function is
+                                            defined</li>
+                                    </ul>
+                                </li>
+                                <li>Write the function name as a variable in the current frame and draw an arrow from
+                                    the name to the function object</li>
+                            </ul>
+                    </ul>
                 </div>
             </section>
 
-            <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #17b2c3)"
+            <section data-auto-animate data-background-gradient="linear-gradient(to top, #0C5D87, #002C42)"
                 class="reg-cus">
-                <h4 class="text-start">Evaluation Rules</h4>
+                <h1>Worksheet Q8</h1>
                 <hr>
-                <div style="font-size: 28px; line-height: 1.2;">
-                    <span class="shade" style="font-size: 32; line-height: 1.5;"><b>Variable Lookup</b></span>
-                    <ol>
-                        <li>Look it up in the current frame</li>
-                        <li>If not found, go look in the parent frame, and up and up until global. If it's not there,
-                            then error. </li>
-                        <p style="line-height: 1">* Built-in functions like <code class="hljs python">max</code> and
-                            <code class="hljs python">min</code> are usually not displayed on the environment diagram.
-                        </p>
-                    </ol>
-                    <pre class="my-0 py-0"><code class="hljs python py-2" data-trim data-noescape>
-                        a, b = 1, 2
-                        a, b = b, a 
-                        # In Python, you can swap the values of multiple variables in one line
-                        a, b = b + 1, a + b 
-                        # If there are multiple arguments to print, they will be seperated 
-                        # by a whitespace in the outputted line
-                        print("a =", a, ", b =", b)
-                        <span class="fragment"># output: a = 3, b = 3</span>
-                    </code></pre>
-                </div>
             </section>
 
             <section data-auto-animate data-background-gradient="linear-gradient(to bottom, #0C5D87, #002C42)"
-				class="reg-cus">
-				<h2 class="text-start">Attendance! 🤠</h2>
-				<hr>
-				<a href="https://go.cs61a.org/mingxiao-att" style="font-size: 40px">go.cs61a.org/mingxiao-att</a>
-				<div class="text-start" style="font-size: 36px">
-					<br>
-					<ul>
-						<li>Also linked on our section website!</li>
-						<li>Slides: <a href="https://go.cs61a.org/mingxiao-index">go.cs61a.org/mingxiao-index</a></li>
-					</ul>
-				</div>
-			</section>
+                class="reg-cus">
+                <h2 class="text-start">Attendance! 🤠</h2>
+                <hr>
+                <a href="https://go.cs61a.org/mingxiao-att" style="font-size: 40px">go.cs61a.org/mingxiao-att</a>
+                <div class="text-start" style="font-size: 36px">
+                    <br>
+                    <ul>
+                        <li>Also linked on our section website!</li>
+                        <li>Slides: <a href="https://go.cs61a.org/mingxiao-index">go.cs61a.org/mingxiao-index</a></li>
+                    </ul>
+                </div>
+            </section>
 
         </div>
     </div>
