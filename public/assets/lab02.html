@@ -1,0 +1,603 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>Lab 02</title>
+
+    <link rel="stylesheet" href="dist/reset.css">
+    <link rel="stylesheet" href="dist/reveal.css">
+    <link rel="stylesheet" href="dist/theme/black.css">
+    <link rel="stylesheet" href="css/custom.css">
+
+    <!-- Theme used for syntax highlighted code -->
+    <link rel="stylesheet" href="plugin/highlight/night-owl.min.css">
+
+    <!-- fonts -->
+    <link href='https://fonts.googleapis.com/css?family=Open Sans' rel='stylesheet'>
+
+    <!-- icon -->
+    <link rel="icon" href="https://mingxiaowei.github.io/61a-sections/public/images/favicon.ico" sizes="32x32">
+
+    <!-- link to bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+
+    <!-- link to bootstrap icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
+
+    <script src="plugin/highlight/highlight.js"></script>
+
+</head>
+
+<body>
+    <div class="reveal">
+        <div class="slides">
+            <section data-auto-animate data-background-gradient="linear-gradient(to top, #0C5D87, #002C42)"
+                class="customizable">
+                <div class="my-auto mx-auto">
+                    <h1>Lab 02</h1>
+                    <hr class="hr-1">
+                    <p>Higher-Order Functions, Lambda Expressions</p>
+                </div>
+                <br>
+                <br>
+
+                <footer class="bottom-left">
+                    <!-- <hr> -->
+                    <p>Mingxiao Wei</p>
+                    <p><a href="mailto:mingxiaowei@berkeley.edu" class="email"
+                            style="color:#8BC24A; text-decoration: underline;">
+                            mingxiaowei@berkeley.edu</a>
+                        <span class="text-end">Jan 31, 2022</span>
+                    </p>
+
+                </footer>
+                <canvas class="background"></canvas>
+            </section>
+
+            <section data-auto-animate data-background-gradient="linear-gradient(to bottom, #0C5D87, #002C42)"
+                class="reg-cus">
+                <h4 class="text-start">From last time... 👀</h4>
+                <hr>
+                <!-- <p class="text-start" style="line-height: 1; font-size: 28px;">Are you a morning bird or night owl or ...?</p> -->
+                <img class="mt-0" data-src="media\sp23-lab02-att.png" style="height: 400px; width:auto;">
+            </section>
+
+            <section data-auto-animate data-background-gradient="linear-gradient(to top, #0C5D87, #002C42)"
+                class="reg-cus">
+                <h3 class="text-start">Logistics 🏡</h3>
+                <hr>
+                <ul class="spaced" style="font-size: 28px; line-height: 1.3;">
+                    <li>Lab 02 due tomorrow 02/01</li>
+                    <li>Homework 02 due Thursday 02/02</li>
+                    <li>Hog is released! 🎲🎲🎲
+                        <ul>
+                            <li>You can choose to work alone or in group of 2
+                                <ul>
+                                    <li>
+                                        If you work with a partner, only one of you need to submit and add the other on
+                                        Gradescope!
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>Checkpoint 1 due next Tue 02/07</li>
+                            <li>The entire project due next Fri 02/10</li>
+                            <li>Submit everything by next Thu 02/09 for one extra point!</li>
+                        </ul>
+                    </li>
+                    <li>Sign up for <a href="https://edstem.org/us/courses/34756/discussion/2463035">tutoring
+                            sections</a> or <a href="https://edstem.org/us/courses/34756/discussion/2480049">CSM
+                            sections</a>
+                        <ul class="spaced">
+                            <li>Not required, but a good place to go if you want more practice!</li>
+                        </ul>
+                    </li>
+                </ul>
+            </section>
+
+            <section data-auto-animate data-background-gradient="linear-gradient(to top, #0C5D87, #002C42)"
+                class="reg-cus">
+                <h3 class="text-start">About Midterm 1 🐿</h3>
+                <hr>
+                <p class="text-start" style="font-size: 26px; line-height: 1;">Yes, it's coming ... </p>
+                <ul class="spaced" style="font-size: 26px; line-height: 1.2;">
+                    <li class="shade"><b>Default: Next Monday (02/06) 7-9pm, in-person, right-handed desk</b>
+                    </li>
+                    <li>If you need any type of accommodations (left-handed desk, remote exam, alternate time, extended
+                        time, etc.), please <a href="http://go.cs61a.org/exam-alts">fill out this form</a> by tomorrow
+                        09/09!!
+                    </li>
+                    <li>Check out <a href="https://edstem.org/us/courses/34756/discussion/2465121">Ed post #376</a> for
+                        more details!</li>
+                    <li>Pro Tips
+                        <ul>
+                            <li>Make sure you are (somewhat) comfortable with all the topics in scope
+                            </li>
+                            <li>Familiarize yourself with the <a
+                                    href="https://cs61a.org/assets/pdfs/61a-mt1-study-guide.pdf">study guide</a>
+                                beforehand</li>
+                            <li>Do <a href="https://cs61a.org/resources/">past exams</a>
+                                <ul>
+                                    <li>For each question, make sure you understand it before moving on to the next exam
+                                    </li>
+                                    <li>Consult walkthrough videos! They are super helpful </li>
+                                    <li>Post on Ed <a
+                                            href="https://edstem.org/us/courses/34756/discussion/2470153">thread</a> /
+                                        come to OH for help</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </section>
+
+            <section data-auto-animate data-background-gradient="linear-gradient(to top, #0C5D87, #002C42)"
+                class="reg-cus">
+                <h1>Short-Circuiting 🔌</h1>
+                <hr>
+            </section>
+
+            <section data-auto-animate data-background-gradient="linear-gradient(to top, #0C5D87, #0D8BB5)"
+                class="reg-cus">
+                <h4 class="text-start">Short Circuiting</h4>
+                <hr>
+                <div class="text-start" style="font-size: 28px">
+                    <ul>
+                        <li>Short circuit - not every operand gets evaluated</li>
+                        <li><code class="hljs python">and</code>
+                            <ul>
+                                <li>evalutes from left to right until
+                                    <span class="shade">the first FALSY value or the last value</span>
+                                </li>
+                                <li>return the last thing that's evaluated</li>
+                            </ul>
+                        </li>
+                        <li><code class="hljs python">or</code>
+                            <ul>
+                                <li>evalutes from left to right until
+                                    <span class="shade">the first TRUTHY value or the last value</span>
+                                </li>
+                                <li>return the last thing that's evaluated</li>
+                            </ul>
+                        </li>
+                        <li style="text-decoration: underline">If an error occurs, the execution flow is terminated
+                            immediately</li>
+                    </ul>
+                    <div class="row g-0">
+                        <div class="col-6">
+                            <pre><code class="hljs python-repl py-3 px-3" data-trim data-noescape>
+                                >>> True and  1 / 0 and  2
+                                <span class="fragment code-seg style="line-height: 0;">ZeroDivisionError</span>
+                                >>> True or  1 / 0 or  2
+                                <span class="fragment code-seg" style="line-height: 0;">True</span>
+                                </code></pre>
+                        </div>
+                        <div class="col-6">
+                            <pre><code class="hljs python-repl py-3 px-3" data-trim data-noescape>
+                                >>> 1 and  2 and  3 
+                                <span class="fragment code-seg" style="line-height: 0;">3</span>
+                                >>> 1 or  2 or  3
+                                <span class="fragment code-seg" style="line-height: 0;">1</span>
+                                </code></pre>
+                        </div>
+                    </div>
+
+                </div>
+
+            </section>
+
+            <section data-auto-animate data-background-gradient="linear-gradient(to top, #0C5D87, #002C42)"
+                class="reg-cus">
+                <h1>Lambda Expressions 🐑</h1>
+                <hr>
+            </section>
+
+            <section data-transition="slide" data-background-gradient="linear-gradient(to top, #00527C, #17b2c3)"
+                class="reg-cus">
+                <h4 class="text-start">Lambda Expressions</h4>
+                <hr>
+                <div style="font-size: 28px; line-height: 1.2;">
+                    <ul class="spaced">
+                        <li>
+                            A lambda expression evaluates to <span class="shade">function values</span> but does not
+                            bind it to a name, unless we bind it to some names using assignment statements
+                        </li>
+                        <li>Anatomy:
+                            <pre class="my-2" style="min-width:100%"><code class="hljs python py-2" data-trim>
+                                f = lambda &lt;p1&gt;, &lt;p2&gt;, ...: &lt;returned expr&gt;
+                            </code></pre>
+                            This is equivalent to (though not the same as)
+                            <pre class="my-2" style="min-width:100%"><code class="hljs python py-2" data-trim>
+                            def f (&lt;p1&gt;, &lt;p2&gt;, ...):
+                                return &lt;returned expr&gt;
+                            </code></pre>
+                        </li>
+                        <li>Similarly, the return expression of a lambda function is not evaluated until the lambda is
+                            called</li>
+                        <li>Unlike <code class="hljs python">def</code> statements, lambda expressions can be used as an
+                            operator or an operand to a call
+                            expression. This is because they are simply one-line expressions that <span
+                                class="shade">evaluate to functions</span>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <section data-transition="slide" data-background-gradient="linear-gradient(to top, #00527C, #17b2c3)"
+                class="reg-cus">
+                <h4 class="text-start">Lambda Expressions</h4>
+                <hr>
+                <div style="font-size: 26px; line-height: 1.2; color: white;">
+                    <table class="table table-bordered" style="color: white">
+                        <thead>
+                            <tr>
+                                <th scope="col"></th>
+                                <th scope="col"><code class="hljs python">lambda</code></th>
+                                <th scope="col"><code class="hljs python">def</code></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">Type</th>
+                                <td>Expression that evaluates to a value</td>
+                                <td>Statement that alters the environment</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Results of execution</th>
+                                <td>Creates an anonymous <code class="hljs python t">lambda</code> function with no
+                                    intrinsic name.</td>
+                                <td>Creates a function with an intrinsic name and binds it to that name in the current
+                                    environment.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Effect on the environment</th>
+                                <td>Does not create or modify any variables.</td>
+                                <td>Both creates a new function object and binds it to a name
+                                    in the current environment.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Usage</th>
+                                <td>A lambda expression can be used anywhere that expects an expression,
+                                    such as in an assignment statement or as the operator or operand to a call
+                                    expression.</td>
+                                <td>After executing a def statement, the created function is bound to a name. You should
+                                    use this name to refer to the function anywhere that expects an expression.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <section data-transition="slide" data-background-gradient="linear-gradient(to top, #00527C, #17b2c3)"
+                class="reg-cus">
+                <h4 class="text-start">Lambda Expressions</h4>
+                <hr>
+                <div style="font-size: 26px; line-height: 1.2; color: white;">
+                    <pre class="mp0"><code class="hljs python py-2" data-trim>
+                        # A lambda expression by itself does not alter the environment
+                        lambda x: x * x
+
+                        # We can assign lambda functions to a name with 
+                        # an assignment statement
+                        square = lambda x: x * x
+                        square(3)
+
+                        # Lambda expressions can be used as an operator or operand
+                        negate = lambda f, x: -f(x)
+                        negate(lambda x: x * x, 3)
+                    </code></pre>
+                </div>
+            </section>
+
+            <section data-auto-animate data-background-gradient="linear-gradient(to top, #0C5D87, #002C42)"
+                class="reg-cus">
+                <h1>Higher Order Functions 🏔</h1>
+                <hr>
+            </section>
+
+            <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #17b2c3)"
+                class="reg-cus">
+                <h4 class="text-start">Higher Order Functions</h4>
+                <hr>
+                <div class="text-start" style="font-size: 28px; line-height: 1.2;">
+                    <ul class="spaced">
+                        <li>In Python, function objects are values that can be passed around</li>
+                        <li>A <span class="shade">higher order function (HOF)</span> is a function that manipulates
+                            other
+                            functions by taking in functions as arguments, returning a function, or both.</li>
+                    </ul>
+                    <pre><code class="hljs python py-4" data-trim data-noescape data-line-numbers>
+                    def composer (func1, func2):
+                        """Return a function f, such that f(x) = func1(func2(x))."""
+                        def f (x):
+                            return func1(func2(x))
+                        return f
+                    </code></pre>
+
+                </div>
+            </section>
+
+            <section data-transition="slide" data-background-gradient="linear-gradient(to top, #00527C, #17b2c3)"
+                class="reg-cus">
+                <h4 class="text-start">Functions as arguments</h4>
+                <hr>
+                <div class="text-start" style="font-size: 28px; line-height: 1.15;">
+                    <pre><code class="hljs python py-2" data-trim>
+                        def square (x):
+                            return x * x
+                    </code></pre>
+                    <ul>
+                        <li>
+                            This created a function object with the intrinsic name <code
+                                class="hljs python">square</code> as well as binded it to the
+                            name <code class="hljs python">square</code> in the current environment.
+                        </li>
+                    </ul>
+                    <pre><code class="hljs python py-2" data-trim>
+                        def scale (f, x, k):
+                            """ Returns the result of f(x) scaled by k. """
+                            return k * f(x)
+                    </code></pre>
+                    <pre class="my-2"><code class="hljs python-hljs py-2" data-trim>
+                        &gt;&gt;&gt; scale(square, 3, 2) # Double square(3)
+                        18
+                        &gt;&gt;&gt; scale(square, 2, 5) # 5 times 2 squared
+                        20
+                    </code></pre>
+                    <ul>
+                        <li>
+                            In the body of the call to scale, the function object with the intrinsic name <code
+                                class="hljs python t">square</code>
+                            is bound to the parameter <code class="hljs python t">f</code>. Then, we call
+                            <code class="hljs python t">square</code> in the body of
+                            <code class="hljs python t">scale</code> by calling <code class="hljs python t">f(x)</code>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <section data-transition="slide" data-background-gradient="linear-gradient(to top, #00527C, #17b2c3)"
+                class="reg-cus">
+                <h4 class="text-start">Functions that return functions</h4>
+                <hr>
+                <div class="text-start" style="font-size: 28px; line-height: 1.15;">
+                    <ul>
+                        <li>
+                            Since functions are values, they are also valid as return values!
+                        </li>
+                    </ul>
+                    <pre><code class="hljs python py-2" data-trim>
+                        def multiply_by (m):
+                            def multiply (n):
+                                return n * m
+                            return multiply
+                    </code></pre>
+                    <pre class="my-2"><code class="hljs python-hljs py-2" data-trim data-noescape>
+                        &gt;&gt;&gt; multiply_by(3)
+                        &lt;function multiply_by.&lt;locals&gt;.multiply at ...&gt;
+                        &gt;&gt;&gt; multiply(4)
+                        <span class="fragment">Traceback (most recent call last):
+                        File "&lt;stdin&gt;", line 1, in &lt;module&gt;
+                        NameError: name 'multiply' is not defined
+                        </span>
+                    </code></pre>
+                    <ul>
+                        <li>
+                            The name <code class="hljs python t">multiply</code> only exists within the frame where we
+                            evaluate the body of <code class="hljs python t">multiply_by</code>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <section data-transition="slide" data-background-gradient="linear-gradient(to top, #00527C, #17b2c3)"
+                class="reg-cus">
+                <h4 class="text-start">Functions that return functions</h4>
+                <hr>
+                <div class="text-start" style="font-size: 28px; line-height: 1.25;">
+                    <pre class="my-2"><code class="hljs python-hljs" data-trim data-noescape>
+                        &gt;&gt;&gt; # Assign the result of the call expression to a name
+                        &gt;&gt;&gt; times_three = multiply_by(3) 
+                        &gt;&gt;&gt; # Call the inner function with its new name
+                        &gt;&gt;&gt; times_three(5) 
+                        15
+                        &gt;&gt;&gt; # Chain together two call expressions
+                        &gt;&gt;&gt; multiply_by(3)(10) 
+                        30
+                    </code></pre>
+                    <ul>
+                        <li>
+                            To use the inner function that <code class="hljs python">multiply_by(3)</code> returns, we
+                            can either store the function value in a variable and use this variable as a function later,
+                            or chain two call expressions
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <section data-auto-animate data-background-gradient="linear-gradient(to top, #0C5D87, #002C42)"
+                class="reg-cus">
+                <h1>Environment Diagrams 🛤</h1>
+                <hr>
+            </section>
+
+            <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #17b2c3)"
+                class="reg-cus">
+                <h4 class="text-start">Assignment Statements</h4>
+                <hr>
+                <div style="font-size: 28px; line-height: 1.2;">
+                    <ol class="spaced">
+                        <li>Evaluate the expression on the RHS of the assignment operator (the single equal
+                            sign) from left to right</li>
+                        <li>Bind the variable names on the LHS to the resulting values in the current frame
+                            <ul>
+                                <li>If the variable name doesn't exist in the current frame, create a new variable and
+                                    binds it to the value on the RHS; otherwise the previous binding is overwritten</li>
+                            </ul>
+                        </li>
+
+                    </ol>
+                    <p class="text-start" style="line-height: 1.2">If there is more than one name/expression in the
+                        statement, evaluate
+                        all the expressions first from left to right before making any bindings.</p>
+                    <pre class="my-0 py-0"><code class="hljs python py-3" data-trim data-noescape>
+                        a, b = 1, 2
+                        a, b = b, a 
+                        # In Python, you can swap the values of multiple variables in one line
+                        a, b = b + 1, a + b 
+                    </code></pre>
+                </div>
+            </section>
+
+            <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #17b2c3)"
+                class="reg-cus">
+                <h4 class="text-start">def Statements</h4>
+                <hr>
+                <div style="font-size: 28px; line-height: 1.2;">
+                    <ol class="spaced">
+                        <li>Draw the function object with its intrinsic name, formal parameters, and parent frame
+                            <ul>
+                                <li><span class="shade">parent frame</span> = the frame where the function was
+                                    defined</li>
+                            </ul>
+                        </li>
+                        <li>If the intrinsic name of the function doesn't already exist in the current frame, write it
+                            in. If it does, erase the current binding. Bind the newly created function object to this
+                            name.
+                        </li>
+
+                    </ol>
+
+                </div>
+            </section>
+
+            <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #17b2c3)"
+                class="reg-cus">
+                <h4 class="text-start">def Statements</h4>
+                <hr>
+                <iframe width="800" height="500" frameborder="0"
+                    src="https://pythontutor.com/iframe-embed.html#code=def%20f%28x%29%3A%0A%20%20%20%20return%20x%20%2B%201%0A%0Adef%20g%28y%29%3A%0A%20%20%20%20return%20x%20-%201%0A%0Adef%20f%28z%29%3A%0A%20%20%20%20return%20x%20*%202&codeDivHeight=400&codeDivWidth=350&cumulative=true&curInstr=0&origin=composingprograms.js&py=3&rawInputLstJSON=%5B%5D">
+                </iframe>
+            </section>
+
+            <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #17b2c3)"
+                class="reg-cus">
+                <h4 class="text-start">Call expressions</h4>
+                <hr>
+                <div style="font-size: 28px; line-height: 1.2;">
+                    <ol class="spaced">
+                        <li>Evaluate the operator, which should evaluate to a function value.</li>
+                        <li>Evaluate the operands from left to right.
+                        </li>
+                        <li>Draw a new frame, labelling it with the following:
+                            <ul>
+                                <li>A unique index (<code class="hljs python">f1</code>, <code
+                                        class="hljs python">f2</code>, <code class="hljs python">f3</code>, ...)</li>
+                                <li>The intrinsic name of the function, which is also the name of the function object
+                                    itself
+                                </li>
+                                <li>The parent frame (<code class="hljs python">[parent = ...]</code>)</li>
+                            </ul>
+                        </li>
+                        <li>Bind the formal parameters to the argument values obtained in step #2</li>
+                        <li>Evaluate the body of the function in this new frame until a return value is
+                            obtained. Write down the return value in the frame.</li>
+                    </ol>
+                    <div class="text-start">
+                        <p style="line-height: 1;">* If a function does not have a return value, it implicitly returns
+                            <code class="hljs python">None</code>
+                        </p>
+                        <p style="line-height: 1;">* For built-in or imported functions like <code
+                                class="hljs python">abs</code> and <code class="hljs python">add</code>, we do not need
+                            to
+                            draw a new frame when calling them</p>
+                    </div>
+
+                </div>
+            </section>
+
+            <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #17b2c3)"
+                class="reg-cus">
+                <h4 class="text-start">Lambda expressions</h4>
+                <hr>
+                <div style="font-size: 28px; line-height: 1.2;">
+                    <ol class="spaced">
+                        <li>Draw the lambda function object and label it with λ, its formal parameters, and its parent
+                            frame
+                            <ul>
+                                <li><span class="shade">parent frame</span> = the frame where the function was
+                                    defined</li>
+                            </ul>
+                        </li>
+                    </ol>
+                    <div class="text-start">
+                        <p style="line-height: 1.15;">* <code class="hljs python t">lambda</code> functions have no
+                            intrinsic name - in environment diagrams, they are labeled with the name <code
+                                class="hljs python t">lambda</code> or with the
+                            lowercase Greek letter <code class="hljs python t">λ</code>
+                        </p>
+                        <p style="line-height: 1.15;">* When multiple lambda functions are present, label the line
+                            number
+                            on which the lambda function is defined to distinguish them</p>
+                        <p style="line-height: 1.15;">* As opposed to <code class="hljs python t">def</code> statements,
+                            a
+                            <code class="hljs python t">lambda</code> expression by itself does not create any new
+                            bindings in the environment
+                        </p>
+                    </div>
+
+                </div>
+            </section>
+
+            <section data-auto-animate data-background-gradient="linear-gradient(to top, #0C5D87, #002C42)"
+                class="reg-cus">
+                <h2 class="text-start">Now it's Lab Time 🤠</h2>
+                <hr>
+                <div class="text-start" style="line-height: 1.15; font-size: 34px">
+                    <ul class="spaced">
+                        <li>Get started on the lab and raise your hand whenever you need help!</li>
+                        <li>Get to know your neighbors and collaborate if you'd like!</li>
+                        <li>Slides: <a href="https://go.cs61a.org/mingxiao-index">go.cs61a.org/mingxiao-index</a></li>
+                        <li>Leave any anonymous feedback here: <a href="https://go.cs61a.org/mingxiao-anon">go.cs61a.org/mingxiao-anon</a></li>
+                    </ul>
+                </div>
+            </section>
+
+        </div>
+    </div>
+
+    <script src="dist/reveal.js"></script>
+    <script src="plugin/notes/notes.js"></script>
+    <script src="plugin/markdown/markdown.js"></script>
+    <script src="plugin/highlight/highlight.js"></script>
+    <script>
+        // More info about initialization & config:
+        // - https://revealjs.com/initialization/
+        // - https://revealjs.com/config/
+        Reveal.initialize({
+            hash: true,
+            // Learn about plugins: https://revealjs.com/plugins/
+            plugins: [RevealMarkdown, RevealHighlight, RevealNotes]
+        });
+        Reveal.configure({ pdfSeparateFragments: false });
+    </script>
+
+    <script>
+        window.onload = function () {
+            Particles.init({
+                selector: '.background',
+                color: ['#334C75', '#D4A561', '#0C5D87'],
+                connectParticles: true,
+                maxParticles: 100,
+            });
+        };
+
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/particlesjs/2.2.2/particles.min.js"></script>
+</body>
+
+</html>
