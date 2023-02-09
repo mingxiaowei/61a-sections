@@ -51,11 +51,19 @@
                     <p><a href="mailto:mingxiaowei@berkeley.edu" class="email"
                             style="color:#8BC24A; text-decoration: underline;">
                             mingxiaowei@berkeley.edu</a>
-                        <span class="text-end">Sep 14, 2022</span>
+                        <span class="text-end">Feb 09, 2023</span>
                     </p>
 
                 </footer>
                 <canvas class="background"></canvas>
+            </section>
+
+            <section data-auto-animate data-background-gradient="linear-gradient(to bottom, #0C5D87, #002C42)"
+                class="reg-cus">
+                <h4 class="text-start">From last time... 👀</h4>
+                <hr>
+                <p class="text-start" style="line-height: 1; font-size: 28px;">What's the best dish?</p>
+                <img class="mt-0" data-src="media\sp23-dis03-att.png" style="height: 550px; width:auto;">
             </section>
 
             <section data-auto-animate data-background-gradient="linear-gradient(to top, #0C5D87, #002C42)"
@@ -63,21 +71,19 @@
                 <h3 class="text-start">Logistics 🏡</h3>
                 <hr>
                 <ul class="spaced" style="font-size: 28px; line-height: 1.3;">
-                    <li>NO assignments due this week :)) Take some good post-midterm relaxation!</li>
-                    <li>The second round of scores has been released on <a
-                            href="https://howamidoing.cs61a.org/">howamidoing.cs61a.org</a>. Please email me if you have
-                        any issues with section attendance score!
+                    <li>Hog 🎲🎲🎲
                         <ul>
-                            <li>
-                                If you were not able to make it to section and emailed me beforehand, you should be
-                                marked as excused absence and receive attendance credit for that section - if that's not
-                                the case,
-                                please let me know!
-                            </li>
+                            <li>The entire project due Fri 02/10</li>
+                            <li>Submit everything by tomorrow 02/09 for one extra point!</li>
                         </ul>
                     </li>
-                    <li class="shade">*** Please remember to fill out the attendance form right after section! ***</li>
-                    <li>The deadline to add/drop classes and swap section was yesterday. Congrats on making it through
+                    <li>Grading update - see <a href="https://edstem.org/us/courses/34756/discussion/2530758">ed post #821</a> for more details
+                        <ul>
+                            <li>If you have issues with your lab or discussion score, please email me! </li>
+                        </ul> 
+                    </li>
+                    <li>Please remember to fill out the attendance form right after section! I'll close the form at midnight</li>
+                    <li>The deadline to add/drop classes was yesterday. Congrats on making it through
                         61A thus far! Let's continue the journey together 🚀</li>
                 </ul>
             </section>
@@ -87,13 +93,13 @@
                 <h3 class="text-start">Some Post-Midterm Words... 🔅</h3>
                 <hr>
                 <ul class="spaced" style="font-size: 28px; line-height: 1.3;">
-                    <li>It's only 10% (30 pts) of your total grade!</li>
-                    <li>Keep in mind that we have ~10 pts of extra credit (for example, early submission for projects)
+                    <li>It's only 13% (40 pts) of your total grade!</li>
+                    <li>Keep in mind that we have 4 pts of extra credit (for example, early submission of projects) and the clobber policy!
                     </li>
                     <li>The first midterm is more of a learning experience to take into midterm 2</li>
                     <li>Your grade is in no way a reflection of your worth as a programmer!</li>
                     <li>Also a reminder that this class is not curved</li>
-                    <li>If you'd like to chat with me about non-content-related stuff (advising, etc.), feel free to
+                    <li>If you'd like to chat with me about non-content stuff (advising, etc.), feel free to
                         email me!</li>
                     <li>Other resources:
                         <ul>
@@ -111,6 +117,15 @@
                 <hr>
             </section>
 
+            <section data-auto-animate data-background-gradient="linear-gradient(to bottom, #0C5D87, #002C42)"
+                class="reg-cus">
+                <img class="mt-0" data-src="media\recur-meme-3.PNG" style="height: auto; width: 400px;">
+                <img class="mt-0" data-src="media\recur-meme-1.JPG" style="height: auto; width: 400px;">
+                <img class="mt-0" data-src="media\recur-meme-2.JPG" style="height: 400px; width: 400px;">
+                
+                <img class="mt-0" data-src="media\recur-meme-4.JPG" style="height: auto; width: 400px;">
+            </section>
+
             <section data-transition="slide" data-background-gradient="linear-gradient(to top, #00527C, #1C8497)"
                 class="reg-cus">
                 <h4 class="text-start">Introduction</h4>
@@ -121,11 +136,11 @@
                             calls itself</li>
                         <li>3 main steps in a recursive function:
                             <ol>
-                                <li><span class="shade">Base case</span>
+                                <li><span class="shade bu">Base case</span>
                                     - the simplest function input, or the stopping condition for the recursion
                                 </li>
                                 <li>
-                                    <span class="shade">Recursive call on a smaller problem</span>
+                                    <span class="shade bu">Recursive call on a smaller problem</span>
                                     - calling the function on a smaller problem that our current problem depends on. We
                                     can assume that a recursive call on this smaller problem will give us the expected
                                     result
@@ -133,7 +148,7 @@
                                     <span class="shade">"recursive leap of faith"</span>.
                                 </li>
                                 <li>
-                                    <span class="shade">Solve the larger problem / Combination step</span> - usually by
+                                    <span class="shade bu">Solve the larger problem / Combination step</span> - usually by
                                     using the result
                                     from the recursive call to figure out the result of our current problem
                                 </li>
@@ -145,10 +160,10 @@
 
             <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #17b2c3)"
                 class="reg-cus">
-                <h4 class="text-start">Recursion - non-CS analogy</h4>
+                <h4 class="text-start">Recursion - analogy</h4>
                 <hr>
                 <div class="text-start" style="font-size: 28px; line-height: 1.3;">
-                    <ul>
+                    <ul class="spaced">
                         <li>Imagine that you were waiting in a line and wanted to know how many people are in front of
                             you, you can ask the person before you how many people are in front of them, then they'll
                             ask the same question to the person in front of them, etc.</li>
@@ -204,10 +219,10 @@
                 class="reg-cus">
                 <h4 class="text-start">Problem-Solving Strategies</h4>
                 <hr>
-                <div style="font-size: 28px; line-height: 1.3;">
-                    <ul>
+                <div style="font-size: 28px; line-height: 1.15;">
+                    <ul class="spaced">
                         <li>Base case:
-                            <ul>
+                            <ul class="spaced">
                                 <li>Usually hinted in the doctests - make sure to read them!</li>
                                 <li>Think about different possibilities of "when to stop"</li>
                                 <li>If multiple arguments change throughout the recursive calls, make sure to
@@ -217,15 +232,15 @@
                             </ul>
                         </li>
                         <li>Recursive call:
-                            <ul>
-                                <li>Think about how to break down the problem into smaller ones</li>
+                            <ul class="spaced">
+                                <li>break down the problem into smaller ones</li>
                                 <li>Make sure that the base cases are <i>reachable</i> - that is, the argument changes
                                     toward the base case each time</li>
                             </ul>
                         </li>
                         <li>Combination step:
                             <ul>
-                                <li>Assuming the implementation is correct (this is the recursive leap of faith), ask yourself:
+                                <li>Assuming the implementation is correct (this is the recursive leap of faith), 
                                     <span class="shade">what will the recursive call return?</span>
                                 </li>
                             </ul>
@@ -238,10 +253,10 @@
                 class="reg-cus">
                 <h4 class="text-start">Helper functions for recursion</h4>
                 <hr>
-                <div style="font-size: 28px; line-height: 1.3;">
-                    <ul>
+                <div style="font-size: 28px; line-height: 1.15;">
+                    <ul class="spaced">
                         <li>When to use:
-                            <ul>
+                            <ul class="spaced">
                                 <li>Need to keep track of more variables than the given parameters of the outer function
                                 </li>
                                 <li>Need the original parameter from the outer function for each recursive call AND some
