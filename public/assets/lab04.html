@@ -51,11 +51,19 @@
                     <p><a href="mailto:mingxiaowei@berkeley.edu" class="email"
                             style="color:#8BC24A; text-decoration: underline;">
                             mingxiaowei@berkeley.edu</a>
-                        <span class="text-end">Sep 19, 2022</span>
+                        <span class="text-end">Feb 14, 2023</span>
                     </p>
 
                 </footer>
                 <canvas class="background"></canvas>
+            </section>
+
+            <section data-auto-animate data-background-gradient="linear-gradient(to bottom, #0C5D87, #002C42)"
+                class="reg-cus">
+                <h4 class="text-start">From last time... 👀</h4>
+                <hr>
+                <p class="text-start" style="line-height: 1.2; font-size: 28px;">Describe your feelings about the midterm with one emoji (or whatever you like)</p>
+                <img class="mt-0" data-src="media\sp23-lab04-att.png" style="height: auto; width:1500px;">
             </section>
 
             <section data-auto-animate data-background-gradient="linear-gradient(to top, #0C5D87, #002C42)"
@@ -63,72 +71,13 @@
                 <h3 class="text-start">Logistics 🏡</h3>
                 <hr>
                 <ul class="spaced" style="font-size: 28px; line-height: 1.2;">
-                    <li>Lab 04 (this lab) due Wed 09/21</li>
-                    <li>Homework 03 due Thu 09/22
-                        <ul>
-                            <li>There's an optional contest in the homework! - Not worth any credit, but if you want to
-                                have fun with higher order functions, go for it 😼</li>
-                        </ul>
+                    <li>Lab 04 due Wed 02/15 - make sure to have a submission by then</li>
+                    <li>Homework 03 due Thu 02/16
                     </li>
-                    <li>If you late-enroll in the course, talk to me after section or email me - we have some new
-                        accommodation policies! </li>
-                    <li>The second round of scores has been released on <a
-                            href="https://howamidoing.cs61a.org/">howamidoing.cs61a.org</a>. If you have any issues with
-                        your grade:
-                        <ul>
-                            <li>
-                                For assignments, submit a regrade request on <a
-                                    href="https://howamidoing.cs61a.org/">howamidoing.cs61a.org</a> - please keep it
-                                short (~ 2 sentences) since there's a character limit and words exceeding the limit will
-                                not go through!
-                            </li>
-                            <li>
-                                For section attendance, email me.
-                                If you were not able to make it to section and emailed me beforehand, you should be
-                                marked as excused absence and receive attendance credit for that section.
-                            </li>
-                        </ul>
+                    <li>Regrade requests for MT1 are due tomorrow
                     </li>
+                    <li>Go to office hour/post on Ed if you need help on anything! We are here to support you :))</li>
                 </ul>
-            </section>
-
-            <section data-auto-animate data-background-gradient="linear-gradient(to top, #0C5D87, #002C42)"
-                class="reg-cus">
-                <h4 class="text-start">Highlight from last time 👀</h4>
-                <hr>
-                <div class="text-start" style="font-size: 26px; line-height: 1.2;">
-                    <p>If you could hold any number of pigeons, how many would you hold and why?</p>
-                </div>
-                <ul class="spaced" style="font-size: 27px; line-height: 1.2;">
-                    <li>"0 i am not risking getting pecked</li>
-                    <li>"1, handle w care"</li>
-                    <li>"One because I would like to bond on an individual level with my pigeon."</li>
-                    <li>"1 and make sure it doesn't poop"</li>
-                    <li>"2 so i can hold one in each hand"</li>
-                    <li>"I think 3 would be a solid number, one for each hand and a squishy bird for the middle :)"</li>
-                    <li>"3 cuz my lucky number is 3"</li>
-                    <li>"4 because two is too few and I want each pigeon to have a partner"</li>
-                    <li>"Four pigeons, two on the shoulders and two on my hands, as there is already someone who does
-                        this near Telegraph, Seeing another person holding as much pigeons would be strange."</li>
-                    <li>"300 bcz I want to be in the Guiness Book of World Records"</li>
-                    <li>"1000, I just wanna see if I can hold all of them."</li>
-                    <li>"99999999999999999999999999999999"</li>
-                </ul>
-            </section>
-
-            <section data-auto-animate data-background-gradient="linear-gradient(to top, #0C5D87, #002C42)"
-                class="reg-cus">
-                <h2 class="text-start">Introducing our AI's 🥳</h2>
-                <hr>
-                <div class="text-start" >
-                    <p>AI = Academic Intern</p>
-                    <p>They are excellent helpers in labs!</p>
-                    <ul class="shade">
-                        <li>Christy Quang</li>
-                        <li>Gabriella Skavdahl</li>
-                        <li>Jiaxin Fang</li>
-                    </ul>
-                </div>
             </section>
 
             <section data-auto-animate data-background-gradient="linear-gradient(to bottom, #0C5D87, #002C42)"
@@ -141,25 +90,25 @@
                 class="reg-cus">
                 <h4 class="text-start">Introduction</h4>
                 <hr>
-                <div style="font-size: 28px; line-height: 1.3;">
+                <div style="font-size: 28px; line-height: 1.2;">
                     <ul>
                         <li>A recursive function is a function that is defined in terms of itself - i.e., the function
                             calls itself</li>
                         <li>3 main steps in a recursive function:
-                            <ol>
-                                <li><span class="shade">Base case</span>
+                            <ol class="spaced">
+                                <li><span class="shade bu">Base case</span>
                                     - the simplest function input, or the stopping condition for the recursion
                                 </li>
                                 <li>
-                                    <span class="shade">Recursive call on a smaller problem</span>
+                                    <span class="shade bu">Recursive call on a smaller problem</span>
                                     - calling the function on a smaller problem that our current problem depends on. We
-                                    can assume that a recursive call on this smaller problem will give us the expected
-                                    result
+                                    can assume that <span class="bu">a recursive call on this smaller problem will give us the expected
+                                    result</span>
                                     as long as the we implement other parts correctly - the idea of the
                                     <span class="shade">"recursive leap of faith"</span>.
                                 </li>
                                 <li>
-                                    <span class="shade">Solve the larger problem / Combination step</span> - usually by
+                                    <span class="shade bu">Solve the larger problem / Combination step</span> - usually by
                                     using the result
                                     from the recursive call to figure out the result of our current problem
                                 </li>
@@ -173,30 +122,28 @@
                 class="reg-cus">
                 <h4 class="text-start">Problem-Solving Strategies</h4>
                 <hr>
-                <div style="font-size: 28px; line-height: 1.3;">
-                    <ul>
+                <div style="font-size: 28px; line-height: 1.15;">
+                    <ul class="spaced">
                         <li>Base case:
-                            <ul>
+                            <ul class="spaced">
                                 <li>Usually hinted in the doctests - make sure to read them!</li>
                                 <li>Think about different possibilities of "when to stop"</li>
                                 <li>If multiple arguments change throughout the recursive calls, make sure to
                                     include a base case for <i>each</i> argument - this is especially relevant in tree
                                     recursion</li>
-                                <li>If there are multiple base cases, think about whether or not the order of them
-                                    matters</li>
+                                <li>If there are multiple base cases, think about whether or not the order of them matters</li>
                             </ul>
                         </li>
                         <li>Recursive call:
-                            <ul>
-                                <li>Think about how to break down the problem into smaller ones</li>
+                            <ul class="spaced">
+                                <li>break down the problem into smaller ones</li>
                                 <li>Make sure that the base cases are <i>reachable</i> - that is, the argument changes
                                     toward the base case each time</li>
                             </ul>
                         </li>
                         <li>Combination step:
                             <ul>
-                                <li>Assuming the implementation is correct (this is the recursive leap of faith), ask
-                                    yourself:
+                                <li>Assuming the implementation is correct (this is the recursive leap of faith), 
                                     <span class="shade">what will the recursive call return?</span>
                                 </li>
                             </ul>
@@ -209,10 +156,10 @@
                 class="reg-cus">
                 <h4 class="text-start">Helper functions for recursion</h4>
                 <hr>
-                <div style="font-size: 28px; line-height: 1.3;">
-                    <ul>
+                <div style="font-size: 28px; line-height: 1.15;">
+                    <ul class="spaced">
                         <li>When to use:
-                            <ul>
+                            <ul class="spaced">
                                 <li>Need to keep track of more variables than the given parameters of the outer function
                                 </li>
                                 <li>Need the original parameter from the outer function for each recursive call AND some
@@ -238,7 +185,7 @@
                 <h4 class="text-start">Tree Recursion</h4>
                 <hr>
                 <div style="font-size: 28px; line-height: 1.2;">
-                    <ul>
+                    <ul class="spaced">
                         <li>A tree recursive function is a recursive function that <span class="shade">makes more than
                                 one call to itself</span>, resulting in a tree-like series of calls.
                         </li>
@@ -253,7 +200,7 @@
                         </code></pre>
                         <li>
                             Now, what happens when we call <code class="hljs python">fib(4)</code>?
-                            <ul>
+                            <ul class="spaced">
                                 <li class="fragment">
                                     Each <code class="hljs python">fib(i)</code> node represents a recursive call to
                                     <code class="hljs python">fib</code>.
@@ -284,20 +231,18 @@
                     <p class="text-start">Given two positive integers <code class="hljs python">n</code> and <code
                             class="hljs python">m</code>,
                         return the number of ways in which <code class="hljs python">n</code> can be expressed as the
-                        sum of positive integer parts up to <code class="hljs python">m</code> in
-                        increasing order.</p>
-                    <ul style="font-size: 27px; line-height: 1.2;">
+                        sum of positive integer parts up to <code class="hljs python">m</code>.</p>
+                    <ul style="font-size: 27px; line-height: 1.2;" class="spaced">
                         <li class="fragment">Recursive case: Since each integer part is up to <code class="hljs python">m</code>, at each
-                            step, where
-                            each step generates one number in the partition, we have two choices:
-                            <ol>
+                            step, where one number (part) in the partition is generated, we have two choices:
+                            <ol class="spaced">
                                 <li>Use <code class="hljs python">m</code> to partition <code
                                         class="hljs python">n</code>,
                                     so that at the next step, <code class="hljs python">n</code> becomes
                                     <code class="hljs python">n - m</code>, and the largest possible part is still
                                     <code class="hljs python">m</code>
                                 </li>
-                                <li>Don't use <code class="hljs python">m</code>. So at the next step,
+                                <li>Do not use <code class="hljs python">m</code>. So at the next step,
                                     <code class="hljs python">n</code> remains unchanged, but <code
                                         class="hljs python">m</code>
                                     becomes <code class="hljs python">m - 1</code> (we choose not to use the largest
@@ -307,7 +252,7 @@
                                 </li>
                             </ol>
                         </li>
-                        <li class="fragment">The two choices will result in two distinct sets of results, since in the first one we use
+                        <li class="fragment">The two choices will result in two <span class="bu">distinct</span> sets of results, since in the first one we use
                             <code class="hljs python">m</code> to partition, while in the second one we use at most
                             <code class="hljs python">m - 1</code>
                         </li>
@@ -325,19 +270,17 @@
                     <p class="text-start">Given two positive integers <code class="hljs python">n</code> and <code
                             class="hljs python">m</code>,
                         return the number of ways in which <code class="hljs python">n</code> can be expressed as the
-                        sum of positive integer parts up to <code class="hljs python">m</code> in
-                        increasing order.</p>
-                    <ul>
+                        sum of positive integer parts up to <code class="hljs python">m</code>.</p>
+                    <ul class="spaced">
                         <li>Base case:
-                            <ul style="font-size: 26px; line-height: 1.2;">
+                            <ul style="font-size: 26px; line-height: 1.2;" class="spaced">
                                 <li><code class="hljs python">n == 0</code> - note that since <code
                                         class="hljs python">n</code> and <code class="hljs python">m</code> are positive
                                     integers according to the problem description, when
                                     <code class="hljs python">n</code> is 0, it could only be the case where <code
                                         class="hljs python">n - m</code>
-                                    results in 0 from the previous recursive call. In other words, when <code
-                                        class="hljs python">n</code> is 0,
-                                    it menas that we've successfully partitioned <code class="hljs python">n</code> so
+                                    results in 0 from the previous recursive call. In other words, 
+                                    we've successfully partitioned <code class="hljs python">n</code> so
                                     that there's nothing left to
                                     partition. In this case, return 1, since we found one valid parition.
                                 </li>
@@ -356,7 +299,7 @@
                                         class="hljs python">m</code> can only
                                     result from <code class="hljs python">m - 1</code> from the last step. Since the
                                     question requires that all
-                                    parts of a partition are positive integers, such an partition is invalid.
+                                    parts of a partition are positive integers, such a partition is invalid.
                                 </li>
                             </ul>
                         </li>
@@ -381,8 +324,8 @@
                         elif n < 0 or m == 0:
                             return 0
                         else:
-                            with_m = count_partitions(n-m, m)
-                            without_m = count_partitions(n, m-1)
+                            with_m = count_partitions(n - m, m)
+                            without_m = count_partitions(n, m - 1)
                             return with_m + without_m
                     </code></pre>
                 </div>
@@ -390,82 +333,229 @@
 
             <section data-auto-animate data-background-gradient="linear-gradient(to bottom, #0C5D87, #002C42)"
                 class="reg-cus">
-                <h1>List Comprehension 📑</h1>
+                <h1>Python Lists <br> [🐍, 🐍]</h1>
                 <hr>
             </section>
 
             <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #1C8497)"
                 class="reg-cus">
-                <h4 class="text-start">List Comprehension</h4>
+                <h4 class="text-start">Python Lists - Intro</h4>
+                <hr>
+                <div style="font-size: 27px; line-height: 1.15;">
+                    <ul class="spaced">
+                        <li>In Python, a list is a data structure that can store multiple elements in a defined order.
+                        </li>
+                        <li>Each element can be of any type, even a list itself.</li>
+                        <li>Lists are created by wrapping square brackets around comma-separated expressions</li>
+                        <li><code class="hljs python">len(&lt;seq&gt;)</code> is a built-in function that takes in a
+                            sequence and returns
+                            the length (i.e., the number of elements in the sequence)</li>
+                        <!-- <li>Each element has its corresponding index, starting from 0 (i.e., 
+                            <span class="shade">"zero-indexed"</span>).</li> -->
+                        <pre class="my-2"><code class="hljs python-repl py-2" data-trim data-noescape>
+                                >>> a = ['a', 'b']
+                                >>> b = [1, 2]
+                                >>> len (a)
+                                <span class="fragment">2</span>
+                                >>> c = [a, b, [3, 4], 5]
+                                >>> c
+                                <span class="fragment">[['a', 'b'], [1, 2], [3, 4], 5]</span>
+                                >>> len (c)
+                                <span class="fragment">4</span>
+                                </code></pre>
+                    </ul>
+                </div>
+            </section>
+
+            <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #1C8497)"
+                class="reg-cus">
+                <h4 class="text-start">Python Lists - Indexing</h4>
+                <hr>
+                <div style="font-size: 27px; line-height: 1.15;">
+                    <ul class="spaced">
+                        <li>Each element has its corresponding index, starting from 0 (i.e.,
+                            <span class="shade">"zero-indexed"</span>)
+                            <ul class="spaced">
+                                <li>The index of the last element is
+                                    <code class="hljs python">len(lst)-1</code>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>When index is negative, it means starting from the end of the list
+                            <ul class="spaced">
+                                <li>
+                                    <code class="hljs python">-i</code> is equivalent to
+                                    <code class="hljs python">len(lst)-i</code>
+                                </li>
+                                <li>
+                                    <code class="hljs python">lst[-1]</code> is the last element,
+                                    <code class="hljs python">lst[-2]</code> is the second to last element, etc.
+                                </li>
+                            </ul>
+                        </li>
+                        <pre class="my-0"><code class="hljs python-repl py-1" data-trim data-noescape>
+                        >>> a = ['a', 'b']
+                        >>> b = [1, 2]
+                        >>> a[-1]
+                        <span class="fragment">'b'</span>
+                        >>> c = [a, b, [3, 4], 5]
+                        >>> c
+                        <span class="fragment">[['a', 'b'], [1, 2], [3, 4], 5]</span>
+                        >>> c[1][1]
+                        <span class="fragment">1</span>
+                        </code></pre>
+                    </ul>
+                </div>
+            </section>
+
+            <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #1C8497)"
+                class="reg-cus">
+                <h4 class="text-start">Python Lists - Other Operations</h4>
                 <hr>
                 <div style="font-size: 28px; line-height: 1.2;">
                     <ul>
-                        <li>List comprehensions are a compact and powerful way of creating new lists out of sequences.
+                        <li>Concatenation - use <code class="hljs python">+</code> to concatenate multiple lists
+                            together
+                            <pre class="my-3"><code class="hljs python-repl py-3" data-trim data-noescape>
+                                >>> a = ['say']
+                                >>> b = ['cheese', '!']
+                                >>> a + b # same as add(a, b)
+                                <span class="fragment">['say', 'cheese', '!']</span>
+                                </code></pre>
                         </li>
-                        <pre class="my-3"><code class="hljs python py-3" data-trim>
-                            [&lt;expr&gt; for &lt;var&gt; in &lt;seq&gt; if &lt;cond&gt;]
-                            </code></pre>
-                        <li>In English, this translates to:
-                            <ol>
-                                <li>
-                                    For each element in the sequence <code class="hljs python">&lt;seq&gt;</code>,
-                                    bind it to the variable name <code class="hljs python">&lt;var&gt;</code>.
-                                </li>
-                                <li>
-                                    If the element satisfy the condition <code class="hljs python">&lt;cond&gt;</code>
-                                    (or skip this check if there's no condition),
-                                    evaluate the expression <code class="hljs python">&lt;expr&gt;</code>, and add the
-                                    value from <code class="hljs python">&lt;expr&gt;</code> to the resulting list.
-                                </li>
-                            </ol>
+                        <li>Repetition - use <code class="hljs python">*</code> to duplicate a list certain times
+                            <pre class="my-3"><code class="hljs python-repl py-3" data-trim data-noescape>
+                        >>> a = [6, 1]
+                        >>> a * 3 # same as a + a + a, or mul(a, 3)
+                        <span class="fragment">[6, 1, 6, 1, 6, 1]</span>
+                        >>> add(mul(a, 2), mul(['a'], 2)) # a * 2 + ['a'] * 2
+                        <span class="fragment">[6, 1, 6, 1, 'a', 'a']</span>
+                        </code></pre>
                         </li>
-                        <li>Note:
-                            <ul>
-                                <li><code class="hljs python">if &lt;cond&gt;</code>is optional. </li>
-                                <li><code class="hljs python">&lt;expr&gt;</code> and <code
-                                        class="hljs python">&lt;cond&gt;</code>
-                                    may refer to <code class="hljs python">&lt;var&gt;</code>, which is essentially
-                                    every element in the sequence</li>
-                            </ul>
+                    </ul>
+                </div>
+            </section>
+
+            <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #1C8497)"
+                class="reg-cus">
+                <h4 class="text-start">Python Lists - Other Operations</h4>
+                <hr>
+                <div style="font-size: 28px; line-height: 1.2;">
+                    <ul>
+                        <li>Checking element existence - use <code class="hljs python">in</code> to check whether
+                            or not some value is contained in the list
                         </li>
+                        <li>To check for non-existence, use <code class="hljs python">elem not in lst</code>
+                            or <br> <code class="hljs python">not (elem in lst)</code>
+                        </li>
+                        <pre class="my-4"><code class="hljs python-repl py-2" data-trim data-noescape>
+                            >>> a = ['o', 'p', ['oops']]
+                            >>> 'p' in a
+                            <span class="fragment">True</span>
+                            >>> 'oops' in a # in only checks the elements of the outer list
+                            <span class="fragment">False</span>
+                            >>> 'op' not in a
+                            <span class="fragment">True</span>
+                            >>> not ('op' in a)
+                            <span class="fragment">True</span>
+                        </code></pre>
                     </ul>
                 </div>
             </section>
 
             <section data-transition="slide" data-background-gradient="linear-gradient(to top, #00527C, #1C8497)"
                 class="reg-cus">
-                <h4 class="text-start">List Comprehension - WWPD</h4>
+                <h4 class="text-start">List Slicing</h4>
                 <hr>
-                <div style="font-size: 28px; line-height: 1.2;">
-                    <pre><code class="hljs python-repl" data-trim data-noescape>
-                    >>> lst_1 = [1, 2, 3, 4]
-                    >>> lst_2 = [5, 6, 7, 8]
-                    >>> [i ** 2 for  i in  lst_1]
-                    <span class="fragment">[1, 4, 9, 16]</span>
-                    >>> ['go' for j in  lst_2 if  j > 5]
-                    <span class="fragment">['go', 'go', 'go']</span>
-                    >>> [print (k) for  k in  lst_2 if  k % 2 == 0] 
-                    <span class="fragment">6</span>
-                    <span class="fragment">8</span>
-                    <span class="fragment">[None, None]</span>
-                    </code></pre>
+                <div class="text-start" style="font-size: 27px; line-height: 1;">
+                    <pre class="my-2"><code class="hljs python py-2" data-trim>
+                        lst[ &lt;start&gt; : &lt;end&gt; : &lt;step size&gt; ]
+                        </code></pre>
+                    <ul class="spaced">
+                        <li>
+                            List slicing creates a copy of part or all of the list.
+                            <ul class="spaced">
+                                <li>It takes elements at index <code class="hljs python">start + step</code>, <code
+                                    class="hljs python">start + 2 * step</code>, ...
+                                and stops before <code class="hljs python">end</code>, and makes those selected elements into a
+                                new list</li>
+                            </ul>
+                        </li>
+                        <li><code class="hljs python">start</code>
+                            <ul>
+                                <li>index to start at, <i>inclusive</i>, default to 0<sup>*</sup></li>
+                            </ul>
+                        </li>
+                        <li><code class="hljs python">end</code>
+                            <ul class="spaced">
+                                <li>index to end by, <i>exclusive</i>, default to <code
+                                        class="hljs python">len(lst)</code><sup>*</sup></li>
+                                <li>when negative, counts from the end of the
+                                    list, similar to negative indexing</li>
+                            </ul>
+                        </li>
+                        <li><code class="hljs python">step size</code>
+                            <ul class="spaced">
+                                <li>the difference between indices to include , default to 1</li>
+                                <li>negative steps means stepping backwards</li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <p style="font-size: 26px; line-height: 1.2">* when step is positive - when step is negative, start
+                        index defaults to the end of the list and
+                        end index defaults to the start of the list </p>
                 </div>
             </section>
 
-            <section data-auto-animate data-background-gradient="linear-gradient(to bottom, #0C5D87, #002C42)"
+            <section data-transition="slide" data-background-gradient="linear-gradient(to top, #00527C, #1C8497)"
                 class="reg-cus">
-                <h2 class="text-start">Attendance! 🤠</h2>
+                <h4 class="text-start">List Slicing</h4>
                 <hr>
-                <a href="https://go.cs61a.org/mingxiao-att" style="font-size: 40px">go.cs61a.org/mingxiao-att</a>
-                <div class="text-start" style="font-size: 36px; line-height: 1.2;">
-                    <br>
-                    <ul>
-                        <li>The attendance form and slides are both linked on our <a
-                                href="https://go.cs61a.org/mingxiao-index">section website</a>!</li>
-                        <li>If you finish early, let me or any of the AI's know and we'll check you off</li>
-                        <li class="shade">Once again, please do remember to fill out the form by midnight today!!</li>
+                <div class="text-start" style="font-size: 28px; line-height: 1.2;">
+                    <pre class="my-2" style="height: 476px;"><code class="hljs python-repl py-2" data-trim data-noescape>
+                        >>> lst = [1, 2, 3, 4, 5]
+                        >>> lst[1:3] 
+                        <span class="fragment">[2, 3]</span>
+                        >>> lst[1: ]
+                        <span class="fragment">[2, 3, 4, 5]</span>
+                        >>> lst[:-2]
+                        <span class="fragment">[1, 2, 3]</span>
+                        >>> lst[1::2]
+                        <span class="fragment">[2, 4]</span>
+                        >>> lst[::-1] # reverse the list 
+                        <span class="fragment">[5, 4, 3, 2, 1]</span>
+                        >>> lst[5:9] # list slicing won't cause an index error 
+                        <span class="fragment">[]</span>
+                    </code></pre>
+                    <p style="font-size: 26px; line-height: 1.15">Takeaway: list slicing picks elements at indices <code class="hljs python">start</code>,
+                        <code class="hljs python">start + step</code>, <code
+                            class="hljs python">start + 2 * step</code>, ...
+                        and stops before <code class="hljs python">end</code>, and makes those selected elements into a
+                        new list
+                    </p>
+                </div>
+            </section>
+
+            <section data-auto-animate data-background-gradient="linear-gradient(to top, #0C5D87, #002C42)"
+                class="reg-cus">
+                <h2 class="text-start">Now it's Lab Time 🤠</h2>
+                <hr>
+                <div class="text-start" style="line-height: 1.15; font-size: 34px">
+                    <ul class="spaced">
+                        <li>Get started on the lab and raise your hand whenever you need help!</li>
+                        <li>Get to know your neighbors and collaborate if you'd like!</li>
+                        <li>Slides: <a href="https://go.cs61a.org/mingxiao-index">go.cs61a.org/mingxiao-index</a></li>
+                        <li>Leave any anonymous feedback here: <a href="https://go.cs61a.org/mingxiao-anon">go.cs61a.org/mingxiao-anon</a></li>
                     </ul>
                 </div>
+            </section>
+
+            <section data-auto-animate data-background-gradient="linear-gradient(to top, #0C5D87, #002C42)"
+                class="reg-cus">
+                <h2 class="text-start">And remember to get checked off! 👒</h2>
+                <hr>
+                    <a href="https://go.cs61a.org/mingxiao-att" style="font-size: 50px">go.cs61a.org/mingxiao-att</a>
+                    <p class="text-start">The secret phrase is ... <br> (NOT 3 dots! I'll announce it 🙉)</p>
             </section>
 
         </div>
