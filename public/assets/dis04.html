@@ -222,95 +222,102 @@
                 </section>
 
                 <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #1C8497)"
-                class="reg-cus">
-                <h4 class="text-start">Count Partitions Revisit</h4>
-                <hr>
-                <div style="font-size: 28px; line-height: 1.2;">
-                    <p class="text-start">Given two positive integers <code class="hljs python">n</code> and <code
-                            class="hljs python">m</code>,
-                        return the number of ways in which <code class="hljs python">n</code> can be expressed as the
-                        sum of positive integer parts up to <code class="hljs python">m</code> in
-                        increasing order.</p>
-                    <ul style="font-size: 27px; line-height: 1.2;">
-                        <li class="fragment">Recursive case: Since each integer part is up to <code
-                                class="hljs python">m</code>, at each
-                            step, where
-                            each step generates one number in the partition, we have two choices:
-                            <ol>
-                                <li>Use <code class="hljs python">m</code> to partition <code
-                                        class="hljs python">n</code>,
-                                    so that at the next step, <code class="hljs python">n</code> becomes
-                                    <code class="hljs python">n - m</code>, and the largest possible part is still
-                                    <code class="hljs python">m</code>
-                                </li>
-                                <li>Don't use <code class="hljs python">m</code>. So at the next step,
-                                    <code class="hljs python">n</code> remains unchanged, but <code
-                                        class="hljs python">m</code>
-                                    becomes <code class="hljs python">m - 1</code> (we choose not to use the largest
-                                    possible part,
-                                    <code class="hljs python">m</code>, so the next largest possible one is
-                                    <code class="hljs python">m - 1</code>)
-                                </li>
-                            </ol>
-                        </li>
-                        <li class="fragment">The two choices will result in two distinct sets of results, since in the
-                            first one we use
-                            <code class="hljs python">m</code> to partition, while in the second one we use at most
-                            <code class="hljs python">m - 1</code>
-                        </li>
-                        <li class="fragment">Therefore, the total # of partitions = # partitions from choice 1 + #
-                            partitions from choice
-                            2</li>
-                    </ul>
-                </div>
-            </section>
+                    class="reg-cus">
+                    <h4 class="text-start">Count Partitions Revisit</h4>
+                    <hr>
+                    <div style="font-size: 28px; line-height: 1.2;">
+                        <p class="text-start">Given two positive integers <code class="hljs python">n</code> and <code
+                                class="hljs python">m</code>,
+                            return the number of ways in which <code class="hljs python">n</code> can be expressed as
+                            the
+                            sum of positive integer parts up to <code class="hljs python">m</code> in
+                            increasing order.</p>
+                        <ul style="font-size: 27px; line-height: 1.2;">
+                            <li class="fragment">Recursive case: Since each integer part is up to <code
+                                    class="hljs python">m</code>, at each
+                                step, where
+                                each step generates one number in the partition, we have two choices:
+                                <ol>
+                                    <li>Use <code class="hljs python">m</code> to partition <code
+                                            class="hljs python">n</code>,
+                                        so that at the next step, <code class="hljs python">n</code> becomes
+                                        <code class="hljs python">n - m</code>, and the largest possible part is still
+                                        <code class="hljs python">m</code>
+                                    </li>
+                                    <li>Don't use <code class="hljs python">m</code>. So at the next step,
+                                        <code class="hljs python">n</code> remains unchanged, but <code
+                                            class="hljs python">m</code>
+                                        becomes <code class="hljs python">m - 1</code> (we choose not to use the largest
+                                        possible part,
+                                        <code class="hljs python">m</code>, so the next largest possible one is
+                                        <code class="hljs python">m - 1</code>)
+                                    </li>
+                                </ol>
+                            </li>
+                            <li class="fragment">The two choices will result in two distinct sets of results, since in
+                                the
+                                first one we use
+                                <code class="hljs python">m</code> to partition, while in the second one we use at most
+                                <code class="hljs python">m - 1</code>
+                            </li>
+                            <li class="fragment">Therefore, the total # of partitions = # partitions from choice 1 + #
+                                partitions from choice
+                                2</li>
+                        </ul>
+                    </div>
+                </section>
 
-            <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #1C8497)"
-                class="reg-cus">
-                <h4 class="text-start">Count Partitions Revisit</h4>
-                <hr>
-                <div style="font-size: 28px; line-height: 1.2;">
-                    <p class="text-start">Given two positive integers <code class="hljs python">n</code> and <code
-                            class="hljs python">m</code>,
-                        return the number of ways in which <code class="hljs python">n</code> can be expressed as the
-                        sum of positive integer parts up to <code class="hljs python">m</code> in
-                        increasing order.</p>
-                    <ul>
-                        <li>Base case:
-                            <ul style="font-size: 26px; line-height: 1.2;">
-                                <li><code class="hljs python">n == 0</code> - note that since <code
-                                        class="hljs python">n</code> and <code class="hljs python">m</code> are positive
-                                    integers according to the problem description, when
-                                    <code class="hljs python">n</code> is 0, it could only be the case where <code
-                                        class="hljs python">n - m</code>
-                                    results in 0 from the previous recursive call. In other words, when <code
-                                        class="hljs python">n</code> is 0,
-                                    it menas that we've successfully partitioned <code class="hljs python">n</code> so
-                                    that there's nothing left to
-                                    partition. In this case, return 1, since we found one valid parition.
-                                </li>
-                                <li>
-                                    <code class="hljs python">n < 0</code> - similarly, since the original input to the
-                                    function must be positive
-                                    integers, a negative <code class="hljs python">n</code> can only result from
-                                    <code class="hljs python">n - m</code> from the last step. In this case, <code
-                                        class="hljs python">m</code> was
-                                    greater than <code class="hljs python">n</code> from the last step, indicating that
-                                    the partition was not
-                                    succeessful.
-                                </li>
-                                <li>
-                                    <code class="hljs python">m == 0</code> - also similarly, a negative <code
-                                        class="hljs python">m</code> can only
-                                    result from <code class="hljs python">m - 1</code> from the last step. Since the
-                                    question requires that all
-                                    parts of a partition are positive integers, such an partition is invalid.
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
-            </section>
+                <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #1C8497)"
+                    class="reg-cus">
+                    <h4 class="text-start">Count Partitions Revisit</h4>
+                    <hr>
+                    <div style="font-size: 28px; line-height: 1.2;">
+                        <p class="text-start">Given two positive integers <code class="hljs python">n</code> and <code
+                                class="hljs python">m</code>,
+                            return the number of ways in which <code class="hljs python">n</code> can be expressed as
+                            the
+                            sum of positive integer parts up to <code class="hljs python">m</code> in
+                            increasing order.</p>
+                        <ul>
+                            <li>Base case:
+                                <ul style="font-size: 26px; line-height: 1.2;">
+                                    <li><code class="hljs python">n == 0</code> - note that since <code
+                                            class="hljs python">n</code> and <code class="hljs python">m</code> are
+                                        positive
+                                        integers according to the problem description, when
+                                        <code class="hljs python">n</code> is 0, it could only be the case where <code
+                                            class="hljs python">n - m</code>
+                                        results in 0 from the previous recursive call. In other words, when <code
+                                            class="hljs python">n</code> is 0,
+                                        it menas that we've successfully partitioned <code class="hljs python">n</code>
+                                        so
+                                        that there's nothing left to
+                                        partition. In this case, return 1, since we found one valid parition.
+                                    </li>
+                                    <li>
+                                        <code class="hljs python">n < 0</code> - similarly, since the original input to
+                                        the
+                                        function must be positive
+                                        integers, a negative <code class="hljs python">n</code> can only result from
+                                        <code class="hljs python">n - m</code> from the last step. In this case, <code
+                                            class="hljs python">m</code> was
+                                        greater than <code class="hljs python">n</code> from the last step, indicating
+                                        that
+                                        the partition was not
+                                        succeessful.
+                                    </li>
+                                    <li>
+                                        <code class="hljs python">m == 0</code> - also similarly, a negative <code
+                                            class="hljs python">m</code> can only
+                                        result from <code class="hljs python">m - 1</code> from the last step. Since the
+                                        question requires that all
+                                        parts of a partition are positive integers, such an partition is invalid.
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </section>
 
             </section>
 
@@ -368,7 +375,9 @@
                     <p style="font-size: 27px; line-height: 1.1">* when step is positive (when step is negative, start
                         index defaults to the end of the list and
                         end index defaults to the start of the list)</p>
-                        <p style="font-size: 27px; line-height: 1.1">** whenever you see a negative number <code class="hljs python">-i</code>, think of it as <code class="hljs python">len(lst) - i</code></p>
+                    <p style="font-size: 27px; line-height: 1.1">** whenever you see a negative number <code
+                            class="hljs python">-i</code>, think of it as <code class="hljs python">len(lst) - i</code>
+                    </p>
                 </div>
             </section>
 
@@ -390,7 +399,8 @@
                         >>> lst[5:9] # list slicing won't cause an index error 
                         <span class="fragment">[]</span>
                     </code></pre>
-                    <p class="shade">Takeaway: list slicing picks elements at indices <code class="hljs python">start</code>,
+                    <p class="shade">Takeaway: list slicing picks elements at indices <code
+                            class="hljs python">start</code>,
                         <code class="hljs python">start + step</code>, <code
                             class="hljs python">start + 2 * step</code>, ...
                         and stops before <code class="hljs python">end</code>, and makes those selected elements into a
@@ -404,15 +414,19 @@
                 <h4 class="text-start">List Comprehension</h4>
                 <hr>
                 <div style="font-size: 28px; line-height: 1.2;">
-                    <ul>
+                    <ul class="spaced">
                         <li>List comprehensions are a compact and powerful way of creating new lists out of sequences.
                         </li>
                         <pre class="my-3"><code class="hljs python py-3" data-trim>
                             [&lt;expr&gt; for &lt;var&gt; in &lt;seq&gt; if &lt;cond&gt;]
                             </code></pre>
                         <li>In English, this translates to:
-                            <ol>
+                            <ul class="spaced">
                                 <li>
+                                    Compute the expression for each element in the sequence if the condition is true for
+                                    that element (or skip this check if there's no condition)
+                                </li>
+                                <!-- <li>
                                     For each element in the sequence <code class="hljs python">&lt;seq&gt;</code>,
                                     bind it to the variable name <code class="hljs python">&lt;var&gt;</code>.
                                 </li>
@@ -421,8 +435,8 @@
                                     (or skip this check if there's no condition),
                                     evaluate the expression <code class="hljs python">&lt;expr&gt;</code>, and add the
                                     value from <code class="hljs python">&lt;expr&gt;</code> to the resulting list.
-                                </li>
-                            </ol>
+                                </li> -->
+                            </ul>
                         </li>
                         <li>Note:
                             <ul>
@@ -469,66 +483,20 @@
                 </div>
             </section>
 
-            <section data-auto-animate data-background-gradient="linear-gradient(to bottom, #0C5D87, #002C42)"
+            <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #1C8497)"
                 class="reg-cus">
-                <h1>Ranges and <br> For Loops 🎡</h1>
+                <h4 class="text-start">Examples</h4>
                 <hr>
-            </section>
-
-            <section data-transition="slide" data-background-gradient="linear-gradient(to top, #00527C, #1C8497)"
-                class="reg-cus">
-                <h4 class="text-start">Range</h4>
-                <hr>
-                <div class="text-start" style="font-size: 28px; line-height: 1.2;">
-                    <ul>
-                        <pre class="my-3"><code class="hljs python py-3" data-trim>
-                            range(start, end, step)
-                            </code></pre>
-                        <li>represents a sequence of integers </li>
-                        <li>can be converted to a list by calling the list constructor
-                            <code class="hljs python">list()</code>
-                        </li>
-                        <li><code class="hljs python">start</code>: optional, inclusive, default to 0</li>
-                        <li><code class="hljs python">end</code>: required, exclusive</li>
-                        <li><code class="hljs python">step</code>: optional, default to 1</li>
-                    </ul>
-                    <pre class="my-2"><code class="hljs python-repl py-2" data-trim data-noescape>
-                        >>> list (range (4))
-                        <span class="fragment">[0, 1, 2, 3]</span>
-                        >>> list (range (1, 6))
-                        <span class="fragment">[1, 2, 3, 4, 5]</span>
-                        >>> list (range (2, 9, 2))
-                        <span class="fragment">[2, 4, 6, 8]</span>
+                <div style="font-size:30px; line-height: 1.2;">
+                    <pre><code class="hljs python-repl" data-trim data-noescape>
+                        >>> lst1 = [1, 2, 3] 
+                        >>> [i ** 2 for  i in  lst1 if  i % 2 == 0]
+                        [1, 9]
+                        >>> [[i, j] for  i in  lst for  j in  lst if  i != j]
+                        [[1, 2], [1, 3], [2, 1], [2, 3], [3, 1], [3, 2]]
+                        >>> # here [i, j] for i in lst is considered as 
+                        >>> # the expression for the second list comprehension
                     </code></pre>
-                </div>
-            </section>
-
-            <section data-transition="slide" data-background-gradient="linear-gradient(to top, #00527C, #1C8497)"
-                class="reg-cus">
-                <h4 class="text-start">For Loops</h4>
-                <hr>
-                <div class="text-start" style="font-size: 28px; line-height: 1.2;">
-                    <ul>
-                        <li>For loops allow us to iterate over some sequences conveniently
-                            <pre class="my-2"><code class="hljs python py-2" data-trim data-noescape>
-                                for &lt;name&gt; in &lt;sequence&gt;:
-                                    &lt;suite&gt;
-                            </code></pre>
-                        </li>
-                        <li>To iterate over the elements in a seqeunce, we can either <span class="shade">iterate over
-                                the sequence directly</span> or
-                            <span class="shade">iterate through its indices</span> and index into the sequence each
-                            time.
-                            <pre class="my-2"><code class="hljs python py-2" data-trim data-noescape>
-                                # example: print all elements in lst
-                                for elem in lst:
-                                    print(elem)
-                                # this is equivalent to
-                                for i in range(len(lst)):
-                                    print(lst[i])
-                            </code></pre>
-                        </li>
-                    </ul>
                 </div>
             </section>
 
@@ -594,17 +562,19 @@
                 <h2 class="text-start">Attendance! 🤠</h2>
                 <hr>
                 <a href="https://go.cs61a.org/mingxiao-att" style="font-size: 40px">go.cs61a.org/mingxiao-att</a>
-                <div class="text-start" style="font-size: 36px; line-height: 1.2;">
+                <div class="text-start" style="font-size: 36px">
                     <br>
-                    <ul>
+                    <ul class="spaced">
                         <li>The attendance form and slides are both linked on our <a
                                 href="https://go.cs61a.org/mingxiao-index">section website</a>!</li>
+                        <li>Please leave any anonymous feedback here <a
+                            href="https://go.cs61a.org/mingxiao-anon">go.cs61a.org/mingxiao-anon</a></li>
                         <li class="shade">Once again, please do remember to fill out the form by midnight today!!</li>
                     </ul>
                 </div>
             </section>
 
-            <section data-auto-animate data-background-gradient="linear-gradient(to top, #00527C, #1C8497)"
+            <!-- <section data-auto-animate data-background-gradient="linear-gradient(to top, #00527C, #1C8497)"
                 class="reg-cus">
                 <h4 class="text-start">Clarification on Q1</h4>
                 <hr>
@@ -679,7 +649,7 @@
                         directly without reaching 1.
                     </p>
                 </div>
-            </section>
+            </section> -->
 
         </div>
     </div>
