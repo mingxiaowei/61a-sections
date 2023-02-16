@@ -51,11 +51,19 @@
                     <p><a href="mailto:mingxiaowei@berkeley.edu" class="email"
                             style="color:#8BC24A; text-decoration: underline;">
                             mingxiaowei@berkeley.edu</a>
-                        <span class="text-end">Sep 22, 2022</span>
+                        <span class="text-end">Feb 16, 2023</span>
                     </p>
 
                 </footer>
                 <canvas class="background"></canvas>
+            </section>
+
+            <section data-auto-animate data-background-gradient="linear-gradient(to bottom, #0C5D87, #002C42)"
+                class="reg-cus">
+                <h4 class="text-start">From last time... 👀</h4>
+                <hr>
+                <!-- <p class="text-start" style="line-height: 1.2; font-size: 28px;">Describe your feelings about the midterm with one emoji (or whatever you like)</p> -->
+                <img class="mt-0" data-src="media\sp23-dis04-att.svg" style="height: auto; width:1200px;">
             </section>
 
             <section data-auto-animate data-background-gradient="linear-gradient(to top, #0C5D87, #002C42)"
@@ -63,19 +71,67 @@
                 <h3 class="text-start">Logistics 🏡</h3>
                 <hr>
                 <ul class="spaced" style="font-size: 28px; line-height: 1.2;">
-                    <li>Homework 03 due today Thu 09/22
-                        <ul>
-                            <li>There's an optional contest in the homework! - Not worth any credit, but if you want to
-                                have fun with higher order functions, go for it 😼</li>
-                        </ul>
+                    <li>Homework 04 due tomorrow 02/17
                     </li>
                     <li>CATS is released 😽😽😽
-                        <ul>
-                            <li>Try out the game here: <a href="https://cats.cs61a.org">cats.cs61a.org</a> (not now lol)
+                        <ul class="spaced">
+                            <li>Try out the game here: <a href="https://cats.cs61a.org">cats.cs61a.org</a> (not now LOL)
                             </li>
-                            <li>Checkpoint 1 due next Tue 09/27</li>
-                            <li>The whole project due next Fri 09/30</li>
-                            <li>Submit everything by next Thu 09/29 for one extra credit</li>
+                            <li>Checkpoint 1 due next Tue 02/21</li>
+                            <li>The whole project due next Fri 02/24</li>
+                            <li>Submit everything by next Thu 02/23 for one extra credit</li>
+                        </ul>
+                    </li>
+                    <li>I have OH today 5-6 pm @ Warren 101B - OH is queue-based and staffed by multiple TAs/tutors, so
+                        you may not necessarily helped by me, but I'll be there :)</li>
+                </ul>
+            </section>
+
+            <section data-auto-animate data-background-gradient="linear-gradient(to top, #0C5D87, #002C42)"
+                class="reg-cus">
+                <h3 class="text-start">Feedback from last time 🪶</h3>
+                <hr>
+                <ul class="spaced" style="font-size: 27px; line-height: 1.15;">
+                    <li>For labs
+                        <ul class="spaced">
+                            <li>Sometimes the WWPD questions can be a bit confusing
+                                <ul class="spaced">
+                                    <li>I knew this as a 61A student 2 years ago (yeah I'm old...) so I'll walk through
+                                        the WWPD question in the future if time allows</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>For my slides
+                        <ul class="spaced">
+                            <li>Less words, more pictures and diagrams
+                                <ul class="spaced">
+                                    <li>More pics for sure; and I'll try my best to keep the wording concise</li>
+                                </ul>
+                            </li>
+                            <li>More examples related to lab/hw or maybe walking through one of the lab problems
+                                <ul class="spaced">
+                                    <li>I can definitely walk through some lab problems (e.g., the WWPD one)</li>
+                                    <li>For discussions, the worksheet is provided, but if any of the worksheet problems
+                                        is similar to a homework problem, I can give a verbal hint on that :)</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </section>
+
+            <section data-auto-animate data-background-gradient="linear-gradient(to top, #0C5D87, #002C42)"
+                class="reg-cus">
+                <h3 class="text-start">Feedback from last time 🪶</h3>
+                <hr>
+                <ul class="spaced" style="font-size: 28px; line-height: 1.2;">
+                    <li>If you have any feedback, please do let me know!
+                        <ul class="spaced">
+                            <li>Leave anonymous feedback here: <a
+                                    href="https://forms.gle/ufRpMFFoYN6Wxbm77">go.cs61a.org/mingxiao-anon</a> (also
+                                linked on our section website)</li>
+                            <li>Or just say it at the end of the attendance form</li>
                         </ul>
                     </li>
                 </ul>
@@ -131,6 +187,41 @@
             </section>
 
             <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #1C8497)"
+                class="reg-cus">
+                <h4 class="text-start">Tree Recursion</h4>
+                <hr>
+                <div style="font-size: 28px; line-height: 1.2;">
+                    <img class="mt-0" data-src="media\sp23-dis04-p1.svg" style="height: auto; width:1200px;">
+                </div>
+            </section>
+
+            <section>
+                <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #1C8497)"
+                    class="reg-cus">
+                    <h4 class="text-start">Count Partitions Revisit</h4>
+                    <hr>
+                    <div style="font-size: 28px; line-height: 1.2;">
+                        <p class="text-start">Given two positive integers <code class="hljs python">n</code> and <code
+                                class="hljs python">m</code>,
+                            return the number of ways in which <code class="hljs python">n</code> can be expressed as
+                            the
+                            sum of positive integer parts up to <code class="hljs python">m</code> in
+                            increasing order.</p>
+                        <pre><code class="hljs python" data-trim>
+                    def count_partitions (n, m):
+                        if n == 0:
+                            return 1
+                        elif n < 0 or m == 0:
+                            return 0
+                        else:
+                            with_m = count_partitions(n-m, m)
+                            without_m = count_partitions(n, m-1)
+                            return with_m + without_m
+                    </code></pre>
+                    </div>
+                </section>
+
+                <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #1C8497)"
                 class="reg-cus">
                 <h4 class="text-start">Count Partitions Revisit</h4>
                 <hr>
@@ -221,27 +312,14 @@
                 </div>
             </section>
 
+            </section>
+
             <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #1C8497)"
                 class="reg-cus">
                 <h4 class="text-start">Count Partitions Revisit</h4>
                 <hr>
                 <div style="font-size: 28px; line-height: 1.2;">
-                    <p class="text-start">Given two positive integers <code class="hljs python">n</code> and <code
-                            class="hljs python">m</code>,
-                        return the number of ways in which <code class="hljs python">n</code> can be expressed as the
-                        sum of positive integer parts up to <code class="hljs python">m</code> in
-                        increasing order.</p>
-                    <pre><code class="hljs python" data-trim>
-                    def count_partitions (n, m):
-                        if n == 0:
-                            return 1
-                        elif n < 0 or m == 0:
-                            return 0
-                        else:
-                            with_m = count_partitions(n-m, m)
-                            without_m = count_partitions(n, m-1)
-                            return with_m + without_m
-                    </code></pre>
+                    <img class="mt-0" data-src="media\sp23-dis04-p2.svg" style="height: auto; width:1400px;">
                 </div>
             </section>
 
@@ -255,132 +333,6 @@
                 class="reg-cus">
                 <h1>Python Lists <br> [🐍, 🐍]</h1>
                 <hr>
-            </section>
-
-            <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #1C8497)"
-                class="reg-cus">
-                <h4 class="text-start">Python Lists - Intro</h4>
-                <hr>
-                <div style="font-size: 28px; line-height: 1.2;">
-                    <ul>
-                        <li>In Python, a list is a data structure that can store multiple elements in a defined order.
-                        </li>
-                        <li>Each element can be of any type, even a list itself.</li>
-                        <li>Lists are created by wrapping square brackets around comma-separated expressions</li>
-                        <li><code class="hljs python">len(&lt;seq&gt;)</code> is a built-in function that takes in a
-                            sequence and returns
-                            the length (i.e., the number of elements in the sequence)</li>
-                        <!-- <li>Each element has its corresponding index, starting from 0 (i.e., 
-                            <span class="shade">"zero-indexed"</span>).</li> -->
-                        <pre class="my-2"><code class="hljs python-repl py-2" data-trim data-noescape>
-                                >>> a = ['a', 'b']
-                                >>> b = [1, 2]
-                                >>> len (a)
-                                <span class="fragment">2</span>
-                                >>> c = [a, b, [3, 4], 5]
-                                >>> c
-                                <span class="fragment">[['a', 'b'], [1, 2], [3, 4], 5]</span>
-                                >>> len (c)
-                                <span class="fragment">4</span>
-                                </code></pre>
-                    </ul>
-                </div>
-            </section>
-
-            <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #1C8497)"
-                class="reg-cus">
-                <h4 class="text-start">Python Lists - Indexing</h4>
-                <hr>
-                <div style="font-size: 28px; line-height: 1.2;">
-                    <ul>
-                        <li>Each element has its corresponding index, starting from 0 (i.e.,
-                            <span class="shade">"zero-indexed"</span>).
-                            <ul>
-                                <li>The index of the last element is
-                                    <code class="hljs python">len(lst)-1</code>
-                                </li>
-                            </ul>
-                        </li>
-                        <li>When index is negative, it means starting from the end of the list
-                            <ul>
-                                <li>
-                                    <code class="hljs python">-i</code> is equivalent to
-                                    <code class="hljs python">len(lst)-i</code>
-                                </li>
-                                <li>
-                                    <code class="hljs python">lst[-1]</code> is the last element,
-                                    <code class="hljs python">lst[-2]</code> is the second to last element, etc.
-                                </li>
-                            </ul>
-                        </li>
-                        <pre class="my-2"><code class="hljs python-repl py-2" data-trim data-noescape>
-                        >>> a = ['a', 'b']
-                        >>> b = [1, 2]
-                        >>> a[-1]
-                        <span class="fragment">'b'</span>
-                        >>> c = [a, b, [3, 4], 5]
-                        >>> c
-                        <span class="fragment">[['a', 'b'], [1, 2], [3, 4], 5]</span>
-                        >>> c[1][1]
-                        <span class="fragment">1</span>
-                        </code></pre>
-                    </ul>
-                </div>
-            </section>
-
-            <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #1C8497)"
-                class="reg-cus">
-                <h4 class="text-start">Python Lists - Other Operations</h4>
-                <hr>
-                <div style="font-size: 28px; line-height: 1.2;">
-                    <ul>
-                        <li>Concatenation - use <code class="hljs python">+</code> to concatenate multiple lists
-                            together
-                            <pre class="my-2"><code class="hljs python-repl py-2" data-trim data-noescape>
-                                >>> a = ['say']
-                                >>> b = ['cheese', '!']
-                                >>> a + b # same as add(a, b)
-                                <span class="fragment">['say', 'cheese', '!']</span>
-                                </code></pre>
-                        </li>
-                        <li>Repetition - use <code class="hljs python">*</code> to duplicate a list certain times
-                            <pre class="my-2"><code class="hljs python-repl py-2" data-trim data-noescape>
-                        >>> a = [6, 1]
-                        >>> a * 3 # same as a + a + a, or mul(a, 3)
-                        <span class="fragment">[6, 1, 6, 1, 6, 1]</span>
-                        >>> add(mul(a, 2), mul(['a'], 2)) # a * 2 + ['a'] * 2
-                        <span class="fragment">[6, 1, 6, 1, 'a', 'a']</span>
-                        </code></pre>
-                        </li>
-                    </ul>
-                </div>
-            </section>
-
-            <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #1C8497)"
-                class="reg-cus">
-                <h4 class="text-start">Python Lists - Other Operations</h4>
-                <hr>
-                <div style="font-size: 28px; line-height: 1.2;">
-                    <ul>
-                        <li>Checking element existence - use <code class="hljs python">in</code> to check whether
-                            or not some value is contained in the list
-                        </li>
-                        <li>To check for non-existence, use <code class="hljs python">elem not in lst</code>
-                            or <code class="hljs python">not (elem in lst)</code>
-                        </li>
-                        <pre class="my-2"><code class="hljs python-repl py-2" data-trim data-noescape>
-                            >>> a = ['o', 'p']
-                            >>> 'p' in a
-                            <span class="fragment">True</span>
-                            >>> 'oops' in a
-                            <span class="fragment">False</span>
-                            >>> 'op' not in a
-                            <span class="fragment">True</span>
-                            >>> not ('op' in a)
-                            <span class="fragment">True</span>
-                        </code></pre>
-                    </ul>
-                </div>
             </section>
 
             <section data-transition="slide" data-background-gradient="linear-gradient(to top, #00527C, #1C8497)"
@@ -404,8 +356,6 @@
                             <ul>
                                 <li>index to end by, <i>exclusive</i>, default to <code
                                         class="hljs python">len(lst)</code><sup>*</sup></li>
-                                <li>when negative, counts from the end of the
-                                    list, similar to negative indexing</li>
                             </ul>
                         </li>
                         <li><code class="hljs python">step size</code>
@@ -415,9 +365,10 @@
                             </ul>
                         </li>
                     </ul>
-                    <p style="font-size: 26px; line-height: 1.1">* when step is positive (when step is negative, start
+                    <p style="font-size: 27px; line-height: 1.1">* when step is positive (when step is negative, start
                         index defaults to the end of the list and
                         end index defaults to the start of the list)</p>
+                        <p style="font-size: 27px; line-height: 1.1">** whenever you see a negative number <code class="hljs python">-i</code>, think of it as <code class="hljs python">len(lst) - i</code></p>
                 </div>
             </section>
 
@@ -439,7 +390,7 @@
                         >>> lst[5:9] # list slicing won't cause an index error 
                         <span class="fragment">[]</span>
                     </code></pre>
-                    <p>Takeaway: list slicing picks elements at indices <code class="hljs python">start</code>,
+                    <p class="shade">Takeaway: list slicing picks elements at indices <code class="hljs python">start</code>,
                         <code class="hljs python">start + step</code>, <code
                             class="hljs python">start + 2 * step</code>, ...
                         and stops before <code class="hljs python">end</code>, and makes those selected elements into a
@@ -472,6 +423,38 @@
                                     value from <code class="hljs python">&lt;expr&gt;</code> to the resulting list.
                                 </li>
                             </ol>
+                        </li>
+                        <li>Note:
+                            <ul>
+                                <li><code class="hljs python">if &lt;cond&gt;</code>is optional. </li>
+                                <li><code class="hljs python">&lt;expr&gt;</code> and <code
+                                        class="hljs python">&lt;cond&gt;</code>
+                                    may refer to <code class="hljs python">&lt;var&gt;</code>, which is essentially
+                                    every element in the sequence</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #1C8497)"
+                class="reg-cus">
+                <h4 class="text-start">List Comprehension</h4>
+                <hr>
+                <div style="font-size: 28px; line-height: 1.2;">
+                    <ul>
+                        <li>List comprehensions are a compact and powerful way of creating new lists out of sequences.
+                        </li>
+                        <pre class="my-3"><code class="hljs python py-3" data-trim>
+                            [&lt;expr&gt; for &lt;var&gt; in &lt;seq&gt; if &lt;cond&gt;]
+                            </code></pre>
+                        <li>In Python, this translates to:
+                            <pre><code class="hljs python py-3" data-trim="">
+                                lst = []
+                                for &lt;var&gt; in &lt;seq&gt;:
+                                    if &lt;cond&gt;:
+                                        lst.append(&lt;expr&gt;)
+                            </code></pre>
                         </li>
                         <li>Note:
                             <ul>
