@@ -40,7 +40,7 @@
                 <div class="my-auto mx-auto">
                     <h1>Lab 05</h1>
                     <hr class="hr-1">
-                    <p>Trees, Data Abstraction, Python Lists</p>
+                    <p>Data Abstraction, Sequences</p>
                 </div>
                 <br>
                 <br>
@@ -51,7 +51,7 @@
                     <p><a href="mailto:mingxiaowei@berkeley.edu" class="email"
                             style="color:#8BC24A; text-decoration: underline;">
                             mingxiaowei@berkeley.edu</a>
-                        <span class="text-end">Sep 26, 2022</span>
+                        <span class="text-end">Feb 21, 2023</span>
                     </p>
 
                 </footer>
@@ -63,26 +63,254 @@
                 <h3 class="text-start">Logistics 🏡</h3>
                 <hr>
                 <ul class="spaced" style="font-size: 28px; line-height: 1.2;">
-                    <li>Lab 05 due Wed 09/28
+                    <li>Lab 05 due Wed 02/22
                     </li>
                     <li>CATS 🐈
-                        <ul>
-                            <li>Try out the game here: <a href="https://cats.cs61a.org">cats.cs61a.org</a> 
+                        <ul class="spaced">
+                            <li>Try out the game here: <a href="https://cats.cs61a.org">cats.cs61a.org</a>
                             </li>
-                            <li>Checkpoint 1 due tomorrow Tue 09/27</li>
-                            <li>The whole project due Fri 09/30</li>
-                            <li>Submit everything by Thu 09/29 for one extra credit</li>
+                            <li>Checkpoint 1 due today 02/21</li>
+                            <li>The whole project due Fri 02/24</li>
+                            <li>Submit everything by Thu 02/23 for one extra point</li>
                         </ul>
                     </li>
-                    <li>NO homework due this week - homework 04 due next Thu 10/06</li>
+                    <li>NO homework due this week - homework 04 due next Thu 03/02</li>
                 </ul>
             </section>
 
             <section data-auto-animate data-background-gradient="linear-gradient(to top, #0C5D87, #002C42)"
                 class="reg-cus">
-                <h4 class="text-start">Highlight from last time 👀</h4>
+                <h4 class="text-start">From last time 👀</h4>
                 <hr>
-                <img data-src="media\dis04-att-q.png">
+                <p class="text-start" style="line-height: 1; font-size: 26px;">If you could hold any number of pigeons, how many would you hold and why?</p>
+                <img class="mt-0" data-src="media\sp23-lab05-att.png" style="height: auto; width:830px;">
+            </section>
+
+            <section data-auto-animate data-background-gradient="linear-gradient(to bottom, #0C5D87, #002C42)"
+                class="reg-cus">
+                <h1>List Comprehension 🎰</h1>
+                <hr>
+            </section>
+
+            <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #1C8497)"
+                class="reg-cus">
+                <h4 class="text-start">List Comprehension</h4>
+                <hr>
+                <div style="font-size: 28px; line-height: 1.2;">
+                    <ul class="spaced">
+                        <li>List comprehensions are a compact and powerful way of creating new lists out of sequences.
+                        </li>
+                        <pre class="my-3"><code class="hljs python py-3" data-trim>
+                            [&lt;expr&gt; for &lt;var&gt; in &lt;seq&gt; if &lt;cond&gt;]
+                            </code></pre>
+                        <li>In English, this translates to:
+                            <ul class="spaced">
+                                <li>
+                                    Compute the expression for each element in the sequence if the condition is true for
+                                    that element (or skip this check if there's no condition)
+                                </li>
+                                <!-- <li>
+                                    For each element in the sequence <code class="hljs python">&lt;seq&gt;</code>,
+                                    bind it to the variable name <code class="hljs python">&lt;var&gt;</code>.
+                                </li>
+                                <li>
+                                    If the element satisfy the condition <code class="hljs python">&lt;cond&gt;</code>
+                                    (or skip this check if there's no condition),
+                                    evaluate the expression <code class="hljs python">&lt;expr&gt;</code>, and add the
+                                    value from <code class="hljs python">&lt;expr&gt;</code> to the resulting list.
+                                </li> -->
+                            </ul>
+                        </li>
+                        <li>Note:
+                            <ul>
+                                <li><code class="hljs python">if &lt;cond&gt;</code>is optional. </li>
+                                <li><code class="hljs python">&lt;expr&gt;</code> and <code
+                                        class="hljs python">&lt;cond&gt;</code>
+                                    may refer to <code class="hljs python">&lt;var&gt;</code>, which is essentially
+                                    every element in the sequence</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #1C8497)"
+                class="reg-cus">
+                <h4 class="text-start">List Comprehension</h4>
+                <hr>
+                <div style="font-size: 28px; line-height: 1.2;">
+                    <ul>
+                        <li>List comprehensions are a compact and powerful way of creating new lists out of sequences.
+                        </li>
+                        <pre class="my-3"><code class="hljs python py-3" data-trim>
+                            [&lt;expr&gt; for &lt;var&gt; in &lt;seq&gt; if &lt;cond&gt;]
+                            </code></pre>
+                        <li>In Python, this translates to:
+                            <pre><code class="hljs python py-3" data-trim="">
+                                lst = []
+                                for &lt;var&gt; in &lt;seq&gt;:
+                                    if &lt;cond&gt;:
+                                        lst.append(&lt;expr&gt;)
+                            </code></pre>
+                        </li>
+                        <li>Note:
+                            <ul>
+                                <li><code class="hljs python">if &lt;cond&gt;</code>is optional. </li>
+                                <li><code class="hljs python">&lt;expr&gt;</code> and <code
+                                        class="hljs python">&lt;cond&gt;</code>
+                                    may refer to <code class="hljs python">&lt;var&gt;</code>, which is essentially
+                                    every element in the sequence</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #1C8497)"
+                class="reg-cus">
+                <h4 class="text-start">Examples</h4>
+                <hr>
+                <div style="font-size:30px; line-height: 1.2;">
+                    <pre><code class="hljs python-repl" data-trim data-noescape>
+                        >>> lst = [1, 2, 3, 4] 
+                        >>> [i ** 2 for  i in  lst if  i % 2 == 1]
+                        [1, 9]
+                        >>> [[i, j] for  i in  lst for  j in  lst if  i < j]
+                        [[1, 2], [1, 3], [1, 4], [2, 3], [2, 4], [3, 4]]
+                        >>> # here [i, j] for i in lst is considered as 
+                        >>> # the expression for the second list comprehension
+                    </code></pre>
+                </div>
+            </section>
+
+            <section data-auto-animate data-background-gradient="linear-gradient(to bottom, #0C5D87, #002C42)"
+                class="reg-cus">
+                <h1>Sequences 🍡</h1>
+                <hr>
+            </section>
+
+            <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #1C8497)"
+                class="reg-cus">
+                <h4 class="text-start">Sequences - Intro</h4>
+                <hr>
+                <div style="font-size: 28px; line-height: 1.2;">
+                    <ul class="spaced">
+                        <li>Sequences = ordered collections of values
+                            <ul class="spaced">
+                                <li>Examples: lists, strings, tuples, ranges</li>
+                            </ul>
+                        </li>
+                        <li>Supported operations:
+                            <ul class="spaced">
+                                <li><code class="hljs python">s[0]</code> - element selection / indexing</li>
+                                <li><code class="hljs python">len(s)</code> - length of <code
+                                        class="hljs python t">s</code></li>
+                                <li><code class="hljs python">s[i:j:k]</code> - slicing</li>
+                                <li><code class="hljs python">max(s)</code> / <code class="hljs python">min(s)</code>
+                                    - largest / smallest item from <code class="hljs python t">s</code></li>
+                                <li><code class="hljs python">x in s</code> / <code
+                                        class="hljs python">x not in s</code>
+                                    - checking whether or not <code class="hljs python t">x</code>
+                                    is in <code class="hljs python t">s</code></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <section data-transition="slide" data-background-gradient="linear-gradient(to top, #00527C, #1C8497)"
+                class="reg-cus">
+                <h4 class="text-start">Range</h4>
+                <hr>
+                <div class="text-start" style="font-size: 28px; line-height: 1.2;">
+                    <ul class="spaced">
+                        <pre class="my-3"><code class="hljs python py-2" data-trim>
+                            range(start, end, step)
+                            </code></pre>
+                        <li>a sequence of integers </li>
+                        <li>can be converted to a list by calling the list constructor
+                            <code class="hljs python">list()</code>
+                        </li>
+                        <li><code class="hljs python">start</code>: optional, inclusive, default to 0</li>
+                        <li><code class="hljs python">end</code>: required, exclusive</li>
+                        <li><code class="hljs python">step</code>: optional, default to 1</li>
+                    </ul>
+                    <pre class="my-2"><code class="hljs python-repl py-2" data-trim data-noescape>
+                        >>> list (range (4))
+                        <span class="fragment">[0, 1, 2, 3]</span>
+                        >>> list (range (1, 6))
+                        <span class="fragment">[1, 2, 3, 4, 5]</span>
+                        >>> list (range (2, 9, 2))
+                        <span class="fragment">[2, 4, 6, 8]</span>
+                    </code></pre>
+                </div>
+            </section>
+
+            <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #1C8497)"
+                class="reg-cus">
+                <h4 class="text-start">Sequences - Examples</h4>
+                <hr>
+                <div style="font-size: 28px; line-height: 1.2;">
+                    <pre class="ovf" style="height: 440px"><code class="hljs python ovf" data-trim data-noescape>
+                        >>> x = '61a is fun!'
+                        >>> len(x) # space and punctuation counts!
+                        <span class="fragment">11</span>
+                        >>> x[8:] # alternatively, x[-4:]
+                        <span class="fragment">'fun!'</span>
+                        >>> x[::-1] # reverse the string 
+                        <span class="fragment">'!nuf si a16'</span>
+                        >>> '61a' in x and 'fun' in x # look for a substring in x
+                        <span class="fragment">True</span> 
+                        >>> '61A' not in x # case sensitive
+                        <span class="fragment">True</span> 
+                    </code></pre>
+                </div>
+            </section>
+
+            <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #1C8497)"
+                class="reg-cus">
+                <h4 class="text-start">Sequences - Examples</h4>
+                <hr>
+                <div style="font-size: 28px; line-height: 1.2;">
+                    <div class="row g-0" style="display: flex;">
+                        <ul class="spaced">
+                            <li>
+                                To iterate through a sequence, we can either
+                                <ul class="spaced">
+                                    <li>iterate over the items in the sequence directly, e.g. <br>
+                                        <code class="hljs python">for elem in seq:</code>
+                                    </li>
+                                    <li>iterate through its indices using <code class="hljs python t">range</code>, e.g.
+                                        <br>
+                                        <code class="hljs python">for i in range(len(seq)):</code>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <div class="col-6 mx-0 px-0 h-100">
+                            <pre class="my-3 ovf mx-0 px-0 h-100" style="min-height: max-content;"><code class="hljs python py-3 ovf" data-trim data-noescape>
+                                lst = ['go', 'bears', '🐻']
+                                for elem in lst:
+                                    print(elem)
+                                # output 
+                                'go'
+                                'bears'
+                                '🐻'
+                            </code></pre>
+                        </div>
+                        <div class="col-6 mx-0 px-0 h-100">
+                            <pre class="my-3 ovf mx-0 px-0 h-100" style="min-height: max-content;"><code class="hljs python py-3 ovf" data-trim data-noescape>
+                                lst = ['go', 'bears', '🐻']
+                                for i in range(len(lst)):
+                                    print(i, lst[i])
+                                # output 
+                                0 'go'
+                                1 'bears'
+                                2 '🐻'
+                            </code></pre>
+                        </div>
+                    </div>
+                </div>
             </section>
 
             <section data-auto-animate data-background-gradient="linear-gradient(to bottom, #0C5D87, #002C42)"
@@ -93,29 +321,50 @@
 
             <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #1C8497)"
                 class="reg-cus">
+                <h4 class="text-start">Abstraction - Intro</h4>
+                <hr>
+                <div style="font-size: 28px; line-height: 1.2;">
+                    <ul class="spaced">
+                        <li class="fragment">Imagine driving a car (or if you can't drive like me, think of driving a
+                            bumper car)
+                        </li>
+                        <li class="fragment">When you hit the brake, you know the car will stop (otherwise that'll be an
+                            accident...)
+                        </li>
+                        <li class="fragment">Even if you don't know how a brake is implemented mechanistically, you know
+                            it'll stop the car, and you know how to hit the brake, therefore you can stop the car -
+                            life's good :)
+                        </li>
+                        <li class="fragment">This is an example of abstraction - mechanistical details about the brake
+                            are abstracted away, and you don't need to know anything about the details to use the brake
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #1C8497)"
+                class="reg-cus">
                 <h4 class="text-start">Data Abstraction - Intro</h4>
                 <hr>
-                <div style="font-size: 28px; line-height: 1.1;">
+                <div style="font-size: 28px; line-height: 1.2;">
                     <ul class="spaced">
-                        <li>Data abstraction allows us to treat code as "objects", so that we <span class="shade">don't
-                                have to worry about the actual implementation</span> (e.g., how information is stored
-                            and
-                            calculated)
-                            - we just need to know <span class="shade">what it does</span>.
+                        <li class="fragment">Treat code as "objects"
+                            <ul class="spaced">
+                                <li>no need to know about the actual implementation (e.g., how information is stored
+                                    and calculated)</li>
+                                <li>just need to know what it does</li>
+                            </ul>
                         </li>
-                        <li>The nature of abstraction allows whoever uses them to <span class="shade">assume that the
-                                functions have been
-                                written correctly and work as described.</span></li>
-                        <li>A data abstraction consists of two types of functions:
-                            <ul>
+                        <li class="fragment">One can assume that the functions work as described</li>
+                        <li class="fragment">A data abstraction consists of two types of functions:
+                            <ul class="spaced">
                                 <li>
-                                    <span class="shade">Constructors: </span>functions that build and return the
-                                    abstract data
-                                    type
+                                    <span class="shade">Constructors: </span>build and return the
+                                    abstract data type
                                 </li>
                                 <li>
-                                    <span class="shade">Selectors: </span>functions that retrieve information from the
-                                    data type.
+                                    <span class="shade">Selectors: </span>retrieve information from the
+                                    data type
                                 </li>
                             </ul>
                         </li>
@@ -129,12 +378,12 @@
                 <hr>
                 <div style="font-size: 28px; line-height: 1.2;">
                     <ul class="spaced">
-                        <li>Constructor: <code class="hljs python">rational(n, d)</code> returns a rational number
+                        <li class="fragment">Constructor: <code class="hljs python">rational(n, d)</code> returns a rational number
                             $x = \frac{n}{d}$ using some underlying representation, which we, as users, do not need to
                             know
                             anything of
                         </li>
-                        <li>Selectors:
+                        <li class="fragment">Selectors:
                             <ul>
                                 <li>
                                     <code class="hljs python">numer(x)</code> returns the numerator of $x$
@@ -144,14 +393,14 @@
                                 </li>
                             </ul>
                         </li>
-                        <li>Arithmetic Operations:
+                        <li class="fragment">Arithmetic Operations:
                             <pre class="my-2"><code class="hljs python py-2" data-trim>
                                 def mul_rational (x, y):
                                     return rational(numer(x) * numer(y), \
                                                     denom(x) * denom(y))
                             </code></pre>
                             <ul class="spaced">
-                                <li>Note how we can manipulate rational numbers using their constructor/selectors
+                                <li>We can manipulate rational numbers using their constructor/selectors
                                     without knowing their implementation </li>
                                 <li>Side note: the <code class="hljs python">\</code> is used to indicate that the
                                     expression continues on the next line</li>
@@ -192,9 +441,8 @@
                     </div>
                     <p style="line-height: 1.15;">No matter which one we use, the rational number data abstraction has
                         the same, correct behavior from the users' end. </p>
-                    <p style="line-height: 1.15;">In other words, as programmers, we can design the underlying
-                        implementation for the data abstraction however we want as long as it behaves correctly
-                        according to its documentation. </p>
+                    <p style="line-height: 1.15;">As programmers, we can design the underlying
+                        implementation however we want as long as it behaves as expected</p>
 
                 </div>
             </section>
@@ -204,7 +452,7 @@
                 <h4 class="text-start">Don't break the abstraction barrier!</h4>
                 <hr>
                 <div style="font-size: 28px; line-height: 1.2;">
-                    <img class="mt-2 mb-2" data-src="media\abstraction-barrier.png">
+                    <img class="mt-2 mb-2" data-src="media\abstraction-barrier.png" style="height: auto; width: 1200px">
                     <p class="text-end mt-0" style="font-size: 15px; line-height: 1;">
                         <i>Source: <a href="https://cs61a.org/assets/slides/13-Data_Abstraction_1pp.pdf#page=13">lecture
                                 13 slides</a></i>
@@ -226,14 +474,14 @@
                 <div style="font-size: 28px; line-height: 1.2;">
                     <ul class="spaced">
                         <li>Why?
-                            <ul>
-                                <li>Breaking the abstraction barrier is essentially repeating some function's job</li>
+                            <ul class="spaced">
+                                <li>Breaking the abstraction barrier is repeating other function's job</li>
                                 <li>Once the underlying implementation changes, the code may not work anymore</li>
                             </ul>
                         </li>
                         <li>Examples of violating the abstraction barriers:
                             <ul>
-                                <li><code class="hljs python">mul_rational([1, 2], [3, 4])</code> - should be
+                                <li><code class="hljs python">mul_rational([1, 2], [3, 4])</code> should be
                                     <code class="hljs python">mul_rational(rational(1, 2), rational(1, 2))</code>
                                 </li>
                                 <li>
@@ -248,13 +496,13 @@
                                 </li>
                             </ul>
                         </li>
-                        <li class="shade">Takeaway: do not repeat any work that an existing function could do!
+                        <li class="shade">Takeaway: call an existing function could do whenever you can!
                         </li>
                     </ul>
                 </div>
             </section>
 
-            <section data-auto-animate data-background-gradient="linear-gradient(to bottom, #0C5D87, #002C42)"
+            <!-- <section data-auto-animate data-background-gradient="linear-gradient(to bottom, #0C5D87, #002C42)"
                 class="reg-cus">
                 <h1>Trees 🎄</h1>
                 <hr>
@@ -357,18 +605,21 @@
                                                tree(3, [tree(4), tree(5)]), \
                                                tree(6, [tree(7), tree(8)])])
                     </code></pre>
-                    <p class="fragment" style="line-height: 1;">Bonus: on <a href="https://code.cs61a.org/">code.cs61a.org</a>, call
+                    <p class="fragment" style="line-height: 1;">Bonus: on <a
+                            href="https://code.cs61a.org/">code.cs61a.org</a>, call
                         <code class="hljs python">draw(tree)</code> on a tree to visualize it!
                     </p>
                     <ul class="spaced">
-                        <li class="fragment">To extract the number <code class="hljs python t">5</code> from this tree, which is the
+                        <li class="fragment">To extract the number <code class="hljs python t">5</code> from this tree,
+                            which is the
                             label of the root of its second branch's second branch,
                             we would do this:
                             <pre class="my-3"><code class="hljs python py-3 px-3" data-trim>
                                 label(branches(branches(sample_tree)[1])[1])
                             </code></pre>
                         </li>
-                        <li class="fragment">The <code class="hljs python">print_tree</code> function prints out a tree in a
+                        <li class="fragment">The <code class="hljs python">print_tree</code> function prints out a tree
+                            in a
                             human-readable form, where the root is unindented, and each of its branches is
                             indented one level further.
                             <ul>
@@ -378,22 +629,28 @@
                         </li>
                     </ul>
                 </div>
-            </section>
+            </section> -->
 
-            <section data-auto-animate data-background-gradient="linear-gradient(to bottom, #0C5D87, #002C42)"
+            <section data-auto-animate data-background-gradient="linear-gradient(to top, #0C5D87, #002C42)"
                 class="reg-cus">
-                <h2 class="text-start">Attendance! 🤠</h2>
+                <h2 class="text-start">Now it's Lab Time 🤠</h2>
                 <hr>
-                <a href="https://go.cs61a.org/mingxiao-att" style="font-size: 40px">go.cs61a.org/mingxiao-att</a>
-                <div class="text-start" style="font-size: 36px; line-height: 1.2;">
-                    <br>
-                    <ul>
-                        <li>The attendance form and slides are both linked on our <a
-                                href="https://go.cs61a.org/mingxiao-index">section website</a>!</li>
-                        <li>If you finish early, let me or any of the AI's know and we'll check you off</li>
-                        <li class="shade">Once again, please do remember to fill out the form by midnight today!!</li>
+                <div class="text-start" style="line-height: 1.15; font-size: 34px">
+                    <ul class="spaced">
+                        <li>Get started on the lab and raise your hand whenever you need help!</li>
+                        <li>Get to know your neighbors and collaborate if you'd like!</li>
+                        <li>Slides: <a href="https://go.cs61a.org/mingxiao-index">go.cs61a.org/mingxiao-index</a></li>
+                        <li>Leave any anonymous feedback here: <a href="https://go.cs61a.org/mingxiao-anon">go.cs61a.org/mingxiao-anon</a></li>
                     </ul>
                 </div>
+            </section>
+
+            <section data-auto-animate data-background-gradient="linear-gradient(to top, #0C5D87, #002C42)"
+                class="reg-cus">
+                <h2 class="text-start">And remember to get checked off! 👒</h2>
+                <hr>
+                    <a href="https://go.cs61a.org/mingxiao-att" style="font-size: 50px">go.cs61a.org/mingxiao-att</a>
+                    <p class="text-start">The secret phrase is ... <br> (NOT 3 dots! I'll announce it 🙉)</p>
             </section>
 
         </div>
