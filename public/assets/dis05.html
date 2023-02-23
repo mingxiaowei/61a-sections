@@ -40,7 +40,7 @@
                 <div class="my-auto mx-auto">
                     <h1>Discussion 05</h1>
                     <hr class="hr-1">
-                    <p>Sequences, Data Abstraction, Trees</p>
+                    <p>Trees</p>
                 </div>
                 <br>
                 <br>
@@ -51,7 +51,7 @@
                     <p><a href="mailto:mingxiaowei@berkeley.edu" class="email"
                             style="color:#8BC24A; text-decoration: underline;">
                             mingxiaowei@berkeley.edu</a>
-                        <span class="text-end">Sep 29, 2022</span>
+                        <span class="text-end">Feb 23, 2023</span>
                     </p>
 
                 </footer>
@@ -64,53 +64,55 @@
                 <hr>
                 <ul class="spaced" style="font-size: 28px; line-height: 1.2;">
                     <li>CATS 🐈
-                        <ul>
+                        <ul class="spaced">
                             <li>Try out the game here: <a href="https://cats.cs61a.org">cats.cs61a.org</a>
                             </li>
-                            <li>The whole project due tomorrow 09/30</li>
-                            <li>Submit everything by today 09/29 for one extra credit</li>
+                            <li>The whole project due tomorrow 02/24</li>
+                            <li>Submit everything by today 02/23 for one extra point!</li>
                         </ul>
                     </li>
-                    <li>NO homework due this week - homework 04 due next Thu 10/06</li>
+                    <li>NO homework due this week - homework 04 due next Thu 03/02</li>
+
                 </ul>
             </section>
 
             <section data-auto-animate data-background-gradient="linear-gradient(to top, #0C5D87, #002C42)"
                 class="reg-cus">
-                <h4 class="text-start">Highlight from last time 👀</h4>
+                <h4 class="text-start">From last time... </h4>
                 <hr>
-                <img data-src="media\lab05-att-q.png">
+                <img data-src="media\sp23-dis05-att.svg" style="width: 1500px; height:auto">
             </section>
 
             <section data-auto-animate data-background-gradient="linear-gradient(to bottom, #0C5D87, #002C42)"
                 class="reg-cus">
-                <h1>Sequences 🍡</h1>
+                <h1>Data Abstraction 👾</h1>
                 <hr>
             </section>
 
             <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #1C8497)"
                 class="reg-cus">
-                <h4 class="text-start">Sequences - Intro</h4>
+                <h4 class="text-start">Data Abstraction - Intro</h4>
                 <hr>
                 <div style="font-size: 28px; line-height: 1.2;">
                     <ul class="spaced">
-                        <li>Sequences are ordered collections of values that support element-selection and have length.
-                            <ul>
-                                <li>Lists, strings, tuples, even ranges, are all sequences </li>
+                        <li class="fragment">Treat code as "objects"
+                            <ul class="spaced">
+                                <li>no need to know about the actual implementation (e.g., how information is stored
+                                    and calculated)</li>
+                                <li>just need to know what it does</li>
                             </ul>
                         </li>
-                        <li>Sequences support the following operations:
+                        <li class="fragment">One can assume that the functions work as described</li>
+                        <li class="fragment">A data abstraction consists of two types of functions:
                             <ul class="spaced">
-                                <li><code class="hljs python">s[0]</code> - element selection / indexing</li>
-                                <li><code class="hljs python">len(s)</code> - length of <code
-                                        class="hljs python t">s</code></li>
-                                <li><code class="hljs python">s[i:j:k]</code> - slicing</li>
-                                <li><code class="hljs python">max(s)</code> / <code class="hljs python">min(s)</code>
-                                    - largest / smallest item from <code class="hljs python t">s</code></li>
-                                <li><code class="hljs python">x in s</code> / <code
-                                        class="hljs python">x not in s</code>
-                                    - checking whether or not <code class="hljs python t">x</code>
-                                    is in <code class="hljs python t">s</code></li>
+                                <li>
+                                    <span class="shade">Constructors: </span>build and return the
+                                    abstract data type
+                                </li>
+                                <li>
+                                    <span class="shade">Selectors: </span>retrieve information from the
+                                    data type
+                                </li>
                             </ul>
                         </li>
                     </ul>
@@ -119,163 +121,53 @@
 
             <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #1C8497)"
                 class="reg-cus">
-                <h4 class="text-start">Sequences - Examples</h4>
+                <h4 class="text-start">Rational Numbers Revisit</h4>
                 <hr>
                 <div style="font-size: 28px; line-height: 1.2;">
-                    <pre class="ovf" style="min-height: 100%;"><code class="hljs python py-2 ovf" data-trim data-noescape>
-                        >>> x = 'Hello there Oski!'
-                        >>> len(x) # space and punctuation counts!
-                        <span class="fragment">17</span>
-                        >>> x[6:]
-                        <span class="fragment">'there Oski!'</span>
-                        >>> x[::-1]
-                        <span class="fragment">'!iksO ereht olleH'</span>
-                        >>> 'Oski' in x and 'here' in x # look for a substring in x
-                        <span class="fragment">True</span> 
-                        >>> 'oski' not in x # case sensitive
-                        <span class="fragment">True</span> 
-                    </code></pre>
+                    <ul class="spaced">
+                        <li class="fragment">Constructor: <code class="hljs python">rational(n, d)</code> returns a
+                            rational number
+                            $x = \frac{n}{d}$ using some underlying representation, which we, as users, do not need to
+                            know
+                            anything of
+                        </li>
+                        <li class="fragment">Selectors:
+                            <ul>
+                                <li>
+                                    <code class="hljs python">numer(x)</code> returns the numerator of $x$
+                                </li>
+                                <li>
+                                    <code class="hljs python">denom(x)</code> returns the denominator of $x$
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="fragment">Arithmetic Operations:
+                            <pre class="my-2"><code class="hljs python py-2" data-trim>
+                                def mul_rational (x, y):
+                                    return rational(numer(x) * numer(y), \
+                                                    denom(x) * denom(y))
+                            </code></pre>
+                            <ul class="spaced">
+                                <li>We can manipulate rational numbers using their constructor/selectors
+                                    without knowing their implementation </li>
+                                <li>Side note: the <code class="hljs python">\</code> is used to indicate that the
+                                    expression continues on the next line</li>
+                            </ul>
+                        </li>
+                    </ul>
                 </div>
             </section>
 
             <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #1C8497)"
                 class="reg-cus">
-                <h4 class="text-start">Sequences - Examples</h4>
+                <h4 class="text-start">Rational Numbers Revisit</h4>
                 <hr>
-                <div style="font-size: 28px; line-height: 1.2;">
-                    <div class="row g-0" style="display: flex;">
-                        <ul>
-                            <li>
-                                To iterate through a sequence, we can either iterate over the items in the sequence
-                                directly or iterate through its indices
-                            </li>
-                        </ul>
-                        <div class="col-6 mx-0 px-0 h-100">
-                            <pre class="my-3 ovf mx-0 px-0 h-100" style="min-height: max-content;"><code class="hljs python py-3 ovf" data-trim data-noescape>
-                                >>> x = 'I am not Oski.'
-                                >>> vowel_count = 0
-                                >>> for i in range(len(x)):
-                                ...     if x[i] in 'aeiou':
-                                ...         vowel_count += 1
-                                ... 
-                                >>> vowel_count
-                                5
-                            </code></pre>
-                        </div>
-                        <div class="col-6 mx-0 px-0 h-100">
-                            <pre class="my-3 ovf mx-0 px-0 h-100" style="min-height: max-content;"><code class="hljs python py-3 ovf" data-trim data-noescape>
-                                >>> for i in x[-5:-1]: 
-                                ...     print(i)
-                                ... 
-                                O 
-                                s 
-                                k 
-                                i 
-                            </code></pre>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <section data-auto-animate data-background-gradient="linear-gradient(to bottom, #0C5D87, #002C42)"
-                class="reg-cus">
-                <h1>Worksheet Q1, 2</h1>
-                <hr>
-            </section>
-
-            <section>
-                <section data-auto-animate data-background-gradient="linear-gradient(to bottom, #0C5D87, #002C42)"
-                    class="reg-cus">
-                    <h1>Data Abstraction 👾</h1>
-                    <hr>
-                </section>
-
-                <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #1C8497)"
-                    class="reg-cus">
-                    <h4 class="text-start">Data Abstraction - Intro</h4>
-                    <hr>
-                    <div style="font-size: 28px; line-height: 1.1;">
-                        <ul class="spaced">
-                            <li>Data abstraction allows us to treat code as "objects", so that we <span
-                                    class="shade">don't
-                                    have to worry about the actual implementation</span> (e.g., how information is
-                                stored
-                                and
-                                calculated)
-                                - we just need to know <span class="shade">what it does</span>.
-                            </li>
-                            <li>The nature of abstraction allows whoever uses them to <span class="shade">assume that
-                                    the
-                                    functions have been
-                                    written correctly and work as described.</span></li>
-                            <li>A data abstraction consists of two types of functions:
-                                <ul>
-                                    <li>
-                                        <span class="shade">Constructors: </span>functions that build and return the
-                                        abstract data
-                                        type
-                                    </li>
-                                    <li>
-                                        <span class="shade">Selectors: </span>functions that retrieve information from
-                                        the
-                                        data type.
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>
-                </section>
-
-                <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #1C8497)"
-                    class="reg-cus">
-                    <h4 class="text-start">Rational Numbers Revisit</h4>
-                    <hr>
-                    <div style="font-size: 28px; line-height: 1.2;">
-                        <ul class="spaced">
-                            <li>Constructor: <code class="hljs python">rational(n, d)</code> returns a rational number
-                                $x = \frac{n}{d}$ using some underlying representation, which we, as users, do not need
-                                to
-                                know
-                                anything of
-                            </li>
-                            <li>Selectors:
-                                <ul>
-                                    <li>
-                                        <code class="hljs python">numer(x)</code> returns the numerator of $x$
-                                    </li>
-                                    <li>
-                                        <code class="hljs python">denom(x)</code> returns the denominator of $x$
-                                    </li>
-                                </ul>
-                            </li>
-                            <li>Arithmetic Operations:
-                                <pre class="my-2"><code class="hljs python py-2" data-trim>
-                                def mul_rational (x, y):
-                                    return rational(numer(x) * numer(y), \
-                                                    denom(x) * denom(y))
-                            </code></pre>
-                                <ul class="spaced">
-                                    <li>Note how we can manipulate rational numbers using their constructor/selectors
-                                        without knowing their implementation </li>
-                                    <li>Side note: the <code class="hljs python">\</code> is used to indicate that the
-                                        expression continues on the next line</li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>
-                </section>
-
-                <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #1C8497)"
-                    class="reg-cus">
-                    <h4 class="text-start">Rational Numbers Revisit</h4>
-                    <hr>
-                    <div class="text-start" style="font-size: 28px; line-height: 1.15;">
-                        <p>There are many ways to implement the rational number data abstraction. Below are two
-                            examples:
-                        </p>
-                        <div class="row g-0" style="min-width: 100%">
-                            <div class="col-6 px-0 mx-0">
-                                <pre class="my-3 mx-0"><code class="hljs python py-3 mx-0" data-trim>
+                <div class="text-start" style="font-size: 28px; line-height: 1.15;">
+                    <p>There are many ways to implement the rational number data abstraction. Below are two examples:
+                    </p>
+                    <div class="row g-0" style="min-width: 100%">
+                        <div class="col-6 px-0 mx-0">
+                            <pre class="my-3 mx-0"><code class="hljs python py-3 mx-0" data-trim>
                                 def rational (n, d):
                                     return [n, d]
                                 def numer (x):
@@ -283,9 +175,9 @@
                                 def denom (x):
                                     return x[1]
                             </code></pre>
-                            </div>
-                            <div class="col-6 px-0 mx-0">
-                                <pre class="my-3 mx-0"><code class="hljs python py-3 mx-0" data-trim>
+                        </div>
+                        <div class="col-6 px-0 mx-0">
+                            <pre class="my-3 mx-0"><code class="hljs python py-3 mx-0" data-trim>
                                 def rational (n, d):
                                     return {'n': n, 'd': d}
                                 def numer (x):
@@ -293,70 +185,63 @@
                                 def denom (x):
                                     return x['d']
                             </code></pre>
-                            </div>
                         </div>
-                        <p style="line-height: 1.15;">No matter which one we use, the rational number data abstraction
-                            has
-                            the same, correct behavior from the users' end. </p>
-                        <p style="line-height: 1.15;">In other words, as programmers, we can design the underlying
-                            implementation for the data abstraction however we want as long as it behaves correctly
-                            according to its documentation. </p>
-
                     </div>
-                </section>
+                    <p style="line-height: 1.15;">No matter which one we use, the rational number data abstraction has
+                        the same, correct behavior from the users' end. </p>
+                    <p style="line-height: 1.15;">As programmers, we can design the underlying
+                        implementation however we want as long as it behaves as expected</p>
 
-                <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #1C8497)"
-                    class="reg-cus">
-                    <h4 class="text-start">Don't break the abstraction barrier!</h4>
-                    <hr>
-                    <div style="font-size: 28px; line-height: 1.2;">
-                        <img class="mt-2 mb-2" data-src="media\abstraction-barrier.png">
-                        <p class="text-end mt-0" style="font-size: 15px; line-height: 1;">
-                            <i>Source: <a
-                                    href="https://cs61a.org/assets/slides/13-Data_Abstraction_1pp.pdf#page=13">lecture
-                                    13 slides</a></i>
-                        </p>
-                        <br>
-                    </div>
-                </section>
+                </div>
+            </section>
 
-                <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #1C8497)"
-                    class="reg-cus">
-                    <h4 class="text-start">Don't break the abstraction barrier!</h4>
-                    <hr>
-                    <div style="font-size: 28px; line-height: 1.2;">
-                        <ul class="spaced">
-                            <li>Why?
-                                <ul>
-                                    <li>Breaking the abstraction barrier is essentially repeating some function's job
-                                    </li>
-                                    <li>Once the underlying implementation changes, the code may not work anymore</li>
-                                </ul>
-                            </li>
-                            <li>Examples of violating the abstraction barriers:
-                                <ul>
-                                    <li><code class="hljs python">mul_rational([1, 2], [3, 4])</code> - should be
-                                        <code class="hljs python">mul_rational(rational(1, 2), rational(1, 2))</code>
-                                    </li>
-                                    <li>
-                                        <pre class="mx-2 my-2"><code class="hljs python py-2" data-trim>
+            <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #1C8497)"
+                class="reg-cus">
+                <h4 class="text-start">Don't break the abstraction barrier!</h4>
+                <hr>
+                <div style="font-size: 28px; line-height: 1.2;">
+                    <img class="mt-2 mb-2" data-src="media\abstraction-barrier.png" style="height: auto; width: 1200px">
+                    <p class="text-end mt-0" style="font-size: 15px; line-height: 1;">
+                        <i>Source: <a href="https://cs61a.org/assets/slides/13-Data_Abstraction_1pp.pdf#page=13">lecture
+                                13 slides</a></i>
+                    </p>
+                    <br>
+                </div>
+            </section>
+
+            <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #1C8497)"
+                class="reg-cus">
+                <h4 class="text-start">Don't break the abstraction barrier!</h4>
+                <hr>
+                <div style="font-size: 28px; line-height: 1.2;">
+                    <ul class="spaced">
+                        <li>Why?
+                            <ul class="spaced">
+                                <li>Breaking the abstraction barrier is repeating other function's job</li>
+                                <li>Once the underlying implementation changes, the code may not work anymore</li>
+                            </ul>
+                        </li>
+                        <li>Examples of violating the abstraction barriers:
+                            <ul>
+                                <li><code class="hljs python">mul_rational([1, 2], [3, 4])</code> should be
+                                    <code class="hljs python">mul_rational(rational(1, 2), rational(3, 4))</code>
+                                </li>
+                                <li>
+                                    <pre class="mx-2 my-2"><code class="hljs python py-2" data-trim>
                                         def divide_rational (x, y):
                                             return [ x[0] * y[1], x[1] * y[0] ]
                                         # should be:
                                         def divide_rational (x, y):
-                                            return rational(denom(x) * numer(y), \
-                                                            numer(x) * denom(y))
+                                            return rational(numer(x) * denom(y), \
+                                                            denom(x) * numer(y))
                                     </code></pre>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="shade">Takeaway: do not repeat any work that an existing function could do!
-                            </li>
-                        </ul>
-                    </div>
-                </section>
-
-
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="shade">Takeaway: call an existing function could do whenever you can!
+                        </li>
+                    </ul>
+                </div>
             </section>
 
             <section data-auto-animate data-background-gradient="linear-gradient(to bottom, #0C5D87, #002C42)"
@@ -372,12 +257,12 @@
                 <div style="font-size: 28px; line-height: 1.2;">
                     <ul class="spaced">
                         <li>A tree is a data structure that represents a hierarchy of information.
-                            <ul>
+                            <ul class="spaced">
                                 <li>
                                     For example, a file system:
                                     <img data-src="media/cs61a-tree.png">
                                     <br>
-                                    As you can see, unlike trees in nature, the tree abstract data type is drawn with
+                                    Trees in computer science are usually drawn upside down -
                                     the root at the top and the leaves at the bottom.
                                 </li>
                             </ul>
@@ -416,28 +301,25 @@
                 <hr>
                 <div style="font-size: 28px; line-height: 1.2;">
                     <ul class="spaced">
-                        <li>Constructor:
-                            <ul>
-                                <li>
-                                    <code class="hljs python">tree(label, branches=[])</code>:
-                                    <span class="bu">creates and returns a tree object</span>
+                        <li>Constructor - <code class="hljs python">tree(label, branches=[])</code>
+                            <ul class="spaced">
+                                <li><span class="bu">creates and returns a tree object</span>
                                     with the given <code class="hljs python t">label</code> value at its root
-                                    node and list of <code class="hljs python t">branches</code>. Notice that the
-                                    second argument to this constructor, <code class="hljs python t">branches</code>, is
-                                    optional
-                                    - if you want to make a tree with no branches, leave this argument empty
+                                    node and list of <code class="hljs python t">branches</code>
                                 </li>
+                                <li><code class="hljs python t">branches</code> is
+                                    optional and defaults to an empty list</li>
                             </ul>
                         </li>
                         <li>Selector:
-                            <ul>
+                            <ul class="spaced">
                                 <li>
-                                    <code class="hljs python">label(tree)</code>: returns the value in the root
+                                    <code class="hljs python">label(tree)</code> returns the value in the root
                                     node of
                                     <code class="hljs python t">tree</code>.
                                 </li>
                                 <li>
-                                    <code class="hljs python">branches(tree)</code>: returns the <span class="bu">list
+                                    <code class="hljs python">branches(tree)</code> returns the <span class="bu">list
                                         of branches</span>
                                     of
                                     <code class="hljs python t">tree</code>.
@@ -445,9 +327,9 @@
                             </ul>
                         </li>
                         <li>Convenience function:
-                            <ul>
+                            <ul class="spaced">
                                 <li>
-                                    <code class="hljs python">is_leaf(tree)</code>: returns <code
+                                    <code class="hljs python">is_leaf(tree)</code> returns <code
                                         class="hljs python t">True</code> if <code class="hljs python t">tree</code>'s
                                     list of branches is empty, and <code class="hljs python t">False</code>
                                     otherwise.
@@ -485,8 +367,8 @@
                 <hr>
                 <div style="font-size: 28px; line-height: 1.2; min-height: 100%;">
                     <ul>
-                        <li>There's no mutation in data abstraction (i.e., we cannot mutate an existing object) - to
-                            "update" an object, rather than resetting the attributes directly, we need to create a new
+                        <li>no mutation in data abstraction (yet) - to
+                            "update" an object, rather than resetting the attributes, create a new
                             object with the updated attributes
                             <pre class="my-3"><code class="hljs python py-3 " data-trim data-noescape>
                                 t0 = tree(61, [tree('a'), tree('b')])
@@ -504,7 +386,7 @@
 
             <section data-auto-animate data-background-gradient="linear-gradient(to bottom, #0C5D87, #002C42)"
                 class="reg-cus">
-                <h1>Worksheet Q3-Q6</h1>
+                <h1>Worksheet Q1-Q6</h1>
                 <hr>
             </section>
 
@@ -513,12 +395,14 @@
                 <h2 class="text-start">Attendance! 🤠</h2>
                 <hr>
                 <a href="https://go.cs61a.org/mingxiao-att" style="font-size: 40px">go.cs61a.org/mingxiao-att</a>
-                <div class="text-start" style="font-size: 36px; line-height: 1.2;">
+                <div class="text-start" style="font-size: 36px">
                     <br>
-                    <ul>
+                    <ul class="spaced">
                         <li>The attendance form and slides are both linked on our <a
                                 href="https://go.cs61a.org/mingxiao-index">section website</a>!</li>
-                        <li class="shade">Once again, please do remember to fill out the form by midnight today!!</li>
+                        <li>Please leave any anonymous feedback here <a
+                                href="https://go.cs61a.org/mingxiao-anon">go.cs61a.org/mingxiao-anon</a></li>
+                        <li class="shade">Please do remember to fill out the form by midnight today!!</li>
                     </ul>
                 </div>
             </section>
