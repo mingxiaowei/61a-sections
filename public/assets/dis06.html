@@ -51,7 +51,7 @@
                     <p><a href="mailto:mingxiaowei@berkeley.edu" class="email"
                             style="color:#8BC24A; text-decoration: underline;">
                             mingxiaowei@berkeley.edu</a>
-                        <span class="text-end">Oct 06, 2022</span>
+                        <span class="text-end">Mar 2, 2023</span>
                     </p>
 
                 </footer>
@@ -63,13 +63,12 @@
                 <h3 class="text-start">Logistics 🏡</h3>
                 <hr>
                 <ul class="spaced" style="font-size: 28px; line-height: 1.2;">
-                    <li>Homework 04 due today 10/06</li>
-                    <li>Ants coming soon... 🐜
-                        <ul>
-                            <li>If you want to stick to your old partner or find a new partner, now it's probably a good
-                                time to reach out!</li>
-                        </ul>
+                    <li>Homework 04 due today 03/02
+                        <ul class="spaced">
+                            <li>Reminder that the first question, which is a survey, is mandatory!</li>
+                        </ul>      
                     </li>
+                    <li>If you have issues with your discussion/lab scores on Gradescope, please email me!</li>
                 </ul>
             </section>
 
@@ -77,277 +76,7 @@
                 class="reg-cus">
                 <h4 class="text-start">From last time... 👀</h4>
                 <hr>
-                <img data-src="media\lab06-att-q.png">
-            </section>
-
-            <section data-auto-animate data-background-gradient="linear-gradient(to bottom, #0C5D87, #002C42)"
-                class="reg-cus">
-                <h1>Mutability 🦁</h1>
-                <hr>
-            </section>
-
-            <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #1C8497)"
-                class="reg-cus">
-                <h4 class="text-start">Box & Pointer Diagrams</h4>
-                <hr>
-                <iframe width="800" height="500" frameborder="0"
-                    src="https://pythontutor.com/iframe-embed.html#code=a%20%3D%20%5B1,%202,%203%5D%0Ab%20%3D%20%5Ba,%204,%205%5D%0Ac%20%3D%20a&codeDivHeight=400&codeDivWidth=350&cumulative=true&curInstr=0&origin=composingprograms.js&py=3&rawInputLstJSON=%5B%5D">
-                </iframe>
-            </section>
-
-            <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #1C8497)"
-                class="reg-cus">
-                <h4 class="text-start">List Mutation Methods</h4>
-                <hr>
-                <div style="font-size: 28px; line-height: 1.2;">
-                    <p style="line-height: 1;">To call a method on a list, use dot notation: <code
-                            class="hljs python">lst.method(arg)</code></p>
-                    <ul class="spaced">
-                        <li><code class="hljs python">append(elem)</code>
-                            <ul style="line-height: 1.2;">
-                                <li>Add <code class="hljs python t">elem</code>
-                                    to the end of the list</li>
-                                <li><code class="hljs python t">elem</code> can be of any type</li>
-                                <li>Append only one element at a time - if <code class="hljs python t">elem</code>
-                                    is another list, the resulting list is nested</li>
-                                <li>Return <code class="hljs python">None</code></li>
-                            </ul>
-                        </li>
-                        <li><code class="hljs python">extend(lst)</code>
-                            <ul style="line-height: 1.2;">
-                                <li>extend the list by making a shallow copy of <code class="hljs python t">lst</code> and concatenating it with the other list
-                                    <code class="hljs python t">lst</code>
-                                </li>
-                                <li><code class="hljs python t">lst</code> must be another list</li>
-                                <li>If we need to add one element, <code class="hljs python t">elem</code> to a list,
-                                    <code class="hljs python t">lst</code>,
-                                    <code class="hljs python t">lst.append(elem)</code> has the same effect as
-                                    <code class="hljs python t">lst.extend([elem])</code>
-                                </li>
-                                <li>Return <code class="hljs python">None</code></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
-            </section>
-
-            <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #1C8497)"
-                class="reg-cus">
-                <h4 class="text-start">List Mutation Methods</h4>
-                <hr>
-                <div style="font-size: 28px; line-height: 1.2;">
-                    <p style="line-height: 1;">To call a method on a list, use dot notation: <code
-                            class="hljs python">lst.method(arg)</code></p>
-                    <ul class="spaced">
-                        <li><code class="hljs python">insert(i, elem)</code>
-                            <ul style="line-height: 1.2;">
-                                <li>insert an element <code class="hljs python t">elem</code>
-                                    at index <code class="hljs python t">i</code></li>
-                                <li>This does not replace any existing element - everything after the inserted element
-                                    is
-                                    "pushed back" by one element</li>
-                                <li><code class="hljs python t">elem</code> can be of any type</li>
-                                <li>Return <code class="hljs python">None</code></li>
-                            </ul>
-                        </li>
-                        <li><code class="hljs python">remove(elem)</code>
-                            <ul style="line-height: 1.2;">
-                                <li>remove the <i>first</i> occurence of <code class="hljs python t">elem</code></li>
-                                <li>If <code class="hljs python t">elem</code> is not in the list, it errors.
-                                    Otherwise return <code class="hljs python">None</code>.</li>
-                            </ul>
-                        </li>
-                        <li><code class="hljs python">pop(i)</code>
-                            <ul style="line-height: 1.2;">
-                                <li>remove and <i>return</i> the element at index <code class="hljs python t">i</code>
-                                </li>
-                                <li><code class="hljs python t">i</code> is optional - if not specified, defaulted to
-                                    <code class="hljs python t">len(lst)-1</code>
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
-            </section>
-
-            <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #1C8497)"
-                class="reg-cus">
-                <h4 class="text-start">Other ways to mutate a list</h4>
-                <hr>
-                <div style="font-size: 26px; line-height: 1.2;">
-                    <ul class="spaced">
-                        <li><code class="hljs python">lst[i] = elem</code></li>
-                        <li><code class="hljs python">lst += another_lst</code>
-                            <ul style="line-height: 1.2;">
-                                <li>This is equivalent to <code class="hljs python">lst.extend(another_lst)</code>, both
-                                    of which
-                                    <i>mutate</i> the original list <code class="hljs python t">lst</code>
-                                </li>
-                                <li><code class="hljs python">lst = lst + another_lst</code> is different - this creates
-                                    a <i>copy</i> of
-                                    <code class="hljs python t">lst</code>, concatenates it with
-                                    <code class="hljs python t">another_lst</code>, and returns the new list; the
-                                    original
-                                    <code class="hljs python t">lst</code> is <i>unchanged</i>
-                                </li>
-                                <!-- pdf -->
-                                <!-- <iframe width="800" height="500" frameborder="0" -->
-                                <!-- src="https://pythontutor.com/iframe-embed.html#code=a%20%3D%20%5B1,%202,%203%5D%0Ab%20%3D%20%5B4,%205%5D%0Ac%20%3D%20a%20%0Aa%20%2B%3D%20b%20%0Ad%20%3D%20a%20%2B%20b&codeDivHeight=400&codeDivWidth=350&cumulative=true&curInstr=5&origin=composingprograms.js&py=3&rawInputLstJSON=%5B%5D"> -->
-                                <!-- </iframe> -->
-                                <!-- html -->
-                                <!-- <iframe width="800" height="350" frameborder="0" src="https://pythontutor.com/iframe-embed.html#code=a%20%3D%20%5B1,%202,%203%5D%0Ab%20%3D%20%5B4,%205%5D%0Ac%20%3D%20a%20%0Aa%20%2B%3D%20b%20%0Ad%20%3D%20a%20%2B%20b&codeDivHeight=400&codeDivWidth=350&cumulative=true&curInstr=0&origin=composingprograms.js&py=3&rawInputLstJSON=%5B%5D"> </iframe>     -->
-                                <iframe width="800" height="350" frameborder="0"
-                                    src="https://pythontutor.com/iframe-embed.html#code=a%20%3D%20%5B1,%202,%203%5D%0Ab%20%3D%20%5B4,%205%5D%0Ac%20%3D%20a%20%0Aa%20%2B%3D%20b%20%0Aa%20%3D%20a%20%2B%20b&codeDivHeight=400&codeDivWidth=350&cumulative=true&curInstr=0&origin=composingprograms.js&py=3&rawInputLstJSON=%5B%5D">
-                                </iframe>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
-            </section>
-
-            <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #1C8497)"
-                class="reg-cus">
-                <h4 class="text-start">Shallow Copy of Lists</h4>
-                <hr>
-                <div style="font-size: 28px; line-height: 1.2;">
-                    <ul class="spaced">
-                        <li><span class="shade">Shallow Copy</span> - copy of whatever is in the box
-                            <ul>
-                                <li>If it's a number, copy that number</li>
-                                <li>If it's a pointer (e.g., to another list), copy the pointer, so that <span
-                                        class="bu">the copied pointer points to the same object</span> in the ED</li>
-                            </ul>
-                        </li>
-                        <li>When/How to make a shallow copy:
-                            <ul class="spaced">
-                                <li>Use <code class="hljs python t">+</code> to concatenate multiple lists together -
-                                    make a shallow copy of each operand, concatenate them together, and return the new
-                                    list *</li>
-                                <li><code class="hljs python t">lst[:]</code> (or any kind of list slicing)</li>
-                                <li><code class="hljs python t">list(lst)</code></li>
-                                <li><code class="hljs python t">lst.copy()</code></li>
-                            </ul>
-                        </li>
-                    </ul>
-                    <p class="text-start">* This is why for lists <code class="hljs python t">a</code> and <code
-                            class="hljs python t">b</code>, <code class="hljs python t">a += b</code> is different from
-                        <code class="hljs python t">a = a + b</code>
-                    </p>
-                </div>
-            </section>
-
-            <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #1C8497)"
-                class="reg-cus">
-                <h4 class="text-start">Shallow Copy of Lists</h4>
-                <hr>
-                <iframe width="800" height="500" frameborder="0"
-                    src="https://pythontutor.com/iframe-embed.html#code=a%20%3D%20%5B1,%202,%203%5D%0Ab%20%3D%20%5B4,%205%5D%0Ac%20%3D%20a%0Aa%20%2B%3D%20b%0Aa%20%3D%20a%20%2B%20b%0Ab%20%3D%20a%5B%3A%5D&codeDivHeight=400&codeDivWidth=350&cumulative=true&curInstr=0&origin=composingprograms.js&py=3&rawInputLstJSON=%5B%5D">
-                </iframe>
-            </section>
-
-            <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #1C8497)"
-                class="reg-cus">
-                <h4 class="text-start">Identity VS Equality</h4>
-                <hr>
-                <div style="font-size: 27px; line-height: 1.15;">
-                    <ul class="spaced">
-                        <li><span class="shade">Identity</span>
-                            <ul>
-                                <li>Use <code class="hljs python">is</code> to check</li>
-                                <li>Two variables have the same identity if either of the following holds:
-                                    <ul>
-                                        <li>They are primitive values (numbers, strings, boolean) and have the same
-                                            value</li>
-                                        <li>They are non-primitive values (lists, tuples, etc.) and points to the same
-                                            object in the ED</li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </li>
-                        <li><span class="shade">Equality</span>
-                            <ul>
-                                <li>Use <code class="hljs python">==</code> to check</li>
-                                <li>Two variables are equal if they have the same "value"
-                                    <ul>
-                                        <li>For lists, this means should contain the same elements in the same order.
-                                        </li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </li>
-                        <span class="text-start my-0 mx-0 py-0 px-0" style="line-height: 0; font-size: 26px;">
-                            <p style="line-height: 0; font-size: 26px;">
-                                For primitive values, equality $\Leftrightarrow$ identity. <br>
-                                For non-primitive values, identity $\Rightarrow$ equality, but equality $\nRightarrow$
-                                identity.
-                            </p>
-                            <p style="line-height: 0; font-size: 26px;">
-
-                            </p>
-                        </span>
-                    </ul>
-                </div>
-            </section>
-
-            <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #1C8497)"
-                class="reg-cus">
-                <h4 class="text-start">Identity VS Equality</h4>
-                <hr>
-                <div class="row g-0 my-0 mx-0 px-0 py-0">
-                    <div class="col-4 my-0 mx-0 px-0 py-0">
-                        <pre class="mt-0"><code class="hljs python-repl" data-trim data-noescape>
-                            >>> a = [6, 1, 'a'] 
-                            >>> b = ['C', 'S', a]
-                            >>> c = b
-                            >>> b is c
-                            <span class="fragment">True</span>
-                            >>> d = b[:]
-                            >>> d is c
-                            <span class="fragment">False</span>
-                            >>> d == c 
-                            <span class="fragment">True</span>
-                        </code></pre>
-                    </div>
-                    <div class="col-8 my-0 mx-0 px-0 py-0">
-                        <iframe width="700" height="400" frameborder="0"
-                            src="https://pythontutor.com/iframe-embed.html#code=a%20%3D%20%5B6,%201,%20'a'%5D%20%0Ab%20%3D%20%5B'C',%20'S',%20a%5D%0Ac%20%3D%20b%0Ad%20%3D%20b%5B%3A%5D&codeDivHeight=400&codeDivWidth=350&cumulative=true&curInstr=0&origin=composingprograms.js&py=3&rawInputLstJSON=%5B%5D">
-                        </iframe>
-                    </div>
-                </div>
-            </section>
-
-            <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #1C8497)"
-                class="reg-cus">
-                <h4 class="text-start">Mutation - Problem Solving Strategies</h4>
-                <hr>
-                <div style="font-size: 28px; line-height: 1.2;">
-                    <ul class="spaced">
-                        <li>Always keep in mind that all list mutation methods, except for <code
-                                class="hljs python t">pop()</code> , return <code class="hljs python">None</code>
-                            <ul>
-                                <li>If you need to mutate a list and then return it, do the mutation before the return
-                                    statement (i.e., be careful not to accidentally return <code
-                                        class="hljs python t">None</code>!)</li>
-                            </ul>
-                        </li>
-                        <li>
-                            Do not mutate a list and iterate through it at the same time - this can lead to infinite
-                            loop!
-                            <ul>
-                                <li>Instead, iterate through a copy of the list and operate on the original list or
-                                    iterate through the list using indices and modify the index when appropriate. </li>
-                            </ul>
-                        </li>
-                        <li>Pay attention to whether the problem requires us to mutate the input list (in which case the
-                            return value is likely None), or return a new list</li>
-                    </ul>
-                </div>
-            </section>
-
-            <section data-auto-animate data-background-gradient="linear-gradient(to bottom, #0C5D87, #002C42)"
-                class="reg-cus">
-                <h1>Worksheet Q1, 2</h1>
-                <hr>
+                <img data-src="media\sp23-dis06-att.svg" style="height: 520px; width:auto">
             </section>
 
             <section data-auto-animate data-background-gradient="linear-gradient(to bottom, #0C5D87, #002C42)"
@@ -358,44 +87,24 @@
 
             <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #1C8497)"
                 class="reg-cus">
-                <h4 class="text-start">Iterables and Iterators</h4>
+                <h4 class="text-start">Iterables</h4>
                 <hr>
-                <div style="font-size: 26px; line-height: 1.2;">
+                <div style="font-size: 28px; line-height: 1.2;" class="text-start">
                     <ul class="spaced">
                         <li>Iterables
-                            <ul>
-                                <li>An object that can be iterated through using a for loop:
+                            <ul class="spaced">
+                                <li>Can be iterated through using a for loop:
                                     <pre class="my-2"><code class="hljs python py-2" data-trim>
                                         for elem in iterable:
                                             # do something
                                     </code></pre>
                                 </li>
-                                <li>Includes, but are not limited to, sequences (lists, tuples, dictionaries, etc.)</li>
+                                <li>E.g., sequences (lists, tuples, dictionaries, ranges, etc.)</li>
                                 <li class="shade">Calling <code class="hljs python">iter()</code> on an iterable returns
-                                    a new
+                                    a <i>new</i>
                                     iterator
                                 </li>
                                 <!-- <li>Analogous to a book, where one can flip through the pages and goes back and forth however they want</li> -->
-                            </ul>
-                        </li>
-                        <li>Iterators
-                            <ul>
-                                <li>An object that allows us to iterate through an iterable by keeping track of which
-                                    element is the next in the sequence</li>
-                                <li><span class="shade">Calling <code class="hljs python">next()</code> on an iterator
-                                        gives the next
-                                        element from the iterator</span> -
-                                    once an element is returned from calling <code class="hljs python t">next()</code>,
-                                    we can never go back to that
-                                    element again by with the same iterator. <br>If there's no more remaining element,
-                                    raise an
-                                    <code class="hljs python t">StopIteration</code> error.
-                                </li>
-                                <li><span class="shade">Calling <code class="hljs python">iter()</code> on an iterator
-                                        returns the iterator
-                                        <i>itself</i></span>, without resetting the position
-                                </li>
-                                <!-- <li>Analogous to a one-way bookmark, which saves its current position and can locate the next page, but cannot go backwards</li> -->
                             </ul>
                         </li>
                     </ul>
@@ -406,14 +115,38 @@
                 class="reg-cus">
                 <h4 class="text-start">Iterables and Iterators</h4>
                 <hr>
-                <div class="text-start" style="font-size: 28px; line-height: 1.2;">
+                <div style="font-size: 28px; line-height: 1.2;" class="text-start">
+                    <ul class="spaced">
+                        <li>Iterators
+                            <ul class="spaced">
+                                <li>"Tracker" for an iterable - keep track of which element is next</li>
+                                <li><span class="shade">Calling <code class="hljs python">next()</code> on an iterator
+                                        gives the next
+                                        element from the iterator</span> 
+                                    <ul class="spaced">
+                                        <li>Once an element is returned from calling <code class="hljs python t">next()</code>,
+                                            we can never go back to that
+                                            element again by with the same iterator. </li>
+                                        <li>If there's no more remaining element,
+                                            raise an
+                                            <code class="hljs python t">StopIteration</code> error.</li>
+                                    </ul>
+                                </li>
+                                <li><span class="shade">Calling <code class="hljs python">iter()</code> on an iterator
+                                        returns the iterator
+                                        <i>itself</i></span>, without resetting the position
+                                </li>
+                                <!-- <li>Analogous to a one-way bookmark, which saves its current position and can locate the next page, but cannot go backwards</li> -->
+                            </ul>
+                        </li>
+                    </ul>
                     <p style="line-height: 1.15; font-size: 26px;">Note: since we can call <code
-                            class="hljs python t">iter()</code> on
-                        an iterator, which will return the iterator itself, iterators are also iterables. But
-                        iterables are not necessarily iterators. You can use iterators wherever you can use
-                        iterables, but note that since iterators keep their state, they're only good to be iterated
-                        through once.
-                    </p>
+                        class="hljs python t">iter()</code> on
+                    an iterator, which will return the iterator itself, <span class="bu">iterators are also iterables</span>. But
+                    iterables are not necessarily iterators. You can use iterators wherever you can use
+                    iterables, but note that since iterators keep their state, they're only good to be iterated
+                    through once.
+                </p>
                 </div>
             </section>
 
@@ -506,7 +239,7 @@
                         <li><code class="hljs python">zip(iterables*)</code>:
                             Creates an <span class="bu">iterator</span> over co-indexed tuples with elements from each
                             of the <code class="hljs python t">iterables</code>
-                            <a href="https://code.cs61a.org/StallBridgeCrawl">(demo)</a>
+                            <a href="https://code.cs61a.org/PairBossOften">(demo)</a>
                         </li>
                         <li><code class="hljs python">reduce(f, iterable)</code>:
                             Must be imported with <code class="hljs python">functools</code>. Apply function of two
@@ -575,16 +308,13 @@
                 <h4 class="text-start">Generator Functions</h4>
                 <hr>
                 <div class="text-start mb-1" style="font-size: 28px; line-height: 1.2;">
-                    <ul class="spaced">
-                        <li><span style="font-size: 28px;">Generator functions</span>
+                   
                             <ul class="spaced">
-                                <li>Have at least one <code class="hljs python t">yield</code> statement</li>
-                                <li>When called, return a <span class="shade">generator</span> function, which is a
+                                <li class="fragment">Have at least one <code class="hljs python t">yield</code> or <code class="hljs python t">yield from</code> statement</li>
+                                <li class="fragment">When called, return a <span class="shade">generator</span>, which is a
                                     special type of iterator, without evaluating the function body</li>
-                                <li>Allow us to define customized iterators</li>
+                                <li class="fragment">Allow us to define customized iterators</li>
                             </ul>
-                        </li>
-                    </ul>
                 </div>
             </section>
 
@@ -593,31 +323,29 @@
                 <h4 class="text-start">Generators</h4>
                 <hr>
                 <div class="text-start mb-1" style="font-size: 28px; line-height: 1.2;">
-                    <ul class="spaced">
-                        <li><span style="font-size: 28px;">Generators</span>
+                    
                             <ul class="spaced">
-                                <li>Returned by a generator function</li>
-                                <li>When we call <code class="hljs python t">next()</code>on a generator - "lazy
+                                <li class="fragment">Returned by a generator function</li>
+                                <li class="fragment">Calling <code class="hljs python t">next()</code>on a generator - "lazy
                                     evaluation"
-                                    <ul>
-                                        <li>If it's the first time, begin evaluating the body of the generator function
-                                            until an element is yielded or the function terminates (by <code
+                                    <ul class="spaced">
+                                        <li class="fragment">If it's the first time, begin evaluating the body of the generator function
+                                            until a value is yielded or the function terminates (by <code
                                                 class="hljs python t">return</code>, etc.)</li>
-                                        <li>Otherwise, pick up from where it stopped last time, and keep evaluating
-                                            until another element is yielded or the function teriminates</li>
+                                        <li class="fragment">Otherwise, pick up from where it stopped last time, and keep evaluating
+                                            until another value is yielded or the function teriminates</li>
                                     </ul>
                                 </li>
-                                <li>Because of the lazy evaluation, we can define a generator that yield infinite
+                                <li class="fragment">We can define a generator that yield infinite
                                     elements without causing an infinite loop</li>
-                                <li>Each time a generator function is called, a <span class="bu">new</span> generator
+                                <li class="fragment">Each time a generator function is called, a <span class="bu">new</span> generator
                                     object is returned</li>
-                                <li>As with other iterators, if there are no more elements to be generated, then calling
+                                <li class="fragment">If there are no more elements to be generated, calling
                                     <code class="hljs python t">next()</code>on the generator will raise a <code
                                         class="hljs python t">StopIteration</code> error.
                                 </li>
                             </ul>
-                        </li>
-                    </ul>
+                        
                 </div>
             </section>
 
@@ -654,22 +382,22 @@
                 <hr>
                 <div class="text-start mb-1" style="font-size: 26px; line-height: 1.15;">
                     <ul class="spaced">
-                        <li>Both <code class="hljs python">yield</code> and <code class="hljs python">yield from</code>
+                        <li class="fragment">Both <code class="hljs python">yield</code> and <code class="hljs python">yield from</code>
                             defines elements in the generator
                         </li>
-                        <li>We can only <code class="hljs python">yield</code> one element at a time</li>
-                        <li>We can <code class="hljs python">yield from</code> any iterables (sequences, iterators,
+                        <li class="fragment">We can only <code class="hljs python">yield</code> one element at a time</li>
+                        <li class="fragment">We can <code class="hljs python">yield from</code> any iterables (sequences, iterators,
                             generators, etc.)</li>
-                        <pre class="my-2"><code class="hljs python py-2" data-trim>
+                        <pre class="my-2 fragment"><code class="hljs python py-2" data-trim>
                             for elem in iterable:
                                 yield elem 
                             # is equivalent to 
                             yield from iterable
                         </code></pre>
-                        <li>With for loop and <code class="hljs python">yield</code>, we can modify the element before
+                        <li class="fragment">With a for loop and <code class="hljs python">yield</code>, we can modify the element before
                             yielding them
                         </li>
-                        <li>With <code class="hljs python">yield from</code>, we can only yield the exact elements from
+                        <li class="fragment">With <code class="hljs python">yield from</code>, we can only yield the exact elements from
                             the iterable, without modifying them</li>
                     </ul>
                 </div>
@@ -700,7 +428,7 @@
                             ...     for elem in lst:
                             ...         yield elem + 1
                             ...
-                            >>> g = gen_list([1, 2])
+                            >>> g = gen_list_1([1, 2])
                             >>> next (g)
                             <span class="fragment">2</span>
                             >>> next (g)
@@ -720,15 +448,279 @@
 
             <section data-auto-animate data-background-gradient="linear-gradient(to bottom, #0C5D87, #002C42)"
                 class="reg-cus">
+                <h1>Mutability 🦁</h1>
+                <hr>
+            </section>
+
+            <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #1C8497)"
+                class="reg-cus">
+                <h4 class="text-start">Box & Pointer Diagrams</h4>
+                <hr>
+                <iframe width="900" height="560" frameborder="0"
+                    src="https://pythontutor.com/iframe-embed.html#code=a%20%3D%20%5B1,%202,%203%5D%0Ab%20%3D%20%5Ba,%204,%205%5D%0Ac%20%3D%20a&codeDivHeight=400&codeDivWidth=350&cumulative=true&curInstr=0&origin=composingprograms.js&py=3&rawInputLstJSON=%5B%5D">
+                </iframe>
+            </section>
+
+            <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #1C8497)"
+                class="reg-cus">
+                <h4 class="text-start">List Mutation Methods</h4>
+                <hr>
+                <div style="font-size: 27px; line-height: 1.15;">
+                    <p style="line-height: 1;">To call a method on a list, use dot notation: <code
+                            class="hljs python">lst.method(arg)</code></p>
+                    <ul class="spaced">
+                        <li><code class="hljs python">append(elem)</code>
+                            <ul class="spaced">
+                                <li>Add <code class="hljs python t">elem</code>
+                                    to the end of the list</li>
+                                <li><code class="hljs python t">elem</code> can be of any type</li>
+                                <li>Append only one element at a time - if <code class="hljs python t">elem</code>
+                                    is another list, the resulting list is nested</li>
+                                <li>Return <code class="hljs python">None</code></li>
+                            </ul>
+                        </li>
+                        <li><code class="hljs python">extend(lst)</code>
+                            <ul class="spaced">
+                                <li>extend the list by making a shallow copy of <code class="hljs python t">lst</code> and concatenating it with the other list
+                                </li>
+                                <li><code class="hljs python t">lst</code> must be another list, not a number</li>
+                                <li>
+                                    <code class="hljs python t">lst.append(elem)</code> is the same as
+                                    <code class="hljs python t">lst.extend([elem])</code>
+                                </li>
+                                <li>Return <code class="hljs python">None</code></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #1C8497)"
+                class="reg-cus">
+                <h4 class="text-start">List Mutation Methods</h4>
+                <hr>
+                <div style="font-size: 28px; line-height: 1.15;">
+                    <p style="line-height: 1;">To call a method on a list, use dot notation: <code
+                            class="hljs python">lst.method(arg)</code></p>
+                    <ul class="spaced">
+                        <li><code class="hljs python">insert(i, elem)</code>
+                            <ul class="spaced">
+                                <li>insert an element <code class="hljs python t">elem</code>
+                                    at index <code class="hljs python t">i</code></li>
+                                <li>does not replace any existing element - everything after the inserted element
+                                    is shifted backwards</li>
+                                <li><code class="hljs python t">elem</code> can be of any type</li>
+                                <li>Return <code class="hljs python">None</code></li>
+                            </ul>
+                        </li>
+                        <li><code class="hljs python">remove(elem)</code>
+                            <ul class="spaced">
+                                <li>remove the <i>first</i> occurence of <code class="hljs python t">elem</code></li>
+                                <li>If <code class="hljs python t">elem</code> is not in the list, it errors.
+                                    Otherwise return <code class="hljs python">None</code>.</li>
+                            </ul>
+                        </li>
+                        <li><code class="hljs python">pop(i)</code>
+                            <ul class="spaced">
+                                <li>remove and <i>return</i> the element at index <code class="hljs python t">i</code>
+                                </li>
+                                <li><code class="hljs python t">i</code> is optional - if not specified, default to
+                                    <code class="hljs python t">len(lst)-1</code>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #1C8497)"
+                class="reg-cus">
+                <h4 class="text-start">Other ways to mutate a list</h4>
+                <hr>
+                <div style="font-size: 26px; line-height: 1.2;">
+                    <ul class="spaced">
+                        <li><code class="hljs python">lst[i] = elem</code></li>
+                        <li><code class="hljs python">lst_1 += lst_2</code>
+                            <ul class="spaced">
+                                <li>Equivalent to <code class="hljs python">lst_1.extend(lst_2)</code>. Both
+                                    <i>mutate</i> <code class="hljs python t">lst_2</code>
+                                </li>
+                                <li><code class="hljs python">lst_1 = lst_1 + lst_2</code> creates
+                                    a <i>copy</i> of
+                                    <code class="hljs python t">lst_1</code> and <code class="hljs python t">lst_2</code>, concatenates them together, and binds <code class="hljs python t">lst_1</code> the new list.
+                                    The original two lists are <i>unchanged</i>
+                                </li>
+                                <!-- pdf -->
+                                <!-- <iframe width="800" height="500" frameborder="0" -->
+                                <!-- src="https://pythontutor.com/iframe-embed.html#code=a%20%3D%20%5B1,%202,%203%5D%0Ab%20%3D%20%5B4,%205%5D%0Ac%20%3D%20a%20%0Aa%20%2B%3D%20b%20%0Ad%20%3D%20a%20%2B%20b&codeDivHeight=400&codeDivWidth=350&cumulative=true&curInstr=5&origin=composingprograms.js&py=3&rawInputLstJSON=%5B%5D"> -->
+                                <!-- </iframe> -->
+                                <!-- html -->
+                                <!-- <iframe width="800" height="350" frameborder="0" src="https://pythontutor.com/iframe-embed.html#code=a%20%3D%20%5B1,%202,%203%5D%0Ab%20%3D%20%5B4,%205%5D%0Ac%20%3D%20a%20%0Aa%20%2B%3D%20b%20%0Ad%20%3D%20a%20%2B%20b&codeDivHeight=400&codeDivWidth=350&cumulative=true&curInstr=0&origin=composingprograms.js&py=3&rawInputLstJSON=%5B%5D"> </iframe>     -->
+                                <iframe width="800" height="330" frameborder="0"
+                                    src="https://pythontutor.com/iframe-embed.html#code=a%20%3D%20%5B1,%202,%203%5D%0Ab%20%3D%20%5B4,%205%5D%0Ac%20%3D%20a%20%0Aa%20%2B%3D%20b%20%0Aa%20%3D%20a%20%2B%20b&codeDivHeight=400&codeDivWidth=350&cumulative=true&curInstr=0&origin=composingprograms.js&py=3&rawInputLstJSON=%5B%5D">
+                                </iframe>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #1C8497)"
+                class="reg-cus">
+                <h4 class="text-start">Shallow Copy of Lists</h4>
+                <hr>
+                <div style="font-size: 28px; line-height: 1.2;">
+                    <ul class="spaced">
+                        <li><span class="shade">Shallow Copy</span> - copy of whatever is in the box
+                            <ul class="spaced">
+                                <li>If it's a number, copy that number</li>
+                                <li>If it's a pointer (e.g., to another list), copy the pointer, so that <span
+                                        class="bu">the copied pointer points to the same object</span> in the ED</li>
+                            </ul>
+                        </li>
+                        <li>When/How to make a shallow copy:
+                            <ul class="spaced">
+                                <li>Use <code class="hljs python t">+</code> to concatenate multiple lists together -
+                                    make a shallow copy of each operand, concatenate them together, and return the new
+                                    list *</li>
+                                <li><code class="hljs python t">lst[:]</code> (or any kind of list slicing)</li>
+                                <li><code class="hljs python t">list(lst)</code></li>
+                                <li><code class="hljs python t">lst.copy()</code></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <p class="text-start">* This is why for lists <code class="hljs python t">a</code> and <code
+                            class="hljs python t">b</code>, <code class="hljs python t">a += b</code> is different from
+                        <code class="hljs python t">a = a + b</code>
+                    </p>
+                </div>
+            </section>
+
+            <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #1C8497)"
+                class="reg-cus">
+                <h4 class="text-start">Shallow Copy of Lists</h4>
+                <hr>
+                <iframe width="900" height="550" frameborder="0" src="https://pythontutor.com/iframe-embed.html#code=a%20%3D%20%5B1,%202%5D%0Ab%20%3D%20%5B3,%204%5D%0Ac%20%3D%20a%0Aa%20%2B%3D%20b%0Aa%20%3D%20a%20%2B%20b%0Ac.append%28b%29%0Ad%20%3D%20c%5B%3A%5D%0A&codeDivHeight=400&codeDivWidth=350&cumulative=true&curInstr=0&origin=composingprograms.js&py=3&rawInputLstJSON=%5B%5D"> </iframe>
+            </section>
+
+            <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #1C8497)"
+                class="reg-cus">
+                <h4 class="text-start">Identity VS Equality</h4>
+                <hr>
+                <div style="font-size: 27px; line-height: 1.15;">
+                    <ul class="spaced">
+                        <li><span class="shade">Identity</span>
+                            <ul class="spaced">
+                                <li>Use <code class="hljs python">is</code> to check</li>
+                                <li>Two variables have the same identity if either of the following holds:
+                                    <ul>
+                                        <li>They are primitive values (numbers, strings, boolean) and have the same
+                                            value</li>
+                                        <li>They are non-primitive values (lists, tuples, etc.) and points to the same
+                                            object in the ED</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li><span class="shade">Equality</span>
+                            <ul class="spaced">
+                                <li>Use <code class="hljs python">==</code> to check</li>
+                                <li>Two variables are equal if they have the same "value"
+                                    <ul>
+                                        <li>For lists, they should contain the same elements in the same order.
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <span class="text-start my-0 mx-0 py-0 px-0" style="line-height: 0; font-size: 26px;">
+                            <p style="line-height: 0; font-size: 26px;">
+                                For primitive values, equality $\Leftrightarrow$ identity. <br>
+                                For non-primitive values, identity $\Rightarrow$ equality, but equality $\nRightarrow$
+                                identity.
+                            </p>
+                            <p style="line-height: 0; font-size: 26px;">
+
+                            </p>
+                        </span>
+                    </ul>
+                </div>
+            </section>
+
+            <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #1C8497)"
+                class="reg-cus">
+                <h4 class="text-start">Identity VS Equality</h4>
+                <hr>
+                <div class="row g-0 my-0 mx-0 px-0 py-0">
+                    <div class="col-4 my-0 mx-0 px-0 py-0">
+                        <pre class="mt-0"><code class="hljs python-repl" data-trim data-noescape>
+                            >>> a = [6, 1, 'a'] 
+                            >>> b = ['C', 'S', a]
+                            >>> c = b
+                            >>> b is c
+                            <span class="fragment">True</span>
+                            >>> d = b[:]
+                            >>> d is c
+                            <span class="fragment">False</span>
+                            >>> d == c 
+                            <span class="fragment">True</span>
+                        </code></pre>
+                    </div>
+                    <div class="col-8 my-0 mx-0 px-0 py-0">
+                        <iframe width="700" height="400" frameborder="0"
+                            src="https://pythontutor.com/iframe-embed.html#code=a%20%3D%20%5B6,%201,%20'a'%5D%20%0Ab%20%3D%20%5B'C',%20'S',%20a%5D%0Ac%20%3D%20b%0Ad%20%3D%20b%5B%3A%5D&codeDivHeight=400&codeDivWidth=350&cumulative=true&curInstr=0&origin=composingprograms.js&py=3&rawInputLstJSON=%5B%5D">
+                        </iframe>
+                    </div>
+                </div>
+            </section>
+
+            <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #1C8497)"
+                class="reg-cus">
+                <h4 class="text-start">Mutation - Problem Solving Strategies</h4>
+                <hr>
+                <div style="font-size: 28px; line-height: 1.2;">
+                    <ul class="spaced">
+                        <li>All list mutation methods, except for <code
+                                class="hljs python t">pop()</code> , return <code class="hljs python">None</code>
+                            <ul class="spaced">
+                                <li>If you need to mutate a list and then return it, do the mutation before the return
+                                    statement (i.e., be careful not to accidentally return <code
+                                        class="hljs python t">None</code>!)</li>
+                            </ul>
+                        </li>
+                        <li>
+                            Do not mutate a list and iterate through it at the same time - this can lead to infinite
+                            loop!
+                            <ul class="spaced">
+                                <li>Instead, iterate through a copy of the list and operate on the original list</li>
+                                <li>Or iterate through the list using indices and modify the index when appropriate </li>
+                            </ul>
+                        </li>
+                        <li>Pay attention to whether the problem requires us to mutate the input list (in which case the
+                            return value is likely <code class="hljs python t">None</code>), or return a new list</li>
+                    </ul> 
+                </div>
+            </section>
+
+            <section data-auto-animate data-background-gradient="linear-gradient(to bottom, #0C5D87, #002C42)"
+                class="reg-cus">
+                <h1>Worksheet Q1, 2</h1>
+                <hr>
+            </section>
+
+            <section data-auto-animate data-background-gradient="linear-gradient(to bottom, #0C5D87, #002C42)"
+                class="reg-cus">
                 <h2 class="text-start">Attendance! 🤠</h2>
                 <hr>
                 <a href="https://go.cs61a.org/mingxiao-att" style="font-size: 40px">go.cs61a.org/mingxiao-att</a>
                 <div class="text-start" style="font-size: 36px; line-height: 1.2;">
                     <br>
-                    <ul>
+                    <ul class="spaced">
                         <li>The attendance form and slides are both linked on our <a
                                 href="https://go.cs61a.org/mingxiao-index">section website</a>!</li>
-                        <li class="shade">Once again, please do remember to fill out the form by midnight today!!</li>
+                        <li>Please leave any anonymous feedback here <a
+                                href="https://go.cs61a.org/mingxiao-anon">go.cs61a.org/mingxiao-anon</a></li>
+                        <li class="shade">Please do remember to fill out the form by midnight today!!</li>
                     </ul>
                 </div>
             </section>
