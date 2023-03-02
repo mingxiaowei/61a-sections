@@ -262,29 +262,29 @@
                 <hr>
                 <div class="text-start mb-1" style="font-size: 27px; line-height: 1.2;">
                     <ul class="spaced">
-                        <li>Situations where an iterator gets "used up" implicitly:
-                            <ul>
-                                <li>Using a for loop / list comprehension to iterate through the iterator</li>
-                                <li>Calling the list constructor <code class="hljs python">list()</code> on an iterator
+                        <li class="fragment">Situations where an iterator gets "used up" implicitly:
+                            <ul class="spaced">
+                                <li class="fragment">Using a for loop / list comprehension on an iterator</li>
+                                <li class="fragment">Calling the list constructor <code class="hljs python">list()</code> on an iterator
                                 </li>
                             </ul>
                         </li>
-                        <li>Difference between calling <code class="hljs python">iter()</code> on an iterable vs. an
+                        <li class="fragment">Difference between calling <code class="hljs python">iter()</code> on an iterable vs. an
                             iterator *:
-                            <ul>
-                                <li>on an iterable - returns a new iterator that starts from the beginning</li>
-                                <li>on an iterator - returns the iterator itself, without resetting its position</li>
+                            <ul class="spaced">
+                                <li class="fragment">iterable - returns a new iterator that starts from the beginning</li>
+                                <li class="fragment">iterator - returns the iterator itself, without resetting its position</li>
                             </ul>
                         </li>
-                        <li>Try to avoid calling <code class="hljs python">next()</code> on an iterator more than once
+                        <li class="fragment">Try to avoid calling <code class="hljs python">next()</code> on an iterator more than once
                             in a for/while loop - if you need to reuse the element, store it in some variables and use
                             that variable instead! </li>
-                        <li>Pay attention to how you should iterate through the iterators (how many times you should
+                        <li class="fragment">Pay attention to how you should iterate through the iterators (how many times you should
                             call <code class="hljs python t">next()</code> on it) as indicated by the problem statement
                         </li>
 
                     </ul>
-                    <p class="mt-1" style="line-height: 1.15; font-size: 26px;">
+                    <p class="mt-1 fragment" style="line-height: 1.15; font-size: 26px;">
                         * Though technically iterators are iterables as well, here, by "iterables", we refer to the set
                         of objects that are only iterables, but not iterators
                     </p>
@@ -399,6 +399,7 @@
                         </li>
                         <li class="fragment">With <code class="hljs python">yield from</code>, we can only yield the exact elements from
                             the iterable, without modifying them</li>
+                        <li><a href="https://code.cs61a.org/AcheTrembleBubble">Recursive generators</a></li>
                     </ul>
                 </div>
             </section>
