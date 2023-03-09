@@ -40,7 +40,7 @@
                 <div class="my-auto mx-auto">
                     <h1>Discussion 07</h1>
                     <hr class="hr-1">
-                    <p>OOP, String Representation</p>
+                    <p>Object-Oriented Programming</p>
                 </div>
                 <br>
                 <br>
@@ -51,28 +51,20 @@
                     <p><a href="mailto:mingxiaowei@berkeley.edu" class="email"
                             style="color:#8BC24A; text-decoration: underline;">
                             mingxiaowei@berkeley.edu</a>
-                        <span class="text-end">Oct 14, 2022</span>
+                        <span class="text-end">Mar 9, 2023</span>
                     </p>
 
                 </footer>
                 <canvas class="background"></canvas>
             </section>
 
-            <!-- <section data-auto-animate data-background-gradient="linear-gradient(to bottom, #0C5D87, #002C42)"
-				class="customizable">
-				<h2 class="text-start">About Me 👾</h2>
-				<hr>
-				<ul style="font-size: 30px; line-height: 1.5;">
-                    <li>I'll be covering for Rachel today! Nice to see y'all :D</li>
-                    <li>Mingxiao (pronounced "ming hsiao")</li>
-					<li>Junior</li>
-					<li>From Guangdong, China (I speak Cantonese as well!)</li>
-					<li>Majors: Computer Science, Molecular & Cell Biology (neurobiology track)</li>
-					<li>4th semester on staff!</li>
-					<li>Fun fact: I never thought about majoring in CS until I took 61A (initially for cognitive
-						science)</li>
-				</ul>
-			</section> -->
+            <section data-auto-animate data-background-gradient="linear-gradient(to top, #0C5D87, #002C42)"
+                class="reg-cus">
+                <h4 class="text-start">From last time... 👀</h4>
+                <hr>
+                <p style="font-size: 26px; line-height: 1" class="text-start mb-0">If you could un-invent one thing, what would it be?</p>
+                <img data-src="media\sp23-dis07-att.png" style="height: 520px; width:auto">
+            </section>
 
             <section data-auto-animate data-background-gradient="linear-gradient(to top, #0C5D87, #002C42)"
                 class="reg-cus">
@@ -80,21 +72,19 @@
                 <hr>
                 <div class="text-start">
                     <ul class="spaced text-start" style="font-size: 28px; line-height: 1.2;">
-                        <li>ANTS is released!
-                            <img class="mp0" data-src="media\ant_fire.gif" style="height: 50px; width:auto;">
-                            <img class="mp0" data-src="media\bee.gif" style="height: 50px; width:auto;">
+                        <li>Homework 05 due today 03/09</li>
+                        <li>The ANTS project is coming...
+                            <!-- <img class="mp0" data-src="media\ant_fire.gif" style="height: 50px; width:auto;">
+                            <img class="mp0" data-src="media\bee.gif" style="height: 50px; width:auto;"> -->
                             <ul class="spaced">
-                                <li>Checkpoint 1 due tomorrow 10/14</li>
-                                <li>Checkpoint 2 due next Tue 10/18</li>
-                                <li>The whole project due next Fri 10/21</li>
-                                <li>Submit by next Thu 10/20 for one extra point!</li>
-                                <li>There's one extra credit question, worth 2 pts - if you want the extra credit from
-                                    early submission
-                                    AND this question, make sure to finish this question by next Thursday as well!</li>
+                                <li>If you want to stick with your original project partner / find a new partner, 
+                                    now it's a good time to reach out!</li>
                             </ul>
                         </li>
-                        <li>Reminder - Homework 04 recovery (Ed post <a
-                                href="https://edstem.org/us/courses/25379/discussion/1928394">#1757</a>)</li>
+                        <li>Reminder - Homework 04 recovery (Ed <a
+                                href="https://edstem.org/us/courses/34756/discussion/2735810">#1632</a>)</li>
+                        <li>Exam solution videos by our fav profs 🤩 (Ed 
+                            <a href="https://edstem.org/us/courses/34756/discussion/2738519">#1638</a>)</li>
                     </ul>
                 </div>
             </section>
@@ -140,19 +130,18 @@
                     <p>OOP - a programming paradigm that allows us to treat code as objects, extending the idea of data
                         abstraction. </p>
                     <ul class="spaced">
-                        <li><span class="shade">class</span> - a template for objects
+                        <li class="fragment"><span class="shade">class</span> - a template for objects
                         </li>
-                        <li><span class="shade">instance</span> - a single object created from a class
+                        <li class="fragment"><span class="shade">instance</span> - a single object created from a class
                         </li>
-                        <li><span class="shade">attributes</span>
+                        <li class="fragment"><span class="shade">attributes</span>
                             <ul class="spaced">
-                                <li><span class="shade">instance variable</span> - a data attribute of an object,
-                                    specific to an instance</li>
-                                <li><span class="shade">class variable</span> - a data attribute of an object, shared by
+                                <li class="fragment"><span class="shade">instance variable</span> - an attribute specific to an instance</li>
+                                <li class="fragment"><span class="shade">class variable</span> - an attribute of an object, shared by
                                     all instances of a class</li>
-                                <li><span class="shade">method</span> - a bound function that may be called on all
+                                <li class="fragment"><span class="shade">method</span> - a bound function that may be called on all
                                     instances of a class</li>
-                                <li>Use <span class="bu">dot notation</span> to access attributes - <code class="hljs python">Class.attribute</code> or 
+                                <li class="fragment">Use <span class="bu">dot notation</span> to access attributes - <code class="hljs python">Class.attribute</code> or 
                                     <code class="hljs python">instance.attribute</code></li>
                             </ul>
                         </li>
@@ -162,44 +151,226 @@
 
             <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #1C8497)"
                 class="reg-cus">
-                <h4 class="text-start">Class/Instance Attributes VS. other variables</h4>
+                <h4 class="text-start">Object-Oriented Programming</h4>
+                <hr>
+                <div class="text-start" style="font-size: 30px; line-height: 1.2;">
+                    <pre class="my-0" style="height: 540px;"><code class="hljs python py-3" data-trim>
+                        class Car:
+                            num_wheels = 4 # class variable, shared by all instances
+
+                            def __init__(self, color): # constructor
+                                self.wheels = Car.num_wheels
+                                self.color = color
+
+                            def drive(self): # method
+                                if self.wheels <= Car.num_wheels:
+                                    return self.color + ' car cannot drive!'
+                                return self.color + ' car goes vroom!'
+
+                            def pop_tire(self): # method
+                                if self.wheels > 0:
+                                    self.wheels -= 1
+                    </code></pre>
+                </div>
+            </section>
+
+            <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #1C8497)"
+                class="reg-cus">
+                <h4 class="text-start">Terminology</h4>
+                <hr>
+                <div class="text-start my-0 py-0" style="font-size: 26px; line-height: 1.1;">
+                    <ul class="spaced mt-0">
+                        <li class="fragment"><span class="shade">Attributes</span> = class/instance variables + methods
+                            <ul class="spaced">
+                                <li class="fragment">Variables = values (numbers, strings, lists, etc.)</li>
+                                <li class="fragment">Methods = functions defined within a class</li>
+                            </ul>
+                        </li>
+                        
+                    </ul>
+                    <table class="table table-bordered mt-1 fragment" style="color: white">
+                        <thead>
+                            <tr>
+                                <th scope="col"></th>
+                                <th scope="col" width="58%"><span class="shade">class variable</span></th>
+                                <th scope="col" width="42%"><span class="shade">instance variable</span></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">Accessing</th>
+                                <td><code class="hljs python">Class.var</code> or
+                                    <code class="hljs python">instance.var</code> *</td>
+                                <td><code class="hljs python">instance.var</code></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Defining</th>
+                                <td>Within the class, <code class="hljs python">var = ...</code></td>
+                                <td><code class="hljs python">instance.var = ...</code>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Meaning</th>
+                                <td>Shared by all instances of the class</td>
+                                <td>Specific to an instance
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <pre class="mt-2 mb-0 fragment"><code class="hljs python-repl py-2" data-trim data-noescape>
+                        &gt;&gt;&gt; my_car = Car('red') # an instance of the class 
+                        &gt;&gt;&gt; my_car.color # instance variable
+                        <span class="fragment">'red'</span>
+                        &gt;&gt;&gt; Car.num_wheels, my_car.num_wheels  # both are class variable 
+                        <span class="fragment">4, 4</span>
+                        &gt;&gt;&gt; my_car.wheels # instance variable
+                        <span class="fragment">4</span>
+                    </code></pre>
+                    <p class="fragment my-1" style="font-size: 24px;">* only works if the instance does not have a instance variable of the same name</p>
+                </div>
+            </section>
+
+            <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #1C8497)"
+                class="reg-cus">
+                <h4 class="text-start">More Terminologies</h4>
+                <hr>
+                <div class="text-start" style="font-size: 27px; line-height: 1.12;">
+                    <ul class="spaced">
+                        <li class="fragment"><span class="shade">Constructors</span>
+                            <ul class="spaced">
+                                <li class="fragment">builds an instance of the class</li>
+                                <li class="fragment">define a constructor: <code class="hljs python">def __init__(self, args):</code></li>
+                                <li class="fragment">call a constructor: <code class="hljs python">ClassName(args)</code></li>
+                                <li class="fragment">always returns an <i>instance</i> of the class without an explicit return</li>
+                            </ul>
+                        </li>
+                        <pre class="my-0 fragment"><code class="hljs python py-2" data-trim data-noescape>
+                            class Car : 
+                                def __init__(self, color):
+                                    self.wheels = Car.num_wheels
+                                    self.color = color
+                            my_car = Car('red') # create an instance of the Car class
+                        </code></pre>
+                        <li class="fragment"><code class="hljs python">self.var = ...</code>
+                            <ul class="spaced">
+                                <li class="fragment">Initialize an <span class="bu">instance</span> variable <code class="hljs python t">var</code> for 
+                                    <code class="hljs python t">self</code> if it doesn't have an instance variable named 
+                                    <code class="hljs python t">var</code> yet
+                                </li>
+                                <li class="fragment">Otherwise update the instance variable <code class="hljs python t">var</code> for 
+                                    <code class="hljs python t">self</code> (objects are mutable!)
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+            
+            <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #1C8497)"
+                class="reg-cus">
+                <h4 class="text-start">More Terminologies</h4>
                 <hr>
                 <div class="text-start" style="font-size: 28px; line-height: 1.2;">
                     <ul class="spaced">
-                        <li>Attributes = class/instance variables + methods</li>
-                        <li>Class variables - use <code class="hljs python">ClassName.variable</code> or
-                            <code class="hljs python">InstanceName.variable</code> to
-                            access
-                            <ul>
-                                <li>The latter only works if the instance does not have an instance variable of the
-                                    same name as the class variable</li>
+                        <li class="fragment"><span class="shade">Methods</span>
+                            <ul class="spaced"> 
+                                <li class="fragment">Functions defined within a class and bound to an instance</li>
+                                <li class="fragment">Think of them as the "verb" of a class
+                                    <ul>
+                                        <li>a car can <i>drive</i> and <i>pop their tires</i></li>
+                                    </ul>
+                                    </li>
                             </ul>
                         </li>
-                        <li>Instance variables - use <code class="hljs python">InstanceName.variable</code> to access
-                        </li>
-                        <li>Other variables - arguments to a method, or otherwise initiated elsewhere, but are not
-                            class/instance variables</li>
+                        <pre class="my-0 fragment"><code class="hljs python-repl py-2" data-trim data-noescape>
+                            &gt;&gt;&gt; my_car = Car('red') 
+                            &gt;&gt;&gt; my_car.drive()
+                            <span class="fragment">'red car goes vroom!'</span>
+                            &gt;&gt;&gt; my_car.wheels
+                            <span class="fragment">4</span>
+                            &gt;&gt;&gt; my_car.pop_tire()
+                            &gt;&gt;&gt; my_car.wheels
+                            <span class="fragment">3</span>
+                        </code></pre>
                     </ul>
-                    <pre class="my-2"><code class="hljs python py-2" data-trim>
-                        class Car :
-                            num_wheels = 4
-                            gas_level = 30
+                </div>
+            </section>
 
-                            def __init__(self, model):
-                                self.model = model 
-                                self.num_wheels = Car.num_wheels
-                                self.gas = Car.gas_level
+            <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #1C8497)"
+                class="reg-cus">
+                <h4 class="text-start">More Terminologies</h4>
+                <hr>
+                <div class="text-start" style="font-size: 28px; line-height: 1.2;">
+                    <ul class="spaced">
+                        <li class="fragment"><span class="shade">self</span>
+                            <ul class="spaced">
+                                <li class="fragment">The first parameter for <i>nearly</i> all methods</li>
+                                <li class="fragment">When a method is called, e.g., <code class="hljs python">instance.method(arg)</code>, 
+                                    <code class="hljs python t">instance</code> is <i>implicitly</i> bound to <code class="hljs python t">self</code>, 
+                                    and <code class="hljs python t">arg</code> corresponds to the rest of the parameters 
+                                </li>
+                            </ul>
+                        </li>
+                        <pre class="my-1 fragment"><code class="hljs python py-2" data-trim data-noescape>
+                            def drive(self):
+                                if self.wheels <= Car.num_wheels:
+                                    return self.color + ' car cannot drive!'
+                                return self.color + ' car goes vroom!'
+                        </code></pre>
+                        <pre class="my-0 fragment"><code class="hljs python-repl py-2" data-trim data-noescape>
+                            >>> my_car = Car('red')
+                            >>> my_car.drive()
+                            'red car goes vroom!'
+                        </code></pre>
+                        <p class="fragment" style="line-height: 1.1;">Though the <code class="hljs python t">drive</code> takes in one argument 
+                            <code class="hljs python t">self</code>, we don't have to pass it in because the dot notation 
+                            implicitly passes in <code class="hljs python t">my_car</code> as 
+                            <code class="hljs python t">self</code> for us</p>
+                    </ul> 
+                </div>
+            </section>
+
+            <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #1C8497)"
+                class="reg-cus">
+                <h4 class="text-start">Calling a method</h4>
+                <hr>
+                <div class="text-start" style="font-size: 28px; line-height: 1.2;">
+                    <p>Two equivalent ways of calling a method on an instance:</p>
+                    <ul class="spaced">
+                        <li class="fragment"><code class="hljs python">instance.method(...)</code>
+                            <ul>
+                                <li>
+                                    <code class="hljs python t">instance</code> is <i>implicitly</i> passed in as the first argument 
+                                        and bound to <code class="hljs python t">self</code>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="fragment"><code class="hljs python">Class.method(instance, ...)</code>
+                            <ul>
+                                <li>
+                                    Need to <i>explicitly</i> pass in <code class="hljs python t">instance</code>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <pre class="my-0 fragment"><code class="hljs python-repl py-2" data-trim data-noescape>
+                        &gt;&gt;&gt; my_car = Car('red') 
+                        &gt;&gt;&gt; my_car.drive()
+                        'red car goes vroom!'
+                        &gt;&gt;&gt; Car.drive(my_car)
+                        'red car goes vroom!'
                     </code></pre>
+                    <p class="fragment">Either way, a method must be called with dot notation, not on its own!</p>
                 </div>
             </section>
 
             <section data-auto-animate data-background-gradient="linear-gradient(to bottom, #0C5D87, #002C42)"
                 class="reg-cus">
-                <h1>Worksheet Q1, 2</h1>
+                <h1>Worksheet Q1-4</h1>
                 <hr>
             </section>
 
-            <section data-auto-animate data-background-gradient="linear-gradient(to bottom, #0C5D87, #002C42)"
+            <!-- <section data-auto-animate data-background-gradient="linear-gradient(to bottom, #0C5D87, #002C42)"
                 class="reg-cus">
                 <h1>Inheritance 👩‍👧‍👦</h1>
                 <hr>
@@ -299,7 +470,7 @@
                 class="reg-cus">
                 <h1>Worksheet Q3, 4</h1>
                 <hr>
-            </section>
+            </section> -->
 
             <section data-auto-animate data-background-gradient="linear-gradient(to bottom, #0C5D87, #002C42)"
                 class="reg-cus">
@@ -313,7 +484,7 @@
                 <hr>
                 <div class="text-start" style="font-size: 30px; line-height: 1.2;">
                     <ul class="spaced">
-                        <li>A decorator is a function that takes in a function and returns another function
+                        <li>decorator - a function that takes in a function and returns another function (HOF!!)
                         </li>
                         <li>The <code class="hljs python">@decorator</code> syntax is a syntax sugar</li>
                     </ul>
@@ -335,21 +506,46 @@
                 <h4 class="text-start">Class Methods</h4>
                 <hr>
                 <div class="text-start" style="font-size: 28px; line-height: 1.15;">
+                    <pre><code class="hljs python py-2" data-trim>
+                        @classmethod
+                        def method (cls, args):
+                            ...
+                    </code></pre>
                     <ul class="spaced">
-                        <li>Instead of receiving the instance as the first argument (<code
-                                class="hljs python t">self</code>), the method will receive the class itself (<code
-                                class="hljs python t">cls</code>)</li>
-                        <li>Commonly used to create "factory methods": methods that <span class="shade">construct and
-                                return a
-                                new instance of the class.</span>
-                        </li>
-                        <li>Use the <code class="hljs python">@classmethod</code> decorator to turn a method into a
+                        <li>The <code class="hljs python">@classmethod</code> decorator turns a method into a
                             class method</li>
+                        <li>Receive <code class="hljs python">cls</code> (the class itself) as the first argument, instead of <code
+                            class="hljs python">self</code></li>
+                        <li>To call a class method, use <code class="hljs python">Class.method(args)</code>
+                            <ul class="spaced">
+                                <li>Use dot notation with the class name</li>
+                                <li>No need to specify <code class="hljs python t">cls</code></li>
+                            </ul>
+                        </li>
+
+                        <li>Commonly used to create "factory methods": methods that <span class="shade">construct and
+                            return a
+                            new instance of the class.</span>
+                    </li>
                     </ul>
+                    
+                </div>
+            </section>
+
+            <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #1C8497)"
+                class="reg-cus">
+                <h4 class="text-start">Class Methods</h4>
+                <hr>
+                <div class="text-start" style="font-size: 28px; line-height: 1.15;">
+                    
                     <pre class="my-2"><code class="hljs python py-2" data-trim>
-                        class Dog (Pet) :
-                            # With the previously defined methods not written out
-                                 @classmethod
+                        class Dog :
+
+                            def __init__(self, name, owner):
+                            self.name = name
+                            self.owner = owner
+
+                            @classmethod
                             def robo_factory (cls, owner):
                                 return cls("RoboDog", owner)
                     </code></pre>
@@ -368,7 +564,7 @@
                 <hr>
             </section>
 
-            <section data-auto-animate data-background-gradient="linear-gradient(to bottom, #0C5D87, #002C42)"
+            <!-- <section data-auto-animate data-background-gradient="linear-gradient(to bottom, #0C5D87, #002C42)"
                 class="reg-cus">
                 <h1>Representation 🎭</h1>
                 <hr>
@@ -445,20 +641,21 @@
                 class="reg-cus">
                 <h1>Worksheet Q6</h1>
                 <hr>
-            </section>
+            </section> -->
 
             <section data-auto-animate data-background-gradient="linear-gradient(to bottom, #0C5D87, #002C42)"
                 class="reg-cus">
                 <h2 class="text-start">Attendance! 🤠</h2>
                 <hr>
-                <a href="https://go.cs61a.org/mingxiao-att" style="font-size: 50px">go.cs61a.org/mingxiao-att</a>
-                <!-- <img class="mp0" data-src="media\dis07-att.png" style="height: 300px; width:auto;"> -->
-                <div class="text-start" style="font-size: 32px; line-height: 1.2;">
+                <a href="https://go.cs61a.org/mingxiao-att" style="font-size: 40px">go.cs61a.org/mingxiao-att</a>
+                <div class="text-start" style="font-size: 36px; line-height: 1.2;">
                     <br>
-                    <ul>
+                    <ul class="spaced">
                         <li>The attendance form and slides are both linked on our <a
                                 href="https://go.cs61a.org/mingxiao-index">section website</a>!</li>
-                        <li class="shade">Once again, please do remember to fill out the form by midnight today!!</li>
+                        <li>Please leave any anonymous feedback here <a
+                                href="https://go.cs61a.org/mingxiao-anon">go.cs61a.org/mingxiao-anon</a></li>
+                        <li class="shade">Please do remember to fill out the form by midnight today!!</li>
                     </ul>
                 </div>
             </section>
