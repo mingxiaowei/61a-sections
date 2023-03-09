@@ -89,32 +89,26 @@
                 </div>
             </section>
 
-            <!-- <section data-auto-animate data-background-gradient="linear-gradient(to top, #0C5D87, #002C42)"
-                class="reg-cus">
-                <h4 class="text-start">From last time... 👀</h4>
-                <hr>
-                <p class="text-start" style="line-height: 1; font-size: 30px;">When you put one lasagna on top of
-                    another, how many lasagna do you end up with? </p>
-                <img class="mt-0" data-src="media\lab07-att-q.png" style="height: 500px; width:auto;">
-            </section>
-
             <section data-auto-animate data-background-gradient="linear-gradient(to top, #0C5D87, #002C42)"
                 class="reg-cus">
-                <h4 class="text-start">From last time... 👀</h4>
+                <h4 class="text-start">From your mid-semester feedback 🧸</h4>
                 <hr>
                 <div class="text-start" style="font-size: 30px; line-height: 1.2;">
-                    <p>Other feedback: </p>
                     <ul class="spaced">
-                        <li>Some of you liked the new lab format!
+                        <li>Mini-lecture can be more concise and more engaging
                         </li>
-                        <li>Some of you preferred the old style because there's more time to think independently
+                        <li>Go over more questions during lab/discussion 
                         </li>
-                        <li>If you have other feedback for our section/for me, please do leave them in the attendance
-                            form (or use this <a href="https://forms.gle/a2JLQ5TdioMCQcFE7">anonymous feedback form</a>
-                            if you wish!)</li>
+                        <li>More time to for you work on problems</li>
+                        <li>Explain a question using different approaches</li>
+                        <li>Explain how to apply concepts to problems</li>
+                        <li>Ends exactly at 11</li>
+                        <li>More visualization</li>
+                        <li>More group work</li>
                     </ul>
+                    <p>Thanks for all the feedback! I'll definitely try to improve accordingly :)</p>
                 </div>
-            </section> -->
+            </section>
 
             <section data-auto-animate data-background-gradient="linear-gradient(to bottom, #0C5D87, #002C42)"
                 class="reg-cus">
@@ -127,7 +121,7 @@
                 <h4 class="text-start">Object-Oriented Programming</h4>
                 <hr>
                 <div class="text-start" style="font-size: 30px; line-height: 1.2;">
-                    <p>OOP - a programming paradigm that allows us to treat code as objects, extending the idea of data
+                    <p>OOP - treat code as objects, extending the idea of data
                         abstraction. </p>
                     <ul class="spaced">
                         <li class="fragment"><span class="shade">class</span> - a template for objects
@@ -136,8 +130,8 @@
                         </li>
                         <li class="fragment"><span class="shade">attributes</span>
                             <ul class="spaced">
-                                <li class="fragment"><span class="shade">instance variable</span> - an attribute specific to an instance</li>
-                                <li class="fragment"><span class="shade">class variable</span> - an attribute of an object, shared by
+                                <li class="fragment"><span class="shade">instance variable</span> - specific to an instance</li>
+                                <li class="fragment"><span class="shade">class variable</span> - shared by
                                     all instances of a class</li>
                                 <li class="fragment"><span class="shade">method</span> - a bound function that may be called on all
                                     instances of a class</li>
@@ -322,10 +316,10 @@
                             >>> my_car.drive()
                             'red car goes vroom!'
                         </code></pre>
-                        <p class="fragment" style="line-height: 1.1;">Though the <code class="hljs python t">drive</code> takes in one argument 
+                        <!-- <p class="fragment" style="line-height: 1.1;">Though the <code class="hljs python t">drive</code> takes in one argument 
                             <code class="hljs python t">self</code>, we don't have to pass it in because the dot notation 
                             implicitly passes in <code class="hljs python t">my_car</code> as 
-                            <code class="hljs python t">self</code> for us</p>
+                            <code class="hljs python t">self</code> for us</p> -->
                     </ul> 
                 </div>
             </section>
@@ -363,6 +357,30 @@
                     <p class="fragment">Either way, a method must be called with dot notation, not on its own!</p>
                 </div>
             </section>
+
+            <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #1C8497)"
+                class="reg-cus">
+                <h4 class="text-start">Problem Solving Strategies</h4>
+                <hr>
+                <div class="text-start" style="font-size: 28px; line-height: 1.2;">
+                    <ul class="spaced">
+                        <li class="fragment">
+                            Read the doctests (!!) and the docstring thoroughly to 
+                            understand the expected behaviors of the class
+                        </li>
+                        <li class="fragment">
+                            Think about what variables are needed to store the information, and how should they be updated
+                        </li>
+                        <li class="fragment">
+                            Pay attention to the expected data type of the attributes (int, string, list, dictionary, another object, etc.)
+                        </li>
+                        <li class="fragment">
+                            Always remember to use dot notation!
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
 
             <section data-auto-animate data-background-gradient="linear-gradient(to bottom, #0C5D87, #002C42)"
                 class="reg-cus">
@@ -484,20 +502,21 @@
                 <hr>
                 <div class="text-start" style="font-size: 30px; line-height: 1.2;">
                     <ul class="spaced">
-                        <li>decorator - a function that takes in a function and returns another function (HOF!!)
+                        <li class="fragment">decorator - a function that takes in a function and returns another function (HOF!!)
                         </li>
-                        <li>The <code class="hljs python">@decorator</code> syntax is a syntax sugar</li>
+                        <pre class="fragment"><code class="hljs python" data-trim>
+                            def f (arg):
+                                ...
+                            f = decorator(f)
+                            # Above and below are equivalent ways of 
+                            # using the decorator
+                            @decorator
+                            def f (arg):
+                                ...
+                        </code></pre>
+                        <li class="fragment">The <code class="hljs python">@decorator</code> syntax is a syntax sugar</li>
                     </ul>
-                    <pre><code class="hljs python" data-trim>
-                        def f (arg):
-                            ...
-                        f = classmethod(f)
-                        # Above and below are equivalent ways of 
-                        # using the classmethod decorator
-                        @classmethod
-                        def f (arg):
-                            ...
-                    </code></pre>
+                    
                 </div>
             </section>
 
@@ -508,24 +527,23 @@
                 <div class="text-start" style="font-size: 28px; line-height: 1.15;">
                     <pre><code class="hljs python py-2" data-trim>
                         @classmethod
-                        def method (cls, args):
+                        def method (cls, args): # defined within a class
                             ...
                     </code></pre>
                     <ul class="spaced">
-                        <li>The <code class="hljs python">@classmethod</code> decorator turns a method into a
+                        <li class="fragment">The <code class="hljs python">@classmethod</code> decorator turns a method into a
                             class method</li>
-                        <li>Receive <code class="hljs python">cls</code> (the class itself) as the first argument, instead of <code
+                        <li class="fragment">Receive <code class="hljs python">cls</code> (the class itself) as the first argument, instead of <code
                             class="hljs python">self</code></li>
-                        <li>To call a class method, use <code class="hljs python">Class.method(args)</code>
+                        <li class="fragment">To call a class method, use <code class="hljs python">Class.method(args)</code>
                             <ul class="spaced">
                                 <li>Use dot notation with the class name</li>
                                 <li>No need to specify <code class="hljs python t">cls</code></li>
                             </ul>
                         </li>
 
-                        <li>Commonly used to create "factory methods": methods that <span class="shade">construct and
-                            return a
-                            new instance of the class.</span>
+                        <li class="fragment">"factory methods" - <span class="shade">construct and
+                            return instances of the class</span>
                     </li>
                     </ul>
                     
@@ -542,14 +560,14 @@
                         class Dog :
 
                             def __init__(self, name, owner):
-                            self.name = name
-                            self.owner = owner
+                                self.name = name
+                                self.owner = owner
 
                             @classmethod
                             def robo_factory (cls, owner):
                                 return cls("RoboDog", owner)
                     </code></pre>
-                    <p>With <code class="hljs python">Dog.robo_factory(owner_name)</code>, we can create a Dog instance
+                    <p class="fragment">With <code class="hljs python">Dog.robo_factory(owner_name)</code>, we can create a Dog instance
                         with the name <code class="hljs python t">"RoboDog"</code> whose owner has the name <code
                             class="hljs python t">owner_name</code>,
                         without having to call the Dog constructor with the dog name <code
