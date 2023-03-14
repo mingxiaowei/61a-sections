@@ -40,7 +40,7 @@
                 <div class="my-auto mx-auto">
                     <h1>Lab 08</h1>
                     <hr class="hr-1">
-                    <p>Linked Lists, Mutable Trees</p>
+                    <p>OOP, Inheritance</p>
                 </div>
                 <br>
                 <br>
@@ -51,7 +51,7 @@
                     <p><a href="mailto:mingxiaowei@berkeley.edu" class="email"
                             style="color:#8BC24A; text-decoration: underline;">
                             mingxiaowei@berkeley.edu</a>
-                        <span class="text-end">Oct 17, 2022</span>
+                        <span class="text-end">Mar 14, 2023</span>
                     </p>
 
                 </footer>
@@ -63,23 +63,26 @@
                 <h3 class="text-start">Logistics 🏡</h3>
                 <hr>
                 <ul class="spaced" style="font-size: 28px; line-height: 1.2;">
-                    <li>Lab 08 due this Wed 10/19</li>
-                    <li>Homework 06 due this Thu 10/20</li>
-                    <li>ANTS 
+                    <li class="fragment">Lab 08 due tomorrow 03/15
+                        <ul class="spaced">
+                            <li>PLEASE SUBMIT TWO FILES: <code class="hljs python t">lab08.py</code> and <code class="hljs python t">classes.py</code></li>
+                            <li><a href="https://edstem.org/us/courses/34756/discussion/2774820">More instructions here</a></li>
+                        </ul>
+                    </li>
+                    <li class="fragment">ANTS is released!
                         <img class="mp0" data-src="media\ant_fire.gif" style="height: 50px; width:auto;">
                         <img class="mp0" data-src="media\bee.gif" style="height: 50px; width:auto;">
                         <ul class="spaced">
-                            <li>Checkpoint 2 due tomorrow 10/18</li>
-                            <li>The whole project due this Fri 10/21</li>
-                            <li>Submit by next Thu 10/20 for one extra point!</li>
+                            <li>Checkpoint 1 due Fri 03/17</li>
+                            <li>Checkpoint 2 due next Tue 03/21</li>
+                            <li>The whole project due next Fri 03/24</li>
+                            <li>Submit by next Thu 03/23 for one extra point!</li>
                         </ul>
                     </li>
-                    <li>Time to get ready for the midterm! It's next Thu 10/27 😮😮</li>
-                    <li>Reminder - if you want more review on discussion worksheet/exam prep, sign up for tutoring
-                        sections!
-                        (Ed post <a href="https://edstem.org/us/courses/25379/discussion/1963990">#1991</a>)</li>
-                        <li>Reminder - More CSM section signups open!
-                            (Ed post <a href="https://edstem.org/us/courses/25379/discussion/1967795">#2014</a>)</li>
+                    <li class="fragment">Homework 06 due this Thu 03/16</li>
+                    <li class="fragment">All OH online today in anticipation of the rain ☔️
+                    </li>
+                    <li class="fragment">CLASS METHOD NO LONGER IN SCOPE ‼️</li>
                 </ul>
             </section>
 
@@ -87,46 +90,171 @@
                 class="reg-cus">
                 <h4 class="text-start">From last time... 👀</h4>
                 <hr>
-                <p class="text-start" style="line-height: 1; font-size: 30px;">Are chips a dessert?</p>
-                <img class="mt-0" data-src="media\dis07-att-q.png" style="height: 530px; width:auto;">
+                <!-- <p class="text-start" style="line-height: 1; font-size: 30px;">Are chips a dessert?</p> -->
+                <img class="mt-0" data-src="media\sp23-lab08-att.svg" style="height: 530px; width:auto;">
+                <p class="text-start mt-0" style="line-height: 0; font-size: 28px;">Such a symmetric distribution 😮</p>
             </section>
 
-            <section data-auto-animate data-background-gradient="linear-gradient(to top, #0C5D87, #002C42)"
+            <section data-auto-animate data-background-gradient="linear-gradient(to bottom, #0C5D87, #002C42)"
                 class="reg-cus">
-                <h4 class="text-start">From last time... 👀</h4>
+                <h1>Inheritance 👨‍👩‍👧‍👦</h1>
                 <hr>
-                <div class="text-start" style="font-size: 28px;">
-                    <ul class="spaced" style="font-size: 28px; line-height: 1.2;">
-                        <li>Question for me 
-                            <ul>
-                                <li>What time do I usually wake up?</li>
+            </section>
+
+            <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #1C8497)"
+                class="reg-cus">
+                <!-- <div class="text-start" style="font-size: 30px; line-height: 1.2;"> -->
+                    <pre class="py-0 my-0" style="height: 680px"><code class="hljs python py-2 my-2" data-trim>
+                        class Dog :
+                            def __init__(self, name, owner):
+                                self.is_alive = True
+                                self.name = name
+                                self.owner = owner
+                            def eat (self, thing):
+                                print(self.name + " ate a " + str(thing) + "!")
+                            def talk (self):
+                                print(self.name + " says woof!")
+                        class Cat :
+                            def __init__(self, name, owner, lives=9):
+                                self.is_alive = True
+                                self.name = name
+                                self.owner = owner
+                                self.lives = lives
+                            def eat (self, thing):
+                                print(self.name + " ate a " + str(thing) + "!")
+                            def talk (self):
+                                print(self.name + " says meow!")
+                    </code></pre>
+                <!-- </div> -->
+            </section>
+
+            <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #1C8497)"
+                class="reg-cus">
+                <h4 class="text-start">Inheritance</h4>
+                <hr>
+                <div class="text-start" style="font-size: 30px; line-height: 1.2;">
+                    <ul class="spaced">
+                        <li class="fragment"><code class="hljs python">Dog</code> and <code class="hljs python">Cat</code> have a lot in common - repeated code :(
+                        </li>
+                        <li class="fragment">Solution - a base class, <code class="hljs python">Pet</code>, from which both classes inherit
+                            <ul class="spaced">
+                                <li class="shade">DRY - Don't repeat yourself</li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <img class="my-0 py-0 fragment" data-src="media\sp23-lab08-p1.svg">
+                    <p class="fragment" style="font-size: 28px;">* super class and base class are used interchangeably</p>
+                </div>
+            </section>
+
+            <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #1C8497)"
+                class="reg-cus">
+                <h4 class="text-start">Inheritance</h4>
+                <hr>
+                <div class="text-start" style="font-size: 30px; line-height: 1.2;">
+                    <pre class="mp0"><code class="hljs python py-2" data-trim>
+                        class Pet : # base class
+                            def __init__(self, name, owner):
+                                self.is_alive = True    # It's alive!!!
+                                self.name = name
+                                self.owner = owner
+                            def eat (self, thing):
+                                print(self.name + " ate a " + str(thing) + "!")
+                            def talk (self):
+                                print(self.name)
+
+                    </code></pre>
+                    <pre class="mp0"><code class="hljs python py-2" data-trim>
+                        class Dog (Pet) : # A dog is a pet!
+                            def talk (self): # overridden bc it's different from the base class
+                                print(self.name + ' says woof!')
+                    </code></pre>
+                </div>
+            </section>
+
+            <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #1C8497)"
+                class="reg-cus">
+                <h4 class="text-start">Inheritance</h4>
+                <hr>
+                <div class="text-start" style="font-size: 28px; line-height: 1.2;">
+                    <ul class="spaced">
+                        <li class="fragment"><code class="hljs python">class SubClass(BaseClass):</code></li>
+                        <li class="fragment">"is-a" relationship - a subclass is a type of base class</li>
+                        <li class="fragment">By default, a subclass has the same behavior as its base class</li>
+                        <li class="fragment">To make a subclass different from its base class:
+                            <ul class="spaced">
+                                <li class="fragment">Add attributes
+                                    <ul class="spaced">
+                                        <li>declare additional methods/variables within the subclass</li>
+                                    </ul>
+                                </li>
+                                <li class="fragment">Override attributes
+                                    <ul class="spaced">
+                                        <li>Class variables - reassign</li>
+                                        <li>Methods - <span class="bu">redefine the method with the same function signature
+                                                (name and arguments)</span>. Use <code class="hljs python">super()</code> to call
+                                            the same method from the base class when necessary
+                                        </li>
+                                    </ul>
+                                </li>
                             </ul>
                         </li>
                     </ul>
                 </div>
             </section>
 
-            <section data-auto-animate data-background-gradient="linear-gradient(to top, #0C5D87, #002C42)"
+            <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #1C8497)"
                 class="reg-cus">
-                <p class="text-start" style="font-size: 56px; font-weight: 800;">Now let's welcome our AI Gabriella for a mini-lecture on Linked Lists, Mutable Trees 🥳</p>
+                <h4 class="text-start">Calling Methods from the Base class</h4>
                 <hr>
-                <a href="https://docs.google.com/presentation/d/18D05VUHd_t7W4NWAQCn6sQnHP9rY882AMQr8ry8egW4/edit?usp=sharing">Slides are here!</a>
+                <div class="text-start" style="font-size: 27px; line-height: 1.15;">
+                    <p>When defining a method, we may want to reuse the method from the base class first, then add more to it</p>
+                    <ul class="spaced">
+                        <li class="fragment"><code class="hljs python">super().method(args)</code>
+                            <ul class="spaced">
+                                <li>Can only be used inside of a class method</li>
+                                <li>no need to pass it in <code class="hljs python t">self</code></li>
+                            </ul>
+                        </li>
+                        <li class="fragment"><code class="hljs python">BaseClass.method(instance, args)</code>
+                            <ul class="spaced">
+                                <li>
+                                    Can be used anywhere
+                                </li>
+                                <li>Need to explicitly pass in the <code class="hljs python t">instance</code></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <pre class="my-0 py-0 fragment"><code class="hljs python py-3" data-trim>
+                        class Dog (Pet) :
+                            def __init__(self, name, owner, has_floppy_ears):
+                                super().__init__(name, owner)
+                                # alternatively, Pet.__init__(self, name, owner)
+                                self.has_floppy_ears = has_floppy_ears
+                    </code></pre>
+                </div>
             </section>
 
-            <section data-auto-animate data-background-gradient="linear-gradient(to bottom, #0C5D87, #002C42)"
+            <section data-auto-animate data-background-gradient="linear-gradient(to top, #0C5D87, #002C42)"
                 class="reg-cus">
-                <h2 class="text-start">Attendance! 🤠</h2>
+                <h2 class="text-start">Now it's Lab Time 🤠</h2>
                 <hr>
-                <a href="https://go.cs61a.org/mingxiao-att" style="font-size: 40px">go.cs61a.org/mingxiao-att</a>
-                <div class="text-start" style="font-size: 36px; line-height: 1.2;">
-                    <br>
-                    <ul>
-                        <li>The attendance form and slides are both linked on our <a
-                                href="https://go.cs61a.org/mingxiao-index">section website</a>!</li>
-                        <li>If you finish early, let me or any of the AI's know and we'll check you off</li>
-                        <li class="shade">Once again, please do remember to fill out the form by midnight today!!</li>
+                <div class="text-start" style="line-height: 1.15; font-size: 34px">
+                    <ul class="spaced">
+                        <li>Get started on the lab and raise your hand whenever you need help!</li>
+                        <li>Get to know your neighbors and collaborate if you'd like!</li>
+                        <li>Slides: <a href="https://go.cs61a.org/mingxiao-index">go.cs61a.org/mingxiao-index</a></li>
+                        <li>Leave any anonymous feedback here: <a href="https://go.cs61a.org/mingxiao-anon">go.cs61a.org/mingxiao-anon</a></li>
                     </ul>
                 </div>
+            </section>
+
+            <section data-auto-animate data-background-gradient="linear-gradient(to top, #0C5D87, #002C42)"
+                class="reg-cus">
+                <h2 class="text-start">And remember to get checked off! 👒</h2>
+                <hr>
+                    <a href="https://go.cs61a.org/mingxiao-att" style="font-size: 50px">go.cs61a.org/mingxiao-att</a>
+                    <p class="text-start">The secret phrase is ... <br> (NOT 3 dots! I'll announce it 🙉)</p>
             </section>
 
         </div>
