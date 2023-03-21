@@ -63,13 +63,18 @@
                 <h3 class="text-start">Logistics 🏡</h3>
                 <hr>
                 <div class="text-start">
-                    <ul class="spaced text-start" style="font-size: 28px; line-height: 1.2;">
-                        <li>No assignment due! Focus on the midterm :)</li>
-                        <li>Email confirmations for alteration requests will be sent out by Tue 10/25</li>
-                        <li>Seating assignments will be released via email by Wed 10/26</li>
-                        <li>Reminder - Homework 05 Recovery
-                            (Ed post <a href="https://edstem.org/us/courses/25379/discussion/1982400">#2128</a>) due
-                            today 10/24</li>
+                    <ul class="spaced text-start" style="font-size: 30px; line-height: 1.2;">
+                        <li>ANTS
+                            <img class="mp0" data-src="media\ant_fire.gif" style="height: 50px; width:auto;">
+                            <img class="mp0" data-src="media\bee.gif" style="height: 50px; width:auto;">
+                            <ul class="spaced">
+                                <li>Checkpoint 2 due today 03/21</li>
+                                <li>The whole project due Fri 03/24</li>
+                                <li>Submit by Thu 03/23 for one extra point!</li>
+                            </ul>
+                        </li>
+                        <li>Lab 09 due tomorrow 03/22</li>
+                        <li>Come to OH >:)</li>
                     </ul>
                 </div>
 
@@ -77,28 +82,37 @@
 
             <section data-auto-animate data-background-gradient="linear-gradient(to top, #0C5D87, #002C42)"
                 class="reg-cus">
-                <h3 class="text-start">About the midterm 😮</h3>
+                <h3 class="text-start">About the 2nd midterm 😮</h3>
                 <hr>
+                <p class="text-start" style="font-size: 26px; line-height: 0.8">The second... what? </p>
                 <ul class="spaced" style="font-size: 28px; line-height: 1.2;">
-                    <li>Logistics -
+                    <li class="fragment">Fri 4/7, 7-9 pm</li>
+                    <li class="fragment">Logistics -
                         Ed post <a href="https://edstem.org/us/courses/25379/discussion/1983557">#2141</a>
-                        <ul>
-                            <li>If you need alterations, you can still <a href="https://go.cs61a.org/exam-alts">fill out
-                                    this form</a>
-                                - approval is not guaranteed though since it's past the priority deadline
+                        <ul class="spaced">
+                            <li>If you need ANY alterations (left-handed desk, remote, other
+                                accommodations due to DSP or otherwise), 
+                                <a href="http://go.cs61a.org/exam-alts">fill out this form</a>
+                                by Mon 04/03!!
                             </li>
                         </ul>
-                    </li>
+                    <!-- </li>
                     <li>Familiarize yourself with the <a
                             href="https://cs61a.org/assets/pdfs/61a-mt2-study-guide.pdf">study guide</a> -
-                        this is a good starting point to go over the topics!</li>
-                    <li>Preparations
+                        this is a good starting point to go over the topics!
                         <ul class="spaced">
-                            <li>Familiarize yourself with the topics in scope</li>
-                            <li>Attend review session (or watch recordings/slides) for more topical review - see Ed for
+                            <li class="fragment">
+                                This is NOT the final version 🤫 The Ed post will be updated once we finalized it
+                            </li>
+                        </ul>
+                    </li> -->
+                    <li class="fragment">Preparations
+                        <ul class="spaced">
+                            <li class="fragment">Familiarize yourself with the topics in scope</li>
+                            <li class="fragment">Attend review session (or watch recordings/slides) for more topical review - see Ed for
                                 more info</li>
-                            <li>Do practice exams!
-                                <ul>
+                            <li class="fragment">Do practice exams!
+                                <ul class="spaced">
                                     <li>Quality > quantity</li>
                                     <li>Post on exam threads on Ed for help</li>
                                     <li>Walkthrough videos/guide are your friend!</li>
@@ -113,68 +127,142 @@
                 class="reg-cus">
                 <h4 class="text-start">From last time... 👀</h4>
                 <hr>
-                <p class="text-start" style="line-height: 1; font-size: 28px;">How are you feeling now?</p>
-                <img class="mt-0" data-src="media\lab09-att-q.png" style="height: 500px; width:auto;">
+                <!-- <p class="text-start" style="line-height: 1; font-size: 28px;">How are you feeling now?</p> -->
+                <img class="mt-0" data-src="media\sp23-lab09-att.svg" style="height: auto; width:900px;">
             </section>
 
             <section data-auto-animate data-background-gradient="linear-gradient(to bottom, #0C5D87, #002C42)"
                 class="reg-cus">
-                <h1>Trees 🌳</h1>
+                <h1>Mutable Trees 🌳</h1>
                 <hr>
             </section>
 
             <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #1C8497)"
                 class="reg-cus">
-                <h4 class="text-start">Trees</h4>
+                <h4 class="text-start">Why Mutable Trees?</h4>
                 <hr>
-                <div class="text-start" style="font-size: 30px; line-height: 1.2;">
+                <div class="text-start" style="font-size: 28px; line-height: 1.2;">
+                    <p>Recall from (functional) data abstraction...</p>
+                    <pre class="my-2"><code class="hljs python py-2" data-trim>
+                        def tree (label, branches=[]):
+                            return [label] + list(branches)
+                        def label (tree):
+                            return tree[0] 
+                        def branches (tree):
+                            return tree[1:] 
+                        def is_leaf (tree):
+                            return not branches(tree)
+                    </code></pre>
                     <ul class="spaced">
-                        <li>OOP trees - mutable, use <code class="hljs python t">Tree(...)</code> to construct</li>
-
+                        <li class="fragment">These trees are immutable
+                            <ul class="spaced">
+                                <li class="fragment">To modify, need to call constructor again with updated attributes - inefficient  😿</li>
+                                <li class="fragment">Solution - use OOP, since objects are mutable 😻</li>
+                            </ul>
+                        </li>
                     </ul>
-                    <pre class="mp0"><code class="hljs python pb-2 pt-0 mt-0" data-trim>
+                </div>
+            </section>
+
+            <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #1C8497)"
+                class="reg-cus">
+                <h4 class="text-start">Mutable Trees</h4>
+                <hr>
+                <div class="text-start" style="font-size: 28px; line-height: 1.2;">
+                    <pre class="my-2"><code class="hljs python py-2" style="overflow-x: hidden;" data-trim>
                         class Tree :
                             def __init__(self, label, branches=[]):
-                                for b in branches:
+                                for b in branches: # branches should be a list of trees
                                     assert isinstance(b, Tree)
                                 self.label = label
                                 self.branches = branches
-
                             def is_leaf (self):
                                 return not self.branches
+                    </code></pre>
+                    <pre class="my-2"><code class="hljs pytho-repl py-2" data-trim data-noescape>
+                        >>> t = Tree(3, [Tree(2, [Tree(5)]), Tree(4)])
+                        >>> t.label # label is now an instance attribute
+                        <span class="fragment">3</span>
+                        >>> t.branches[0].label # so is branches
+                        <span class="fragment">2</span>
+                        >>> t.branches[1].is_leaf() # is_leaf is a method
+                        <span class="fragment">True</span>
                     </code></pre>
                 </div>
             </section>
 
             <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #1C8497)"
                 class="reg-cus">
+                <h4 class="text-start">Functional Data Abstraction vs. OOP</h4>
+                <hr>
+                <table class="table table-bordered" style="font-size: 27px; line-height: 1.5; color: #ffffff">
+          
+                    <tbody><tr>
+                      <th width="18%"></th>
+                      <th width="40%">Functional Data Abstraction</th>
+                      <th width="42%">Tree class / OOP</th>
+                    </tr>
+                    <tr>
+                      <td>Constructor</td>
+                      <td class="fragment"><code class="hljs python">tree(label, branches)</code></td>
+                      <td class="fragment"><code class="hljs python">Tree(label, branches)</code> (which calls <code class="hljs python">Tree.__init__</code>)</td>
+                    </tr>
+                    <tr>
+                      <td>Label and branches</td>
+                      <td class="fragment"><code class="hljs python">label(t)</code> or <code class="hljs python">branches(t)</code></td>
+                      <td class="fragment"><code class="hljs python">t.label</code> or <code class="hljs python">t.branches</code></td>
+                    </tr>
+                    <tr>
+                      <td>Mutability</td>
+                      <td class="fragment">immutable - cannot assign values to call expressions</td>
+                      <td class="fragment">mutable - can reassign <code class="hljs python">label</code> and <code class="hljs python">branches</code></td>
+                    </tr>
+                    <tr>
+                      <td>Checking if a tree is a leaf</td>
+                      <td class="fragment">convenience function <code class="hljs python">is_leaf(t)</code></td>
+                      <td class="fragment">bound method <code class="hljs python">t.is_leaf()</code></td>
+                    </tr>
+                </tbody></table>
+                  
+            </section>
+
+            <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #1C8497)"
+                class="reg-cus">
                 <h4 class="text-start">Trees - Problem Solving Strategies</h4>
                 <hr>
-                <div class="text-start" style="font-size: 30px; line-height: 1.2;">
+                <div class="text-start" style="font-size: 28px; line-height: 1.2;">
                     <ul class="spaced">
-                        <li>Pay attention to whether it's <span class="bu">mutation</span> or <span
-                                class="bu">constructing a new linked trees</span>
+                        <li class="fragment">Pay attention to whether it's <span class="bu">mutation</span> or <span
+                                class="bu">constructing a new tree</span>
                         </li>
-                        <li>To mutate a tree object:
-                            <ul>
-                                <li>reassign its instance attributes (<code class="hljs python t">t.label = ...</code>
-                                    or <code class="hljs python t">t.label = ...</code>)</li>
-                                <li>use list mutation method on its branches - <code
+                        <li class="fragment">To mutate a tree object:
+                            <ul class="spaced">
+                                <li class="fragment">reassign its instance attributes (<code class="hljs python t">t.label = ...</code>
+                                    or <code class="hljs python t">t.branches = ...</code>)</li>
+                                <li class="fragment">use list mutation method (append/extend/pop/etc.) on its branches - <code
                                         class="hljs python t">t.branches</code> is a <span class="bu">list</span> of
                                     trees!</li>
                             </ul>
                         </li>
-                        <li>For mutation problems: 
+                        <li class="fragment">For mutation problems: 
                             <ul class="spaced">
-                                <li>
-                                    Think about which should be mutated first - the root node or its branches?
+                                <li class="fragment">
+                                    Which should be mutated first - the root node or its branches?
                                 </li>
-                                <li>The return value is often <code class="hljs python t">None</code></li>
-                                <li>Sometimes the case case is implicit - if we have for loop that iterates through all the branches, the body of the for loop will not be executed if <code class="hljs python t">t.branches</code> is an empty list (i.e., when <code class="hljs python t">t</code> is a leaf</li>
+                                <li class="fragment">The return value is often <code class="hljs python t">None</code></li>
+                                <li class="fragment">Sometimes the case case is implicit - if we have for loop that iterates through 
+                                    all the branches, the loop will not be executed if <code class="hljs python t">t.branches</code> 
+                                    is an empty list (i.e., when <code class="hljs python t">t</code> is a leaf)</li>
                             </ul>
                             </li>
                     </ul>
                 </div>
+            </section>
+
+            <section data-auto-animate data-background-gradient="linear-gradient(to bottom, #0C5D87, #002C42)"
+                class="reg-cus">
+                <h1>Lab Q1</h1>
+                <hr>
             </section>
 
             <section data-auto-animate data-background-gradient="linear-gradient(to bottom, #0C5D87, #002C42)"
@@ -187,24 +275,32 @@
                 class="reg-cus">
                 <h4 class="text-start">Order of Growth</h4>
                 <hr>
-                <div class="text-start" style="font-size: 30px; line-height: 1.2;">
+                <div class="text-start" style="font-size: 28px; line-height: 1.2;">
                     <ul class="spaced">
-                        <li>Order of growth (efficiency) - how the runtime of the function changes as the input size
-                            increases</li>
-                        <li><span class="shade">Input size</span> (not the definition, but as a rule of thumb)
+                        <li class="fragment">Order of growth (efficiency) - how the runtime changes as the input size
+                            increases
                             <ul class="spaced">
-                                <li>numeric input - magnitude of the number</li>
-                                <li>Python lists - length of the list</li>
-                                <li>linked list/trees/other recursive objects - number of nodes</li>
+                                <li>Think of runtime as a <span class="bu">function</span> of the input size</li>
                             </ul>
                         </li>
-                        <li><span class="shade">Runtime</span> (not the definition, but as a rule of thumb)
+                        <li class="fragment"><span class="shade">Input size</span> (not the exact definition, but as a rule of thumb)
                             <ul class="spaced">
-                                <li>often measured as the number of operations</li>
+                                <li class="fragment">numeric input - magnitude of the number</li>
+                                <li class="fragment">Python lists - length of the list</li>
+                                <li class="fragment">linked list/trees/other recursive objects - number of nodes</li>
                             </ul>
                         </li>
-                        <li>For 61A, we use the theta notation - for input of size $n$, the runtime of the function is
-                            denoted by $\Theta(f(n))$</li>
+                        <li class="fragment"><span class="shade">Runtime</span> (not the exact definition, but as a rule of thumb)
+                            <ul class="spaced">
+                                <li class="fragment">the number of operations</li>
+                            </ul>
+                        </li>
+                        <li class="fragment">Theta notation - for input of size $n$, the runtime is
+                            denoted by $\Theta(f(n))$
+                            <ul class="spaced">
+                                <li class="fragment">$\Theta(f(n))$ - approximately $f(n)$ by a constant factor</li>
+                            </ul>
+                        </li>
                     </ul>
                 </div>
             </section>
@@ -218,12 +314,12 @@
                         <li>constant &lt; logarithmic &lt; linear &lt; quadratic &lt; exponential</li>
                         <li>Constants are ignored
                             <ul>
-                                <li>For example, $\Theta(2n+3)$ is essentially $\Theta(n)$</li>
+                                <li>E.g., $\Theta(2n+3)$ is essentially $\Theta(n)$</li>
                             </ul>
                         </li>
-                        <li>We only consider the term that grows fastest
+                        <li>Only consider the term that grows fastest
                             <ul>
-                                <li>For example, $\Theta(n^2+2n+3)$ is essentially $\Theta(n^2)$</li>
+                                <li>E.g., $\Theta(n^2+2n+3)$ is essentially $\Theta(n^2)$</li>
                             </ul>
                         </li>
                     </ul>
@@ -237,7 +333,7 @@
                 <div class="text-start" style="font-size: 30px; line-height: 1.2;">
                     <ul class="spaced">
                         <li>Constant $\leftrightarrow \Theta(1)$</li>
-                        <li>The runtime of the function does not change as the input size changes</li>
+                        <li>Runtime does not change as the input size changes</li>
                         <li>For example:
                             <pre><code class="hljs python py-2" data-trim>
                                 def square (x):
@@ -253,23 +349,20 @@
                 class="reg-cus">
                 <h4 class="text-start">Order of Growth - Logarithmic</h4>
                 <hr>
-                <div class="text-start" style="font-size: 30px; line-height: 1.2;">
+                <div class="text-start" style="font-size: 28px; line-height: 1.2;">
                     <ul class="spaced">
                         <li>Logarithmic $\leftrightarrow \Theta(\log n)$</li>
                         <li>Often when we keep dividing the input by a constant</li>
-                        <li>For example:
-                            <pre class="my-2"><code class="hljs python py-2" data-trim>
-                                def foo (x):
-                                    while x > 0:
-                                        print('hey')
-                                        x //= 2
-                            </code></pre>
-                        </li>
-                        <li>Suppose the while loop runs $n$ times before $x$ reaches 0.</li>
-                        <li>Since we divide $x$ by 2 for $n$ times, $\frac{x}{2^n} = 1 \implies 2^n = x \implies n =
-                            \log_2 x$</li>
-                        <!-- <img class="mt-0" data-src="media\dis08-p2.png" > -->
                     </ul>
+                    <pre class="my-2"><code class="hljs python py-2" data-trim>
+                        def foo (x):
+                            while x > 0:
+                                print('hey')
+                                x //= 2
+                    </code></pre>
+                    <p style="font-size: 28px; line-height: 1;">Let's say the while loop runs $n$ times before $x$ reaches 0.</p>
+                    <p style="font-size: 28px; line-height: 1;">divide $x$ by 2 for $n$ times before it gets to 1 <br> $\implies \frac{x}{2^n} = 1 \implies 2^n = x \implies n =
+                            \log_2 x$</p>
                 </div>
             </section>
 
@@ -277,21 +370,19 @@
                 class="reg-cus">
                 <h4 class="text-start">Order of Growth - Linear</h4>
                 <hr>
-                <div class="text-start" style="font-size: 30px; line-height: 1.2;">
+                <div class="text-start" style="font-size: 27px; line-height: 1;">
                     <ul class="spaced">
                         <li>Linear $\leftrightarrow \Theta(n)$</li>
-                        <!-- <li>Often when we have a for/while loops that runs $n$ times, each time doing some work in constant time</li> -->
-                        <li>For example:
-                            <pre class="my-2"><code class="hljs python py-2" data-trim>
-                                def factorial (x):
-                                    prod = 1
-                                    for i in range(1, x + 1):
-                                        prod *= i 
-                                    return prod
-                            </code></pre>
-                        </li>
-                        <img class="mt-0" data-src="media\dis08-p2.png">
+                        <li>Often when a loop runs $n$ times, each time doing work in constant time</li>
                     </ul>
+                    <pre class="my-1 pt-0"><code class="hljs python py-2" data-trim>
+                        def factorial (x):
+                            prod = 1
+                            for i in range(1, x + 1):
+                                prod *= i # execute x times in total
+                            return prod
+                    </code></pre>
+                    <img class="mt-0" data-src="media\dis08-p2.png">
                 </div>
             </section>
 
@@ -299,17 +390,17 @@
                 class="reg-cus">
                 <h4 class="text-start">Order of Growth - Quadratic</h4>
                 <hr>
-                <div class="text-start" style="font-size: 30px; line-height: 1.2;">
+                <div class="text-start" style="font-size: 28px; line-height: 1;">
                     <ul class="spaced">
                         <li>Quadratic $\leftrightarrow \Theta(n^2)$</li>
-                        <li>For example:
-                            <pre class="my-2"><code class="hljs python py-2" data-trim>
-                                def bar (n):
-                                    for a in range(n):
-                                        for b in range(n):
-                                            print(a,b)
-                            </code></pre>
+                        <li>Often when a nested loop runs $n^2$ times, each time doing work in constant time
                         </li>
+                        <pre class="my-2"><code class="hljs python py-2" data-trim>
+                            def bar (n):
+                                for a in range(n):
+                                    for b in range(n):
+                                        print(a, b) # print n * n times in total
+                        </code></pre>
                         <img class="mt-0" data-src="media\dis08-p3.png">
                     </ul>
                 </div>
@@ -319,19 +410,51 @@
                 class="reg-cus">
                 <h4 class="text-start">Order of Growth - Exponential</h4>
                 <hr>
-                <div class="text-start" style="font-size: 30px; line-height: 1.2;">
+                <div class="text-start" style="font-size: 28px; line-height: 1;">
                     <ul class="spaced">
                         <li>Exponential $\leftrightarrow \Theta(c^n)$, where $c$ is a constant</li>
-                        <li>For example:
-                            <pre class="my-2"><code class="hljs python py-2" data-trim>
-                                def rec (n):
-                                    if n == 0:
-                                        return 1
-                                    else:
-                                        return rec(n - 1) + rec(n - 1)
-                            </code></pre>
+                        <li>Often in tree recursion
                         </li>
-                        <img class="mt-0" data-src="media\dis08-p4.png">
+                    </ul>
+                    <pre class="my-2"><code class="hljs python py-2" data-trim>
+                        def rec (n):
+                            if n == 0:
+                                return 1
+                            else:
+                                return rec(n - 1) + rec(n - 1)
+                    </code></pre>
+                    <img class="mt-0" data-src="media\dis08-p4.png">
+                </div>
+            </section>
+
+            <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #1C8497)"
+                class="reg-cus">
+                <h4 class="text-start">Order of Growth - Tree Recursion</h4>
+                <hr>
+                <div class="text-start" style="font-size: 30px; line-height: 1.2;">
+                    <pre class="my-2"><code class="hljs python py-2" data-trim>
+                        def rec (n):
+                            if n == 0:
+                                return 1
+                            else:
+                                return rec(n - 1) + rec(n - 1)
+                    </code></pre>
+                    <ul class="space">
+                        <li class="fragment">
+                            Try drawing out the recursion tree diagram
+                        </li>
+                        <li class="fragment">
+                            $n + 1$ levels
+                        </li>
+                        <li class="fragment">
+                            The $i^{th}$ level has $2^i$ nodes (root at level 0)
+                        </li>
+                        <li class="fragment">
+                            Each node does constant work (addition)
+                        </li>
+                        <li class="fragment">
+                            Total = $(1 + 2 + ... + 2^{n+1}) \cdot constant$ = $\Theta(2^n)$
+                        </li>
                     </ul>
                 </div>
             </section>
@@ -341,19 +464,29 @@
                 <h4 class="text-start">Order of Growth - Tree Recursion</h4>
                 <hr>
                 <div class="text-start" style="font-size: 30px; line-height: 1.2;">
-                    <p>Draw out the tree recursion diagram, and do either of the following: </p>
-                    <ul class="spaced">
-                        <li>Count by level
-                            <ul class="spaced">
-                                <li><span class="shade">(work per level) * (# of levels)</span></li>
-                                <li>useful when the work per level sums to the same number</li>
-                            </ul>
+                    <p>What about this? 🤔</p>
+                    <pre class="my-2"><code class="hljs python py-2" data-trim>
+                        def rec (n):
+                            if n == 0:
+                                return 1
+                            else:
+                                return rec(n // 2) + rec(n // 2)
+                    </code></pre>
+                    <ul class="space">
+                        <li class="fragment">
+                            Draw out the recursion tree diagram
                         </li>
-                        <li>Count by node
-                            <ul class="spaced">
-                                <li><span class="shade">(work per node) * (# of nodes)</span></li>
-                                <li>useful when the work per node is the same</li>
-                            </ul>
+                        <li class="fragment">
+                            $\log_2 n$ levels
+                        </li>
+                        <li class="fragment">
+                            The $i^{th}$ level has $2^i$ nodes (root at level 0)
+                        </li>
+                        <li class="fragment">
+                            Each node does constant work (addition)
+                        </li>
+                        <li class="fragment">
+                            Total = $(1 + 2 + ... + 2^{\log_2 n}) \cdot constant$ = $\Theta(n)$
                         </li>
                     </ul>
                 </div>
@@ -365,25 +498,26 @@
                 <hr>
                 <div class="text-start" style="font-size: 30px; line-height: 1.2;">
                     <ul class="spaced">
-                        <li>(outer loops) * (middle loops) * (inner loops) * (work done in the inner loop)</li>
-                        <li>More generally, (# times the loops run) * (work done each time)</li>
+                        <li>In general, (# times the loops run) * (work done each time)</li>
 
-                        <pre class="my-2"><code class="hljs python py-2" data-trim>
+                        <pre><code class="hljs python py-2" data-trim>
                         def factorial (n):
                             # returns n! in linear time 
                             ... 
                         
                         def foo (n):
+                            # nested loop runs n^2 times 
                             for i in range(n):
                                 for j in range(n):
-                                    print(factorial(n))
+                                    # each time this takes theta(n) time
+                                    print(factorial(n)) 
                     </code></pre>
-                        <li><code class="hljs python t">foo(n)</code> runs in $\Theta(n^3)$ time</li>
+                        <li class="fragment"><code class="hljs python">foo(n)</code> runs in $\Theta(n^3)$ time</li>
                     </ul>
                 </div>
             </section>
 
-            <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #1C8497)"
+            <!-- <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #1C8497)"
                 class="reg-cus">
                 <h4 class="text-start">Order of Growth - Nested Function Calls</h4>
                 <hr>
@@ -407,34 +541,34 @@
                         <li><code class="hljs python t">boo(square(n))</code>: $\Theta(1 + n^2) = \Theta(n^2)$</li>
                     </ul>
                 </div>
-            </section>
-
-            <!-- <section data-auto-animate data-background-gradient="linear-gradient(to bottom, #0C5D87, #002C42)"
-                class="reg-cus">
-                <h1>Recursion / Tree Recursion 🍭</h1>
-                <hr>
-            </section>
-
-            <section data-auto-animate data-background-gradient="linear-gradient(to bottom, #0C5D87, #002C42)"
-                class="reg-cus">
-                <h1>Iterators / Generators 🍶</h1>
-                <hr>
             </section> -->
 
             <section data-auto-animate data-background-gradient="linear-gradient(to bottom, #0C5D87, #002C42)"
                 class="reg-cus">
-                <h2 class="text-start">Attendance! 🤠</h2>
+                <h1>Lab Q5</h1>
                 <hr>
-                <a href="https://go.cs61a.org/mingxiao-att" style="font-size: 40px">go.cs61a.org/mingxiao-att</a>
-                <div class="text-start" style="font-size: 36px; line-height: 1.2;">
-                    <br>
-                    <ul>
-                        <li>The attendance form and slides are both linked on our <a
-                                href="https://go.cs61a.org/mingxiao-index">section website</a>!</li>
-                        <!-- <li>If you finish early, let me or any of the AI's know and we'll check you off</li> -->
-                        <li class="shade">Once again, please do remember to fill out the form by midnight today!!</li>
+            </section>
+
+            <section data-auto-animate data-background-gradient="linear-gradient(to top, #0C5D87, #002C42)"
+                class="reg-cus">
+                <h2 class="text-start">Now it's Your Time 🤠</h2>
+                <hr>
+                <div class="text-start" style="line-height: 1.15; font-size: 34px">
+                    <ul class="spaced">
+                        <li>Get started on the lab and raise your hand whenever you need help!</li>
+                        <li>Get to know your neighbors and collaborate if you'd like!</li>
+                        <li>Slides: <a href="https://go.cs61a.org/mingxiao-index">go.cs61a.org/mingxiao-index</a></li>
+                        <li>Leave any anonymous feedback here: <a href="https://go.cs61a.org/mingxiao-anon">go.cs61a.org/mingxiao-anon</a></li>
                     </ul>
                 </div>
+            </section>
+
+            <section data-auto-animate data-background-gradient="linear-gradient(to top, #0C5D87, #002C42)"
+                class="reg-cus">
+                <h2 class="text-start">And remember to get checked off! 👒</h2>
+                <hr>
+                    <a href="https://go.cs61a.org/mingxiao-att" style="font-size: 50px">go.cs61a.org/mingxiao-att</a>
+                    <p class="text-start">The secret phrase is ... <br> (NOT 3 dots! I'll announce it 🙉)</p>
             </section>
 
         </div>
