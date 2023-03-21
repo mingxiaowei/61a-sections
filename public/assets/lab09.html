@@ -40,7 +40,7 @@
                 <div class="my-auto mx-auto">
                     <h1>Lab 09</h1>
                     <hr class="hr-1">
-                    <p>Midterm Review</p>
+                    <p>Mutable Trees, Efficiency</p>
                 </div>
                 <br>
                 <br>
@@ -51,7 +51,7 @@
                     <p><a href="mailto:mingxiaowei@berkeley.edu" class="email"
                             style="color:#8BC24A; text-decoration: underline;">
                             mingxiaowei@berkeley.edu</a>
-                        <span class="text-end">Oct 24, 2022</span>
+                        <span class="text-end">Mar 21, 2023</span>
                     </p>
 
                 </footer>
@@ -115,6 +115,66 @@
                 <hr>
                 <p class="text-start" style="line-height: 1; font-size: 28px;">How are you feeling now?</p>
                 <img class="mt-0" data-src="media\lab09-att-q.png" style="height: 500px; width:auto;">
+            </section>
+
+            <section data-auto-animate data-background-gradient="linear-gradient(to bottom, #0C5D87, #002C42)"
+                class="reg-cus">
+                <h1>Trees 🌳</h1>
+                <hr>
+            </section>
+
+            <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #1C8497)"
+                class="reg-cus">
+                <h4 class="text-start">Trees</h4>
+                <hr>
+                <div class="text-start" style="font-size: 30px; line-height: 1.2;">
+                    <ul class="spaced">
+                        <li>OOP trees - mutable, use <code class="hljs python t">Tree(...)</code> to construct</li>
+
+                    </ul>
+                    <pre class="mp0"><code class="hljs python pb-2 pt-0 mt-0" data-trim>
+                        class Tree :
+                            def __init__(self, label, branches=[]):
+                                for b in branches:
+                                    assert isinstance(b, Tree)
+                                self.label = label
+                                self.branches = branches
+
+                            def is_leaf (self):
+                                return not self.branches
+                    </code></pre>
+                </div>
+            </section>
+
+            <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #1C8497)"
+                class="reg-cus">
+                <h4 class="text-start">Trees - Problem Solving Strategies</h4>
+                <hr>
+                <div class="text-start" style="font-size: 30px; line-height: 1.2;">
+                    <ul class="spaced">
+                        <li>Pay attention to whether it's <span class="bu">mutation</span> or <span
+                                class="bu">constructing a new linked trees</span>
+                        </li>
+                        <li>To mutate a tree object:
+                            <ul>
+                                <li>reassign its instance attributes (<code class="hljs python t">t.label = ...</code>
+                                    or <code class="hljs python t">t.label = ...</code>)</li>
+                                <li>use list mutation method on its branches - <code
+                                        class="hljs python t">t.branches</code> is a <span class="bu">list</span> of
+                                    trees!</li>
+                            </ul>
+                        </li>
+                        <li>For mutation problems: 
+                            <ul class="spaced">
+                                <li>
+                                    Think about which should be mutated first - the root node or its branches?
+                                </li>
+                                <li>The return value is often <code class="hljs python t">None</code></li>
+                                <li>Sometimes the case case is implicit - if we have for loop that iterates through all the branches, the body of the for loop will not be executed if <code class="hljs python t">t.branches</code> is an empty list (i.e., when <code class="hljs python t">t</code> is a leaf</li>
+                            </ul>
+                            </li>
+                    </ul>
+                </div>
             </section>
 
             <section data-auto-animate data-background-gradient="linear-gradient(to bottom, #0C5D87, #002C42)"
