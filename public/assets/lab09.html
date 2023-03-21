@@ -88,7 +88,7 @@
                 <ul class="spaced" style="font-size: 28px; line-height: 1.2;">
                     <li class="fragment">Fri 4/7, 7-9 pm</li>
                     <li class="fragment">Logistics -
-                        Ed post <a href="https://edstem.org/us/courses/25379/discussion/1983557">#2141</a>
+                        Ed post <a href="https://edstem.org/us/courses/34756/discussion/2813961">#2069</a>
                         <ul class="spaced">
                             <li>If you need ANY alterations (left-handed desk, remote, other
                                 accommodations due to DSP or otherwise), 
@@ -111,7 +111,7 @@
                             <li class="fragment">Familiarize yourself with the topics in scope</li>
                             <li class="fragment">Attend review session (or watch recordings/slides) for more topical review - see Ed for
                                 more info</li>
-                            <li class="fragment">Do practice exams!
+                            <li class="fragment">Do past exams!
                                 <ul class="spaced">
                                     <li>Quality > quantity</li>
                                     <li>Post on exam threads on Ed for help</li>
@@ -145,7 +145,7 @@
                     <p>Recall from (functional) data abstraction...</p>
                     <pre class="my-2"><code class="hljs python py-2" data-trim>
                         def tree (label, branches=[]):
-                            return [label] + list(branches)
+                            return [label] + branches
                         def label (tree):
                             return tree[0] 
                         def branches (tree):
@@ -179,7 +179,7 @@
                             def is_leaf (self):
                                 return not self.branches
                     </code></pre>
-                    <pre class="my-2"><code class="hljs pytho-repl py-2" data-trim data-noescape>
+                    <pre class="my-2 fragment"><code class="hljs pytho-repl py-2" data-trim data-noescape>
                         >>> t = Tree(3, [Tree(2, [Tree(5)]), Tree(4)])
                         >>> t.label # label is now an instance attribute
                         <span class="fragment">3</span>
