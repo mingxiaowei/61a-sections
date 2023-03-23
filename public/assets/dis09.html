@@ -77,7 +77,7 @@
                             <img class="mp0" data-src="media\bee.gif" style="height: 50px; width:auto;">
                             <ul class="spaced">
                                 <li>The whole project due tomorrow 03/24</li>
-                                <li>Submit by next today 03/23 for one extra point!</li>
+                                <li>Submit by today 03/23 for one extra point!</li>
                             </ul>
                         </li>
                         <li>Come to OH! (<a href="https://cs61a.org/office-hours/">schedule</a>)</li>
@@ -198,9 +198,29 @@
 
             <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #1C8497)"
                 class="reg-cus">
+                <h4 class="text-start">Constructing a Linked List</h4>
+                <hr>
+                <div class="text-start" style="font-size: 26px; line-height: 1;">
+                    <img data-src="media\sp23-dis09-p2.svg" style="height: auto; width:700px;">
+                    <pre class="my-0"><code class="hljs python-repl py-2" data-trim data-noescape>
+                        >>> lnk3 = Link('a')
+                        >>> lnk2 = Link(1, lnk3)
+                        >>> lnk1 = Link(6, lnk2)
+                        >>> lnk1
+                        <span class="fragment">Link(6, Link(1, Link('a')))</span> 
+                        >>> lnk1.rest 
+                        <span class="fragment">Link(1, Link('a'))</span> 
+                        >>> lnk1.rest is lnk2
+                        <span class="fragment">True</span> 
+                    </code></pre>
+                </div>
+            </section>
+
+            <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #1C8497)"
+                class="reg-cus">
                 <h4 class="text-start">Empty Linked List</h4>
                 <hr>
-                <div class="text-start" style="font-size: 30px; line-height: 1.2;">
+                <div class="text-start" style="font-size: 28px; line-height: 1.2;">
                     <pre class="my-2"><code class="hljs python px-2 py-2" data-trim>
                         class Link :
                             empty = ()
