@@ -1,0 +1,400 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>Discussion 09</title>
+
+    <link rel="stylesheet" href="dist/reset.css">
+    <link rel="stylesheet" href="dist/reveal.css">
+    <link rel="stylesheet" href="dist/theme/black.css">
+    <link rel="stylesheet" href="css/custom.css">
+
+    <!-- Theme used for syntax highlighted code -->
+    <link rel="stylesheet" href="plugin/highlight/night-owl.min.css">
+
+    <!-- fonts -->
+    <link href='https://fonts.googleapis.com/css?family=Open Sans' rel='stylesheet'>
+
+    <!-- icon -->
+    <link rel="icon" href="https://mingxiaowei.github.io/61a-sections/public/images/favicon.ico" sizes="32x32">
+
+    <!-- link to bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+
+    <!-- link to bootstrap icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
+
+    <script src="plugin/highlight/highlight.js"></script>
+
+</head>
+
+<body>
+    <div class="reveal">
+        <div class="slides">
+            <section data-auto-animate data-background-gradient="linear-gradient(to top, #0C5D87, #002C42)"
+                class="customizable">
+                <div class="my-auto mx-auto">
+                    <h1>Discussion 09</h1>
+                    <hr class="hr-1">
+                    <p>Linked Lists, Efficiency, Mutable Trees</p>
+                </div>
+                <br>
+                <br>
+
+                <footer class="bottom-left">
+                    <!-- <hr> -->
+                    <p>Mingxiao Wei</p>
+                    <p><a href="mailto:mingxiaowei@berkeley.edu" class="email"
+                            style="color:#8BC24A; text-decoration: underline;">
+                            mingxiaowei@berkeley.edu</a>
+                        <span class="text-end">Mar 23, 2023</span>
+                    </p>
+
+                </footer>
+                <canvas class="background"></canvas>
+            </section>
+
+            <section data-auto-animate data-background-gradient="linear-gradient(to top, #0C5D87, #002C42)"
+                class="reg-cus">
+                <h4 class="text-start">From last time... 👀</h4>
+                <hr>
+                <p class="text-start" style="line-height: 1; font-size: 30px;">How are you feeling now?</p>
+                <img class="mt-0" data-src="media\sp23-dis09-att.png" style="height: auto; width:900px;">
+            </section>
+
+            <section data-auto-animate data-background-gradient="linear-gradient(to top, #0C5D87, #002C42)"
+                class="reg-cus">
+                <h3 class="text-start">Logistics 🏡</h3>
+                <hr>
+                <div class="text-start">
+                    <ul class="spaced text-start" style="font-size: 28px; line-height: 1.2;">
+                        <li>ANTS
+                            <img class="mp0" data-src="media\ant_fire.gif" style="height: 50px; width:auto;">
+                            <img class="mp0" data-src="media\bee.gif" style="height: 50px; width:auto;">
+                            <ul class="spaced">
+                                <li>The whole project due tomorrow 03/24</li>
+                                <li>Submit by next today 03/23 for one extra point!</li>
+                            </ul>
+                        </li>
+                        <li>Come to OH! (<a href="https://cs61a.org/office-hours/">schedule</a>)</li>
+                        <li>Ask Us Anything lecture tomorrow - submit your questions to the professors <a href="https://edstem.org/us/courses/34756/discussion/2818255">here</a> 
+                            <ul class="spaced">
+                                <li>Not recorded, but will be livestreamed</li>
+                                <li>It'll be fun I promise</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+
+            </section>
+
+            <section data-auto-animate data-background-gradient="linear-gradient(to top, #0C5D87, #002C42)"
+                class="reg-cus">
+                <h3 class="text-start">About the 2nd midterm 😮</h3>
+                <hr>
+                <p class="text-start bu" style="font-size: 34px;">TL;DR: There's going to be another midterm. 
+                    <br>Don't be too surprised on Apr 7th :)</p>
+                <ul class="spaced" style="font-size: 28px; line-height: 1.2;">
+                    <li class="fragment">Fri 4/7, 7-9 pm</li>
+                    <li class="fragment">Logistics -
+                        Ed post <a href="https://edstem.org/us/courses/34756/discussion/2813961">#2069</a>
+                        <ul class="spaced">
+                            <li>If you need ANY alterations (left-handed desk, remote, other
+                                accommodations), 
+                                <a href="http://go.cs61a.org/exam-alts">fill out this form</a>
+                                by Mon 04/03!!
+                            </li>
+                        </ul>
+                    <!-- </li>
+                    <li>Familiarize yourself with the <a
+                            href="https://cs61a.org/assets/pdfs/61a-mt2-study-guide.pdf">study guide</a> -
+                        this is a good starting point to go over the topics!
+                        <ul class="spaced">
+                            <li class="fragment">
+                                This is NOT the final version 🤫 The Ed post will be updated once we finalized it
+                            </li>
+                        </ul>
+                    </li> -->
+                    <li class="fragment">Preparations
+                        <ul class="spaced">
+                            <li class="fragment">Familiarize yourself with the topics in scope</li>
+                            <li class="fragment">Review sessions - see Ed for more info</li>
+                            <li class="fragment">Do past exams!
+                                <ul class="spaced">
+                                    <li>Quality > quantity</li>
+                                    <li>Post on exam threads on Ed for help</li>
+                                    <li>Walkthrough videos/guide are your friend!</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </section>
+
+            <section data-auto-animate data-background-gradient="linear-gradient(to bottom, #0C5D87, #002C42)"
+                class="reg-cus">
+                <h1>Linked List 🍻</h1>
+                <hr>
+            </section>
+
+            <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #1C8497)"
+                class="reg-cus">
+                <h4 class="text-start">Linked List</h4>
+                <hr>
+                <div class="text-start" style="font-size: 30px; line-height: 1.2;">
+                    <ul class="spaced">
+                        <li class="fragment">Sequence = ordered collection of elements
+                        </li>
+                        <li class="fragment">Lists are an implementation of sequence 
+                            <ul class="spaced">
+                                <li>E.g., <code class="hljs python">[6, 1, 'a']</code></li>
+                            </ul>
+                        </li>
+                        <li class="fragment">Linked list:
+                            <img class="mt-0" data-src="media\sp23-dis09-p1.svg" style="height: 120px; width:600px;">
+                            <ul class="spaced">
+                                <li>a node = a rectangular above = a <code class="hljs python">Link</code> object</li>
+                                <li>A linked list knows its <code class="hljs python">first</code> value and its <code class="hljs python">rest</code> - another linked list</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #1C8497)"
+                class="reg-cus">
+                <h4 class="text-start">Linked List - Implementation</h4>
+                <hr>
+                <div class="text-start" style="font-size: 26px; line-height: 1;">
+                    <pre class="my-2"><code class="hljs python px-2 py-2" data-trim>
+                        class Link :
+                            empty = ()
+                            def __init__(self, first, rest=empty):
+                                assert rest is Link.empty or isinstance(rest, Link)
+                                # rest must be either a linked list or Link.empty
+                                self.first = first
+                                self.rest = rest    
+                    </code></pre>
+                    <!-- <ul>
+                        <li><code class="hljs python t">Link.empty</code> can be implemented as literally anything as
+                            long as we use <code class="hljs python t">is</code> to compare it against other linked
+                            lists</li>
+                    </ul> -->
+                    <pre class="my-0"><code class="hljs python-repl py-2" data-trim data-noescape>
+                        >>> lnk = Link(1, Link(2))
+                        >>> lnk.first 
+                        <span class="fragment">1</span> 
+                        >>> lnk.rest 
+                        <span class="fragment">Link(2)</span> 
+                        >>> lnk.rest.first 
+                        <span class="fragment">2</span> 
+                    </code></pre>
+                </div>
+            </section>
+
+            <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #1C8497)"
+                class="reg-cus">
+                <h4 class="text-start">Empty Linked List</h4>
+                <hr>
+                <div class="text-start" style="font-size: 30px; line-height: 1.2;">
+                    <pre class="my-2"><code class="hljs python px-2 py-2" data-trim>
+                        class Link :
+                            empty = ()
+                            def __init__(self, first, rest=empty):
+                                assert rest is Link.empty or isinstance(rest, Link)
+                                # rest must be either a linked list or Link.empty
+                                self.first = first
+                                self.rest = rest    
+                    </code></pre>
+                    <ul class="spaced">
+                        <li class="fragment"><code class="hljs python">Link.empty</code> - <i>the</i> empty linked list
+                            <ul class="spaced">
+                                <li class="fragment">Can be implemented as anything</li>
+                            </ul>
+                        </li>
+                        <li class="fragment">To check if a linked list <code class="hljs python">lnk</code> is empty: 
+                            <code class="hljs python">lnk is Link.empty</code>
+                        </li>
+                    </ul>
+                    <pre class="fragment"><code class="hljs python-repl py-2" data-trim data-noescape>
+                        >>> lnk = Link(1, Link(2))
+                        >>> lnk.rest.rest is Link.empty 
+                        <span class="fragment">True</span> 
+                    </code></pre>
+                </div>
+            </section>
+
+            <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #1C8497)"
+                class="reg-cus">
+                <h4 class="text-start">Linked List - Repr</h4>
+                <hr>
+                <div class="text-start" style="font-size: 28px; line-height: 1.2;">
+                    <pre><code class="hljs python px-2 py-2" data-trim>
+                        class Link :
+                            empty = ()
+                            ...
+                            def __repr__(self):
+                                if self.rest:
+                                    rest_repr = ', ' + repr(self.rest)
+                                else:
+                                    rest_repr = ''
+                                return 'Link(' + repr(self.first) + rest_repr + ')'    
+                    </code></pre>
+                    <ul>
+                        <li><code class="hljs python t">__repr__</code> returns a string, that, when evaluated, returns
+                            a <code class="hljs python t">Link</code> object containing the same values
+                        </li>
+                    </ul>
+                    <pre class="fragment"><code class="hljs python-repl py-2" data-trim data-noescape>
+                        >>> a = 2
+                        >>> lnk = Link(1, Link(a))
+                        >>> repr (lnk)
+                        <span class="fragment">'Link(1, Link(2))'</span> 
+                    </code></pre>
+                </div>
+            </section>
+
+            <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #1C8497)"
+                class="reg-cus">
+                <h4 class="text-start">Linked List - Str</h4>
+                <hr>
+                <div class="text-start" style="font-size: 28px; line-height: 1.15;">
+                    <pre><code class="hljs python px-2 py-2" data-trim>
+                        class Link :
+                            empty = ()
+                            ...
+                            def __str__(self):
+                                string = '<'
+                                while self.rest is not Link.empty:
+                                    string += str(self.first) + ' '
+                                    self = self.rest
+                                return string + str(self.first) + '>' 
+                    </code></pre>
+                    <pre class="fragment"><code class="hljs python-repl py-2" data-trim data-noescape>
+                        >>> lnk = Link(1, Link(2))
+                        >>> str (lnk)
+                        <span class="fragment">'<1 2>'</span> 
+                        >>> lnk2 = Link(lnk, Link(3))
+                        >>> print (lnk2) # same as print(str(lnk2))
+                        <span class="fragment"><<1 2> 3></span> 
+                    </code></pre>
+                </div>
+            </section>
+
+            <!-- <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #1C8497)"
+                class="reg-cus">
+                <h4 class="text-start">Constructing a Linked List</h4>
+                <hr>
+                <div class="text-start" style="font-size: 28px; line-height: 1.2;">
+                    <pre><code class="hljs python py-2" data-trim>
+                        # -------- Iterative Approach ---------
+                        def iterative_constructor (lst): 
+                            iterative_link = Link.empty
+                            for elem in lst[::-1]: 
+                                iterative_link = Link(elem, iterative_link)
+                            return iterative_link 
+
+                    </code></pre>
+                    <pre><code class="hljs python py-2" data-trim>
+                        # -------- Recursive Approach ---------
+                        def recursive_constructor (lst): 
+                            if lst == []:
+                                return Link.empty 
+                            return Link(lst[0], recursive_constructor(lst[1:])) 
+                    </code></pre>
+                    <ul class="spaced">
+                        <li>recursion - construct from the front</li>
+                        <li>iteration - construct from the back</li>
+                    </ul>
+                </div>
+            </section> -->
+
+            <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #1C8497)"
+                class="reg-cus">
+                <h4 class="text-start">Linked List - Problem Solving Strategies</h4>
+                <hr>
+                <div class="text-start" style="font-size: 30px; line-height: 1.2;">
+                    <ul class="spaced">
+                        <li class="fragment">Pay attention to whether it's <span class="bu">mutation</span> or <span
+                                class="bu">constructing a new linked list</span>
+                            <ul class="spaced">
+                                <li class="fragment">mutation problems - often returns <code
+                                        class="hljs python t">None</code></li>
+                                <li class="fragment">returning a new linked list - in what order to construct?</li>
+                            </ul>
+                        </li>
+                        <li class="fragment">To mutate a linked list, reassign its instance attributes
+                            <ul class="spaced">
+                                <li class="fragment"><code class="hljs python">link.first = ...</code></li>
+                                <li class="fragment"><code class="hljs python">link.rest = ...</code></li>
+                            </ul>
+                        <li class="fragment">Make sure that a linked list is not <code class="hljs python t">Link.empty</code> 
+                            before accessing any instance attributes!</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section data-auto-animate data-background-gradient="linear-gradient(to bottom, #0C5D87, #002C42)"
+                class="reg-cus">
+                <h1>Worksheet</h1>
+                <hr>
+            </section>
+
+            <section data-auto-animate data-background-gradient="linear-gradient(to bottom, #0C5D87, #002C42)"
+                class="reg-cus">
+                <h2 class="text-start">Attendance! 🤠</h2>
+                <hr>
+                <a href="https://go.cs61a.org/mingxiao-att" style="font-size: 40px">go.cs61a.org/mingxiao-att</a>
+                <div class="text-start" style="font-size: 36px; line-height: 1.2;">
+                    <br>
+                    <ul class="spaced">
+                        <li>The attendance form and slides are both linked on our <a
+                                href="https://go.cs61a.org/mingxiao-index">section website</a>!</li>
+                        <li>Please leave any anonymous feedback here <a
+                                href="https://go.cs61a.org/mingxiao-anon">go.cs61a.org/mingxiao-anon</a></li>
+                        <li class="shade">Please do remember to fill out the form by midnight today!!</li>
+                    </ul>
+                </div>
+            </section>
+
+
+        </div>
+    </div>
+
+    <script src="dist/reveal.js"></script>
+    <script src="plugin/notes/notes.js"></script>
+    <script src="plugin/markdown/markdown.js"></script>
+    <script src="plugin/highlight/highlight.js"></script>
+    <script src="plugin/math/math.js"></script>
+    <script>
+        // More info about initialization & config:
+        // - https://revealjs.com/initialization/
+        // - https://revealjs.com/config/
+        Reveal.initialize({
+            hash: true,
+            // Learn about plugins: https://revealjs.com/plugins/
+            plugins: [RevealMarkdown, RevealHighlight, RevealNotes, RevealMath.KaTeX]
+        });
+        Reveal.configure({ pdfSeparateFragments: false });
+    </script>
+
+    <script>
+        window.onload = function () {
+            Particles.init({
+                selector: '.background',
+                color: ['#334C75', '#D4A561', '#0C5D87'],
+                connectParticles: true,
+                maxParticles: 100,
+            });
+        };
+
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/particlesjs/2.2.2/particles.min.js"></script>
+</body>
+
+</html>
