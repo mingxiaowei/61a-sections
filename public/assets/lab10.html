@@ -64,205 +64,37 @@
                 <hr>
                 <div class="text-start">
                     <ul class="spaced text-start" style="font-size: 30px; line-height: 1.2;">
-                        <li>ANTS
-                            <img class="mp0" data-src="media\ant_fire.gif" style="height: 50px; width:auto;">
-                            <img class="mp0" data-src="media\bee.gif" style="height: 50px; width:auto;">
+                        <li>Homework 07 due Thu 04/06</li>
+                        <li>Midterm 👀
                             <ul class="spaced">
-                                <li>Checkpoint 2 due today 03/21</li>
-                                <li>The whole project due Fri 03/24</li>
-                                <li>Submit by Thu 03/23 for one extra point!</li>
+                                <li>Lectures this week are in scope 🤔</li>
+                                <li>The midterm 2 study guide will be out soon - make sure to check it beforehand! 
+                                    (check Ed <a href="https://edstem.org/us/courses/34756/discussion/2813961">2069</a> for updates)</li>
+                                <li>Check Ed for more resources!!</li>
                             </ul>
                         </li>
-                        <li>Lab 09 due tomorrow 03/22</li>
-                        <li>Come to OH >:)</li>
                     </ul>
                 </div>
-
             </section>
 
             <section data-auto-animate data-background-gradient="linear-gradient(to top, #0C5D87, #002C42)"
                 class="reg-cus">
-                <h3 class="text-start">About the 2nd midterm 😮</h3>
+                <h3 class="text-start">Today's outline 🔆</h3>
                 <hr>
-                <p class="text-start" style="font-size: 26px; line-height: 0.8">The second... what? </p>
-                <ul class="spaced" style="font-size: 28px; line-height: 1.2;">
-                    <li class="fragment">Fri 4/7, 7-9 pm</li>
-                    <li class="fragment">Logistics -
-                        Ed post <a href="https://edstem.org/us/courses/34756/discussion/2813961">#2069</a>
-                        <ul class="spaced">
-                            <li>If you need ANY alterations (left-handed desk, remote, other
-                                accommodations due to DSP or otherwise), 
-                                <a href="http://go.cs61a.org/exam-alts">fill out this form</a>
-                                by Mon 04/03!!
-                            </li>
-                        </ul>
-                    <!-- </li>
-                    <li>Familiarize yourself with the <a
-                            href="https://cs61a.org/assets/pdfs/61a-mt2-study-guide.pdf">study guide</a> -
-                        this is a good starting point to go over the topics!
-                        <ul class="spaced">
-                            <li class="fragment">
-                                This is NOT the final version 🤫 The Ed post will be updated once we finalized it
-                            </li>
-                        </ul>
-                    </li> -->
-                    <li class="fragment">Preparations
-                        <ul class="spaced">
-                            <li class="fragment">Familiarize yourself with the topics in scope</li>
-                            <li class="fragment">Attend review session (or watch recordings/slides) for more topical review - see Ed for
-                                more info</li>
-                            <li class="fragment">Do past exams!
-                                <ul class="spaced">
-                                    <li>Quality > quantity</li>
-                                    <li>Post on exam threads on Ed for help</li>
-                                    <li>Walkthrough videos/guide are your friend!</li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-            </section>
-
-            <section data-auto-animate data-background-gradient="linear-gradient(to top, #0C5D87, #002C42)"
-                class="reg-cus">
-                <h4 class="text-start">From last time... 👀</h4>
-                <hr>
-                <!-- <p class="text-start" style="line-height: 1; font-size: 28px;">How are you feeling now?</p> -->
-                <img class="mt-0" data-src="media\sp23-lab09-att.svg" style="height: auto; width:900px;">
-            </section>
-
-            <section data-auto-animate data-background-gradient="linear-gradient(to bottom, #0C5D87, #002C42)"
-                class="reg-cus">
-                <h1>Mutable Trees 🌳</h1>
-                <hr>
-            </section>
-
-            <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #1C8497)"
-                class="reg-cus">
-                <h4 class="text-start">Why Mutable Trees?</h4>
-                <hr>
-                <div class="text-start" style="font-size: 28px; line-height: 1.2;">
-                    <p>Recall from (functional) data abstraction...</p>
-                    <pre class="my-2"><code class="hljs python py-2" data-trim>
-                        def tree (label, branches=[]):
-                            return [label] + branches
-                        def label (tree):
-                            return tree[0] 
-                        def branches (tree):
-                            return tree[1:] 
-                        def is_leaf (tree):
-                            return not branches(tree)
-                    </code></pre>
-                    <ul class="spaced">
-                        <li class="fragment">These trees are immutable
-                            <ul class="spaced">
-                                <li class="fragment">To modify, need to call constructor again with updated attributes - inefficient  😿</li>
-                                <li class="fragment">Solution - use OOP, since objects are mutable 😻</li>
+                <div class="text-start">
+                    <ul class="spaced" style="font-size: 30px; line-height: 1.2;">
+                        <li>Topical Review
+                            <ul class="spaced text-start" style="font-size: 30px; line-height: 1.2;">
+                                <li>Efficiency + Lab Q11</li>
+                                <li>Iterators and generators + Lab Q4</li>
+                                <li>Recursion and tree recursion + Lab Q1-2</li>
+                                <li>Lab Q10 (trees) walkthrough, if time allows</li>
                             </ul>
                         </li>
+                        <li>If you want individual help in the meantime, just walk to one of our AIs! </li>
                     </ul>
                 </div>
-            </section>
 
-            <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #1C8497)"
-                class="reg-cus">
-                <h4 class="text-start">Mutable Trees</h4>
-                <hr>
-                <div class="text-start" style="font-size: 28px; line-height: 1.2;">
-                    <pre class="my-2"><code class="hljs python py-2" style="overflow-x: hidden;" data-trim>
-                        class Tree :
-                            def __init__(self, label, branches=[]):
-                                for b in branches: # branches should be a list of trees
-                                    assert isinstance(b, Tree)
-                                self.label = label
-                                self.branches = branches
-                            def is_leaf (self):
-                                return not self.branches
-                    </code></pre>
-                    <pre class="my-2 fragment"><code class="hljs pytho-repl py-2" data-trim data-noescape>
-                        >>> t = Tree(3, [Tree(2, [Tree(5)]), Tree(4)])
-                        >>> t.label # label is now an instance attribute
-                        <span class="fragment">3</span>
-                        >>> t.branches[0].label # so is branches
-                        <span class="fragment">2</span>
-                        >>> t.branches[1].is_leaf() # is_leaf is a method
-                        <span class="fragment">True</span>
-                    </code></pre>
-                </div>
-            </section>
-
-            <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #1C8497)"
-                class="reg-cus">
-                <h4 class="text-start">Functional Data Abstraction vs. OOP</h4>
-                <hr>
-                <table class="table table-bordered" style="font-size: 27px; line-height: 1.5; color: #ffffff">
-          
-                    <tbody><tr>
-                      <th width="18%"></th>
-                      <th width="40%">Functional Data Abstraction</th>
-                      <th width="42%">Tree class / OOP</th>
-                    </tr>
-                    <tr>
-                      <td>Constructor</td>
-                      <td class="fragment"><code class="hljs python">tree(label, branches)</code></td>
-                      <td class="fragment"><code class="hljs python">Tree(label, branches)</code> (which calls <code class="hljs python">Tree.__init__</code>)</td>
-                    </tr>
-                    <tr>
-                      <td>Label and branches</td>
-                      <td class="fragment"><code class="hljs python">label(t)</code> or <code class="hljs python">branches(t)</code></td>
-                      <td class="fragment"><code class="hljs python">t.label</code> or <code class="hljs python">t.branches</code></td>
-                    </tr>
-                    <tr>
-                      <td>Mutability</td>
-                      <td class="fragment">immutable - cannot assign values to call expressions</td>
-                      <td class="fragment">mutable - can reassign <code class="hljs python">label</code> and <code class="hljs python">branches</code></td>
-                    </tr>
-                    <tr>
-                      <td>Checking if a tree is a leaf</td>
-                      <td class="fragment">convenience function <code class="hljs python">is_leaf(t)</code></td>
-                      <td class="fragment">bound method <code class="hljs python">t.is_leaf()</code></td>
-                    </tr>
-                </tbody></table>
-                  
-            </section>
-
-            <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #1C8497)"
-                class="reg-cus">
-                <h4 class="text-start">Trees - Problem Solving Strategies</h4>
-                <hr>
-                <div class="text-start" style="font-size: 28px; line-height: 1.2;">
-                    <ul class="spaced">
-                        <li class="fragment">Pay attention to whether it's <span class="bu">mutation</span> or <span
-                                class="bu">constructing a new tree</span>
-                        </li>
-                        <li class="fragment">To mutate a tree object:
-                            <ul class="spaced">
-                                <li class="fragment">reassign its instance attributes (<code class="hljs python t">t.label = ...</code>
-                                    or <code class="hljs python t">t.branches = ...</code>)</li>
-                                <li class="fragment">use list mutation method (append/extend/pop/etc.) on its branches - <code
-                                        class="hljs python t">t.branches</code> is a <span class="bu">list</span> of
-                                    trees!</li>
-                            </ul>
-                        </li>
-                        <li class="fragment">For mutation problems: 
-                            <ul class="spaced">
-                                <li class="fragment">
-                                    Which should be mutated first - the root node or its branches?
-                                </li>
-                                <li class="fragment">The return value is often <code class="hljs python t">None</code></li>
-                                <li class="fragment">Sometimes the case case is implicit - if we have for loop that iterates through 
-                                    all the branches, the loop will not be executed if <code class="hljs python t">t.branches</code> 
-                                    is an empty list (i.e., when <code class="hljs python t">t</code> is a leaf)</li>
-                            </ul>
-                            </li>
-                    </ul>
-                </div>
-            </section>
-
-            <section data-auto-animate data-background-gradient="linear-gradient(to bottom, #0C5D87, #002C42)"
-                class="reg-cus">
-                <h1>Lab Q1</h1>
-                <hr>
             </section>
 
             <section data-auto-animate data-background-gradient="linear-gradient(to bottom, #0C5D87, #002C42)"
@@ -277,51 +109,27 @@
                 <hr>
                 <div class="text-start" style="font-size: 28px; line-height: 1.2;">
                     <ul class="spaced">
-                        <li class="fragment">Order of growth (efficiency) - how the runtime changes as the input size
-                            increases
-                            <ul class="spaced">
-                                <li>Think of runtime as a <span class="bu">function</span> of the input size</li>
-                            </ul>
+                        <li class="fragment">Order of growth / efficiency - runtime as a <span class="bu">function</span> of the input size
                         </li>
-                        <li class="fragment"><span class="shade">Input size</span> (not the exact definition, but as a rule of thumb)
+                        <li class="fragment"><span class="shade">Input size</span> 
                             <ul class="spaced">
-                                <li class="fragment">numeric input - magnitude of the number</li>
+                                <li class="fragment">numeric - magnitude of the number</li>
                                 <li class="fragment">Python lists - length of the list</li>
-                                <li class="fragment">linked list/trees/other recursive objects - number of nodes</li>
+                                <li class="fragment">linked list/trees - number of nodes</li>
                             </ul>
                         </li>
-                        <li class="fragment"><span class="shade">Runtime</span> (not the exact definition, but as a rule of thumb)
+                        <li class="fragment"><span class="shade">Runtime</span> 
                             <ul class="spaced">
                                 <li class="fragment">the number of operations</li>
                             </ul>
                         </li>
-                        <li class="fragment">Theta notation - for input of size $n$, the runtime is
-                            denoted by $\Theta(f(n))$
+                        <li class="fragment">Theta notation for approximate runtime
                             <ul class="spaced">
                                 <li class="fragment">$\Theta(f(n))$ - approximately $f(n)$ by a constant factor</li>
+                                <li class="fragment">Only consider the term that grows fastest</li>
                             </ul>
                         </li>
-                    </ul>
-                </div>
-            </section>
-
-            <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #1C8497)"
-                class="reg-cus">
-                <h4 class="text-start">Order of Growth - Other Notes</h4>
-                <hr>
-                <div class="text-start" style="font-size: 30px; line-height: 1.2;">
-                    <ul class="spaced">
-                        <li>constant &lt; logarithmic &lt; linear &lt; quadratic &lt; exponential</li>
-                        <li>Constants are ignored
-                            <ul>
-                                <li>E.g., $\Theta(2n+3)$ is essentially $\Theta(n)$</li>
-                            </ul>
-                        </li>
-                        <li>Only consider the term that grows fastest
-                            <ul>
-                                <li>E.g., $\Theta(n^2+2n+3)$ is essentially $\Theta(n^2)$</li>
-                            </ul>
-                        </li>
+                        <li class="fragment">constant &lt; logarithmic &lt; linear &lt; quadratic &lt; exponential</li>
                     </ul>
                 </div>
             </section>
@@ -494,7 +302,7 @@
 
             <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #1C8497)"
                 class="reg-cus">
-                <h4 class="text-start">Order of Growth - Nested Loops</h4>
+                <h4 class="text-start">Order of Growth - Loops</h4>
                 <hr>
                 <div class="text-start" style="font-size: 30px; line-height: 1.2;">
                     <ul class="spaced">
@@ -517,58 +325,365 @@
                 </div>
             </section>
 
-            <!-- <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #1C8497)"
+            <section data-auto-animate data-background-gradient="linear-gradient(to bottom, #0C5D87, #002C42)"
                 class="reg-cus">
-                <h4 class="text-start">Order of Growth - Nested Function Calls</h4>
+                <h1>Lab Q11</h1>
                 <hr>
-                <div class="text-start" style="font-size: 28px; line-height: 1.15;">
-                    <ul class="spaced">
-                        <li>Evaluate from the innermost call to the outermost one, and <span class="bu">add</span> the
-                            runtime together</li>
-                        <li>For outer functions, pay attention to their input in terms of $n$</li>
-                        <pre class="my-2"><code class="hljs python py-2" data-trim>
-                        def square (n):
-                            # returns n * n in constant time
-                        def fact (n):
-                            # returns n! in linear time 
-                        def boo (n):
-                            for i in range(n):
-                                print('hi')
-                            return n 
-                    </code></pre>
-                        <li><code class="hljs python t">fact(square(n))</code>: $\Theta(1 + n^2) = \Theta(n^2)$</li>
-                        <li><code class="hljs python t">fact(boo(n))</code>: $\Theta(n + n) = \Theta(n)$</li>
-                        <li><code class="hljs python t">boo(square(n))</code>: $\Theta(1 + n^2) = \Theta(n^2)$</li>
-                    </ul>
-                </div>
-            </section> -->
+            </section>
 
             <section data-auto-animate data-background-gradient="linear-gradient(to bottom, #0C5D87, #002C42)"
                 class="reg-cus">
-                <h1>Lab Q5</h1>
+                <h1>Iterators and Generators 🛸</h1>
                 <hr>
             </section>
 
-            <section data-auto-animate data-background-gradient="linear-gradient(to top, #0C5D87, #002C42)"
+            <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #1C8497)"
                 class="reg-cus">
-                <h2 class="text-start">Now it's Your Time 🤠</h2>
+                <h4 class="text-start">Overview</h4>
                 <hr>
-                <div class="text-start" style="line-height: 1.15; font-size: 34px">
+                <div class="text-start" style="font-size: 28px; line-height: 1.2;">
+                    <div class="row">
+                        <div class="col-5">
+                            <img class="mx-0 px-0 fragment" data-src="media\sp23-lab07-p1.svg">
+                        </div>
+                        <div class="col-7">
+                            <img class="mx-0 px-0 fragment" data-src="media\sp23-lab10-p1.svg">
+                        </div>
+                    </div>
+                    <!-- <img class="mx-auto fragment" data-src="media\sp23-lab07-p1.svg" style="height:300px; width:auto"> -->
+                    <!-- <img class="mx-auto fragment" data-src="media\sp23-lab10-p1.svg" style="height:600px; width:auto"> -->
+                </div>
+            </section>
+
+            <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #1C8497)"
+                class="reg-cus">
+                <h4 class="text-start">Iterables and Iterators</h4>
+                <hr>
+                <div style="font-size: 28px; line-height: 1.2;" class="text-start">
                     <ul class="spaced">
-                        <li>Get started on the lab and raise your hand whenever you need help!</li>
-                        <li>Get to know your neighbors and collaborate if you'd like!</li>
-                        <li>Slides: <a href="https://go.cs61a.org/mingxiao-index">go.cs61a.org/mingxiao-index</a></li>
-                        <li>Leave any anonymous feedback here: <a href="https://go.cs61a.org/mingxiao-anon">go.cs61a.org/mingxiao-anon</a></li>
+                        <li>Iterables
+                            <ul class="spaced">
+                                <li class="fragment">Can be iterated through using a for loop:
+                                    <pre class="my-2"><code class="hljs python py-2" data-trim>
+                                        for elem in iterable:
+                                            # do something
+                                    </code></pre>
+                                </li>
+                                <li class="fragment">E.g., sequences (lists, tuples, dictionaries, ranges, etc.)</li>
+                                <li class="fragment"><code class="hljs python">iter(sequence)</code> - returns
+                                    a <i>new</i> iterator
+                                </li>
+                            </ul>
+                        </li>
+                        <li>Iterators
+                            <ul class="spaced">
+                                <li class="fragment">"Tracker" for an iterable</li>
+                                <li class="fragment"><span><code class="hljs python">next(iterator)</code> gives the next element</span> 
+                                    <ul class="spaced">
+                                        <li>cannot go back</li>
+                                    </ul>
+                                </li>
+                                <li class="fragment"><span><code class="hljs python">iter(iterator)</code> -
+                                        returns the iterator <i>itself</i></span>, without resetting the position
+                                </li>
+                            </ul>
+                        </li>
                     </ul>
                 </div>
             </section>
 
+            <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #1C8497)"
+                class="reg-cus">
+                <h4 class="text-start">More on Iterators</h4>
+                <hr>
+                <div style="font-size: 28px; line-height: 1.2;" class="text-start">
+                    <ul class="spaced">
+                        <li class="fragment">Iterators can be "depleted" implicitly with:
+                            <ul class="spaced">
+                                <li class="fragment">for loop</li>
+                                <li class="fragment">list comprehension</li>
+                                <li class="fragment"><code class="hljs python">list(iterator)</code></li>
+                            </ul>
+                        </li>
+                        <li class="fragment">To iterate through an iterator: 
+                            <ul class="spaced">
+                                <li class="fragment">use a for loop
+                                    <pre class="my-2"><code class="hljs python py-2" data-trim>
+                                        for elem in iterator: 
+                                            # do sth with elem
+                                    </code></pre>
+                                </li>
+                                <li class="fragment">use a while loop
+                                    <pre class="my-2"><code class="hljs python py-2" data-trim>
+                                        while ...: 
+                                            elem = next(iterator)
+                                            # do sth with elem
+                                    </code></pre>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #1C8497)"
+                class="reg-cus">
+                <h4 class="text-start">Generator Functions and Generators</h4>
+                <hr>
+                <div class="text-start mb-1" style="font-size: 28px; line-height: 1.2;">
+                    <ul class="spaced">
+                        <li>Generator functions
+                            <ul class="spaced">
+                                <li class="fragment">Have by at least one <code class="hljs python">yield</code> 
+                                    or <code class="hljs python">yield from</code> statement</li>
+                                <li class="fragment">When called, return a <span class="bu">new</span> generator,
+                                    without evaluating the function body yet</li>
+                                <li class="fragment">Define customized iterators</li>
+                            </ul>
+                        </li>
+                        <li>Generators
+                            <ul class="spaced">
+                                <li class="fragment"><code class="hljs python">next(generator)</code> - "lazy
+                                    evaluation"
+                                    <ul class="spaced">
+                                        <li class="fragment">Keep evaluating until a value is yielded 
+                                            or the function teriminates</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #1C8497)"
+                class="reg-cus">
+                <h4 class="text-start">Yield VS Yield From</h4>
+                <hr>
+                <div class="text-start mb-1" style="font-size: 26px; line-height: 1.15;">
+                    <ul class="spaced">
+                        <li class="fragment">Both defines elements in the generator
+                        </li>
+                        <li class="fragment"><code class="hljs python">yield</code> only one element at a time</li>
+                        <li class="fragment"><code class="hljs python">yield from</code> any iterables (sequences, iterators,
+                            generators, etc.)</li>
+                        <pre class="my-2 fragment"><code class="hljs python py-2" data-trim>
+                            for elem in iterable:
+                                yield elem 
+                            # is equivalent to 
+                            yield from iterable
+                        </code></pre>
+                        <li class="fragment">for loop and <code class="hljs python">yield</code> - can modify the element before
+                            yielding 
+                        </li>
+                        <li class="fragment"><code class="hljs python">yield from</code> - can only yield the exact elements from
+                            the iterable</li>
+                        <!-- <li class="fragment"><a href="https://code.cs61a.org/AcheTrembleBubble">Recursive generators</a></li> -->
+                    </ul>
+                </div>
+            </section>
+
+            <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #1C8497)"
+                class="reg-cus">
+                <h4 class="text-start">Recursive Generators</h4>
+                <hr>
+                <div class="text-start mb-1" style="font-size: 26px; line-height: 1.15;">
+                    <ul class="spaced">
+                        <li class="fragment">Base case
+                            <ul class="spaced">
+                                <li>No more elements to yield - often just <code class="hljs python">return</code></li>
+                            </ul>
+                        </li>
+                        <li class="fragment">Recursive case
+                            <ul class="spaced">
+                                <li>Often iterate through the recursive call (generator) with a for loop</li>
+                            </ul>
+                        </li>
+                        <li class="fragment">Combination step 
+                            <ul class="spaced">
+                                <li>What does the recursive generator contain? - recursive leap of faith!</li>
+                                <li>Given that, how to yield for the current call?</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <pre class="my-2 fragment"><code class="hljs python py-2" data-trim>
+                    def yield_paths (t, value):
+                        """Yields all possible paths from the root of t 
+                        to a node with the label value as a list."""
+                        if t.label == value:
+                            yield [value]
+                        for b in t.branches:
+                            for path in yield_paths(b, value):
+                                yield [t.label] + path
+                </code></pre>
+            </section>
+
+            <section data-auto-animate data-background-gradient="linear-gradient(to bottom, #0C5D87, #002C42)"
+                class="reg-cus">
+                <h1>Lab Q4</h1>
+                <hr>
+            </section>
+
+            <section data-auto-animate data-background-gradient="linear-gradient(to bottom, #0C5D87, #002C42)"
+                class="reg-cus">
+                <h1>Recursion, <br> Tree Recursion 🌀</h1>
+                <hr>
+            </section>
+
+            <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #1C8497)"
+                class="reg-cus">
+                <h4 class="text-start">Recursion</h4>
+                <hr>
+                <div class="text-start" style="font-size: 28px; line-height: 1.2;">
+                    <ul class="spaced">
+                        <li class="fragment">Recursive function - a function calls itself
+                            <ul class="spaced">
+                                <li class="fragment">Base case</li>
+                                <li class="fragment">Recursive case</li>
+                                <li class="fragment">Combination step</li>
+                            </ul>
+                        </li>
+                        <li class="fragment">Tree recursive function - a function makes more than one call to itself
+                            <ul class="spaced">
+                                <li class="fragment">Often times one recusive call represents one choice</li>
+                                <li class="fragment">What choices do we have and how do we combine them together?</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #1C8497)"
+                class="reg-cus">
+                <h4 class="text-start">Base case</h4>
+                <hr>
+                <div class="text-start" style="font-size: 28px; line-height: 1.2;">
+                    <ul class="spaced">
+                        <li class="fragment">Simplest input - give an answer without further computation
+                        </li>
+                        <li class="fragment">Often hinted in the doctest
+                        </li>
+                        <li class="fragment">Sometimes may need an "overshot" case 
+                            <ul class="spaced">
+                                <li class="fragment">Could it overshoot in the first place? </li>
+                                <li class="fragment">E.g., input <code class="hljs python t">n</code> is positive 
+                                    - may need to check if <code class="hljs python t">n <= 0</code></li>
+                            </ul>
+                        </li>
+                        <li class="fragment">Some common base cases *
+                            <ul class="spaced">
+                                <li class="fragment">positive integer - <code class="hljs python">n <= 0</code> or 
+                                    <code class="hljs python">n == 1</code></li>
+                                <li class="fragment">sequence - <code class="hljs python">len(seq) == 0</code></li>
+                                <li class="fragment">Trees - <code class="hljs python">t.is_leaf()</code></li>
+                                <li class="fragment">Linked lists - <code class="hljs python">lnk is Link.empty</code></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <p class="fragment" style="font-size: 24px">* The goal of these is to help you develop some intuition. 
+                        Please do NOT take these for granted on an exam - it really depends on the specific problem!</p>
+                </div>
+            </section>
+
+            <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #1C8497)"
+                class="reg-cus">
+                <h4 class="text-start">Recursive case</h4>
+                <hr>
+                <div class="text-start" style="font-size: 28px; line-height: 1.2;">
+                    <ul class="spaced">
+                        <li class="fragment">Break down the problem into a smaller one
+                            <ul class="spaced">
+                                <li class="fragment">
+                                    How should each argument change in the recursive call, if they can change at all?
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="fragment">Make a recursive call for the smaller problem
+                        </li>
+                        <li class="fragment">Some common recursive cases *
+                            <ul class="spaced">
+                                <li class="fragment">positive integer - <code class="hljs python">n - some_number</code> or 
+                                    <code class="hljs python">n // 10</code></li>
+                                <li class="fragment">sequence - <code class="hljs python">seq[1:]</code></li>
+                                <li class="fragment">Trees - often one recursive call on each branch</li>
+                                <li class="fragment">Linked lists - <code class="hljs python">lnk.rest</code></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <p class="fragment" style="font-size: 24px">* The goal of these is to help you develop some intuition. 
+                        Please do NOT take these for granted on an exam - it really depends on the specific problem!</p>
+                </div>
+            </section>
+
+            <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #1C8497)"
+                class="reg-cus">
+                <h4 class="text-start">Combination step</h4>
+                <hr>
+                <div class="text-start" style="font-size: 28px; line-height: 1.2;">
+                    <ul class="spaced">
+                        <li class="fragment">What does the recursive call return? 
+                            <ul class="spaced">
+                                <li class="fragment shade">based on the problem description, 
+                                    NOT your implementation</li>
+                                <li class="fragment">recursive leap of faith - 
+                                    assume that the recursive call always gives the correct result</li>
+                            </ul>
+                        </li>
+                        <li class="fragment">Given the solution to a smaller problem, how to solve the bigger problem? 
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #1C8497)"
+                class="reg-cus">
+                <h4 class="text-start">Helper functions for recursion</h4>
+                <hr>
+                <div style="font-size: 28px; line-height: 1.15;">
+                    <ul class="spaced">
+                        <li>When to use:
+                            <ul class="spaced">
+                                <li>Need to keep track of more variables than the given parameters of the outer function
+                                </li>
+                            </ul>
+                        </li>
+                        <li>Where
+                            <ul class="spaced">
+                                <li>usually nested within the original function
+                                </li>
+                            </ul> 
+                        </li>
+                        <li>How
+                            <ul class="spaced">
+                                <li>define the helper function, and return a call to it with appropriate initial arguments
+                                </li>
+                            </ul> 
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <section data-auto-animate data-background-gradient="linear-gradient(to bottom, #0C5D87, #002C42)"
+                class="reg-cus">
+                <h1>Lab Q1-2</h1>
+                <hr>
+            </section>
+
             <section data-auto-animate data-background-gradient="linear-gradient(to top, #0C5D87, #002C42)"
                 class="reg-cus">
-                <h2 class="text-start">And remember to get checked off! 👒</h2>
+                <h2 class="text-start">And that's it... 🤞</h2>
                 <hr>
-                    <a href="https://go.cs61a.org/mingxiao-att" style="font-size: 50px">go.cs61a.org/mingxiao-att</a>
-                    <p class="text-start">The secret phrase is ... <br> (NOT 3 dots! I'll announce it 🙉)</p>
+                <p class="text-start">GOOD LUCK with the midterm! </p>
+                <p class="text-start">We got this >:)</p>
+                <div class="row">
+                    <div class="col-7">
+                        <img class="mx-auto fragment" data-src="media\kirby-p1.svg" style="width: 300px; height: auto">
+                    </div>
+                    <div class="col-5">
+                        <img class="mx-auto fragment" data-src="media\waddle-dee-p1.svg" style="width: 280px; height: auto">
+                    </div>
+                </div>
             </section>
 
         </div>
