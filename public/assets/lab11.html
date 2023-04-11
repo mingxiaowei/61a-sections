@@ -101,7 +101,7 @@
                                 </li>
                             </ul>
                         </li>
-                        <li class="fragment">Features <span class="shade">tail-call optimizations</span> - will be covered later
+                        <li class="fragment">Features <span class="shade">tail-call optimizations</span> - may or may not be covered later
                         </li>
                         <li class="fragment"><span class="bu">EVERYTHING IN SCHEME EVALUATES TO A VALUE</span>
                             <ul class="spaced">
@@ -127,7 +127,7 @@
                         <li>start the editor - <code class="hljs python">python3 editor</code>
                             <ul class="spaced">
                                 <li>This is how you can edit the <code class="hljs python t">.scm</code> file for an assignment</li>
-                                <li>save your work (locally) - <code class="hljs python">Ctrl/Cmd + c</code></li>
+                                <li>save your work (locally) - <code class="hljs python">Ctrl/Cmd + s</code></li>
                                 <li>quit the editor - <code class="hljs python">Ctrl + c</code></li>
                                 <li>test without quitting the editor - run the ok commands in a separate terminal
                                     window</li>
@@ -310,7 +310,7 @@
                         <span class="fragment">1.5</span>
                         scm&gt; (modulo 10 4) ; modulo -> %
                         <span class="fragment">2</span>
-                        scm&gt; (even? (quotient 45 2)) ; quotient -> //
+                        scm&gt; (odd? (quotient 45 2)) ; quotient -> //
                         <span class="fragment">#f</span>
                         scm&gt; (not (= 1 2)) ; operands to = must be numbers
                         <span class="fragment">#t</span>
@@ -710,11 +710,15 @@
                     <p><code
                             class="hljs scheme">(define (&lt;func-name&gt; &lt;param1&gt; &lt;param2&gt; ... ) &lt;body&gt;)</code>
                     </p>
-                    <pre class="my-2"><code class="hljs scheme py-2" data-trim>
+                    <pre class="my-2"><code class="hljs scheme py-2" data-trim data-noescape>
                         scm&gt; (define (foo x y) (+ x y))
-                        foo
+                        <span class="fragment">foo</span> 
                         scm&gt; (foo 2 3)
-                        5
+                        <span class="fragment">5</span> 
+                        scm&gt; (define (bar x y) (define z (* x y)) (+ x y z))
+                        <span class="fragment">bar</span> 
+                        scm&gt; (bar 2 3)
+                        <span class="fragment">11</span> 
                     </code></pre>
                 </div>
             </section>
