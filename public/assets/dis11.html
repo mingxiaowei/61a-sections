@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-    <title>Discussion 11</title>
+    <title>Discussion 10</title>
 
     <link rel="stylesheet" href="dist/reset.css">
     <link rel="stylesheet" href="dist/reveal.css">
@@ -39,9 +39,10 @@
                 class="customizable">
                 <div class="my-auto mx-auto">
                     <!-- <h2>Lab 10</h2> -->
-                    <h1>Discussion 11</h1>
+                    <h1>Discussion 10</h1>
                     <hr class="hr-1">
-                    <p>Programs as Data</p>
+                    <p>Scheme, Scheme Lists</p>
+                    <!-- <img data-src="media\hlw-pic.JPG" height="250px" width="auto"> -->
                 </div>
                 <br>
                 <br>
@@ -52,7 +53,7 @@
                     <p><a href="mailto:mingxiaowei@berkeley.edu" class="email"
                             style="color:#8BC24A; text-decoration: underline;">
                             mingxiaowei@berkeley.edu</a>
-                        <span class="text-end">Nov 10, 2022</span>
+                        <span class="text-end">Nov 03, 2022</span>
                     </p>
 
                 </footer>
@@ -64,180 +65,548 @@
                 <h3 class="text-start">Logistics 🏡</h3>
                 <hr>
                 <div class="text-start">
-                    <ul class="spaced text-start" style="font-size: 28px; line-height: 1.2;">
-                        <li>Scheme Interpreter 🤔
+                    <ul class="spaced text-start" style="font-size: 30px; line-height: 1.2;">
+                        <li>Welcome to the world of <code class="hljs python t shade">(scheme)</code> 🎃</li>
+                        <li>Homework 07 due today 11/03</li>
+                        <li>The Scheme project is coming up! 👀
                             <ul class="spaced">
-                                <li>Checkpoint 2 due Sun 11/13</li>
-                                <li>The whole project due Tue 11/22</li>
-                                <li>Everyone gets 2 EC points for free 👐</li>
-                                <li>One EC problem, worth 1 EC point 👍</li>
-                                <li>Submit the whole project by Mon 11/21 for 1 EC point 💪</li>
+                                <li>If you like interpreter, go take CS 164 :o</li>
                             </ul>
                         </li>
-                        <li>Homework 08 due next Thu 11/17</li>
-                    </ul>
-                </div>
-            </section>
-
-            <section data-auto-animate data-background-gradient="linear-gradient(to top, #0C5D87, #002C42)"
-                class="reg-cus">
-                <h3 class="text-start">About the Strike</h3>
-                <hr>
-                <div class="text-start">
-                    <ul class="spaced text-start" style="font-size: 28px; line-height: 1.2;">
-                        <li><a
-                                href="https://fairucnow.us18.list-manage.com/track/click?u=e5439bf07a966d151f3d2539c&id=60321f36f4&e=f963d60cef">Why
-                                Strike</a></li>
-                        <li><a href="https://www.fairucnow.org/ulp/">Unfair Labor Practice Charged Filed Against UC</a>
+                        <li><span style="font-weight: 800;">
+                                <span style="color:#9DC6B0">MAKE</span> <span style="color: #EFC76C">YOUR</span>
+                                <span style="color: #E6746B;">SCHEME</span> <span
+                                    style="color: #C7CA83;">COLOR</span><span style="color: #C2AEF2;">FUL</span></span>
+                            <ul class="spaced">
+                                <li>Check out <a href="https://edstem.org/us/courses/25379/discussion/2074835">this Ed
+                                        post</a> to install a Scheme extension to color-code your parenthesis (if you
+                                    are using VScode)!</li>
+                            </ul>
                         </li>
-                        <li><a
-                                href="https://docs.google.com/document/d/1XoPre4iNQxbg-GW9zJBBsf2q4QEAyMggv9Z0VzhMz6Q/edit">EECS
-                                Staffing Bargaining Proposal</a></li>
-                        <!-- <li><a href="https://www.fairucnow.org/strikefaq/">Strike FAQ</a></li> -->
-                        <li><a href="https://www.fairucnow.org/support/">How Can Y'all Support</a></li>
-                        <li><a href="https://edstem.org/us/courses/25379/discussion/2112502">61A-wise Logistics</a></li>
-                        <li>As a result, unless the strike gets called off before next Monday (in which case I'll try to
-                            email the whole section ASAP), we won't have lab next Monday. Discussion TBD. </li>
                     </ul>
                 </div>
+
             </section>
 
             <section data-auto-animate data-background-gradient="linear-gradient(to top, #0C5D87, #002C42)"
                 class="reg-cus">
                 <h4 class="text-start">From last time... 👀</h4>
                 <hr>
-                <p class="text-start" style="line-height: 1; font-size: 28px;">What's the best emoji (and reasoning, if
-                    you'd like to provide)?</p>
-                <img class="mt-0" data-src="media\lab11-att-q.png" style="height: 500px; width:auto;">
+                <p class="text-start" style="line-height: 1; font-size: 28px;">How was the midterm?</p>
+                <img class="mt-0" data-src="media\lab10-att-q.png" style="height: 460px; width:auto;">
             </section>
 
             <section data-auto-animate data-background-gradient="linear-gradient(to bottom, #0C5D87, #002C42)"
                 class="reg-cus">
-                <h1>Program as Data 🧮</h1>
+                <h1>Scheme 🦦</h1>
                 <hr>
             </section>
 
             <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #1C8497)"
                 class="reg-cus">
-                <h4 class="text-start">Program as Data - Intro</h4>
-                <hr>
-                <div class="text-start" style="font-size: 28px; line-height: 1.2;">
-                    <ul>
-                        <li class="fragment">"Data: information in digital form that can be transmitted or processed" -
-                            Merriam-Webster
-                            Dictionary
-                        </li>
-                        <li class="fragment">Up until now, we've treated values as data: numbers, booleans, strings,
-                            functions, objects,
-                            etc.
-                            <p class="my-0 py-0 mx-auto ctr"><img class="mp0" data-src="media\dis11-p1.png"
-                                    height="200px" width="auto"></p>
-                        </li>
-                        <li class="fragment">Now, we'd like to treat programs (code) as data - "halt" the evaluation
-                            process and manipulate the program directly.
-                            <p class="my-0 py-0 mx-auto ctr"><img class="mp0" data-src="media\dis11-p2.png"
-                                    height="200px" width="auto"></p>
-                        </li>
-                    </ul>
-                </div>
-            </section>
-
-            <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #1C8497)"
-                class="reg-cus">
-                <h4 class="text-start">Program as Data - Example</h4>
-                <hr>
-                <div class="text-start" style="font-size: 28px; line-height: 1.2;">
-                    <pre><code class="hljs scheme" data-trim>
-                        ; ----- values as data -----
-                        scm&gt; (define x (+ 30 4))
-                        x
-                        scm&gt; (+ 1000 (* 2 100) x)
-                        1234
-                        ; ----- program as data -----
-                        scm&gt; (define y '(+ 1 2))
-                        y 
-                        scm&gt; (append y '(3 4))
-                        (+ 1 2 3 4)
-                    </code></pre>
-                </div>
-            </section>
-
-            <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #1C8497)"
-                class="reg-cus">
-                <h4 class="text-start">Program as Data - Python</h4>
-                <hr>
-                <div class="text-start" style="font-size: 28px; line-height: 1.2;">
-                    <ul>
-                        <li>In Python, we can store <span class="bu">one-line expressions</span> as strings, and use the
-                            built-in <code class="hljs python">eval()</code> to evaluate a string as an expression in
-                            the <span class="bu">current</span> frame
-                        </li>
-                        <pre><code class="hljs python-repl py-2" data-trim data-noescape>
-                            >>> expr = "'QwQ' if x > 1 else 'QAQ'"
-                            >>> x = 2 
-                            >>> eval (expr)
-                            <span class="fragment">'QwQ'</span>
-                            >>> x = 0
-                            >>> eval (expr)
-                            <span class="fragment">'QAQ'</span>
-                            >>> new_expr = expr[:-5] + "':3'"
-                            >>> eval (new_expr)
-                            <span class="fragment">':3'</span>
-                        </code></pre>
-                    </ul>
-                </div>
-            </section>
-
-            <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #1C8497)"
-                class="reg-cus">
-                <h4 class="text-start">Program as Data - Python</h4>
+                <h4 class="text-start">Scheme - Intro</h4>
                 <hr>
                 <div class="text-start" style="font-size: 30px; line-height: 1.2;">
                     <ul class="spaced">
-                        <li>Now, what if we want to write a function that would create and evaluate this line of code
-                            <code class="hljs python">[&lt;expr&gt; for i in range(3)]</code>
+                        <li>Uses <span class="shade">prefix</span> notations
                             <ul class="spaced">
-                                <li>where we could pass in any arbitrary expression <code
-                                        class="hljs python">&lt;expr&gt;</code>,
-                                    that would then be evaluated 3 times and have the results listed.
+                                <li><code class="hljs python">(func op1 op2)</code></li>
+                                <li>(many) nested parenthesis as a result
+                                    <img data-src="https://imgs.xkcd.com/comics/lisp_cycles.png">
                                 </li>
                             </ul>
                         </li>
-                        <li><code class="hljs python">&lt;expr&gt;</code> could be any piece of code, such as <code
-                                class="hljs python t">print('hello')</code>, <br><code
-                                class="hljs python t">i >= 1</code>,
-                            which <span class="bu">should not be evaluated until after they are inserted into the list
-                                comprehension</span>
+                        <li>Features <span class="shade">tail-call optimizations</span> - will be covered later
                         </li>
-                        <li>Therefore, we need to manipulate the code directly</li>
+                        <li><span class="bu">EVERYTHING IN SCHEME EVALUATES TO A VALUE</span> (In contrast, we have
+                            statements in python, which do not evaluate to anything)</li>
                     </ul>
                 </div>
             </section>
 
             <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #1C8497)"
                 class="reg-cus">
-                <h4 class="text-start">Program as Data - Python</h4>
+                <h4 class="text-start">Scheme - Logistics</h4>
                 <hr>
                 <div class="text-start" style="font-size: 28px; line-height: 1.2;">
-                    <p>Trial 1: Solving with a traditional function</p>
-                    <pre class="my-2"><code class="hljs python py-2" data-trim data-noescape>
-                        def list_3 (expr):
-	                        return [expr for i in range(3)]
-                    </code></pre>
-                    <pre class="my-2"><code class="hljs python-repl py-2" data-trim data-noescape>
-                        >>> lst = list_3(print (10))
-                        10
-                        >>> lst
-                        [None, None, None]
-                    </code></pre>
+                    <p>For assignment with Scheme questions, in the assignment directory:</p>
                     <ul class="spaced">
-                        <li>Hmm... This isn't quite what we want. Because of Python evaluation rules, instead of
-                            evaluating a list of 3 <code class="hljs python t">print(10)</code> statements, our <code
-                                class="hljs python t">expr</code> was evaluated before the function was
-                            ever called, meaning 10 was only printed once.
+                        <li>To start a Scheme interpreter, type <code class="hljs python">python3 scheme</code></li>
+                        <li>To run a Scheme program interactively, type <br> <code
+                                class="hljs python">python3 scheme -i &lt;file.scm&gt;</code>
                         </li>
-                        <li>The issue here is order of evaluation - we don't want our expression parameter to be
-                            evaluated until after it is inserted into our list comprehension.
+                        <li>To exit the interpreter, type <code class="hljs python">(exit)</code></li>
+                        <li>To start the editor, type <code class="hljs python">python3 editor</code>
+                            <ul class="spaced">
+                                <li>When finished, use <code class="hljs python">Ctrl/Cmd + c</code> to save your work
+                                    locally</li>
+                                <li>To quit the editor, use <code class="hljs python">Ctrl + c</code></li>
+                                <li>To run tests without quitting the editor, run the ok commands in a separate terminal
+                                    window</li>
+                            </ul>
+                        </li>
+                        <li><a href="https://cs61a.org/articles/scheme-builtins/">Scheme Built-In Procedure
+                                Reference</a></li>
+                        <li><a href="https://cs61a.org/articles/scheme-spec/">Scheme Specification</a></li>
+                    </ul>
+                    <p style="font-size: 24px;">PS: You can also edit the <code class="hljs python t">.scm</code> file
+                        in your own editor, but our version has visualizations that makes parenthesis matching much
+                        easier! </p>
+                </div>
+            </section>
+
+            <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #1C8497)"
+                class="reg-cus">
+                <h4 class="text-start">Scheme - Primitive Expressions</h4>
+                <hr>
+                <div class="text-start" style="font-size: 28px; line-height: 1.2;">
+                    <ul class="spaced">
+                        <li>Primitive Expressions:
+                            <ul class="spaced">
+                                <li>self-evaluating</li>
+                                <li>Includes numbers, booleans, symbols</li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <pre class="my-2"><code class="hljs scheme py-2" data-trim>
+                        scm&gt; 6
+                        6
+                        scm&gt; 10.0
+                        10.0
+                    </code></pre>
+                </div>
+            </section>
+
+            <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #1C8497)"
+                class="reg-cus">
+                <h4 class="text-start">Scheme - Primitive Expressions</h4>
+                <hr>
+                <div class="text-start" style="font-size: 28px; line-height: 1.2;">
+                    <ul class="spaced">
+                        <li>Symbols
+                            <ul class="spaced">
+                                <li>A symbol is a type of value in scheme</li>
+                                <li>Act like variable names in Python, but not exactly the same</li>
+                                <li>In Scheme, a symbol can evaluate to a value; an expression can also evaluate to a
+                                    symbol</li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <pre><code class="hljs scheme" data-trim>
+                        scm&gt; quotient
+                        #[quotient] ; representation of built-in procedures
+                        scm&gt; 'quotient ; Scheme uses single quotation mark 
+                        quotient ; the string above evaluates to a symbol
+                        scm&gt; 'hello-world! 
+                        hello-world! ; also a symbol value
+                    </code></pre>
+                </div>
+            </section>
+
+            <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #1C8497)"
+                class="reg-cus">
+                <h4 class="text-start">Scheme - Primitive Expressions</h4>
+                <hr>
+                <div class="text-start" style="font-size: 28px; line-height: 1.2;">
+                    <ul class="spaced">
+                        <li>Booleans
+                            <ul class="spaced">
+                                <li><code class="hljs scheme">#t</code> in Scheme $\leftrightarrow$ <code
+                                        class="hljs python">True</code> in Python</li>
+                                <li><code class="hljs scheme">#f</code> in Scheme $\leftrightarrow$ <code
+                                        class="hljs python">False</code> in Python</li>
+                                <li class="shade"><code class="hljs scheme">#f</code> is THE ONLY FALSY VALUE in Scheme!
+                                    (0 is truthy!)
+                                </li>
+
+                            </ul>
+                        </li>
+                    </ul>
+                    <pre><code class="hljs scheme" data-trim>
+                        scm&gt; #t
+                        #t
+                        scm&gt; #f
+                        #f
+                    </code></pre>
+                </div>
+            </section>
+
+            <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #1C8497)"
+                class="reg-cus">
+                <h4 class="text-start">Scheme - Primitive Expressions</h4>
+                <hr>
+                <div class="text-start" style="font-size: 28px; line-height: 1.2;">
+                    <p><code class="hljs scheme">undefined</code></p>
+                    <ul class="spaced">
+                        <li>Analogous to <code class="hljs python t">None</code> in Python - not displayed in the
+                            interpreter unless printed</li>
+                        <li>TRUTHY</li>
+                        <li>Evaluated to when:
+                            <ul class="spaced">
+                                <li>In an <code class="hljs scheme t">if</code> expression, the condition is falsy, but
+                                    there's no <br> <code class="hljs scheme t">[if-false]</code> expression</li>
+                                <li>In a <code class="hljs scheme t">cond</code> expression, all predicates are falsy,
+                                    but there's no
+                                    <code class="hljs scheme t">else</code>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <pre class="my-2"><code class="hljs scheme py-2" data-trim>
+                        scm&gt; (if (= 1 2) 3)
+                        scm&gt; (print (if (= 1 2) 3))
+                        undefined
+                        scm&gt; (print (cond ((> 4 5) 6) (#f 7)))
+                        undefined
+                    </code></pre>
+                </div>
+            </section>
+
+            <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #1C8497)"
+                class="reg-cus">
+                <h4 class="text-start">Scheme - Call Expressions</h4>
+                <hr>
+                <div class="text-start" style="font-size: 28px; line-height: 1.2;">
+                    <p style="font-size: 28px; line-height: 1"><code class="hljs scheme">(func op1 op2 ...)</code></p>
+                    <ul class="spaced">
+                        <li><span class="shade">Operator is WITHIN the parenthesis</span>, and comes first</li>
+                        <li>Operator/operands are separated by whitespace, NOT comma</li>
+                        <li class="shade">The whole call expression must be in a parenthesis</li>
+                        <li>Same evaluation rule as in Python:
+                            <ol class="spaced">
+                                <li>Evaluate the operator, which should evaluate to a procedure*</li>
+                                <li>Evaluate the operands from left to right</li>
+                                <li>Apply the procedure to the operands</li>
+                            </ol>
+                        </li>
+                    </ul>
+                    <p>* In Scheme, functions are called procedures</p>
+                </div>
+            </section>
+
+            <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #1C8497)"
+                class="reg-cus">
+                <h4 class="text-start">Scheme - Call Expressions</h4>
+                <hr>
+                <div class="text-start" style="font-size: 28px; line-height: 1.2;">
+                    <pre><code class="hljs scheme" data-trim>
+                        scm&gt; (+ 1 (* 2 3) (- 5 4)) ; 1 + (2 * 3) + (5 - 4)
+                        8
+                        scm&gt; (- (/ 10 4) 1) ; (10 / 4) - 1
+                        1.5
+                        scm&gt; (modulo 10 4) ; modulo -> %
+                        2
+                        scm&gt; (even? (quotient 45 2)) ; quotient -> //
+                        #t
+                        scm&gt; (not (= 1 2)) ; operands to = must be numbers
+                        #t
+                    </code></pre>
+                    <p>Exercise: translate <code class="hljs python">6 * 3 - 2 >= 0</code> to Scheme - pay attention to
+                        the order of the operators!</p>
+                    <p class="fragment" style="font-size: 28px; line-height: 1"><code
+                            class="hljs scheme">(>= (- (* 6 3) 2) 0)</code></p>
+                </div>
+            </section>
+
+            <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #1C8497)"
+                class="reg-cus">
+                <h4 class="text-start">Scheme - Quotes</h4>
+                <hr>
+                <div class="text-start" style="font-size: 28px; line-height: 1.2;">
+                    <ul class="spaced">
+                        <li>Scheme use a single quotation mark, <code class="hljs scheme">'&lt;expression&gt;</code>
+                            <ul>
+                                <li>The quotation mark only applies to the expression right after itself</li>
+                            </ul>
+                        </li>
+                        <li>Equivalent form: <code class="hljs scheme">(quote &lt;expression&gt;)</code></li>
+                        <li>Return the <code class="hljs scheme">&lt;expression&gt;</code> exactly as it is without any
+                            evaluation</li>
+                    </ul>
+                    <pre><code class="hljs scheme" data-trim>
+                        scm&gt; 'hello-world
+                        hello-world ; this is a symbol value
+                        scm&gt; '(+ 1 2)
+                        (+ 1 2) ; expression in not evaluated when quoted
+                    </code></pre>
+                    <!-- <p>Exercise: translate <code class="hljs python">6 * 3 - 2 >= 0</code> to Scheme</p> -->
+                </div>
+            </section>
+
+            <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #1C8497)"
+                class="reg-cus">
+                <h4 class="text-start">Scheme VS Python</h4>
+                <hr>
+                <div class="text-start" style="font-size: 28px; line-height: 1.2;">
+                    <table class="table table-bordered" style="color: white;">
+                        <thead>
+                            <th scope="col-7">Scheme</th>
+                            <th scope="col-5">Python</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td style="width:50%;">
+                                    <code class="hljs scheme">(/ a b)</code>
+                                </td>
+                                <td style="width:50%;">
+                                    <code class="hljs python">a / b</code>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="width:50%;">
+                                    <code class="hljs scheme">(quotient a b)</code>
+                                </td>
+                                <td style="width:50%;">
+                                    <code class="hljs python">a // b</code>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="width:50%;">
+                                    <code class="hljs scheme">(modulo a b)</code>
+                                </td>
+                                <td style="width:50%;">
+                                    <code class="hljs python">a % b</code>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="width:50%;">
+                                    <code class="hljs scheme">(= a b)</code>
+                                </td>
+                                <td style="width:50%;">
+                                    <code class="hljs python">a == b</code>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="width:50%;">
+                                    <code class="hljs scheme">(not (= a b))</code>
+                                </td>
+                                <td style="width:50%;">
+                                    <code class="hljs python">a != b</code>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="width:50%;">
+                                    <code class="hljs scheme">(print 'hello 'world)</code>
+                                </td>
+                                <td style="width:50%;">
+                                    <code class="hljs python">print('hello world')</code>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="width:50%;">
+                                    <code class="hljs scheme">; comment</code>
+                                </td>
+                                <td style="width:50%;">
+                                    <code class="hljs python"># comment</code>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #1C8497)"
+                class="reg-cus">
+                <h4 class="text-start">Scheme - Special Forms</h4>
+                <hr>
+                <div class="text-start" style="font-size: 28px; line-height: 1.2;">
+                    <ul class="spaced">
+                        <li>Special - do not follow the evaluation rules for call expressions (eg, short-circuiting)
+                        </li>
+                        <li>Check out the <a href="https://cs61a.org/articles/scheme-spec/">Scheme Specification</a> for
+                            a complete list of special forms</li>
+                        <li>Includes <code class="hljs scheme">and</code>, <code class="hljs scheme">or</code>, <code
+                                class="hljs scheme">if</code>, <code class="hljs scheme">cond</code>, etc.
+                        </li>
+                    </ul>
+                    <pre class="my-2"><code class="hljs scheme py-2" data-trim>
+                        scm&gt; (and 0 1 2 3) ; 0 in Scheme is truthy!
+                        3
+                        scm&gt; (or 0 1 2 3)
+                        0
+                        scm&gt; (and (&gt; 1 6) (/ 1 0)) ; short-circuiting applies
+                        #f
+                        scm&gt; (or (&lt; 1 6) (/ 1 0))
+                        #t
+                    </code></pre>
+                </div>
+            </section>
+
+            <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #1C8497)"
+                class="reg-cus">
+                <h4 class="text-start">Scheme - Control Structures</h4>
+                <hr>
+                <div class="text-start" style="font-size: 28px; line-height: 1.2;">
+                    <p><code class="hljs scheme">(if &lt;predicate&gt; &lt;if-true&gt; [if-false])</code>*</p>
+                    <ul class="spaced">
+                        <li>Evaluation rules
+                            <ol class="spaced">
+                                <li>Evaluate <code class="hljs scheme">&lt;predicate&gt;</code></li>
+                                <li>If <code class="hljs scheme">&lt;predicate&gt;</code> evaluates to a truthy value,
+                                    evaluate <br> <code class="hljs scheme">&lt;if-true&gt;</code> and return its value.
+                                    Otherwise, evaluate and return <code class="hljs scheme">[if-false]</code></li>
+                                <li><code class="hljs scheme">[if-false]</code> is optional. If not provided and <code
+                                        class="hljs scheme">&lt;predicate&gt;</code> is falsy, returns <code
+                                        class="hljs scheme">undefined</code> - Scheme's version of <code
+                                        class="hljs python">None</code> </li>
+                            </ol>
+                        </li>
+                        <li>Only one of <code class="hljs scheme t">&lt;if-true&gt;</code> and <code
+                                class="hljs scheme t">[if-false]</code> is evaluated</li>
+                        <li>The whole special form evaluates to either <code
+                                class="hljs scheme t">&lt;if-true&gt;</code> or <br> <code
+                                class="hljs scheme t">[if-false]</code> (or <code
+                                class="hljs scheme t">undefined</code>)</li>
+                        <li>No <code class="hljs python t">elif</code> - if more than 2 branches, use nested <code
+                                class="hljs scheme t">if</code>'s or <code class="hljs scheme t">cond</code>
+                        </li>
+                    </ul>
+                    <p style="font-size: 26px; line-height: 1">* In our <a
+                            href="https://cs61a.org/articles/scheme-spec/">Scheme Specification</a>, <code
+                            class="hljs python t">&lt;&gt;</code> is used to denote required components while <code
+                            class="hljs python t">[]</code> is used to denote optional components</p>
+                </div>
+            </section>
+
+            <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #1C8497)"
+                class="reg-cus">
+                <h4 class="text-start">Scheme - Control Structures</h4>
+                <hr>
+                <div class="text-start" style="font-size: 28px; line-height: 1.2; color: white;">
+                    <table class="table table-bordered" style="color: white;">
+                        <thead>
+                            <th scope="col-6">Scheme</th>
+                            <th scope="col-6">Python</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td style="width:50%;">
+                                    <pre class="my-2"><code class="hljs scheme py-2" data-trim>
+                                    scm&gt; (if (> x 3)
+                                                1
+                                                2)
+                                </code></pre>
+                                </td>
+                                <td style="width:50%;">
+                                    <pre class="my-2"><code class="hljs python-repl py-2" data-trim>
+                                    >>> if  x > 3:
+                                    ...     1
+                                    ... else :
+                                    ...     2
+                            </code></pre>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <pre class="my-2"><code class="hljs scheme py-2" data-trim>
+                                    scm&gt; (if (&lt; x 0)
+                                            'negative
+                                            (if (= x 0)
+                                                'zero
+                                                'positive
+                                            )
+                                    )
+                                    </code></pre>
+                                </td>
+                                <td>
+                                    <pre class="my-2"><code class="hljs python-repl py-2" data-trim>
+                                    >>> if  x &lt; 0:
+                                    ...     'negative'
+                                    ... else :
+                                    ...     if  x == 0:
+                                    ...         'zero'
+                                    ...     else :
+                                    ...         'positive'
+                                </code></pre>
+
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p style="font-size: 26px; line-height: 1">Note: Indentation / line break does NOT matter in Scheme
+                    </p>
+                </div>
+            </section>
+
+            <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #1C8497)"
+                class="reg-cus">
+                <h4 class="text-start">Scheme - Control Structures</h4>
+                <hr>
+                <div class="text-start" style="font-size: 28px; line-height: 1.2; color: white;">
+                    <table class="table table-bordered" style="color: white;">
+                        <thead>
+                            <th scope="col-6">Scheme <code class="hljs scheme t">if</code></th>
+                            <th scope="col-6">Python <code class="hljs python t">if</code></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td style="width:50%;">
+                                    A special form expression that evaluates to a value
+                                </td>
+                                <td style="width:50%;">
+                                    Some statement that directs the flow of the program
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Expects just a single expression for each of the true result and the false result
+                                </td>
+                                <td>
+                                    Each suite can contain multiple lines of code
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    No <code class="hljs scheme t">elif</code>
+                                </td>
+                                <td>
+                                    Has <code class="hljs scheme t">elif</code>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #1C8497)"
+                class="reg-cus">
+                <h4 class="text-start">Scheme - Control Structures</h4>
+                <hr>
+                <div class="text-start" style="font-size: 27px; line-height: 1.2;">
+                    <!-- <p><code class="hljs scheme">cond</code> statements</p> -->
+                    <pre class="my-2"><code class="hljs scheme py-2" data-trim>
+                        (cond
+                            (&lt;p1&gt; &lt;e1&gt;)
+                            ...
+                            (&lt;pn&gt; &lt;en&gt;)
+                            [(else &lt;else-expression&gt;)]) ; else is optional
+                    </code></pre>
+                    <ul>
+
+                        <li>Similar to a multi-clause if/elif/else conditional</li>
+                        <li>Takes in an arbitrary number of arguments known as clauses
+                            <ul>
+                                <li>
+                                    Clause: <code class="hljs scheme">(&lt;p&gt; &lt;e&gt;)</code>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>Evaluation rules:
+                            <ol class="spaced">
+                                <li>Evaluate the predicates <code class="hljs scheme">&lt;p1&gt;</code>, <code
+                                        class="hljs scheme">&lt;p2&gt;</code>, ..., <code
+                                        class="hljs scheme">&lt;pn&gt;</code> in order until you reach one that
+                                    evaluates to a truth-y value.</li>
+                                <li>If you reach a predicate that evaluates to a truthy value, evaluate and return the
+                                    corresponding expression in the clause.</li>
+                                <li>If none of the predicates are truthy and there is an <code
+                                        class="hljs scheme">else</code> clause, evaluate and return <code
+                                        class="hljs scheme">&lt;else-expression&gt;</code>; otherwise return <code
+                                        class="hljs scheme">undefined</code></li>
+                            </ol>
                         </li>
                     </ul>
                 </div>
@@ -245,32 +614,201 @@
 
             <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #1C8497)"
                 class="reg-cus">
-                <h4 class="text-start">Program as Data - Python</h4>
+                <h4 class="text-start">Scheme - Control Structures</h4>
                 <hr>
                 <div class="text-start" style="font-size: 28px; line-height: 1.2;">
-                    <p>Trial 2: Returning the expression as a string and evaluating it afterwards</p>
-                    <pre class="my-2"><code class="hljs python py-2" data-trim data-noescape>
-                        def list_3 (expr):
-	                        return f"[{expr} for i  in range(3)]"
-                    </code></pre>
-                    <pre class="my-2"><code class="hljs python-repl py-2" data-trim data-noescape>
-                        >>> list_5("print(10)")
-                        "[print(10) for i in range(3))]"
-                        >>> lst = eval (list_3("print(10)"))
-                        10
-                        10
-                        10
-                        >>> lst
-                        [None, None, None]
+                    <!-- <p><code class="hljs scheme">cond</code> statements</p> -->
+                    <pre class="my-2"><code class="hljs scheme py-2" data-trim>
+                        (cond
+                            (&lt;p1&gt; &lt;e1&gt;)
+                            ...
+                            (&lt;pn&gt; &lt;en&gt;)
+                            [(else &lt;else-expression&gt;)]) ; else is optional
                     </code></pre>
                     <ul class="spaced">
-                        <li>Now we see the number 10 printed 3 times as a side effect of our function, just like we
-                            want!
+                        <li>Special form because it does not evaluate every
+                            operands - short circuits upon reaching the first truthy predicate</li>
+                        <li>Only one clause has its <code class="hljs scheme">&lt;e&gt;</code> evaluated (and returned)
+                            <ul>
+                                <li>The whole <code class="hljs scheme">cond</code> special form evaluates to the value
+                                    of this <code class="hljs scheme">&lt;e&gt;</code></li>
+                            </ul>
                         </li>
-                        <li>We circumvented Python's evaluate-operands-before-evaluating-function body rule by passing
-                            in our desired expression as a string.
+                        <li><code class="hljs scheme">&lt;e&gt;</code> can have multiple expressions - all of them are
+                            evaluated, but only the value of the last expression is returned</li>
+                        <li>Order of clauses matters - only move on to the next clause if all previous predicates are
+                            falsy, like <code class="hljs python t">elif</code> in Python</li>
+                        </ol>
                         </li>
                     </ul>
+                </div>
+            </section>
+
+            <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #1C8497)"
+                class="reg-cus">
+                <h4 class="text-start">Scheme - Control Structures</h4>
+                <hr>
+                <div class="text-start" style="font-size: 28px; line-height: 1.2; color: white;">
+                    <table class="table table-bordered" style="color: white;">
+                        <thead>
+                            <th scope="col-7">Scheme</th>
+                            <th scope="col-5">Python</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td style="width:60%;">
+                                    <pre class="my-2"><code class="hljs scheme py-2" data-trim>
+                                    scm&gt; (cond
+                                            ((&gt; x 0) 'positive)
+                                            ((&lt; x 0) 'negative)
+                                            (else 'zero)
+                                            )
+                                </code></pre>
+                                </td>
+                                <td style="width:40%;">
+                                    <pre class="my-2"><code class="hljs python-repl py-2 px-2" data-trim>
+                                        >>> if  x &gt; 0:
+                                        ...     'positive'
+                                        ... else :
+                                        ...     if  x &lt; 0:
+                                        ...         'negative'
+                                        ...     else :
+                                        ...         'zero'
+                                    </code></pre>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <pre class="my-2"><code class="hljs scheme py-2 px-2" data-trim>
+                                        scm&gt; (cond
+                                            ((&gt; x 3) 1)
+                                            (else 2)
+                                            )
+                                    </code></pre>
+                                </td>
+                                <td>
+                                    <pre class="my-2"><code class="hljs python-repl py-2" data-trim>
+                                    >>> if  x &lt; 3:
+                                    ...     1
+                                    ... else :
+                                    ...     2
+                                </code></pre>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p style="font-size: 26px; line-height: 1">Note: Indentation / line break does NOT matter in Scheme
+                    </p>
+                </div>
+            </section>
+
+            <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #1C8497)"
+                class="reg-cus">
+                <h4 class="text-start">Scheme - Define Variables</h4>
+                <hr>
+                <div class="text-start" style="font-size: 28px; line-height: 1.2;">
+                    <p><code class="hljs scheme">(define &lt;name&gt; &lt;expression&gt;)</code></p>
+                    <ul class="spaced">
+                        <li>Evaluation rules
+                            <ol class="spaced">
+                                <li>Evaluate the <code class="hljs scheme">&lt;expression&gt;</code></li>
+                                <li>Bind its value to the <code class="hljs scheme">&lt;name&gt;</code> in the current
+                                    frame</li>
+                                <li>Return <code class="hljs scheme">&lt;name&gt;</code> as a symbol</li>
+                            </ol>
+                        </li>
+                        <li class="shade">Evaluates to <code class="hljs scheme t">&lt;name&gt;</code> (a symbol value)
+                        </li>
+                    </ul>
+                    <pre class="my-2"><code class="hljs scheme py-2" data-trim>
+                        scm&gt; (define x (+ 6 1))
+                        x 
+                        scm&gt; x
+                        7 
+                        scm&gt; (+ x 2)
+                        9
+                    </code></pre>
+                </div>
+            </section>
+
+            <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #1C8497)"
+                class="reg-cus">
+                <h4 class="text-start">Scheme - Define Functions</h4>
+                <hr>
+                <div class="text-start" style="font-size: 28px; line-height: 1.2;">
+                    <p><code
+                            class="hljs scheme">(define (&lt;func-name&gt; &lt;param1&gt; &lt;param2&gt; ... ) &lt;body&gt;)</code>
+                    </p>
+                    <ul class="spaced">
+                        <li>Evaluation rules
+                            <ol class="spaced">
+                                <li>Create a lambda procedure with the given parameters and <code
+                                        class="hljs scheme">&lt;body&gt;</code></li>
+                                <li>Bind its procedure to the <code class="hljs scheme">&lt;func-name&gt;</code> in the
+                                    current frame</li>
+                                <li>Return <code class="hljs scheme">&lt;func-name&gt;</code> as a symbol</li>
+                            </ol>
+                        </li>
+                        <li class="shade">Evaluates to <code class="hljs scheme t">&lt;name&gt;</code> (a symbol value)
+                        </li>
+                        <li><code class="hljs scheme t">&lt;body&gt;</code> can have multiple expressions, in which case
+                            all expressions are evaluated from left to right, and the value of the last expression is
+                            returned</li>
+                        <li>Special form because the function body is not evaluated until the function is called</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #1C8497)"
+                class="reg-cus">
+                <h4 class="text-start">Scheme - Define Functions</h4>
+                <hr>
+                <div class="text-start" style="font-size: 28px; line-height: 1.2;">
+                    <p><code
+                            class="hljs scheme">(define (&lt;func-name&gt; &lt;param1&gt; &lt;param2&gt; ... ) &lt;body&gt;)</code>
+                    </p>
+                    <pre class="my-2"><code class="hljs scheme py-2" data-trim>
+                        scm&gt; (define (foo x y) (+ x y))
+                        foo
+                        scm&gt; (foo 2 3)
+                        5
+                        scm&gt; (define (woo x y) 
+                                        (print x y) (define z 4) (+ x y z))
+                        woo
+                        scm&gt; (woo 2 3)
+                        2 3
+                        9
+                    </code></pre>
+                </div>
+            </section>
+
+            <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #1C8497)"
+                class="reg-cus">
+                <h4 class="text-start">Scheme - Lambda Functions</h4>
+                <hr>
+                <div class="text-start" style="font-size: 28px; line-height: 1.2;">
+                    <p><code class="hljs scheme">(lambda (&lt;param1&gt; &lt;param2&gt; ... ) &lt;body&gt;)</code></p>
+                    <ul class="spaced">
+                        <li>Create and <span class="shade">return a procedure </span>with the given parameters and body,
+                            without alter the
+                            current environment unless we bind it to a variable.
+                        </li>
+                        <li>All Scheme procedures are lambda procedures!</li>
+                        <li><code class="hljs scheme t">&lt;body&gt;</code> can have multiple expressions -
+                            all expressions are evaluated from left to right, and the value of the last expression is
+                            returned</li>
+                    </ul>
+                    <pre class="my-2"><code class="hljs scheme py-2" data-trim>
+                        scm&gt; (define foo (lambda (x y) (+ x y)))
+                        foo
+                        scm&gt; (define (foo x y) (+ x y)) ; these two are equivalent
+                        foo
+                        scm&gt; (foo 2 3)
+                        5
+                        scm&gt; (lambda (x y) (+ x y))
+                        (lambda (x y) (+ x y))
+                    </code></pre>
                 </div>
             </section>
 
@@ -282,50 +820,80 @@
 
             <section data-auto-animate data-background-gradient="linear-gradient(to bottom, #0C5D87, #002C42)"
                 class="reg-cus">
-                <h1>Scheme Program as Data 🎥</h1>
+                <h1>Scheme Lists 🦥</h1>
                 <hr>
             </section>
 
             <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #1C8497)"
                 class="reg-cus">
-                <h4 class="text-start">Scheme Program as Data</h4>
+                <h4 class="text-start">Scheme Lists - Intro</h4>
                 <hr>
-                <div class="text-start" style="font-size: 28px; line-height: 1.2;">
+                <div class="text-start" style="font-size: 30px; line-height: 1.2;">
                     <ul class="spaced">
-                        <li class="fragment">Recall there are 2 type of expressions in Scheme:
-                            <ul class="spaced">
-                                <li>Primitive/Atomic Expressions: numbers, symbols, booleans</li>
-                                <li>Combinations: call expressions, special forms, etc.</li>
-                            </ul>
+                        <li>All Scheme Lists are linked lists! 😮😮</li>
+                        <li>3 ways to construct a linked list:
+                            <img class="my-1 mx-auto" data-src="media/scheme_list_ex1.png" height="80px" weight="auto">
                         </li>
-                        <li class="fragment">While in Python, we can store expressions as strings, in Scheme, <span class="bu">all
-                                combinations (non-primitive expressions) are stored as Scheme lists</span>
-                        </li>
-                        <img class="mp0 fragment" data-src="media\dis11-p3.png" height="200px" width="auto">
+                        <pre class="my-2"><code class="hljs scheme py-2" data-trim>
+                            scm&gt; (cons 1 (cons 2 (cons 3 nil))) ; nil -> Link.empty
+                            (1 2 3)
+                            scm&gt; (list 1 2 3)
+                            (1 2 3)
+                            scm&gt; '(1 2 3)
+                            (1 2 3)
+                        </code></pre>
+
+                        <li><code class="hljs scheme">(car lst)</code> - returns <span class="bu">the first
+                                element</span> from the <code class="hljs scheme t">lst</code>, analogous to <code
+                                class="hljs python t">link.first</code></li>
+                        <li><code class="hljs scheme">(cdr lst)</code> - returns the rest of the <code
+                                class="hljs scheme t">lst</code> as <span class="bu">another Scheme list</span>,
+                            analogous to <code class="hljs python t">link.rest</code></li>
                     </ul>
                 </div>
             </section>
 
             <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #1C8497)"
                 class="reg-cus">
-                <h4 class="text-start">Scheme Program as Data</h4>
+                <h4 class="text-start">Scheme Lists - Intro</h4>
                 <hr>
-                <div class="text-start" style="font-size: 28px; line-height: 1.2;">
-                    <p><code class="hljs scheme">(eval &lt;expr&gt;)</code></p>
+                <div class="text-start" style="font-size: 30px; line-height: 1.2;">
+                    <pre class="my-2"><code class="hljs scheme py-2" data-trim>
+                        scm&gt; (define lst (cons 1 (cons 2 (cons 3 nil))))
+                        lst
+                        scm&gt; lst
+                        (1 2 3)
+                        scm&gt; (car lst)
+                        1
+                        scm&gt; (cdr lst)
+                        (2 3)
+                        scm&gt; (car (cdr (cdr a)))
+                        3
+                    </code></pre>
+                </div>
+            </section>
+
+            <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #1C8497)"
+                class="reg-cus">
+                <h4 class="text-start">Scheme Lists - Constructor</h4>
+                <hr>
+                <div class="text-start" style="font-size: 30px; line-height: 1.2;">
+                    <p><code class="hljs scheme">(cons &lt;first&gt; &lt;rest&gt;)</code></p>
                     <ul class="spaced">
-                        <li><code class="hljs scheme">eval</code> takes in one operand</li>
-                        <li>The operand is first evaluated to a value - when evaluating a call expression, we evaluate
-                            all operands before applying the operator. <code class="hljs scheme">eval</code> then
-                            evaluates this value as another expression in the current environment</li>
-                        <li><code class="hljs scheme">&lt;expr&gt;</code> is evaluated twice
-                        </li>
-                        <pre><code class="hljs scheme py-2" data-trim>
-                            scm&gt; (define x '(+ 2 3))
-                            x
-                            scm&gt; x 
-                            (+ 2 3)
-                            scm&gt; (eval x)
-                            5
+                        <li>Similar to a linked list constructor</li>
+                        <li><code class="hljs scheme">&lt;first&gt;</code> is the
+                            first element of the list</li>
+                        <li><code class="hljs scheme">&lt;rest&gt;</code> must be another
+                            Scheme list, or <code class="hljs scheme">nil</code> if there's no more element</li>
+                        <li><code class="hljs scheme">&lt;rest&gt;</code> is required</li>
+                        <li>Useful for recursion problems</li>
+                        <pre class="my-2"><code class="hljs scheme py-2" data-trim>
+                            scm&gt; (define a (cons 1 (cons 'a nil)))
+                            a
+                            scm&gt; a
+                            (1 a)
+                            scm&gt; (cons 6 a)
+                            (6 1 a)
                         </code></pre>
                     </ul>
                 </div>
@@ -333,51 +901,110 @@
 
             <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #1C8497)"
                 class="reg-cus">
-                <h4 class="text-start">Program as Data - Example</h4>
+                <h4 class="text-start">Scheme Lists - Constructor</h4>
                 <hr>
-                <div class="text-start" style="font-size: 28px; line-height: 1.2;">
-                    <pre><code class="hljs scheme py-2" data-trim>
-                        ; ----- values as data -----
-                        scm&gt; (define x (+ 30 4))
-                        x
-                        scm&gt; (+ 1000 (* 2 100) x)
-                        1234
-                    </code></pre>
-                    <pre><code class="hljs scheme py-2" data-trim>
-                        ; ----- program as data -----
-                        scm&gt; (define y '(+ 1 2))
-                        y 
-                        scm&gt; (append y '(3 4))
-                        (+ 1 2 3 4)
-                        scm&gt; (eval (append y '(3 4)))
-                        10
-                    </code></pre>
+                <div class="text-start" style="font-size: 30px; line-height: 1.2;">
+                    <p><code class="hljs scheme">(list &lt;ele1&gt; &lt;ele2&gt; ...)</code></p>
+                    <ul class="spaced">
+                        <li>Takes in an arbitrary number of elements in the list</li>
+                        <li>Evaluate each element (which could be an expression) from left to right, and return them as
+                            a Scheme list</li>
+                        <li>Useful when we know exactly what elements are in the list</li>
+                        <pre class="my-2"><code class="hljs scheme py-2" data-trim>
+                            scm&gt; (define a (+ 6 1))
+                            a
+                            scm&gt; a
+                            7
+                            scm&gt; (list (- a 1) a (+ a 1))
+                            (6 7 8)
+                        </code></pre>
+                    </ul>
                 </div>
-            </section>
-
-            <section data-auto-animate data-background-gradient="linear-gradient(to bottom, #0C5D87, #002C42)"
-                class="reg-cus">
-                <h1>Quasiquotation 🌛</h1>
-                <hr>
             </section>
 
             <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #1C8497)"
                 class="reg-cus">
-                <h4 class="text-start">Quasiquote & Unquote</h4>
+                <h4 class="text-start">Scheme Lists - Constructor</h4>
                 <hr>
                 <div class="text-start" style="font-size: 30px; line-height: 1.2;">
-                    <p><code class="hljs scheme">(quasiquote &lt;expr&gt;)</code> or <code
-                            class="hljs scheme">`&lt;expr&gt;</code></p>
-                    <p><code class="hljs scheme">(unquote &lt;expr&gt;)</code> or <code
-                            class="hljs scheme">,&lt;expr&gt;</code></p>
+                    <p><code class="hljs scheme">'(...)</code></p>
                     <ul class="spaced">
-                        <li>Without <code class="hljs scheme">unquote</code>, <code
-                                class="hljs scheme">quasiquote</code> behaves the same as <code
-                                class="hljs scheme">quote</code></li>
-                        <li><code class="hljs scheme">unquote</code> allows an expression to be evaluated before the
-                            entire list is returned</li>
-                        <li>Together, they are analogous to f-strings in Python and are useful for creating lists that
-                            represent expressions
+                        <li>Construct the exact list that is given, without any evaluation</li>
+                        <li>Equivalent to <code class="hljs scheme">(quote ...)</code></li>
+                        <pre class="my-2"><code class="hljs scheme py-2" data-trim>
+                            scm&gt; (define a (+ 6 1))
+                            a
+                            scm&gt; (list 6 a 8)
+                            (6 7 8)
+                            scm&gt; '(6 a 8)
+                            (6 a 8)
+                            scm&gt; '(cons 1 2)  
+                            (cons 1 2)
+                            scm&gt; '(1 (2 3 4))
+                            (1 (2 3 4))
+                        </code></pre>
+                    </ul>
+                </div>
+            </section>
+
+            <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #1C8497)"
+                class="reg-cus">
+                <h4 class="text-start">Scheme Lists - Built-In Procedures</h4>
+                <hr>
+                <div class="text-start" style="font-size: 30px; line-height: 1.2;">
+                    <ul class="spaced">
+                        <li><code class="hljs scheme">(null? lst)</code> - checks whether or not <code
+                                class="hljs scheme t">lst</code> is empty</li>
+                        <li><code class="hljs scheme">(append lst1 lst2)</code> - concatenates two lists together and
+                            return them as a new list</li>
+                        <li><code class="hljs scheme">(length lst)</code> - return the length of <code
+                                class="hljs scheme t">lst</code></li>
+                        <pre class="my-2"><code class="hljs scheme py-2" data-trim>
+                            scm&gt; (null? nil)
+                            #t
+                            scm&gt; (append '(c s) '(6 1 a))
+                            (c s 6 1 a)
+                            scm&gt; (length '(1 (2 3) 4))  
+                            3
+                        </code></pre>
+                    </ul>
+                </div>
+            </section>
+
+            <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #1C8497)"
+                class="reg-cus">
+                <h4 class="text-start">Checking for equality</h4>
+                <hr>
+                <div class="text-start" style="font-size: 28px; line-height: 1.2;">
+                    <ul class="spaced">
+                        <li><code class="hljs scheme">(= &lt;a&gt; &lt;b&gt;)</code>
+                            <ul class="spaced">
+                                <li>Both <code class="hljs scheme t">&lt;a&gt;</code> and <code
+                                        class="hljs scheme t">&lt;b&gt;</code> must be numbers
+                                </li>
+                            </ul>
+                        </li>
+                        <li><code class="hljs scheme">(eq? &lt;a&gt; &lt;b&gt;)</code>
+                            <ul class="spaced">
+                                <li>Similar to <code class="hljs python t">is</code> in Python</li>
+                                <li>Returns <code class="hljs scheme t">#t</code> if <code
+                                        class="hljs scheme t">&lt;a&gt;</code> and <code
+                                        class="hljs scheme t">&lt;b&gt;</code> are equivalent primitive values, or if
+                                    they refer to the same list</li>
+                            </ul>
+                        </li>
+                        <li><code class="hljs scheme">(equal? &lt;a&gt; &lt;b&gt;)</code>
+                            <ul class="spaced">
+                                <li>If <code class="hljs scheme t">&lt;a&gt;</code> and
+                                    <code class="hljs scheme t">&lt;b&gt;</code> are pairs (lists): returns
+                                    <code class="hljs scheme t">#t</code> if they contain the same elements, 
+                                    similar to checking equality between two lists using <code class="hljs scheme t">==</code> in Python
+                                </li>
+                                <li>If <code class="hljs scheme t">&lt;a&gt;</code> and
+                                    <code class="hljs scheme t">&lt;b&gt;</code> are primitive values: 
+                                    behaves the same as <code class="hljs scheme t">eq?</code>
+                                </li>
+                            </ul>
                         </li>
                     </ul>
                 </div>
@@ -385,35 +1012,49 @@
 
             <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #1C8497)"
                 class="reg-cus">
-                <h4 class="text-start">Quasiquote & Unquote - Example</h4>
+                <h4 class="text-start">Checking for equality</h4>
                 <hr>
                 <div class="text-start" style="font-size: 28px; line-height: 1.2;">
-                    <pre class="mb-0 pb-0"><code class="hljs scheme py-2" data-trim data-noescape>
-                        scm&gt; (define a 6)
-                        <span class="fragment">a</span>
-                        scm&gt; (define b 1)
-                        <span class="fragment">b</span>
-                        scm&gt; `(,a ,b a)
-                        <span class="fragment">(6 1 a)</span>
-                        scm&gt; '(a b ,a)
-                        <span class="fragment">(a b (unquote a))</span>
+                    <pre><code class="hljs scheme py-2" data-trim>
+                        scm&gt; (= (+ 2 3) (+ 1 4)) ; must be two numbers
+                        #t
+                        scm&gt; (eq? (list 1 2) (list 1 2)) ; two different lists
+                        #f
+                        scm&gt; (equal? (list 1 2) (list 1 2)) 
+                        #t
+                        scm&gt; (define a (list 3 4))
+                        a 
+                        scm&gt; (define b a) ; a and b are the same list
+                        b 
+                        scm&gt; (eq? a b)
+                        #t
                     </code></pre>
-                    <pre class="mt-0 pt-0"><code class="hljs scheme py-2" data-trim data-noescape>
-                        scm&gt; `(+ ,a ,b)
-                        <span class="fragment">(+ 6 1)</span>
-                        scm&gt; (eval `(+ ,a ,b))
-                        <span class="fragment">7</span>
-                        scm&gt; (eval `(,a ,b a))
-                        <span class="fragment">Error: int is not callable: 6</span>
-                        scm&gt; (eval (cons 'list '(a b 'a)))
-                        <span class="fragment">(6 1 a)</span>
-                    </code></pre>
+                </div>
+            </section>
+
+            <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #1C8497)"
+                class="reg-cus">
+                <h4 class="text-start">Pro Tips</h4>
+                <hr>
+                <div class="text-start" style="font-size: 28px; line-height: 1.2;">
+                    <ul class="spaced">
+                        <li>Parenthesis MATTERS A LOT in Scheme - they are used to denoted expressions in addition to grouping
+                            <ul>
+                                <li>For example, we can have <code class="hljs python">((1) + (2))</code> in Python, but not <br>
+                                <code class="hljs scheme">(+ (1) (2))</code> in Scheme - correct version is <code class="hljs scheme">(+ 1 2)</code></li>
+                            </ul>
+                        </li>
+                        <li>NO ITERATION, ONLY RECURSION 🤔</li>
+                        <li>Make sure every call expression is wrapped in a parenthesis</li>
+                        <li>When using <code class="hljs scheme t">cond</code>, make sure each clause is in its own parenthesis</li>
+                        <li>No return - can't terminate a function early. The return value has to be the value of the last expression</li>
+                    </ul>
                 </div>
             </section>
 
             <section data-auto-animate data-background-gradient="linear-gradient(to bottom, #0C5D87, #002C42)"
                 class="reg-cus">
-                <h1>Worksheet Q2-7</h1>
+                <h1>Worksheet Q2-5</h1>
                 <hr>
             </section>
 
