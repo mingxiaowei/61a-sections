@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-    <title>Discussion 10</title>
+    <title>Discussion 11</title>
 
     <link rel="stylesheet" href="dist/reset.css">
     <link rel="stylesheet" href="dist/reveal.css">
@@ -53,7 +53,7 @@
                     <p><a href="mailto:mingxiaowei@berkeley.edu" class="email"
                             style="color:#8BC24A; text-decoration: underline;">
                             mingxiaowei@berkeley.edu</a>
-                        <span class="text-end">Apr 13, 2022</span>
+                        <span class="text-end">Apr 13, 2023</span>
                     </p>
 
                 </footer>
@@ -614,9 +614,57 @@
                 </div>
             </section>
 
+            <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #1C8497)"
+                class="reg-cus">
+                <h4 class="text-start">Scheme - Begin expressions</h4>
+                <hr>
+                <div class="text-start" style="font-size: 26px; line-height: 1.1;">
+                    <p><code class="hljs scheme">(begin &lt;expr_1&gt; ... &lt;expr_n&gt;)</code></p>
+                    <ul class="spaced">
+                        <li class="fragment">Evaluate all expressions in order in the current frame</li>
+                        <li class="fragment">Return the value of the last expression</li>
+                    </ul>
+                    <pre class="my-2 fragment" style="height:440px"><code class="hljs scheme py-2" data-trim data-noescape>
+                        scm&gt; (define x 6)
+                        <span class="fragment">x</span>
+                        scm&gt; (define y 7)
+                        <span class="fragment">y</span>
+                        scm&gt; (begin
+                                    (print 'hello)
+                                    (define z 8)
+                                    (- x y z)
+                                    (+ x y z)
+                             )
+                        <span class="fragment">hello</span>
+                        <span class="fragment">21</span>
+                    </code></pre>
+                </div>
+            </section>
+
+            <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #1C8497)"
+                class="reg-cus">
+                <h4 class="text-start">Scheme - Begin expressions</h4>
+                <hr>
+                <div class="text-start" style="font-size: 26px; line-height: 1.1;">
+                    <p><code class="hljs scheme">(begin &lt;expr_1&gt; ... &lt;expr_n&gt;)</code></p>
+                    <ul class="spaced">
+                        <li class="fragment">Useful when only one expression is expected</li>
+                    </ul>
+                    <pre class="my-2 fragment"><code class="hljs scheme py-2" data-trim data-noescape>
+                        scm&gt; (if (begin (print 0) 0)
+                                (begin (print 1) (+ 2 3))  
+                                (begin (print 4) (+ 5 6))
+                             )
+                        <span class="fragment">0</span>
+                        <span class="fragment">1</span>
+                        <span class="fragment">5</span>
+                    </code></pre>
+                </div>
+            </section>
+
             <section data-auto-animate data-background-gradient="linear-gradient(to bottom, #0C5D87, #002C42)"
                 class="reg-cus">
-                <h1>Worksheet Q1</h1>
+                <h1>Worksheet <br> WWSD, Q1</h1>
                 <hr>
             </section>
 
@@ -632,23 +680,23 @@
                 <hr>
                 <div class="text-start" style="font-size: 30px; line-height: 1.2;">
                     <ul class="spaced">
-                        <li>All Scheme Lists are linked lists! 😮😮</li>
-                        <li>3 ways to construct a linked list:
+                        <li class="fragment">All Scheme Lists are linked lists! 😮😮</li>
+                        <li class="fragment">3 ways to construct a linked list:
                             <img class="my-1 mx-auto" data-src="media/scheme_list_ex1.png" height="80px" weight="auto">
                         </li>
-                        <pre class="my-2"><code class="hljs scheme py-2" data-trim>
+                        <pre class="my-2 fragment"><code class="hljs scheme py-2" data-trim data-noescape>
                             scm&gt; (cons 1 (cons 2 (cons 3 nil))) ; nil -> Link.empty
-                            (1 2 3)
+                            <span class="fragment">(1 2 3)</span>
                             scm&gt; (list 1 2 3)
-                            (1 2 3)
+                            <span class="fragment">(1 2 3)</span>
                             scm&gt; '(1 2 3)
-                            (1 2 3)
+                            <span class="fragment">(1 2 3)</span>
                         </code></pre>
 
-                        <li><code class="hljs scheme">(car lst)</code> - returns <span class="bu">the first
+                        <li class="fragment"><code class="hljs scheme">(car lst)</code> - returns <span class="bu">the first
                                 element</span> from the <code class="hljs scheme t">lst</code>, analogous to <code
                                 class="hljs python t">link.first</code></li>
-                        <li><code class="hljs scheme">(cdr lst)</code> - returns the rest of the <code
+                        <li class="fragment"><code class="hljs scheme">(cdr lst)</code> - returns the rest of the <code
                                 class="hljs scheme t">lst</code> as <span class="bu">another Scheme list</span>,
                             analogous to <code class="hljs python t">link.rest</code></li>
                     </ul>
@@ -660,17 +708,17 @@
                 <h4 class="text-start">Scheme Lists - Intro</h4>
                 <hr>
                 <div class="text-start" style="font-size: 30px; line-height: 1.2;">
-                    <pre class="my-2"><code class="hljs scheme py-2" data-trim>
+                    <pre class="my-2"><code class="hljs scheme py-2" data-trim data-noescape>
                         scm&gt; (define lst (cons 1 (cons 2 (cons 3 nil))))
-                        lst
+                        <span class="fragment">lst</span>
                         scm&gt; lst
-                        (1 2 3)
+                        <span class="fragment">(1 2 3)</span>
                         scm&gt; (car lst)
-                        1
+                        <span class="fragment">1</span>
                         scm&gt; (cdr lst)
-                        (2 3)
+                        <span class="fragment">(2 3)</span>
                         scm&gt; (car (cdr (cdr a)))
-                        3
+                        <span class="fragment">3</span>
                     </code></pre>
                 </div>
             </section>
@@ -679,23 +727,30 @@
                 class="reg-cus">
                 <h4 class="text-start">Scheme Lists - Constructor</h4>
                 <hr>
-                <div class="text-start" style="font-size: 30px; line-height: 1.2;">
+                <div class="text-start" style="font-size: 28px; line-height: 1.2;">
                     <p><code class="hljs scheme">(cons &lt;first&gt; &lt;rest&gt;)</code></p>
                     <ul class="spaced">
-                        <li>Similar to a linked list constructor</li>
-                        <li><code class="hljs scheme">&lt;first&gt;</code> is the
-                            first element of the list</li>
-                        <li><code class="hljs scheme">&lt;rest&gt;</code> must be another
-                            Scheme list, or <code class="hljs scheme">nil</code> if there's no more element</li>
-                        <li><code class="hljs scheme">&lt;rest&gt;</code> is required</li>
-                        <li>Useful for recursion problems</li>
-                        <pre class="my-2"><code class="hljs scheme py-2" data-trim>
+                        <li class="fragment">Similar to a linked list constructor</li>
+                        <li class="fragment"><code class="hljs scheme">&lt;first&gt;</code>
+                            <ul class="spaced">
+                                <li class="fragment">first element of the list</li>
+                            </ul>
+                        </li>
+                        <li class="fragment"><code class="hljs scheme">&lt;rest&gt;</code>
+                            <ul class="spaced">
+                                <li class="fragment">must be another Scheme list, or 
+                                    <code class="hljs scheme">nil</code> if empty</li>      
+                                <li class="fragment">required</li>
+                            </ul>
+                        </li>
+                        <li class="fragment">Useful for recursion problems</li>
+                        <pre class="my-2 fragment"><code class="hljs scheme py-2" data-trim data-noescape>
                             scm&gt; (define a (cons 1 (cons 'a nil)))
-                            a
+                            <span class="fragment">a</span>
                             scm&gt; a
-                            (1 a)
+                            <span class="fragment">(1 a)</span>
                             scm&gt; (cons 6 a)
-                            (6 1 a)
+                            <span class="fragment">(6 1 a)</span>
                         </code></pre>
                     </ul>
                 </div>
@@ -705,20 +760,20 @@
                 class="reg-cus">
                 <h4 class="text-start">Scheme Lists - Constructor</h4>
                 <hr>
-                <div class="text-start" style="font-size: 30px; line-height: 1.2;">
+                <div class="text-start" style="font-size: 28px; line-height: 1.2;">
                     <p><code class="hljs scheme">(list &lt;ele1&gt; &lt;ele2&gt; ...)</code></p>
                     <ul class="spaced">
                         <li>Takes in an arbitrary number of elements in the list</li>
-                        <li>Evaluate each element (which could be an expression) from left to right, and return them as
+                        <li>Evaluate each element (could be an expression) from left to right, and return them as
                             a Scheme list</li>
                         <li>Useful when we know exactly what elements are in the list</li>
-                        <pre class="my-2"><code class="hljs scheme py-2" data-trim>
+                        <pre class="my-2"><code class="hljs scheme py-2" data-trim data-noescape>
                             scm&gt; (define a (+ 6 1))
-                            a
+                            <span class="fragment">a</span>
                             scm&gt; a
-                            7
+                            <span class="fragment">7</span>
                             scm&gt; (list (- a 1) a (+ a 1))
-                            (6 7 8)
+                            <span class="fragment">(6 7 8)</span>
                         </code></pre>
                     </ul>
                 </div>
@@ -729,21 +784,20 @@
                 <h4 class="text-start">Scheme Lists - Constructor</h4>
                 <hr>
                 <div class="text-start" style="font-size: 30px; line-height: 1.2;">
-                    <p><code class="hljs scheme">'(...)</code></p>
+                    <p><code class="hljs scheme">'(...)</code> or <code class="hljs scheme">(quote ...)</code></p>
                     <ul class="spaced">
-                        <li>Construct the exact list that is given, without any evaluation</li>
-                        <li>Equivalent to <code class="hljs scheme">(quote ...)</code></li>
-                        <pre class="my-2"><code class="hljs scheme py-2" data-trim>
+                        <li>Construct the exact list given, without any evaluation</li>
+                        <pre class="my-2"><code class="hljs scheme py-2" data-trim data-noescape>
                             scm&gt; (define a (+ 6 1))
-                            a
+                            <span class="fragment">a</span>
                             scm&gt; (list 6 a 8)
-                            (6 7 8)
-                            scm&gt; '(6 a 8)
-                            (6 a 8)
+                            <span class="fragment">(6 7 8)</span>
+                            scm&gt; '(6 a 8) ; equivalently, (quote (6 a 8))
+                            <span class="fragment">(6 a 8)</span>
                             scm&gt; '(cons 1 2)  
-                            (cons 1 2)
+                            <span class="fragment">(cons 1 2)</span>
                             scm&gt; '(1 (2 3 4))
-                            (1 (2 3 4))
+                            <span class="fragment">(1 (2 3 4))</span>
                         </code></pre>
                     </ul>
                 </div>
@@ -755,19 +809,19 @@
                 <hr>
                 <div class="text-start" style="font-size: 30px; line-height: 1.2;">
                     <ul class="spaced">
-                        <li><code class="hljs scheme">(null? lst)</code> - checks whether or not <code
+                        <li class="fragment"><code class="hljs scheme">(null? lst)</code> - checks if <code
                                 class="hljs scheme t">lst</code> is empty</li>
-                        <li><code class="hljs scheme">(append lst1 lst2)</code> - concatenates two lists together and
+                        <li class="fragment"><code class="hljs scheme">(append lst1 lst2)</code> - concatenates two lists together and
                             return them as a new list</li>
-                        <li><code class="hljs scheme">(length lst)</code> - return the length of <code
+                        <li class="fragment"><code class="hljs scheme">(length lst)</code> - return the length of <code
                                 class="hljs scheme t">lst</code></li>
-                        <pre class="my-2"><code class="hljs scheme py-2" data-trim>
+                        <pre class="fragment"><code class="hljs scheme py-2" data-trim data-noescape>
                             scm&gt; (null? nil)
-                            #t
+                            <span class="fragment">#t</span>
                             scm&gt; (append '(c s) '(6 1 a))
-                            (c s 6 1 a)
+                            <span class="fragment">(c s 6 1 a)</span>
                             scm&gt; (length '(1 (2 3) 4))  
-                            3
+                            <span class="fragment">3</span>
                         </code></pre>
                     </ul>
                 </div>
@@ -775,36 +829,33 @@
 
             <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #1C8497)"
                 class="reg-cus">
-                <h4 class="text-start">Checking for equality</h4>
+                <h4 class="text-start">Checking equality</h4>
                 <hr>
                 <div class="text-start" style="font-size: 28px; line-height: 1.2;">
                     <ul class="spaced">
-                        <li><code class="hljs scheme">(= &lt;a&gt; &lt;b&gt;)</code>
+                        <li class="fragment"><code class="hljs scheme">(= &lt;a&gt; &lt;b&gt;)</code>
                             <ul class="spaced">
-                                <li>Both <code class="hljs scheme t">&lt;a&gt;</code> and <code
+                                <li class="fragment">Both <code class="hljs scheme t">&lt;a&gt;</code> and <code
                                         class="hljs scheme t">&lt;b&gt;</code> must be numbers
                                 </li>
                             </ul>
                         </li>
-                        <li><code class="hljs scheme">(eq? &lt;a&gt; &lt;b&gt;)</code>
+                        <li class="fragment"><code class="hljs scheme">(eq? &lt;a&gt; &lt;b&gt;)</code>
                             <ul class="spaced">
-                                <li>Similar to <code class="hljs python t">is</code> in Python</li>
-                                <li>Returns <code class="hljs scheme t">#t</code> if <code
+                                <li class="fragment">Similar to <code class="hljs python t">is</code> in Python</li>
+                                <li class="fragment">Returns <code class="hljs scheme t">#t</code> if <code
                                         class="hljs scheme t">&lt;a&gt;</code> and <code
                                         class="hljs scheme t">&lt;b&gt;</code> are equivalent primitive values, or if
                                     they refer to the same list</li>
                             </ul>
                         </li>
-                        <li><code class="hljs scheme">(equal? &lt;a&gt; &lt;b&gt;)</code>
+                        <li class="fragment"><code class="hljs scheme">(equal? &lt;a&gt; &lt;b&gt;)</code>
                             <ul class="spaced">
-                                <li>If <code class="hljs scheme t">&lt;a&gt;</code> and
-                                    <code class="hljs scheme t">&lt;b&gt;</code> are pairs (lists): returns
+                                <li class="fragment">For pairs (lists) - returns
                                     <code class="hljs scheme t">#t</code> if they contain the same elements, 
-                                    similar to checking equality between two lists using <code class="hljs scheme t">==</code> in Python
+                                    similar to <code class="hljs scheme t">lst1 == lst2</code> in Python
                                 </li>
-                                <li>If <code class="hljs scheme t">&lt;a&gt;</code> and
-                                    <code class="hljs scheme t">&lt;b&gt;</code> are primitive values: 
-                                    behaves the same as <code class="hljs scheme t">eq?</code>
+                                <li class="fragment">For primitive values - same as <code class="hljs scheme t">eq?</code>
                                 </li>
                             </ul>
                         </li>
@@ -817,19 +868,19 @@
                 <h4 class="text-start">Checking for equality</h4>
                 <hr>
                 <div class="text-start" style="font-size: 28px; line-height: 1.2;">
-                    <pre><code class="hljs scheme py-2" data-trim>
+                    <pre style="height: 450px; width: 900px;"><code class="hljs scheme py-2" data-trim data-noescape>
                         scm&gt; (= (+ 2 3) (+ 1 4)) ; must be two numbers
-                        #t
+                        <span class="fragment">#t</span>
                         scm&gt; (eq? (list 1 2) (list 1 2)) ; two different lists
-                        #f
-                        scm&gt; (equal? (list 1 2) (list 1 2)) 
-                        #t
+                        <span class="fragment">#f</span>
+                        scm&gt; (equal? (list 1 2) (list 1 2)) ; lists with the same elements
+                        <span class="fragment">#t</span>
                         scm&gt; (define a (list 3 4))
-                        a 
+                        <span class="fragment">a</span>
                         scm&gt; (define b a) ; a and b are the same list
-                        b 
+                        <span class="fragment">b</span>
                         scm&gt; (eq? a b)
-                        #t
+                        <span class="fragment">#t</span>
                     </code></pre>
                 </div>
             </section>
@@ -840,16 +891,16 @@
                 <hr>
                 <div class="text-start" style="font-size: 28px; line-height: 1.2;">
                     <ul class="spaced">
-                        <li>Parenthesis MATTERS A LOT in Scheme - they are used to denoted expressions in addition to grouping
-                            <ul>
-                                <li>For example, we can have <code class="hljs python">((1) + (2))</code> in Python, but not <br>
+                        <li class="fragment">Parenthesis MATTERS A LOT in Scheme - they are used to denoted expressions in addition to grouping
+                            <ul class="spaced">
+                                <li class="fragment">For example, we can have <code class="hljs python">((1) + (2))</code> in Python, but not <br>
                                 <code class="hljs scheme">(+ (1) (2))</code> in Scheme - correct version is <code class="hljs scheme">(+ 1 2)</code></li>
                             </ul>
                         </li>
-                        <li>NO ITERATION, ONLY RECURSION 🤔</li>
-                        <li>Make sure every call expression is wrapped in a parenthesis</li>
-                        <li>When using <code class="hljs scheme t">cond</code>, make sure each clause is in its own parenthesis</li>
-                        <li>No return - can't terminate a function early. The return value has to be the value of the last expression</li>
+                        <li class="fragment">NO ITERATION, ONLY RECURSION 🤔</li>
+                        <li class="fragment">Make sure every call expression is wrapped in a parenthesis</li>
+                        <li class="fragment">When using <code class="hljs scheme t">cond</code>, make sure each clause is in its own parenthesis</li>
+                        <li class="fragment">No return - can't terminate a function early. The return value has to be the value of the last expression</li>
                     </ul>
                 </div>
             </section>
@@ -867,11 +918,12 @@
                 <a href="https://go.cs61a.org/mingxiao-att" style="font-size: 40px">go.cs61a.org/mingxiao-att</a>
                 <div class="text-start" style="font-size: 36px; line-height: 1.2;">
                     <br>
-                    <ul>
+                    <ul class="spaced">
                         <li>The attendance form and slides are both linked on our <a
                                 href="https://go.cs61a.org/mingxiao-index">section website</a>!</li>
-                        <!-- <li>If you finish early, let me or any of the AI's know and we'll check you off</li> -->
-                        <li class="shade">Once again, please do remember to fill out the form by midnight today!!</li>
+                        <li>Please leave any anonymous feedback here <a
+                                href="https://go.cs61a.org/mingxiao-anon">go.cs61a.org/mingxiao-anon</a></li>
+                        <li class="shade">Please do remember to fill out the form by midnight today!!</li>
                     </ul>
                 </div>
             </section>
