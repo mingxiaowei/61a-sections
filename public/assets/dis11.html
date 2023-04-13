@@ -410,7 +410,7 @@
                                 <td>
                                     <pre class="my-2 fragment"><code class="hljs scheme py-2 px-2" data-trim>
                                     (cond
-                                        ((&gt; x 3) 1)
+                                        ((&lt; x 3) 1)
                                         (else 2)
                                     )
                                     </code></pre>
@@ -630,10 +630,10 @@
                         scm&gt; (define y 7)
                         <span class="fragment">y</span>
                         scm&gt; (begin
-                                    (print 'hello)
-                                    (define z 8)
-                                    (- x y z)
-                                    (+ x y z)
+                                    (print 'hello) ; evaluate to undefined
+                                    (define z 8) ; evaluate to the symbol z
+                                    (- x y z) ; evaluate to 6 - 7 - 8 = -9
+                                    (+ x y z) ; evaluate to 6 + 7 + 8 = 21
                              )
                         <span class="fragment">hello</span>
                         <span class="fragment">21</span>
@@ -809,8 +809,8 @@
                 <hr>
                 <div class="text-start" style="font-size: 30px; line-height: 1.2;">
                     <ul class="spaced">
-                        <li class="fragment"><code class="hljs scheme">(null? lst)</code> - checks if <code
-                                class="hljs scheme t">lst</code> is empty</li>
+                        <li class="fragment"><code class="hljs scheme">(null? lst)</code> - returns <code class="hljs scheme t">#t</code>
+                            if <code class="hljs scheme t">lst</code> is empty</li>
                         <li class="fragment"><code class="hljs scheme">(append lst1 lst2)</code> - concatenates two lists together and
                             return them as a new list</li>
                         <li class="fragment"><code class="hljs scheme">(length lst)</code> - return the length of <code
