@@ -1,0 +1,1391 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Mingxiao's 61A Sections</title>
+    <!-- link to bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+
+    <!-- link to bootstrap icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="custom.css">
+
+    <link href='https://fonts.googleapis.com/css?family=Open Sans' rel='stylesheet'>
+
+    <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
+
+    <link rel="icon" href="https://mingxiaowei.github.io/61a-sections/public/images/favicon.ico" sizes="32x32">
+
+    <script src="/vendors/jquery/jquery-3.3.1.min.js"></script>
+    <script src="/vendors/jquery-ui/jquery-ui.min.js"></script>
+    <script src="/vendors/hammer/hammer.min.js"></script>
+    <script src="/vendors/hammer/jquery.hammer.js"></script>
+
+    <style>
+        .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            user-select: none;
+        }
+
+        @media (min-width: 768px) {
+            .bd-placeholder-img-lg {
+                font-size: 3.5rem;
+            }
+        }
+
+        .b-example-divider {
+            height: 3rem;
+            background-color: rgba(0, 0, 0, .1);
+            border: solid rgba(0, 0, 0, .15);
+            border-width: 1px 0;
+            box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+        }
+
+        .b-example-vr {
+            flex-shrink: 0;
+            width: 1.5rem;
+            height: 100vh;
+        }
+
+        .bi {
+            vertical-align: -.125em;
+            fill: currentColor;
+        }
+
+        .nav-scroller {
+            position: relative;
+            z-index: 2;
+            height: 2.75rem;
+            overflow-y: hidden;
+        }
+
+        .nav-scroller .nav {
+            display: flex;
+            flex-wrap: nowrap;
+            padding-bottom: 1rem;
+            margin-top: -1px;
+            overflow-x: auto;
+            text-align: center;
+            white-space: nowrap;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .main-container {
+            /* border: 3px solid #C2C2C2; */
+            border-radius: 10px;
+            margin: auto;
+            width: 1100px;
+            background-color: #fff;
+            box-shadow: 0 0 24px 0 rgba(0, 0, 0, 0.06), 0 1px 0 0 rgba(0, 0, 0, 0.02);
+        }
+
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Open Sans';
+        }
+
+        .background {
+            position:
+                absolute;
+            display: flex;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            margin: 0;
+            padding: 0;
+            width: max-content;
+            height: max-content;
+            overflow: hidden;
+        }
+
+        .bg-warning {
+            background-color: #F1A91E !important;
+            align-self: flex-end !important;
+        }
+
+        .btn-blue {
+            background-color: #002E5B !important;
+            color: #FFFFFF !important;
+        }
+
+        .btn-outline-secondary {
+            border-width: 1.5px !important;
+        }
+
+        .btn-main-group {
+            border-color: #002E5B !important;
+            /* color:#FFFFFF !important; */
+            border-width: 1.5px !important;
+        }
+
+        .opa {
+            opacity: 85%;
+        }
+
+        .btn-outline-primary {
+            border-color: #002E5B;
+            border-width: 1.5px;
+            color: #002E5B;
+        }
+
+        .percent-center {
+            position: absolute;
+            left: 50%;
+            transform: translate(-50%, 0);
+            font-size: 30px;
+            bottom: 25%;
+            opacity: 75%;
+        }
+
+        .table>thead>tr>th {
+            background-color: transparent;
+            font-weight: 800 !important;
+        }
+
+        .table>tbody>tr>th {
+            font-weight: 800 !important;
+        }
+    </style>
+
+</head>
+
+
+<body>
+    <main>
+        <div class="container pb-4 pt-0" style="width: 100%">
+
+            <header>
+                <div class="px-4 py-1 my-auto text-white mx-0" style="background: #0D2E58;">
+                    <div class="container my-auto py-0">
+                        <p class="my-auto py-0.5 ml-0"
+                            style="font-size: 20px; letter-spacing: 0.5px; line-height: 1.6; font-weight: 600;">
+                            <span class="mx-0 px-0" style="color:#FFFFFF">Mingxiao's</span>
+                            <span class="mx-0 px-0" style="color:#F0A91F">CS 61A</span>
+                            <span class="mx-0 px-0" style="color:#FFFFFF">Sections</span>
+
+                        </p>
+                    </div>
+                </div>
+                <!-- ******** separator between two headers ******** -->
+                <div class="px-3 py-0 border-bottom mb-0" style="background: #38627D;">
+
+                    <div class="row py-1 px-4 my-auto h-center text-start">
+                        <!-- <p style="font: 6px; line-height:0%">&nbsp;</p> -->
+                        <p class="my-auto" style="line-height: 1.5; color:#FFFFFF;">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                class="bi bi-calendar-check" viewBox="0 0 16 16">
+                                <path
+                                    d="M10.854 7.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 9.793l2.646-2.647a.5.5 0 0 1 .708 0z" />
+                                <path
+                                    d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z" />
+                            </svg>
+                            <span id="current_date"></span>
+                        </p>
+                    </div>
+                </div>
+                <!-- SECTION SYLLABUS (tentative) -->
+                <!-- <div class="px-3 py-0 border-bottom mb-0" style="background: #38627D;">
+                    <div class="row py-1 px-4 my-auto h-center text-start">
+                        <p class="my-auto" style="line-height: 1.5; color:#FFFFFF; text-decoration: underline;">
+                            <a href="https://mingxiaowei.github.io/61a-sections/public/syllabus.html"
+                                style="text-decoration:none; color:#FFFFFF">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                    class="bi bi-clipboard2-check" viewBox="0 0 16 16">
+                                    <path
+                                        d="M9.5 0a.5.5 0 0 1 .5.5.5.5 0 0 0 .5.5.5.5 0 0 1 .5.5V2a.5.5 0 0 1-.5.5h-5A.5.5 0 0 1 5 2v-.5a.5.5 0 0 1 .5-.5.5.5 0 0 0 .5-.5.5.5 0 0 1 .5-.5h3Z" />
+                                    <path
+                                        d="M3 2.5a.5.5 0 0 1 .5-.5H4a.5.5 0 0 0 0-1h-.5A1.5 1.5 0 0 0 2 2.5v12A1.5 1.5 0 0 0 3.5 16h9a1.5 1.5 0 0 0 1.5-1.5v-12A1.5 1.5 0 0 0 12.5 1H12a.5.5 0 0 0 0 1h.5a.5.5 0 0 1 .5.5v12a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5v-12Z" />
+                                    <path
+                                        d="M10.854 7.854a.5.5 0 0 0-.708-.708L7.5 9.793 6.354 8.646a.5.5 0 1 0-.708.708l1.5 1.5a.5.5 0 0 0 .708 0l3-3Z" />
+                                </svg>
+                                Section Syllabus
+                            </a>
+                        </p>
+                    </div>
+                </div> -->
+            </header>
+
+            <div class="container-fluid mx-auto mt-3">
+
+                <div class="container-fluid mt-2">
+
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="card shadow-sm opa">
+                                <div class="card-body px-4">
+                                    <div class="mx-auto">
+                                        <h4 class="card-title card-title-blue mx-auto" style="line-height: 1.5">
+                                            Announcements
+                                        </h4>
+                                        <div class="mx-4 mt-3 mb-2" style="font-size: 18px;">
+                                            <ul class="spaced">
+                                                <li>Thanks for a great semester! Best of luck on your finals 🫶</li>
+                                                <li>If you have any issues with your lab/discussion score, please email me! 🌻</li>
+                                                <li><a href="https://mingxiaowei.github.io/61a-sections/public/lab-policy.html" class="linked-resources">Detailed lab policy is here</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row g-3">
+                        <div class="col-4 h-100 flex-c4">
+                            <div class="row my-3">
+                                <div class="col">
+                                    <div class="card shadow-sm opa">
+                                        <div class="card-body">
+                                            <h4 class="card-title card-title-blue" style="line-height: 1.5">About Me
+                                            </h4>
+
+                                            <p>
+                                            <h4 class="name">Mingxiao Wei</h4>
+                                            </p>
+                                            <p class="text-center name-card" style="font-size: 18px;">Spring 2023 CS 61A
+                                                uGSI
+                                            </p>
+                                            <p class="text-center linked-resources name-card">
+                                                <a href="mailto:mingxiaowei@berkeley.edu" class="linked-resources">
+                                                    mingxiaowei@berkeley.edu
+                                                </a>
+                                            </p>
+                                            <div class="table-responsive">
+                                                <table class="table text-center" style="font-size: 16px">
+                                                    <thead style="background-color:rgba(0, 0, 0, 0)">
+                                                        <tr>
+                                                            <th style="width: 25%;"></th>
+                                                            <th style="width: 75%;"></th>
+                                                        </tr>
+                                                    </thead>
+
+                                                    <tbody>
+
+                                                        <tr>
+                                                            <th scope="row" class="text-start fw-bolder"
+                                                                style="font-weight: 600">Lab</th>
+                                                            <td>Tue 09:30 - 11:00 @
+                                                                <a class="linked-color"
+                                                                    href="https://goo.gl/maps/pZK6ZFZpjQadK3Ep7">Soda
+                                                                    271</a>
+                                                            </td>
+                                                        </tr>
+
+                                                        <tr>
+                                                            <th scope="row" class="text-start">Discussion</th>
+                                                            <td>Thu 09:30 - 11:00 @
+                                                                <a class="linked-color"
+                                                                    href="https://goo.gl/maps/pZK6ZFZpjQadK3Ep7">Soda
+                                                                    320</a>
+                                                            </td>
+                                                        </tr>
+
+                                                        <tr>
+                                                            <th scope="row" class="text-start">Office Hours</th>
+                                                            <td class="my-auto">
+                                                                <!-- TBD -->
+                                                                04/24 18:00 - 19:00 <br>
+                                                                04/26 19:00 - 20:00 <br>
+                                                                04/27 19:00 - 20:00 <br>
+                                                                @
+                                                                <a class="linked-color"
+                                                                    href="https://goo.gl/maps/hitCTNZYtsgV5ANi7">Warren
+                                                                    101B</a>
+                                                            </td>
+                                                        </tr>
+
+
+                                                    </tbody>
+                                                </table>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- <br> -->
+
+                            <div class="row my-3">
+                                <div class="col">
+                                    <div class="card shadow-sm opa">
+                                        <div class="card-body">
+                                            <h4 class="card-title card-title-blue" style="line-height: 1.5">Resources
+                                            </h4>
+
+                                            <div class="mx-4 my-3">
+                                                <p class="linked-resources name-card">
+                                                    <a href="https://forms.gle/ufRpMFFoYN6Wxbm77"
+                                                        class="linked-resources">
+                                                        Anonymous Feedback
+                                                    </a>
+                                                </p>
+
+                                                <p class="linked-resources name-card">
+                                                    <a href="https://cs61a.org/" class="linked-resources">
+                                                        Course Website
+                                                    </a>
+                                                </p>
+
+                                                <p class="linked-resources name-card">
+                                                    <a href="https://edstem.org/us/courses/34756/discussion/"
+                                                        class="linked-resources">
+                                                        Ed Discussion
+                                                    </a>
+                                                </p>
+
+                                                <p class="linked-resources name-card">
+                                                    <a href="https://cs61a.org/office-hours/" class="linked-resources">
+                                                        Office Hours
+                                                    </a>
+                                                </p>
+
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-8 h-100 flex-c8">
+                            <div class="row my-3">
+                                <div class="col">
+                                    <div class="card shadow-sm opa">
+                                        <div class="card-body">
+                                            <h4 class="card-title card-title-blue" style="line-height: 1.5">Weekly
+                                                Materials
+                                                <button class="btn btn-outline-primary float-end" id="btn1"
+                                                    onclick="location.href='http://go.cs61a.org/mingxiao-att'">Attendance
+                                                    Form</button>
+                                            </h4>
+
+                                            <!-- week 15 -->
+                                            <div class="mx-3 mt-4 mb-2">
+                                                <p class="week-title">Week 13 &nbsp; (04/24 - 04/28)</p>
+                                                <div class="table-responsive weekly">
+                                                    <table class="table text-start">
+
+                                                        <thead style="background-color:rgba(0, 0, 0, 0)">
+                                                            <tr>
+                                                                <th style="width: 15%;"></th>
+                                                                <th style="width: 85%;"></th>
+                                                            </tr>
+                                                        </thead>
+
+                                                        <tbody>
+
+                                                            <tr>
+                                                                <th scope="row" class="text-start fw-bolder"
+                                                                    style="font-weight: 600">04/25 Tue</th>
+                                                                <td class="text-start">
+                                                                    Lab 13: SQL
+                                                                    &nbsp;
+                                                                    <p class="my-auto">
+                                                                        <a href="https://cs61a.org/lab/lab13/"
+                                                                            style="text-decoration:none"><span
+                                                                                class="bg bg-assignment">
+                                                                                Assignment</span></a>
+                                                                        <a href="https://docs.google.com/presentation/d/1eDUexpFOHoqp2OB1XDLuCGNbDtjNHhkiw4ER0g5kw8s/edit?usp=sharing"
+                                                                            style="text-decoration:none"><span
+                                                                                class="bg bg-slides">
+                                                                                Slides</span></a> 
+                                                                        <a href="https://mingxiaowei.github.io/61a-sections/public/assets/lab13.pdf"
+                                                                            style="text-decoration:none"><span
+                                                                                class="bg bg-slides">
+                                                                                Slides (pdf)</span></a>
+                                                                        <!-- <a href="https://cs61a.org/lab/sol-lab10/"
+                                                                            style="text-decoration:none"><span
+                                                                                class="bg bg-solution">
+                                                                                Solution</span></a> -->
+                                                                    </p>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <th scope="row" class="text-start fw-bolder"
+                                                                    style="font-weight: 600">04/27 Thu</th>
+                                                                <td class="text-start">
+                                                                    Disc 13: Final Review
+                                                                    &nbsp;
+                                                                    <p class="my-auto">
+                                                                        <a href="https://cs61a.org/disc/disc13/"
+                                                                            style="text-decoration:none"><span
+                                                                                class="bg bg-assignment">
+                                                                                Worksheet</span></a>
+                                                                        <a href="https://docs.google.com/presentation/d/1vPl1aSWs8gv61wfh10S8xx914Ng1ahghbPU8o_VVywU/edit?usp=sharing"
+                                                                            style="text-decoration:none"><span
+                                                                                class="bg bg-slides">
+                                                                                Slides</span></a>
+                                                                        <a href="https://mingxiaowei.github.io/61a-sections/public/assets/dis13.pdf"
+                                                                            style="text-decoration:none"><span
+                                                                                class="bg bg-slides">
+                                                                                Slides (pdf)</span></a>
+                                                                        <!-- <a href="https://cs61a.org/disc/sol-disc09/"
+                                                                            style="text-decoration:none"><span
+                                                                                class="bg bg-solution">
+                                                                                Solution</span></a> -->
+                                                                    </p>
+                                                                </td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+
+                                            </div>
+
+                                            <!-- week 14 -->
+                                            <div class="mx-3 my-2">
+                                                <p class="week-title">Week 13 &nbsp; (04/17 - 04/21)</p>
+                                                <div class="table-responsive weekly">
+                                                    <table class="table text-start">
+
+                                                        <thead style="background-color:rgba(0, 0, 0, 0)">
+                                                            <tr>
+                                                                <th style="width: 15%;"></th>
+                                                                <th style="width: 85%;"></th>
+                                                            </tr>
+                                                        </thead>
+
+                                                        <tbody>
+
+                                                            <tr>
+                                                                <th scope="row" class="text-start fw-bolder"
+                                                                    style="font-weight: 600">04/18 Tue</th>
+                                                                <td class="text-start">
+                                                                    Lab 12: Scheme Lists, Interpreters
+                                                                    &nbsp;
+                                                                    <p class="my-auto">
+                                                                        <a href="https://cs61a.org/lab/lab12/"
+                                                                            style="text-decoration:none"><span
+                                                                                class="bg bg-assignment">
+                                                                                Assignment</span></a>
+                                                                        <a href="https://docs.google.com/presentation/d/1fwRUMnqcLNcQfrP3Xg-JzBSVxY4UFJeoF-KZ6ojKRVU/edit?usp=sharing"
+                                                                            style="text-decoration:none"><span
+                                                                                class="bg bg-slides">
+                                                                                Slides</span></a> 
+                                                                        <a href="https://mingxiaowei.github.io/61a-sections/public/assets/lab12.pdf"
+                                                                            style="text-decoration:none"><span
+                                                                                class="bg bg-slides">
+                                                                                Slides (pdf)</span></a>
+                                                                        <a href="https://cs61a.org/lab/sol-lab12/"
+                                                                            style="text-decoration:none"><span
+                                                                                class="bg bg-solution">
+                                                                                Solution</span></a>
+                                                                    </p>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <th scope="row" class="text-start fw-bolder"
+                                                                    style="font-weight: 600">04/20 Thu</th>
+                                                                <td class="text-start">
+                                                                    Disc 12: Interpreters, SQL
+                                                                    &nbsp;
+                                                                    <p class="my-auto">
+                                                                        <a href="https://cs61a.org/disc/disc12/"
+                                                                            style="text-decoration:none"><span
+                                                                                class="bg bg-assignment">
+                                                                                Worksheet</span></a>
+                                                                        <a href="https://docs.google.com/presentation/d/1MgM6_j5QtByCSGCzdJg3MtbrrWxUJMZiKFeoAfqhaVM/edit?usp=sharing"
+                                                                            style="text-decoration:none"><span
+                                                                                class="bg bg-slides">
+                                                                                Slides</span></a>
+                                                                                <a href="https://mingxiaowei.github.io/61a-sections/public/assets/dis12.pdf"
+                                                                                style="text-decoration:none"><span
+                                                                                    class="bg bg-slides">
+                                                                                    Slides (pdf)</span></a>
+                                                                        <a href="https://cs61a.org/disc/sol-disc12/"
+                                                                            style="text-decoration:none"><span
+                                                                                class="bg bg-solution">
+                                                                                Solution</span></a>
+                                                                    </p>
+                                                                </td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+
+                                            </div>
+
+                                            <!-- week 13 -->
+                                            <div class="mx-3 my-2">
+                                                <p class="week-title">Week 12 &nbsp; (04/10 - 04/14)</p>
+                                                <div class="table-responsive weekly">
+                                                    <table class="table text-start">
+
+                                                        <thead style="background-color:rgba(0, 0, 0, 0)">
+                                                            <tr>
+                                                                <th style="width: 15%;"></th>
+                                                                <th style="width: 85%;"></th>
+                                                            </tr>
+                                                        </thead>
+
+                                                        <tbody>
+
+                                                            <tr>
+                                                                <th scope="row" class="text-start fw-bolder"
+                                                                    style="font-weight: 600">04/11 Tue</th>
+                                                                <td class="text-start">
+                                                                    Lab 11: Scheme
+                                                                    &nbsp;
+                                                                    <p class="my-auto">
+                                                                        <a href="https://cs61a.org/lab/lab11/"
+                                                                            style="text-decoration:none"><span
+                                                                                class="bg bg-assignment">
+                                                                                Assignment</span></a>
+                                                                        <a href="https://mingxiaowei.github.io/61a-sections/public/assets/lab11.html"
+                                                                            style="text-decoration:none"><span
+                                                                                class="bg bg-slides">
+                                                                                Slides (html)</span></a>
+                                                                        <a href="https://mingxiaowei.github.io/61a-sections/public/assets/lab11.pdf"
+                                                                            style="text-decoration:none"><span
+                                                                                class="bg bg-slides">
+                                                                                Slides (pdf)</span></a>
+                                                                        <a href="https://cs61a.org/lab/sol-lab11/"
+                                                                            style="text-decoration:none"><span
+                                                                                class="bg bg-solution">
+                                                                                Solution</span></a>
+                                                                    </p>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <th scope="row" class="text-start fw-bolder"
+                                                                    style="font-weight: 600">04/13 Thu</th>
+                                                                <td class="text-start">
+                                                                    Disc 11: Scheme, Scheme Lists
+                                                                    &nbsp;
+                                                                    <p class="my-auto">
+                                                                        <a href="https://cs61a.org/disc/disc11/"
+                                                                            style="text-decoration:none"><span
+                                                                                class="bg bg-assignment">
+                                                                                Worksheet</span></a>
+                                                                        <a href="https://mingxiaowei.github.io/61a-sections/public/assets/dis11.html"
+                                                                            style="text-decoration:none"><span
+                                                                                class="bg bg-slides">
+                                                                                Slides (html)</span></a>
+                                                                        <a href="https://mingxiaowei.github.io/61a-sections/public/assets/dis11.pdf"
+                                                                            style="text-decoration:none"><span
+                                                                                class="bg bg-slides">
+                                                                                Slides (pdf)</span></a>
+                                                                        <a href="https://cs61a.org/disc/sol-disc11/"
+                                                                            style="text-decoration:none"><span
+                                                                                class="bg bg-solution">
+                                                                                Solution</span></a>
+                                                                    </p>
+                                                                </td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+
+                                            </div>
+
+                                            <!-- week 12 -->
+                                            <div class="mx-3 my-2">
+                                                <p class="week-title">Week 11 &nbsp; (04/03 - 04/27)</p>
+                                                <div class="table-responsive weekly">
+                                                    <table class="table text-start">
+
+                                                        <thead style="background-color:rgba(0, 0, 0, 0)">
+                                                            <tr>
+                                                                <th style="width: 15%;"></th>
+                                                                <th style="width: 85%;"></th>
+                                                            </tr>
+                                                        </thead>
+
+                                                        <tbody>
+
+                                                            <tr>
+                                                                <th scope="row" class="text-start fw-bolder"
+                                                                    style="font-weight: 600">04/04 Tue</th>
+                                                                <td class="text-start">
+                                                                    Lab 10: Midterm Review
+                                                                    &nbsp;
+                                                                    <p class="my-auto">
+                                                                        <a href="https://cs61a.org/lab/lab10/"
+                                                                            style="text-decoration:none"><span
+                                                                                class="bg bg-assignment">
+                                                                                Assignment</span></a>
+                                                                        <a href="https://mingxiaowei.github.io/61a-sections/public/assets/lab10.html"
+                                                                            style="text-decoration:none"><span
+                                                                                class="bg bg-slides">
+                                                                                Slides (html)</span></a>
+                                                                        <a href="https://mingxiaowei.github.io/61a-sections/public/assets/lab10.pdf"
+                                                                            style="text-decoration:none"><span
+                                                                                class="bg bg-slides">
+                                                                                Slides (pdf)</span></a>
+                                                                        <a href="https://cs61a.org/lab/sol-lab10/"
+                                                                            style="text-decoration:none"><span
+                                                                                class="bg bg-solution">
+                                                                                Solution</span></a>
+                                                                    </p>
+                                                                </td>
+                                                            </tr>
+                                                            
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+
+                                            </div>
+
+                                            <!-- week 10 -->
+                                            <div class="mx-3 my-2">
+                                                <p class="week-title">Week 09 &nbsp; (03/20 - 03/24)</p>
+                                                <div class="table-responsive weekly">
+                                                    <table class="table text-start">
+
+                                                        <thead style="background-color:rgba(0, 0, 0, 0)">
+                                                            <tr>
+                                                                <th style="width: 15%;"></th>
+                                                                <th style="width: 85%;"></th>
+                                                            </tr>
+                                                        </thead>
+
+                                                        <tbody>
+
+                                                            <tr>
+                                                                <th scope="row" class="text-start fw-bolder"
+                                                                    style="font-weight: 600">03/21 Tue</th>
+                                                                <td class="text-start">
+                                                                    Lab 09: Mutable Trees, Efficiency
+                                                                    &nbsp;
+                                                                    <p class="my-auto">
+                                                                        <a href="https://cs61a.org/lab/lab09/"
+                                                                            style="text-decoration:none"><span
+                                                                                class="bg bg-assignment">
+                                                                                Assignment</span></a>
+                                                                        <a href="https://mingxiaowei.github.io/61a-sections/public/assets/lab09.html"
+                                                                            style="text-decoration:none"><span
+                                                                                class="bg bg-slides">
+                                                                                Slides (html)</span></a>
+                                                                        <a href="https://mingxiaowei.github.io/61a-sections/public/assets/lab09.pdf"
+                                                                            style="text-decoration:none"><span
+                                                                                class="bg bg-slides">
+                                                                                Slides (pdf)</span></a>
+                                                                        <a href="https://cs61a.org/lab/sol-lab09/"
+                                                                            style="text-decoration:none"><span
+                                                                                class="bg bg-solution">
+                                                                                Solution</span></a>
+                                                                    </p>
+                                                                </td>
+                                                            </tr>
+
+                                                            <tr>
+                                                                <th scope="row" class="text-start fw-bolder"
+                                                                    style="font-weight: 600">03/23 Thu</th>
+                                                                <td class="text-start">
+                                                                    Disc 09: Mutable Trees, Linked Lists, Efficiency
+                                                                    &nbsp;
+                                                                    <p class="my-auto">
+                                                                        <a href="https://cs61a.org/disc/disc09/"
+                                                                            style="text-decoration:none"><span
+                                                                                class="bg bg-assignment">
+                                                                                Worksheet</span></a>
+                                                                        <a href="https://mingxiaowei.github.io/61a-sections/public/assets/dis09.html"
+                                                                            style="text-decoration:none"><span
+                                                                                class="bg bg-slides">
+                                                                                Slides (html)</span></a>
+                                                                        <a href="https://mingxiaowei.github.io/61a-sections/public/assets/dis09.pdf"
+                                                                            style="text-decoration:none"><span
+                                                                                class="bg bg-slides">
+                                                                                Slides (pdf)</span></a>
+                                                                        <a href="https://cs61a.org/disc/sol-disc09/"
+                                                                            style="text-decoration:none"><span
+                                                                                class="bg bg-solution">
+                                                                                Solution</span></a>
+                                                                    </p>
+                                                                </td>
+                                                            </tr>
+
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+
+                                            </div>
+
+                                            <!-- week 09 -->
+                                            <div class="mx-3 my-2">
+                                                <p class="week-title">Week 08 &nbsp; (03/13 - 03/17)</p>
+                                                <div class="table-responsive weekly">
+                                                    <table class="table text-start">
+
+                                                        <thead style="background-color:rgba(0, 0, 0, 0)">
+                                                            <tr>
+                                                                <th style="width: 15%;"></th>
+                                                                <th style="width: 85%;"></th>
+                                                            </tr>
+                                                        </thead>
+
+                                                        <tbody>
+
+                                                            <tr>
+                                                                <th scope="row" class="text-start fw-bolder"
+                                                                    style="font-weight: 600">03/14 Tue</th>
+                                                                <td class="text-start">
+                                                                    Lab 08: OOP, Inheritance
+                                                                    &nbsp;
+                                                                    <p class="my-auto">
+                                                                        <a href="https://cs61a.org/lab/lab08/"
+                                                                            style="text-decoration:none"><span
+                                                                                class="bg bg-assignment">
+                                                                                Assignment</span></a>
+                                                                        <a href="https://mingxiaowei.github.io/61a-sections/public/assets/lab08.html"
+                                                                            style="text-decoration:none"><span
+                                                                                class="bg bg-slides">
+                                                                                Slides (html)</span></a>
+                                                                        <a href="https://mingxiaowei.github.io/61a-sections/public/assets/lab08.pdf"
+                                                                            style="text-decoration:none"><span
+                                                                                class="bg bg-slides">
+                                                                                Slides (pdf)</span></a>
+                                                                        <a href="https://cs61a.org/lab/sol-lab08/"
+                                                                            style="text-decoration:none"><span
+                                                                                class="bg bg-solution">
+                                                                                Solution</span></a>
+                                                                    </p>
+                                                                </td>
+                                                            </tr>
+
+                                                            <tr>
+                                                                <th scope="row" class="text-start fw-bolder"
+                                                                    style="font-weight: 600">03/16 Thu</th>
+                                                                <td class="text-start">
+                                                                    Disc 08: OOP, Inheritance, String Representation
+                                                                    &nbsp;
+                                                                    <p class="my-auto">
+                                                                        <a href="https://cs61a.org/disc/disc08/"
+                                                                            style="text-decoration:none"><span
+                                                                                class="bg bg-assignment">
+                                                                                Worksheet</span></a>
+                                                                        <a href="https://mingxiaowei.github.io/61a-sections/public/assets/dis08.html"
+                                                                            style="text-decoration:none"><span
+                                                                                class="bg bg-slides">
+                                                                                Slides (html)</span></a>
+                                                                        <a href="https://mingxiaowei.github.io/61a-sections/public/assets/dis08.pdf"
+                                                                            style="text-decoration:none"><span
+                                                                                class="bg bg-slides">
+                                                                                Slides (pdf)</span></a>
+                                                                        <a href="https://cs61a.org/disc/sol-disc08/"
+                                                                            style="text-decoration:none"><span
+                                                                                class="bg bg-solution">
+                                                                                Solution</span></a>
+                                                                    </p>
+                                                                </td>
+                                                            </tr>
+
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+
+                                            </div>
+
+                                            <!-- week 08 -->
+                                            <div class="mx-3 my-2">
+                                                <p class="week-title">Week 07 &nbsp; (02/27 - 03/03)</p>
+                                                <div class="table-responsive weekly">
+                                                    <table class="table text-start">
+
+                                                        <thead style="background-color:rgba(0, 0, 0, 0)">
+                                                            <tr>
+                                                                <th style="width: 15%;"></th>
+                                                                <th style="width: 85%;"></th>
+                                                            </tr>
+                                                        </thead>
+
+                                                        <tbody>
+
+                                                            <tr>
+                                                                <th scope="row" class="text-start fw-bolder"
+                                                                    style="font-weight: 600">03/07 Tue</th>
+                                                                <td class="text-start">
+                                                                    Lab 07: Object-Oriented Programming
+                                                                    &nbsp;
+                                                                    <p class="my-auto">
+                                                                        <a href="https://cs61a.org/lab/lab07/"
+                                                                            style="text-decoration:none"><span
+                                                                                class="bg bg-assignment">
+                                                                                Assignment</span></a>
+                                                                        <a href="https://mingxiaowei.github.io/61a-sections/public/assets/lab07.html"
+                                                                            style="text-decoration:none"><span
+                                                                                class="bg bg-slides">
+                                                                                Slides (html)</span></a>
+                                                                        <a href="https://mingxiaowei.github.io/61a-sections/public/assets/lab07.pdf"
+                                                                            style="text-decoration:none"><span
+                                                                                class="bg bg-slides">
+                                                                                Slides (pdf)</span></a>
+                                                                        <a href="https://cs61a.org/lab/sol-lab07/"
+                                                                            style="text-decoration:none"><span
+                                                                                class="bg bg-solution">
+                                                                                Solution</span></a>
+                                                                    </p>
+                                                                </td>
+                                                            </tr>
+
+                                                            <tr>
+                                                                <th scope="row" class="text-start fw-bolder"
+                                                                    style="font-weight: 600">03/09 Thu</th>
+                                                                <td class="text-start">
+                                                                    Disc 07: Object-Oriented Programming
+                                                                    &nbsp;
+                                                                    <p class="my-auto">
+                                                                        <a href="https://cs61a.org/disc/disc07/"
+                                                                            style="text-decoration:none"><span
+                                                                                class="bg bg-assignment">
+                                                                                Worksheet</span></a>
+                                                                        <a href="https://mingxiaowei.github.io/61a-sections/public/assets/dis07.html"
+                                                                            style="text-decoration:none"><span
+                                                                                class="bg bg-slides">
+                                                                                Slides (html)</span></a>
+                                                                        <a href="https://mingxiaowei.github.io/61a-sections/public/assets/dis07.pdf"
+                                                                            style="text-decoration:none"><span
+                                                                                class="bg bg-slides">
+                                                                                Slides (pdf)</span></a>
+                                                                        <a href="https://cs61a.org/disc/sol-disc07/"
+                                                                            style="text-decoration:none"><span
+                                                                                class="bg bg-solution">
+                                                                                Solution</span></a>
+                                                                    </p>
+                                                                </td>
+                                                            </tr>
+
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+
+                                            </div>
+
+
+                                            <!-- week 07 -->
+                                            <div class="mx-3 my-2">
+                                                <p class="week-title">Week 07 &nbsp; (02/27 - 03/03)</p>
+                                                <div class="table-responsive weekly">
+                                                    <table class="table text-start">
+
+                                                        <thead style="background-color:rgba(0, 0, 0, 0)">
+                                                            <tr>
+                                                                <th style="width: 15%;"></th>
+                                                                <th style="width: 85%;"></th>
+                                                            </tr>
+                                                        </thead>
+
+                                                        <tbody>
+
+                                                            <tr>
+                                                                <th scope="row" class="text-start fw-bolder"
+                                                                    style="font-weight: 600">02/21 Tue</th>
+                                                                <td class="text-start">
+                                                                    Lab 06: Mutability, Iterators
+                                                                    &nbsp;
+                                                                    <p class="my-auto">
+                                                                        <a href="https://cs61a.org/lab/lab06/"
+                                                                            style="text-decoration:none"><span
+                                                                                class="bg bg-assignment">
+                                                                                Assignment</span></a>
+                                                                        <a href="https://mingxiaowei.github.io/61a-sections/public/assets/lab06.html"
+                                                                            style="text-decoration:none"><span
+                                                                                class="bg bg-slides">
+                                                                                Slides (html)</span></a>
+                                                                        <a href="https://mingxiaowei.github.io/61a-sections/public/assets/lab06.pdf"
+                                                                            style="text-decoration:none"><span
+                                                                                class="bg bg-slides">
+                                                                                Slides (pdf)</span></a>
+                                                                        <a href="https://cs61a.org/lab/sol-lab06/"
+                                                                            style="text-decoration:none"><span
+                                                                                class="bg bg-solution">
+                                                                                Solution</span></a>
+                                                                    </p>
+                                                                </td>
+                                                            </tr>
+
+                                                            <tr>
+                                                                <th scope="row" class="text-start fw-bolder"
+                                                                    style="font-weight: 600">02/23 Thu</th>
+                                                                <td class="text-start">
+                                                                    Disc 06: Mutability, Iterators, Generators
+                                                                    &nbsp;
+                                                                    <p class="my-auto">
+                                                                        <a href="https://cs61a.org/disc/disc06/"
+                                                                            style="text-decoration:none"><span
+                                                                                class="bg bg-assignment">
+                                                                                Worksheet</span></a>
+                                                                        <a href="https://mingxiaowei.github.io/61a-sections/public/assets/dis06.html"
+                                                                            style="text-decoration:none"><span
+                                                                                class="bg bg-slides">
+                                                                                Slides (html)</span></a>
+                                                                        <a href="https://mingxiaowei.github.io/61a-sections/public/assets/dis06.pdf"
+                                                                            style="text-decoration:none"><span
+                                                                                class="bg bg-slides">
+                                                                                Slides (pdf)</span></a>
+                                                                        <a href="https://cs61a.org/disc/sol-disc06/"
+                                                                            style="text-decoration:none"><span
+                                                                                class="bg bg-solution">
+                                                                                Solution</span></a>
+                                                                    </p>
+                                                                </td>
+                                                            </tr>
+
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+
+                                            </div>
+
+                                            <!-- week 06 -->
+                                            <div class="mx-3 my-2">
+                                                <p class="week-title">Week 06 &nbsp; (02/20 - 02/24)</p>
+                                                <div class="table-responsive weekly">
+                                                    <table class="table text-start">
+
+                                                        <thead style="background-color:rgba(0, 0, 0, 0)">
+                                                            <tr>
+                                                                <th style="width: 15%;"></th>
+                                                                <th style="width: 85%;"></th>
+                                                            </tr>
+                                                        </thead>
+
+                                                        <tbody>
+
+                                                            <tr>
+                                                                <th scope="row" class="text-start fw-bolder"
+                                                                    style="font-weight: 600">02/21 Tue</th>
+                                                                <td class="text-start">
+                                                                    Lab 05: Data Abstraction, Sequences
+                                                                    &nbsp;
+                                                                    <p class="my-auto">
+                                                                        <a href="https://cs61a.org/lab/lab05/"
+                                                                            style="text-decoration:none"><span
+                                                                                class="bg bg-assignment">
+                                                                                Assignment</span></a>
+                                                                        <a href="https://mingxiaowei.github.io/61a-sections/public/assets/lab05.html"
+                                                                            style="text-decoration:none"><span
+                                                                                class="bg bg-slides">
+                                                                                Slides (html)</span></a>
+                                                                        <a href="https://mingxiaowei.github.io/61a-sections/public/assets/lab05.pdf"
+                                                                            style="text-decoration:none"><span
+                                                                                class="bg bg-slides">
+                                                                                Slides (pdf)</span></a>
+                                                                        <a href="https://cs61a.org/lab/sol-lab05/"
+                                                                            style="text-decoration:none"><span
+                                                                                class="bg bg-solution">
+                                                                                Solution</span></a>
+                                                                    </p>
+                                                                </td>
+                                                            </tr>
+
+                                                            <tr>
+                                                                <th scope="row" class="text-start fw-bolder"
+                                                                    style="font-weight: 600">02/23 Thu</th>
+                                                                <td class="text-start">
+                                                                    Disc 05: Trees
+                                                                    &nbsp;
+                                                                    <p class="my-auto">
+                                                                        <a href="https://cs61a.org/disc/disc05/"
+                                                                            style="text-decoration:none"><span
+                                                                                class="bg bg-assignment">
+                                                                                Worksheet</span></a>
+                                                                        <a href="https://mingxiaowei.github.io/61a-sections/public/assets/dis05.html"
+                                                                            style="text-decoration:none"><span
+                                                                                class="bg bg-slides">
+                                                                                Slides (html)</span></a>
+                                                                        <a href="https://mingxiaowei.github.io/61a-sections/public/assets/dis05.pdf"
+                                                                            style="text-decoration:none"><span
+                                                                                class="bg bg-slides">
+                                                                                Slides (pdf)</span></a>
+                                                                        <a href="https://cs61a.org/disc/sol-disc05/"
+                                                                            style="text-decoration:none"><span
+                                                                                class="bg bg-solution">
+                                                                                Solution</span></a>
+                                                                    </p>
+                                                                </td>
+                                                            </tr>
+
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+
+                                            </div>
+
+                                            <!-- week 05 -->
+                                            <div class="mx-3 my-2">
+                                                <p class="week-title">Week 05 &nbsp; (02/13 - 02/17)</p>
+                                                <div class="table-responsive weekly">
+                                                    <table class="table text-start">
+
+                                                        <thead style="background-color:rgba(0, 0, 0, 0)">
+                                                            <tr>
+                                                                <th style="width: 15%;"></th>
+                                                                <th style="width: 85%;"></th>
+                                                            </tr>
+                                                        </thead>
+
+                                                        <tbody>
+
+                                                            <tr>
+                                                                <th scope="row" class="text-start fw-bolder"
+                                                                    style="font-weight: 600">02/14 Tue</th>
+                                                                <td class="text-start">
+                                                                    Lab 04: Recursion, Tree Recursion, Python Lists
+                                                                    &nbsp;
+                                                                    <p class="my-auto">
+                                                                        <a href="https://cs61a.org/lab/lab04/"
+                                                                            style="text-decoration:none"><span
+                                                                                class="bg bg-assignment">
+                                                                                Assignment</span></a>
+                                                                        <a href="https://mingxiaowei.github.io/61a-sections/public/assets/lab04.html"
+                                                                            style="text-decoration:none"><span
+                                                                                class="bg bg-slides">
+                                                                                Slides (html)</span></a>
+                                                                        <a href="https://mingxiaowei.github.io/61a-sections/public/assets/lab04.pdf"
+                                                                            style="text-decoration:none"><span
+                                                                                class="bg bg-slides">
+                                                                                Slides (pdf)</span></a>
+                                                                        <a href="https://cs61a.org/lab/sol-lab04/"
+                                                                            style="text-decoration:none"><span
+                                                                                class="bg bg-solution">
+                                                                                Solution</span></a>
+                                                                    </p>
+                                                                </td>
+                                                            </tr>
+
+                                                            <tr>
+                                                                <th scope="row" class="text-start fw-bolder"
+                                                                    style="font-weight: 600">02/16 Thu</th>
+                                                                <td class="text-start">
+                                                                    Disc 04: Tree Recursion, Python Lists
+                                                                    &nbsp;
+                                                                    <p class="my-auto">
+                                                                        <a href="https://cs61a.org/disc/disc04/"
+                                                                            style="text-decoration:none"><span
+                                                                                class="bg bg-assignment">
+                                                                                Worksheet</span></a>
+                                                                        <a href="https://mingxiaowei.github.io/61a-sections/public/assets/dis04.html"
+                                                                            style="text-decoration:none"><span
+                                                                                class="bg bg-slides">
+                                                                                Slides (html)</span></a>
+                                                                        <a href="https://mingxiaowei.github.io/61a-sections/public/assets/dis04.pdf"
+                                                                            style="text-decoration:none"><span
+                                                                                class="bg bg-slides">
+                                                                                Slides (pdf)</span></a>
+                                                                        <a href="https://cs61a.org/disc/sol-disc04/"
+                                                                            style="text-decoration:none"><span
+                                                                                class="bg bg-solution">
+                                                                                Solution</span></a>
+                                                                    </p>
+                                                                </td>
+                                                            </tr>
+
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+
+                                            </div>
+
+                                            <!-- week 04 -->
+                                            <div class="mx-3 my-2">
+                                                <p class="week-title">Week 04 &nbsp; (02/06 - 02/10)</p>
+                                                <div class="table-responsive weekly">
+                                                    <table class="table text-start">
+
+                                                        <thead style="background-color:rgba(0, 0, 0, 0)">
+                                                            <tr>
+                                                                <th style="width: 15%;"></th>
+                                                                <th style="width: 85%;"></th>
+                                                            </tr>
+                                                        </thead>
+
+                                                        <tbody>
+
+                                                            <tr>
+                                                                <th scope="row" class="text-start fw-bolder"
+                                                                    style="font-weight: 600">02/09 Thu</th>
+                                                                <td class="text-start">
+                                                                    Disc 03: Recursion
+                                                                    &nbsp;
+                                                                    <p class="my-auto">
+                                                                        <a href="https://cs61a.org/disc/disc03/"
+                                                                            style="text-decoration:none"><span
+                                                                                class="bg bg-assignment">
+                                                                                Worksheet</span></a>
+                                                                        <a href="https://mingxiaowei.github.io/61a-sections/public/assets/dis03.html"
+                                                                            style="text-decoration:none"><span
+                                                                                class="bg bg-slides">
+                                                                                Slides (html)</span></a>
+                                                                        <a href="https://mingxiaowei.github.io/61a-sections/public/assets/dis03.pdf"
+                                                                            style="text-decoration:none"><span
+                                                                                class="bg bg-slides">
+                                                                                Slides (pdf)</span></a>
+                                                                        <a href="https://cs61a.org/disc/sol-disc03/"
+                                                                            style="text-decoration:none"><span
+                                                                                class="bg bg-solution">
+                                                                                Solution</span></a>
+                                                                    </p>
+                                                                </td>
+                                                            </tr>
+
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+
+                                            </div>
+
+                                            <!-- week 03 -->
+                                            <div class="mx-3 my-2">
+                                                <p class="week-title">Week 03 &nbsp; (01/30 - 02/03)</p>
+                                                <div class="table-responsive weekly">
+                                                    <table class="table text-start">
+
+                                                        <thead style="background-color:rgba(0, 0, 0, 0)">
+                                                            <tr>
+                                                                <th style="width: 15%;"></th>
+                                                                <th style="width: 85%;"></th>
+                                                            </tr>
+                                                        </thead>
+
+                                                        <tbody>
+
+                                                            <tr>
+                                                                <th scope="row" class="text-start fw-bolder"
+                                                                    style="font-weight: 600">01/31 Tue</th>
+                                                                <td class="text-start">
+                                                                    Lab 02: Higher-Order Functions, Lambda Expressions &nbsp;
+                                                                    <p class="my-auto">
+                                                                        <a href="https://cs61a.org/lab/lab02/"
+                                                                            style="text-decoration:none"><span
+                                                                                class="bg bg-assignment">
+                                                                                Assignment</span></a>
+                                                                        <a href="https://mingxiaowei.github.io/61a-sections/public/assets/lab02.html"
+                                                                            style="text-decoration:none"><span
+                                                                                class="bg bg-slides">
+                                                                                Slides (html)</span></a>
+                                                                        <a href="https://mingxiaowei.github.io/61a-sections/public/assets/lab02.pdf"
+                                                                            style="text-decoration:none"><span
+                                                                                class="bg bg-slides">
+                                                                                Slides (pdf)</span></a>
+                                                                        <a href="https://cs61a.org/lab/sol-lab02/"
+                                                                            style="text-decoration:none"><span
+                                                                                class="bg bg-solution">
+                                                                                Solution</span></a>
+                                                                    </p>
+                                                                </td>
+                                                            </tr>
+
+                                                            <tr>
+                                                                <th scope="row" class="text-start fw-bolder"
+                                                                    style="font-weight: 600">02/02 Thu</th>
+                                                                <td class="text-start">
+                                                                    Disc 02: Environment Diagrams, Higher-Order Functions
+                                                                    &nbsp;
+                                                                    <p class="my-auto">
+                                                                        <a href="https://cs61a.org/disc/disc02/"
+                                                                            style="text-decoration:none"><span
+                                                                                class="bg bg-assignment">
+                                                                                Worksheet</span></a>
+                                                                        <a href="https://mingxiaowei.github.io/61a-sections/public/assets/dis02.html"
+                                                                            style="text-decoration:none"><span
+                                                                                class="bg bg-slides">
+                                                                                Slides (html)</span></a>
+                                                                        <a href="https://mingxiaowei.github.io/61a-sections/public/assets/dis02.pdf"
+                                                                            style="text-decoration:none"><span
+                                                                                class="bg bg-slides">
+                                                                                Slides (pdf)</span></a>
+                                                                        <a href="https://cs61a.org/disc/sol-disc02/"
+                                                                            style="text-decoration:none"><span
+                                                                                class="bg bg-solution">
+                                                                                Solution</span></a>
+                                                                    </p>
+                                                                </td>
+                                                            </tr>
+
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+
+                                            </div>
+
+                                            <!-- week 02 -->
+                                            <div class="mx-3 my-2">
+                                                <p class="week-title">Week 02 &nbsp; (01/23 - 01/27)</p>
+                                                <div class="table-responsive weekly">
+                                                    <table class="table text-start">
+
+                                                        <thead style="background-color:rgba(0, 0, 0, 0)">
+                                                            <tr>
+                                                                <th style="width: 15%;"></th>
+                                                                <th style="width: 85%;"></th>
+                                                            </tr>
+                                                        </thead>
+
+                                                        <tbody>
+
+                                                            <tr>
+                                                                <th scope="row" class="text-start fw-bolder"
+                                                                    style="font-weight: 600">01/24 Tue</th>
+                                                                <td class="text-start">
+                                                                    Lab 01: Functions, Control &nbsp;
+                                                                    <p class="my-auto">
+                                                                        <a href="https://cs61a.org/lab/lab01/"
+                                                                            style="text-decoration:none"><span
+                                                                                class="bg bg-assignment">
+                                                                                Assignment</span></a>
+                                                                        <a href="https://mingxiaowei.github.io/61a-sections/public/assets/lab01.html"
+                                                                            style="text-decoration:none"><span
+                                                                                class="bg bg-slides">
+                                                                                Slides (html)</span></a>
+                                                                        <a href="https://mingxiaowei.github.io/61a-sections/public/assets/lab01.pdf"
+                                                                            style="text-decoration:none"><span
+                                                                                class="bg bg-slides">
+                                                                                Slides (pdf)</span></a>
+                                                                        <a href="https://cs61a.org/lab/sol-lab01/"
+                                                                            style="text-decoration:none"><span
+                                                                                class="bg bg-solution">
+                                                                                Solution</span></a>
+                                                                    </p>
+                                                                </td>
+                                                            </tr>
+
+                                                            <tr>
+                                                                <th scope="row" class="text-start fw-bolder"
+                                                                    style="font-weight: 600">01/26 Thu</th>
+                                                                <td class="text-start">
+                                                                    Disc 01: Control, Environment Diagrams
+                                                                    &nbsp;
+                                                                    <p class="my-auto">
+                                                                        <a href="https://cs61a.org/disc/disc01/"
+                                                                            style="text-decoration:none"><span
+                                                                                class="bg bg-assignment">
+                                                                                Worksheet</span></a>
+                                                                        <a href="https://mingxiaowei.github.io/61a-sections/public/assets/dis01.html"
+                                                                            style="text-decoration:none"><span
+                                                                                class="bg bg-slides">
+                                                                                Slides (html)</span></a>
+                                                                        <a href="https://mingxiaowei.github.io/61a-sections/public/assets/dis01.pdf"
+                                                                            style="text-decoration:none"><span
+                                                                                class="bg bg-slides">
+                                                                                Slides (pdf)</span></a>
+                                                                        <a href="https://cs61a.org/disc/sol-disc01/"
+                                                                            style="text-decoration:none"><span
+                                                                                class="bg bg-solution">
+                                                                                Solution</span></a>
+                                                                    </p>
+                                                                </td>
+                                                            </tr>
+
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+
+                                            </div>
+
+                                            <!-- week 01 -->
+                                            <div class="mx-3 my-2">
+                                                <p class="week-title">Week 01 &nbsp; (01/16 - 01/20)</p>
+                                                <div class="table-responsive weekly">
+                                                    <table class="table text-start">
+
+                                                        <thead style="background-color:rgba(0, 0, 0, 0)">
+                                                            <tr>
+                                                                <th style="width: 15%;"></th>
+                                                                <th style="width: 85%;"></th>
+                                                            </tr>
+                                                        </thead>
+
+                                                        <tbody>
+
+                                                            <!-- <tr>
+                                                                <th scope="row" class="text-start fw-bolder"
+                                                                    style="font-weight: 600">01/17 Tue</th>
+                                                                <td class="text-start">
+                                                                    Lab 00: Getting Started
+                                                                    &nbsp;
+                                                                    <p class="my-auto">
+                                                                    </p>
+                                                                </td>
+                                                            </tr> -->
+
+                                                            <tr>
+                                                                <th scope="row" class="text-start fw-bolder"
+                                                                    style="font-weight: 600">01/19 Thu</th>
+                                                                <td class="text-start">
+                                                                    Disc 00: Getting Started
+                                                                    &nbsp;
+                                                                    <p class="my-auto">
+                                                                        <a href="https://cs61a.org/disc/disc00/"
+                                                                            style="text-decoration:none"><span
+                                                                                class="bg bg-assignment">
+                                                                                Worksheet</span></a>
+                                                                        <a href="https://mingxiaowei.github.io/61a-sections/public/assets/dis00.html"
+                                                                            style="text-decoration:none"><span
+                                                                                class="bg bg-slides">
+                                                                                Slides (html)</span></a>
+                                                                        <a href="https://mingxiaowei.github.io/61a-sections/public/assets/dis00.pdf"
+                                                                            style="text-decoration:none"><span
+                                                                                class="bg bg-slides">
+                                                                                Slides (pdf)</span></a>
+                                                                        <a href="https://forms.gle/4G72rQQkwbJKmwC18"
+                                                                            style="text-decoration:none"><span
+                                                                                class="bg bg-welcome">
+                                                                                Welcome Survey</span></a>
+                                                                        <!-- <a href="https://cs61a.org/disc/sol-disc07/"
+                                                                            style="text-decoration:none"><span
+                                                                                class="bg bg-solution">
+                                                                                Solution</span></a> -->
+                                                                    </p>
+                                                                </td>
+                                                            </tr>
+
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <footer class="pt-3 mt-4 text-muted border-top text-center">
+                    &copy; Mingxiao Wei and Lux Zhang Spring 2023
+                </footer>
+            </div>
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+            crossorigin="anonymous"></script>
+
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+        <script>
+            window.onload = function () {
+                Particles.init({
+                    selector: '.background',
+                    color: ['#334C75', '#D4A561', '#FFFFFF'],
+                    connectParticles: true,
+                    maxParticles: 120
+                });
+                const d = new Date();
+                document.getElementById("current_date").innerHTML = d.toLocaleDateString();
+                // document.getElementById("clickable4").click();
+            };
+
+        </script>
+
+
+    </main>
+    <canvas class="background"></canvas>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/particlesjs/2.2.2/particles.min.js"></script>
+
+</body>
+
+</html>
