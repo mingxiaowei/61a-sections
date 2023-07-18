@@ -299,19 +299,41 @@
                     <pre class="mp0"><code class="hljs python py-2" data-trim>
                         class Pet : # base class
                             def __init__(self, name, owner):
-                                self.is_alive = True    # It's alive!!!
+                                self.is_alive = True    # It's alive!
                                 self.name = name
                                 self.owner = owner
                             def eat (self, thing):
                                 print(self.name + " ate a " + str(thing) + "!")
-                            def talk (self):
-                                print(self.name)
 
                     </code></pre>
                     <pre class="mp0"><code class="hljs python py-2" data-trim>
-                        class Dog (Pet) : # A dog is a pet!
-                            def talk (self): # overridden bc it's different from the base class
+                        class Dog (Pet) : # Dog inherits from Pet
+                            def talk (self): 
                                 print(self.name + ' says woof!')
+                    </code></pre>
+                </div>
+            </section>
+
+            <section data-transition="slide" data-background-gradient="linear-gradient(to bottom, #00527C, #1C8497)"
+                class="reg-cus">
+                <h4 class="text-start">Inheritance</h4>
+                <hr>
+                <div class="text-start" style="font-size: 30px; line-height: 1.3;">
+                    <pre class="mp0"><code class="hljs python py-2" data-trim>
+                        class Pet : # base class
+                            def __init__(self, name, owner):
+                                self.is_alive = True    
+                                self.name = name
+                                self.owner = owner
+                            def eat (self, thing):
+                                print(self.name + " ate a " + str(thing) + "!")
+
+                    </code></pre>
+                    <pre class="mp0"><code class="hljs python py-2" data-trim>
+                        class Cat (Pet) : # Cat inherits from Pet
+                            def __init__(self, name, owner, lives=9):
+                                super().__init__(name, owner)
+                                self.lives = lives
                     </code></pre>
                 </div>
             </section>
