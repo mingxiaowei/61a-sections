@@ -125,7 +125,7 @@ ol.spaced>li {
 
 .background {
     position: absolute;
-    display: flex;
+    display: block;
     top: 0;
     bottom: 0;
     left: 0;
@@ -134,8 +134,8 @@ ol.spaced>li {
     z-index: -1;
     margin: 0;
     padding: 0;
-    min-width: max-content;
-    min-height: max-content;
+    /* min-width: max-content;
+    min-height: max-content; */
     overflow: scroll;
 }
 
