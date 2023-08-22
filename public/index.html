@@ -570,12 +570,14 @@
 
         <script>
             window.onload = function () {
-                // Particles.init({
-                //     selector: '.background',
-                //     color: ['#334C75', '#D4A561'],
-                //     connectParticles: false,
-                //     maxParticles: 120
-                // });
+                Particles.init({
+                    selector: '.background',
+                    color: ['#0F2E5EE0', '#F2B942D6', '#4B7D9FE0', '#BC862ED6'],
+                    connectParticles: false,
+                    maxParticles: 150,
+                    sizeVariations: 6,
+                    speed: 1.8,
+                });
                 /* particlesJS.load(@dom-id, @path-json, @callback (optional)); */
                 pJS.load('particles-js', 'particles.json');
                 const d = new Date();
@@ -588,8 +590,8 @@
 
 
     </main>
-    <!-- <canvas class="background"></canvas> -->
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/particlesjs/2.2.2/particles.min.js"></script> -->
+    <canvas class="background"></canvas>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/particlesjs/2.2.2/particles.min.js"></script>
 
 </body>
 
